@@ -1,0 +1,1 @@
+const v = Object.keys(localStorage); v.forEach(k => localStorage.removeItem(k));

@@ -1,0 +1,214 @@
+﻿.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    z-index: 1200;
+    animation: fadeIn var(--transition-normal);
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--logi-darker);
+    border-left: 1px solid var(--logi-border);
+    z-index: 1250;
+    display: flex;
+    flex-direction: column;
+    transition: right var(--transition-normal);
+    box-shadow: -16px 0 38px rgba(0, 0, 0, 0.55);
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6) var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--logi-border);
+}
+
+.cart-header h2 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+}
+
+.close-btn {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.close-btn:hover {
+    color: var(--logi-cyan);
+    transform: rotate(90deg);
+}
+
+.cart-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-6);
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    gap: var(--space-5);
+    color: var(--text-secondary);
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.cart-item {
+    display: flex;
+    gap: var(--space-4);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cart-item-image {
+    width: 84px;
+    height: 84px;
+    background-color: var(--logi-surface);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2);
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-details h4 {
+    font-size: 0.98rem;
+    margin-bottom: var(--space-1);
+}
+
+.cart-item-price {
+    color: var(--logi-cyan);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    background-color: var(--logi-surface);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    border: 1px solid var(--logi-border);
+}
+
+.quantity-controls button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.quantity-controls button:hover:not(:disabled) {
+    background-color: var(--logi-surface-hover);
+    color: var(--logi-cyan);
+}
+
+.quantity-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantity-controls span {
+    width: 38px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.remove-btn {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.remove-btn:hover {
+    color: #ff5b6c;
+}
+
+.cart-footer {
+    padding: var(--space-6);
+    background-color: var(--logi-darker);
+    border-top: 1px solid var(--logi-border);
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-5);
+    font-size: 1.04rem;
+    font-weight: 700;
+}
+
+.cart-total {
+    font-size: 1.35rem;
+    color: var(--logi-cyan);
+    font-family: var(--font-heading);
+}
+
+.checkout-btn {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-drawer {
+        max-width: 100%;
+    }
+
+    .cart-content,
+    .cart-footer,
+    .cart-header {
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+    }
+}

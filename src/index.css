@@ -1,0 +1,115 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+:root {
+  --logi-cyan: #00b8fc;
+  --logi-cyan-hover: #0096cc;
+  --logi-dark: #0d1117;
+  --logi-darker: #070a11;
+  --logi-surface: #151c27;
+  --logi-surface-hover: #1c2636;
+  --logi-border: #27344a;
+
+  --text-primary: #f4f8ff;
+  --text-secondary: #9fb0cb;
+  --text-muted: #7788a7;
+  --text-inverse: #02060d;
+
+  --font-base: 'Manrope', 'Segoe UI', sans-serif;
+  --font-heading: 'Sora', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 14px 28px rgba(0, 0, 0, 0.3);
+  --shadow-deep: 0 24px 48px rgba(0, 0, 0, 0.45);
+  --container-max: 1240px;
+  --nav-height: 84px;
+
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  background:
+    radial-gradient(55% 50% at 85% 0%, rgba(0, 184, 252, 0.16), transparent 65%),
+    radial-gradient(70% 70% at 0% 100%, rgba(94, 122, 255, 0.12), transparent 72%),
+    var(--logi-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--logi-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--logi-surface-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--logi-border);
+}
+
