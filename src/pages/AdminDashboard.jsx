@@ -1,25 +1,62 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Edit2, Trash2, LogOut, MonitorPlay, GripVertical } from 'lucide-react';
-import { getAllProducts, saveProducts } from '../data/products';
+import { deleteProduct, getAllProducts, saveProduct, saveProductOrder } from '../data/products';
 import { getSettings, saveSettings } from '../data/settings';
 import './AdminDashboard.css';
 
+const createEmptyProduct = () => ({
+    name: '',
+    category: 'Mice',
+    brand: 'Logitech',
+    price: 0,
+    description: '',
+    images: [],
+    featured: false,
+});
+
 export default function AdminDashboard() {
-    const [products, setProducts] = useState(() => getAllProducts());
+    const [products, setProducts] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
-    const [currentProduct, setCurrentProduct] = useState({
-        name: '', category: 'Mice', brand: 'Logitech', price: 0, description: '', images: [], featured: false
-    });
+    const [currentProduct, setCurrentProduct] = useState(createEmptyProduct);
     const [isCustomCategory, setIsCustomCategory] = useState(false);
     const [settings, setSettings] = useState(() => getSettings());
+    const [productsError, setProductsError] = useState('');
+    const [isSavingProduct, setIsSavingProduct] = useState(false);
     const navigate = useNavigate();
 
     const dragItem = React.useRef(null);
     const dragOverItem = React.useRef(null);
     const [draggableRowIndex, setDraggableRowIndex] = useState(null);
 
-    const handleSort = () => {
+    useEffect(() => {
+        let ignore = false;
+
+        const loadProducts = async () => {
+            try {
+                const nextProducts = await getAllProducts();
+
+                if (!ignore) {
+                    setProducts(nextProducts);
+                    setProductsError('');
+                }
+            } catch (error) {
+                console.error(error);
+
+                if (!ignore) {
+                    setProductsError('Unable to load products right now.');
+                }
+            }
+        };
+
+        loadProducts();
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
+
+    const handleSort = async () => {
         if (dragItem.current !== null && dragOverItem.current !== null) {
             let _products = [...products];
             const draggedItemContent = _products.splice(dragItem.current, 1)[0];
@@ -27,7 +64,14 @@ export default function AdminDashboard() {
             dragItem.current = null;
             dragOverItem.current = null;
             setProducts(_products);
-            saveProducts(_products);
+
+            try {
+                await saveProductOrder(_products);
+                setProductsError('');
+            } catch (error) {
+                console.error(error);
+                setProductsError('Unable to save the new product order.');
+            }
         }
     };
 
@@ -39,10 +83,7 @@ export default function AdminDashboard() {
     const handleCreateNew = () => {
         setIsEditing(true);
         setIsCustomCategory(false);
-        setCurrentProduct({
-            id: Date.now(), // Generate simple unique ID
-            name: '', category: 'Mice', brand: 'Logitech', price: 0, description: '', images: [], featured: false
-        });
+        setCurrentProduct(createEmptyProduct());
     };
 
     const handleEdit = (product) => {
@@ -51,11 +92,21 @@ export default function AdminDashboard() {
         setCurrentProduct(product);
     };
 
-    const handleDelete = (id) => {
+    const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
+            const previousProducts = products;
             const updated = products.filter(p => p.id !== id);
             setProducts(updated);
-            saveProducts(updated);
+
+            try {
+                await deleteProduct(id);
+                await saveProductOrder(updated);
+                setProductsError('');
+            } catch (error) {
+                console.error(error);
+                setProducts(previousProducts);
+                setProductsError('Unable to delete this product.');
+            }
         }
     };
 
@@ -90,24 +141,29 @@ export default function AdminDashboard() {
         });
     };
 
-    const handleSave = (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
-        let updatedProducts;
+        setIsSavingProduct(true);
 
-        // Convert price to number
-        const productToSave = { ...currentProduct, price: parseFloat(currentProduct.price) };
+        try {
+            const productToSave = { ...currentProduct, price: parseFloat(currentProduct.price) };
+            const savedProduct = await saveProduct(productToSave);
+            const hasExistingProduct = products.some((product) => product.id === savedProduct.id);
+            const updatedProducts = hasExistingProduct
+                ? products.map((product) => product.id === savedProduct.id ? savedProduct : product)
+                : [...products, { ...savedProduct, order_index: products.length }];
 
-        if (products.find(p => p.id === productToSave.id)) {
-            // Update existing
-            updatedProducts = products.map(p => p.id === productToSave.id ? productToSave : p);
-        } else {
-            // Add new
-            updatedProducts = [...products, productToSave];
+            setProducts(updatedProducts);
+            await saveProductOrder(updatedProducts);
+            setProductsError('');
+            setIsEditing(false);
+            setCurrentProduct(createEmptyProduct());
+        } catch (error) {
+            console.error(error);
+            setProductsError('Unable to save this product.');
+        } finally {
+            setIsSavingProduct(false);
         }
-
-        setProducts(updatedProducts);
-        saveProducts(updatedProducts);
-        setIsEditing(false);
     };
 
     const handlePromoImageUpload = (e) => {
@@ -149,6 +205,12 @@ export default function AdminDashboard() {
                         <Plus size={18} style={{ marginRight: '8px' }} /> Add Product
                     </button>
                 </div>
+
+                {productsError && (
+                    <div className="empty-state" style={{ marginBottom: '1rem' }}>
+                        {productsError}
+                    </div>
+                )}
 
                 <div className="products-table-container">
                     <table className="products-table">
@@ -348,7 +410,7 @@ export default function AdminDashboard() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h2>{currentProduct.name ? 'Edit Product' : 'Add New Product'}</h2>
-                            <button className="close-modal" onClick={() => setIsEditing(false)}>âœ•</button>
+                            <button className="close-modal" onClick={() => setIsEditing(false)}>×</button>
                         </div>
                         <form onSubmit={handleSave} className="product-form">
                             <div className="form-row">
@@ -452,7 +514,7 @@ export default function AdminDashboard() {
                                                 type="button"
                                                 onClick={() => handleRemoveImage(idx)}
                                                 style={{ position: 'absolute', top: '-5px', right: '-5px', backgroundColor: 'var(--logi-cyan)', color: 'black', border: 'none', borderRadius: '50%', width: '20px', height: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 'bold' }}
-                                            >âœ•</button>
+                                            >×</button>
                                         </div>
                                     ))}
                                 </div>
@@ -486,7 +548,9 @@ export default function AdminDashboard() {
 
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" onClick={() => setIsEditing(false)}>Cancel</button>
-                                <button type="submit" className="btn btn-primary" disabled={!currentProduct.images || currentProduct.images.length === 0}>Save Product</button>
+                                <button type="submit" className="btn btn-primary" disabled={isSavingProduct || !currentProduct.images || currentProduct.images.length === 0}>
+                                    {isSavingProduct ? 'Saving...' : 'Save Product'}
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -495,4 +559,3 @@ export default function AdminDashboard() {
         </div>
     );
 }
-

@@ -1,3 +1,7 @@
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
+
+const PRODUCTS_STORAGE_KEY = 'logi_products';
+
 export const defaultProducts = [
   {
     id: 1,
@@ -61,49 +65,164 @@ export const defaultProducts = [
   }
 ];
 
-export const initializeProducts = () => {
-  if (!localStorage.getItem('logi_products')) {
-    localStorage.setItem('logi_products', JSON.stringify(defaultProducts));
+const normalizeProduct = (product, index = 0) => ({
+  id: product.id,
+  name: product.name ?? '',
+  category: product.category ?? 'Accessories',
+  brand: product.brand ?? 'Logitech',
+  price: Number(product.price ?? 0),
+  description: product.description ?? '',
+  images: Array.isArray(product.images)
+    ? product.images
+    : product.image
+      ? [product.image]
+      : ["https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop"],
+  featured: Boolean(product.featured),
+  order_index: product.order_index ?? index,
+});
+
+const initializeProducts = () => {
+  if (!localStorage.getItem(PRODUCTS_STORAGE_KEY)) {
+    localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(defaultProducts));
   }
 };
 
-export const getAllProducts = () => {
+const getLocalProducts = () => {
   initializeProducts();
-  let products = JSON.parse(localStorage.getItem('logi_products'));
+  let products = JSON.parse(localStorage.getItem(PRODUCTS_STORAGE_KEY));
 
-  // Migration logic for legacy products
   let needsSave = false;
-  products = products.map(p => {
+  products = products.map((p, index) => {
     if (!p.brand) {
       needsSave = true;
-      p.brand = 'Logitech'; // Default brand for existing items
+      p.brand = 'Logitech';
     }
     if (p.image && !p.images) {
       needsSave = true;
       const images = [p.image];
       delete p.image;
-      return { ...p, images };
+      return normalizeProduct({ ...p, images }, index);
     }
-    // Fallback if image is missing entirely
     if (!p.images && !p.image) {
       needsSave = true;
-      return { ...p, images: ["https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop"] };
+      return normalizeProduct(p, index);
     }
-    return p;
+    return normalizeProduct(p, index);
   });
 
   if (needsSave) {
-    saveProducts(products);
+    localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
   }
 
   return products;
 };
 
-export const getFeaturedProduct = () => {
-  const products = getAllProducts();
-  return products.find(p => p.featured) || products[0];
+const saveLocalProducts = (newProducts) => {
+  localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(newProducts));
 };
 
-export const saveProducts = (newProducts) => {
-  localStorage.setItem('logi_products', JSON.stringify(newProducts));
+const mapProductToRow = (product, index = 0) => ({
+  ...(product.id ? { id: product.id } : {}),
+  name: product.name,
+  category: product.category,
+  brand: product.brand,
+  price: Number(product.price ?? 0),
+  description: product.description,
+  images: product.images ?? [],
+  featured: Boolean(product.featured),
+  order_index: index,
+});
+ 
+export const getAllProducts = async () => {
+  if (!isSupabaseConfigured || !supabase) {
+    return getLocalProducts();
+  }
+
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .order('order_index', { ascending: true })
+    .order('id', { ascending: false });
+
+  if (error) {
+    console.error('Supabase fetch failed, using local data instead.', error);
+    return getLocalProducts();
+  }
+
+  return (data ?? []).map((product, index) => normalizeProduct(product, index));
+};
+
+export const saveProduct = async (product) => {
+  const normalizedProduct = normalizeProduct(product);
+
+  if (!isSupabaseConfigured || !supabase) {
+    const existingProducts = getLocalProducts();
+    const hasExistingProduct = existingProducts.some((item) => item.id === normalizedProduct.id);
+    const productToSave = hasExistingProduct
+      ? normalizedProduct
+      : { ...normalizedProduct, id: normalizedProduct.id ?? Date.now() };
+
+    const updatedProducts = hasExistingProduct
+      ? existingProducts.map((item) => item.id === productToSave.id ? productToSave : item)
+      : [...existingProducts, productToSave];
+
+    saveLocalProducts(updatedProducts.map((item, index) => normalizeProduct(item, index)));
+    return productToSave;
+  }
+
+  const { data, error } = await supabase
+    .from('products')
+    .upsert([mapProductToRow(normalizedProduct, normalizedProduct.order_index)], { onConflict: 'id' })
+    .select()
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return normalizeProduct(data);
+};
+
+export const deleteProduct = async (productId) => {
+  if (!isSupabaseConfigured || !supabase) {
+    const updatedProducts = getLocalProducts().filter((product) => product.id !== productId);
+    saveLocalProducts(updatedProducts.map((product, index) => normalizeProduct(product, index)));
+    return;
+  }
+
+  const { error } = await supabase
+    .from('products')
+    .delete()
+    .eq('id', productId);
+
+  if (error) {
+    throw error;
+  }
+};
+
+export const saveProductOrder = async (products) => {
+  const normalizedProducts = products.map((product, index) => normalizeProduct(product, index));
+
+  if (!isSupabaseConfigured || !supabase) {
+    saveLocalProducts(normalizedProducts);
+    return normalizedProducts;
+  }
+
+  const updates = normalizedProducts
+    .filter((product) => product.id !== undefined && product.id !== null)
+    .map((product, index) => (
+      supabase
+        .from('products')
+        .update({ order_index: index })
+        .eq('id', product.id)
+    ));
+
+  const results = await Promise.all(updates);
+  const failedUpdate = results.find(({ error }) => error);
+
+  if (failedUpdate?.error) {
+    throw failedUpdate.error;
+  }
+
+  return normalizedProducts;
 };

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
 import FeaturedCategories from '../components/FeaturedCategories';
@@ -13,8 +13,36 @@ import { getAllProducts } from '../data/products';
 
 export default function Storefront() {
     const { handleAddToCart } = useOutletContext();
-    const [products] = useState(() => getAllProducts());
+    const [products, setProducts] = useState([]);
+    const [productsError, setProductsError] = useState('');
     const [selectedImageProduct, setSelectedImageProduct] = useState(null);
+
+    useEffect(() => {
+        let ignore = false;
+
+        const loadProducts = async () => {
+            try {
+                const nextProducts = await getAllProducts();
+
+                if (!ignore) {
+                    setProducts(nextProducts);
+                    setProductsError('');
+                }
+            } catch (error) {
+                console.error(error);
+
+                if (!ignore) {
+                    setProductsError('Unable to load products right now.');
+                }
+            }
+        };
+
+        loadProducts();
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
 
     const bestSellers = products.filter((product) => product.featured);
 
@@ -32,6 +60,12 @@ export default function Storefront() {
                             View All Products &rarr;
                         </Link>
                     </div>
+
+                    {productsError && (
+                        <div className="no-results">
+                            <p>{productsError}</p>
+                        </div>
+                    )}
 
                     <div className="products-grid">
                         {bestSellers.length > 0 ? (

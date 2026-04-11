@@ -16,7 +16,8 @@ export default function AllProducts() {
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const [products] = useState(() => getAllProducts());
+    const [products, setProducts] = useState([]);
+    const [productsError, setProductsError] = useState('');
     const [selectedImageProduct, setSelectedImageProduct] = useState(null);
 
     const [searchQuery, setSearchQuery] = useState('');
@@ -40,6 +41,33 @@ export default function AllProducts() {
             searchInputRef.current.focus();
         }
     }, [location.state?.focusSearch]);
+
+    useEffect(() => {
+        let ignore = false;
+
+        const loadProducts = async () => {
+            try {
+                const nextProducts = await getAllProducts();
+
+                if (!ignore) {
+                    setProducts(nextProducts);
+                    setProductsError('');
+                }
+            } catch (error) {
+                console.error(error);
+
+                if (!ignore) {
+                    setProductsError('Unable to load products right now.');
+                }
+            }
+        };
+
+        loadProducts();
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
 
     useEffect(() => {
         document.body.style.overflow = mobileSidebarOpen ? 'hidden' : '';
@@ -142,6 +170,7 @@ export default function AllProducts() {
             <header className="shop-header">
                 <h1 className="shop-title">Shop Products</h1>
                 <p className="shop-subtitle">Discover the latest computer accessories.</p>
+                {productsError && <p className="shop-subtitle">{productsError}</p>}
             </header>
 
             <div className="shop-container">
