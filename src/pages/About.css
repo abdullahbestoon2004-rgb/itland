@@ -1,0 +1,448 @@
+/* =====================================================
+   ABOUT PAGE — ITLand ForComputer
+   Dark / Premium / Logitech-inspired aesthetic
+   ===================================================== */
+
+/* ── Page wrapper ── */
+.about-page {
+    overflow-x: hidden;
+}
+
+/* ── Shared container ── */
+.about-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+/* ── Shared section typography ── */
+.about-section-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--logi-cyan);
+    margin-bottom: var(--space-3);
+}
+
+.about-section-eyebrow--center {
+    text-align: center;
+}
+
+.about-section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    position: relative;
+    display: inline-block;
+}
+
+.about-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 48%;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg, var(--logi-cyan), transparent);
+}
+
+.about-section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.about-section-header .about-section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-section-sub {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 540px;
+    margin: var(--space-5) auto 0;
+    line-height: 1.7;
+}
+
+/* ==============================
+   SECTION 1: HERO
+   ============================== */
+.about-hero {
+    position: relative;
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    padding: 7rem var(--space-6) 5rem;
+}
+
+/* Animated background */
+.about-hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.22;
+    animation: about-float 8s ease-in-out infinite alternate;
+}
+
+.about-hero-orb--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--logi-cyan), transparent 70%);
+    top: -20%;
+    right: -10%;
+    animation-duration: 9s;
+}
+
+.about-hero-orb--2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #5e7aff, transparent 70%);
+    bottom: -15%;
+    left: -8%;
+    animation-duration: 11s;
+    animation-delay: -3s;
+}
+
+.about-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 184, 252, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 184, 252, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+
+@keyframes about-float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, -30px) scale(1.06); }
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--logi-cyan);
+    margin-bottom: var(--space-4);
+}
+
+.about-hero-title {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: var(--text-primary);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-5);
+    background: linear-gradient(135deg, #f4f8ff 40%, #00b8fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-hero-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ==============================
+   SECTION 2: OUR STORY
+   ============================== */
+.about-story {
+    padding: 6rem 0;
+    background-color: var(--logi-darker);
+    border-top: 1px solid var(--logi-border);
+    border-bottom: 1px solid var(--logi-border);
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-story-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-story-body {
+    color: var(--text-secondary);
+    font-size: 1.06rem;
+    line-height: 1.8;
+    margin-top: var(--space-5);
+}
+
+.about-story-body + .about-story-body {
+    margin-top: var(--space-4);
+}
+
+.about-story-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: visible;
+}
+
+.about-story-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    border: 1px solid var(--logi-border);
+    position: relative;
+    z-index: 1;
+}
+
+.about-story-image-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(0, 184, 252, 0.18), transparent 60%);
+    z-index: 0;
+    filter: blur(18px);
+    opacity: 0.7;
+}
+
+/* ==============================
+   SECTION 3: WHY CHOOSE US
+   ============================== */
+.about-why {
+    padding: 6rem 0;
+}
+
+.about-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+}
+
+.about-card {
+    background: var(--logi-surface);
+    border: 1px solid var(--logi-border);
+    border-radius: 20px;
+    padding: var(--space-7) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at top left, rgba(0, 184, 252, 0.07), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 184, 252, 0.45);
+    box-shadow: 0 24px 48px rgba(0, 184, 252, 0.12), 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+.about-card-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(0, 184, 252, 0.1);
+    border: 1px solid rgba(0, 184, 252, 0.22);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--logi-cyan);
+    flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.about-card:hover .about-card-icon {
+    background: rgba(0, 184, 252, 0.18);
+    border-color: rgba(0, 184, 252, 0.4);
+}
+
+.about-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.about-card-text {
+    font-size: 0.94rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ==============================
+   SECTION 4: VISION
+   ============================== */
+.about-vision {
+    position: relative;
+    padding: 7rem 0;
+    background-color: var(--logi-darker);
+    border-top: 1px solid var(--logi-border);
+    border-bottom: 1px solid var(--logi-border);
+    overflow: hidden;
+}
+
+.about-vision-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.about-vision-orb {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0, 184, 252, 0.08), transparent 65%);
+    border-radius: 50%;
+}
+
+.about-vision-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+.about-vision-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--text-primary);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-5);
+    margin-top: var(--space-3);
+}
+
+.about-vision-sub {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==============================
+   SECTION 5: CTA
+   ============================== */
+.about-cta {
+    padding: 6rem 0;
+}
+
+.about-cta-content {
+    text-align: center;
+}
+
+.about-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+}
+
+.about-cta-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-7);
+}
+
+.about-cta-btn {
+    gap: var(--space-3);
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 1024px) {
+    .about-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 820px) {
+    .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-story-image {
+        height: 300px;
+    }
+
+    .about-hero {
+        min-height: 50vh;
+        padding: 6rem var(--space-5) 4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section-title {
+        font-size: 1.7rem;
+    }
+
+    .about-vision-title {
+        font-size: 1.6rem;
+    }
+
+    .about-container {
+        padding: 0 var(--space-4);
+    }
+
+    .about-story {
+        padding: 4rem 0;
+    }
+
+    .about-why {
+        padding: 4rem 0;
+    }
+
+    .about-vision {
+        padding: 5rem 0;
+    }
+
+    .about-cta {
+        padding: 4rem 0;
+    }
+}

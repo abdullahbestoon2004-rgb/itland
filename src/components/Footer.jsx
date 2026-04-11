@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Send } from 'lucide-react';
 import './Footer.css';
@@ -51,10 +51,10 @@ export default function Footer() {
 
                     <div className="footer-column">
                         <h4 className="column-title">About</h4>
-                        <Link to="/" className="footer-link">Our Story</Link>
+                        <Link to="/about" className="footer-link">Our Story</Link>
+                        <Link to="/about" className="footer-link">Why Choose Us</Link>
+                        <Link to="/contact" className="footer-link">Contact Us</Link>
                         <Link to="/products" className="footer-link">New Arrivals</Link>
-                        <Link to="/products" className="footer-link">Popular Gear</Link>
-                        <Link to="/admin/login" className="footer-link">Admin Portal</Link>
                     </div>
 
                     <div className="footer-column newsletter-col">

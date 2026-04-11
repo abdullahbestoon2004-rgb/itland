@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
 import FeaturedCategories from '../components/FeaturedCategories';

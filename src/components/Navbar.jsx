@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Menu, Search, ShoppingCart, User, X } from 'lucide-react';
 import './Navbar.css';
@@ -140,6 +140,22 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                         <Link to="/products" className="nav-link all-products-link" onClick={closeMenus}>
                             All Products
                         </Link>
+
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                            onClick={closeMenus}
+                        >
+                            About
+                        </NavLink>
+
+                        <NavLink
+                            to="/contact"
+                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                            onClick={closeMenus}
+                        >
+                            Contact
+                        </NavLink>
                     </div>
 
                     <div className="navbar-actions">
