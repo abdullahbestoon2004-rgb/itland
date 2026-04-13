@@ -61,7 +61,7 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
 
     return (
         <>
-            <nav className={`navbar ${scrolled ? 'glass scrolled' : ''}`}>
+            <nav className={`navbar ${scrolled ? 'glass scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`.trim()}>
                 <div className="navbar-container">
                     <button
                         type="button"
@@ -156,6 +156,10 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                         >
                             Contact
                         </NavLink>
+
+                        <Link to="/admin/login" className="nav-link mobile-only-link" onClick={closeMenus}>
+                            Account
+                        </Link>
                     </div>
 
                     <div className="navbar-actions">
@@ -171,7 +175,7 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                             <Search size={20} />
                         </button>
 
-                        <Link to="/admin/login" className="action-btn" aria-label="Account / Admin" onClick={closeMenus}>
+                        <Link to="/admin/login" className="action-btn desktop-user-btn" aria-label="Account / Admin" onClick={closeMenus}>
                             <User size={20} />
                         </Link>
 

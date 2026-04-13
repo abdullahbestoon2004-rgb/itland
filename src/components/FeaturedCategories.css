@@ -1,4 +1,4 @@
-﻿.featured-categories {
+.featured-categories {
     padding: var(--space-7) var(--space-6) var(--space-9);
     background-color: var(--logi-darker);
 }
@@ -75,11 +75,16 @@
     }
 
     .category-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-4);
     }
 
     .category-card {
-        height: 250px;
+        height: 200px;
+        padding: var(--space-4);
+    }
+
+    .category-name {
+        font-size: clamp(1rem, 4vw, 1.3rem);
     }
 }

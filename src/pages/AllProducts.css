@@ -1,4 +1,4 @@
-﻿.all-products-page {
+.all-products-page {
     padding-top: calc(var(--nav-height) - 4px);
     min-height: 100vh;
     background:
@@ -392,7 +392,8 @@
     }
 
     .shop-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
     }
 
     .sort-control {

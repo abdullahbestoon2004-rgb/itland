@@ -1,4 +1,4 @@
-﻿.navbar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,6 +15,10 @@
 .navbar.scrolled {
     box-shadow: 0 14px 30px rgba(3, 8, 14, 0.5);
     border-bottom-color: var(--logi-border);
+}
+
+.navbar.menu-open {
+    z-index: 1160;
 }
 
 .navbar-container {
@@ -323,4 +327,17 @@
         border: 0;
         z-index: 1140;
     }
+
+    .desktop-user-btn {
+        display: none !important;
+    }
+
+    .mobile-only-link {
+        display: inline-flex;
+    }
 }
+
+.mobile-only-link {
+    display: none;
+}
+
