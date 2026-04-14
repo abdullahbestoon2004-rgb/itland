@@ -96,12 +96,8 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                                 aria-expanded={shopMenuOpen}
                                 aria-haspopup="true"
                                 onClick={() => {
-                                    if (window.innerWidth <= 900) {
-                                        setShopMenuOpen((open) => !open);
-                                    } else {
-                                        closeMenus();
-                                        navigate('/products');
-                                    }
+                                    closeMenus();
+                                    navigate('/products');
                                 }}
                             >
                                 Shop
