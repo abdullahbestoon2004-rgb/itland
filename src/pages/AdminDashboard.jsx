@@ -2,7 +2,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Plus, Edit2, Trash2, LogOut, MonitorPlay, GripVertical } from 'lucide-react';
 import { deleteProduct, getAllProducts, saveProduct, saveProductOrder } from '../data/products';
-import { getSettings, saveSettings } from '../data/settings';
+import { saveSettings } from '../data/settings';
+import useStoreSettings from '../hooks/useStoreSettings';
 import './AdminDashboard.css';
 
 const createEmptyProduct = () => ({
@@ -20,10 +21,18 @@ export default function AdminDashboard() {
     const [isEditing, setIsEditing] = useState(false);
     const [currentProduct, setCurrentProduct] = useState(createEmptyProduct);
     const [isCustomCategory, setIsCustomCategory] = useState(false);
-    const [settings, setSettings] = useState(() => getSettings());
     const [productsError, setProductsError] = useState('');
     const [isSavingProduct, setIsSavingProduct] = useState(false);
+    const [isSavingSettings, setIsSavingSettings] = useState(false);
+    const [settingsSaveError, setSettingsSaveError] = useState('');
+    const [settingsSuccessMessage, setSettingsSuccessMessage] = useState('');
     const navigate = useNavigate();
+    const {
+        settings,
+        setSettings,
+        settingsError: settingsLoadError,
+        isLoadingSettings,
+    } = useStoreSettings();
 
     const dragItem = React.useRef(null);
     const dragOverItem = React.useRef(null);
@@ -171,16 +180,46 @@ export default function AdminDashboard() {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setSettings({ ...settings, promoBannerImage: reader.result });
+                setSettings((previousSettings) => ({
+                    ...previousSettings,
+                    promoBannerImage: reader.result,
+                }));
             };
             reader.readAsDataURL(file);
         }
     };
 
-    const handleSaveSettings = (e) => {
+    const handleCategoryImageChange = (index, image) => {
+        setSettings((previousSettings) => {
+            const nextCategories = [...previousSettings.featuredCategories];
+            nextCategories[index] = {
+                ...nextCategories[index],
+                image,
+            };
+
+            return {
+                ...previousSettings,
+                featuredCategories: nextCategories,
+            };
+        });
+    };
+
+    const handleSaveSettings = async (e) => {
         e.preventDefault();
-        saveSettings(settings);
-        alert('Settings saved successfully!');
+        setIsSavingSettings(true);
+        setSettingsSaveError('');
+        setSettingsSuccessMessage('');
+
+        try {
+            const savedSettings = await saveSettings(settings);
+            setSettings(savedSettings);
+            setSettingsSuccessMessage('Settings saved successfully. Other devices will now load the same images.');
+        } catch (error) {
+            console.error(error);
+            setSettingsSaveError('Unable to save site settings to Supabase. Make sure the site_settings table exists and allows updates.');
+        } finally {
+            setIsSavingSettings(false);
+        }
     };
 
     return (
@@ -284,12 +323,39 @@ export default function AdminDashboard() {
                 <div className="dashboard-settings-section">
                     <h2 className="dashboard-subtitle">Site Settings</h2>
                     <form onSubmit={handleSaveSettings} className="settings-form">
+                        {isLoadingSettings && (
+                            <div className="empty-state" style={{ marginBottom: '1rem' }}>
+                                Loading shared site settings...
+                            </div>
+                        )}
+
+                        {settingsLoadError && (
+                            <div className="empty-state" style={{ marginBottom: '1rem' }}>
+                                {settingsLoadError}
+                            </div>
+                        )}
+
+                        {settingsSaveError && (
+                            <div className="empty-state" style={{ marginBottom: '1rem' }}>
+                                {settingsSaveError}
+                            </div>
+                        )}
+
+                        {settingsSuccessMessage && !settingsSaveError && (
+                            <div className="empty-state" style={{ marginBottom: '1rem', color: 'var(--logi-cyan)' }}>
+                                {settingsSuccessMessage}
+                            </div>
+                        )}
+
                         <div className="form-group flex-row align-center">
                             <label className="checkbox-label" style={{ marginBottom: 0 }}>
                                 <input
                                     type="checkbox"
                                     checked={settings.promoBannerVisible}
-                                    onChange={e => setSettings({ ...settings, promoBannerVisible: e.target.checked })}
+                                    onChange={(e) => setSettings((previousSettings) => ({
+                                        ...previousSettings,
+                                        promoBannerVisible: e.target.checked,
+                                    }))}
                                 />
                                 Show Promo Banner
                             </label>
@@ -299,7 +365,10 @@ export default function AdminDashboard() {
                             <input
                                 type="text"
                                 value={settings.promoBannerTitle}
-                                onChange={e => setSettings({ ...settings, promoBannerTitle: e.target.value })}
+                                onChange={(e) => setSettings((previousSettings) => ({
+                                    ...previousSettings,
+                                    promoBannerTitle: e.target.value,
+                                }))}
                                 placeholder="Enter banner main title..."
                             />
                         </div>
@@ -308,7 +377,10 @@ export default function AdminDashboard() {
                             <input
                                 type="text"
                                 value={settings.promoBannerSubtitle}
-                                onChange={e => setSettings({ ...settings, promoBannerSubtitle: e.target.value })}
+                                onChange={(e) => setSettings((previousSettings) => ({
+                                    ...previousSettings,
+                                    promoBannerSubtitle: e.target.value,
+                                }))}
                                 placeholder="Enter banner subtitle text..."
                             />
                         </div>
@@ -317,7 +389,10 @@ export default function AdminDashboard() {
                             <input
                                 type="text"
                                 value={settings.promoBannerImage}
-                                onChange={e => setSettings({ ...settings, promoBannerImage: e.target.value })}
+                                onChange={(e) => setSettings((previousSettings) => ({
+                                    ...previousSettings,
+                                    promoBannerImage: e.target.value,
+                                }))}
                                 placeholder="Enter image URL..."
                             />
                             <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -359,11 +434,7 @@ export default function AdminDashboard() {
                                             <input
                                                 type="text"
                                                 value={cat.image}
-                                                onChange={(e) => {
-                                                    const newCategories = [...settings.featuredCategories];
-                                                    newCategories[index].image = e.target.value;
-                                                    setSettings({ ...settings, featuredCategories: newCategories });
-                                                }}
+                                                onChange={(e) => handleCategoryImageChange(index, e.target.value)}
                                                 placeholder="Enter image URL..."
                                                 style={{ width: '100%', padding: '8px', backgroundColor: 'var(--logi-surface)', border: '1px solid var(--logi-border)', color: 'white', borderRadius: '4px' }}
                                             />
@@ -381,9 +452,7 @@ export default function AdminDashboard() {
                                                                 if (file) {
                                                                     const reader = new FileReader();
                                                                     reader.onloadend = () => {
-                                                                        const newCategories = [...settings.featuredCategories];
-                                                                        newCategories[index].image = reader.result;
-                                                                        setSettings({ ...settings, featuredCategories: newCategories });
+                                                                        handleCategoryImageChange(index, reader.result);
                                                                     };
                                                                     reader.readAsDataURL(file);
                                                                 }
@@ -399,7 +468,14 @@ export default function AdminDashboard() {
                             </div>
                         )}
 
-                        <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>Save Settings</button>
+                        <button
+                            type="submit"
+                            className="btn btn-primary"
+                            style={{ alignSelf: 'flex-start' }}
+                            disabled={isSavingSettings}
+                        >
+                            {isSavingSettings ? 'Saving Settings...' : 'Save Settings'}
+                        </button>
                     </form>
                 </div>
             </main>

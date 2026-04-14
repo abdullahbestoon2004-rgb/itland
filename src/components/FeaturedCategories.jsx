@@ -1,6 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { getSettings } from '../data/settings';
+import useStoreSettings from '../hooks/useStoreSettings';
 import './FeaturedCategories.css';
 
 const SHOP_CATEGORIES = new Set([
@@ -63,7 +63,7 @@ const buildCategoryPath = (category) => {
 };
 
 export default function FeaturedCategories() {
-    const settings = getSettings();
+    const { settings } = useStoreSettings();
     const categories = settings?.featuredCategories || [];
 
     return (

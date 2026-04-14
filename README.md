@@ -1,12 +1,12 @@
 # ITLand Storefront
 
-This project now supports Supabase for product storage. If you do not add Supabase env vars, the app falls back to `localStorage` so it still runs locally.
+This project now supports Supabase for product storage and shared site settings. If you do not add Supabase env vars, the app falls back to `localStorage` so it still runs locally.
 
 ## Supabase setup
 
 1. Copy `.env.example` to `.env`.
 2. Add your Supabase project URL and anon key.
-3. Create this table in Supabase SQL Editor:
+3. Create the `products` table in Supabase SQL Editor:
 
 ```sql
 create table if not exists public.products (
@@ -23,10 +23,12 @@ create table if not exists public.products (
 );
 ```
 
-4. Add a read policy for the storefront and write policies for the admin flow you want to use.
+4. Create the `site_settings` table from `supabase/site_settings.sql`.
+5. Add read and write policies for the admin flow you want to use.
 
 ## Notes
 
 - Products are loaded from Supabase when `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are set.
 - Product create, update, delete, and drag reordering now save back to Supabase.
-- Site settings and the simple admin login still use `localStorage` in this version.
+- Site settings now load from Supabase when the `site_settings` table exists, and fall back to `localStorage` if it does not.
+- The simple admin login still uses `localStorage`, so it is not secure for production yet.

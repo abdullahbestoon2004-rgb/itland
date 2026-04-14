@@ -1,10 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { getSettings } from '../data/settings';
+import useStoreSettings from '../hooks/useStoreSettings';
 import './PromoBanner.css';
 
 export default function PromoBanner() {
-    const settings = getSettings();
+    const { settings } = useStoreSettings();
 
     if (!settings || !settings.promoBannerVisible) {
         return null;
