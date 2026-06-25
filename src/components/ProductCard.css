@@ -104,11 +104,27 @@
     font-size: 0.76rem;
 }
 
+.product-price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .product-price {
     font-family: var(--font-base);
     font-size: 1.05rem;
     color: var(--text-primary);
     font-weight: 700;
+}
+
+.product-price.wholesale-price {
+    color: #4ade80;
+}
+
+.product-price-retail {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 @media (hover: none) and (pointer: coarse) {

@@ -1,8 +1,10 @@
 ﻿import React, { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, MessageCircle, ShoppingCart, X } from 'lucide-react';
+import { useWholesale } from '../context/WholesaleContext';
 import './ProductDetailsModal.css';
 
 export default function ProductDetailsModal({ product, onClose, onAddToCart }) {
+    const { wholesaleClient } = useWholesale();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const images = product?.images || (product?.image ? [product.image] : []);
@@ -100,7 +102,17 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart }) {
                         <div className="modal-header-info">
                             <span className="modal-category">{product.category}</span>
                             <h2 className="modal-title">{product.name}</h2>
-                            <div className="modal-price">${product.price.toFixed(2)}</div>
+                            {wholesaleClient && product.wholesale_price != null ? (
+                                <div className="modal-price-block">
+                                    <div className="modal-price modal-price-wholesale">
+                                        ${Number(product.wholesale_price).toFixed(2)}
+                                        <span className="modal-wholesale-badge">Wholesale</span>
+                                    </div>
+                                    <div className="modal-price-retail">Retail: ${product.price.toFixed(2)}</div>
+                                </div>
+                            ) : (
+                                <div className="modal-price">${product.price.toFixed(2)}</div>
+                            )}
                         </div>
 
                         <div className="modal-description-wrapper">

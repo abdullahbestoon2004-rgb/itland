@@ -1,8 +1,10 @@
 import React from 'react';
 import { ShoppingCart, Star } from 'lucide-react';
+import { useWholesale } from '../context/WholesaleContext';
 import './ProductCard.css';
 
 export default function ProductCard({ product, onAddToCart, onImageClick }) {
+    const { wholesaleClient } = useWholesale();
     const displayImage = product.images && product.images.length > 0 ? product.images[0] : product.image;
 
     // Generate a random stable rating count based on product ID for demo purposes
@@ -34,7 +36,20 @@ export default function ProductCard({ product, onAddToCart, onImageClick }) {
                     </div>
                     <span className="rating-count">({ratingCount})</span>
                 </div>
-                <p className="product-price">${product.price.toFixed(2)}</p>
+                <div className="product-price-block">
+                    {wholesaleClient && product.wholesale_price != null ? (
+                        <>
+                            <span className="product-price wholesale-price">
+                                ${Number(product.wholesale_price).toFixed(2)}
+                            </span>
+                            <span className="product-price-retail">
+                                Retail: ${product.price.toFixed(2)}
+                            </span>
+                        </>
+                    ) : (
+                        <span className="product-price">${product.price.toFixed(2)}</span>
+                    )}
+                </div>
             </div>
         </div>
     );

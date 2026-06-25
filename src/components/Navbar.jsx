@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, Search, ShoppingCart, User, X } from 'lucide-react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, Search, ShoppingCart, User, X, LogOut } from 'lucide-react';
+import { useWholesale } from '../context/WholesaleContext';
 import './Navbar.css';
 
 export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [shopMenuOpen, setShopMenuOpen] = useState(false);
+    const { wholesaleClient, logout } = useWholesale();
 
     const megaMenuRef = useRef(null);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     const closeMenus = () => {
         setMobileMenuOpen(false);
@@ -53,6 +56,10 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
         window.addEventListener('keydown', handleEscape);
         return () => window.removeEventListener('keydown', handleEscape);
     }, []);
+
+    useEffect(() => {
+        closeMenus();
+    }, [pathname]);
 
     const handleCategoryClick = (category) => {
         closeMenus();
@@ -156,6 +163,20 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                         <Link to="/admin/login" className="nav-link mobile-only-link" onClick={closeMenus}>
                             Account
                         </Link>
+
+                        {wholesaleClient ? (
+                            <button
+                                type="button"
+                                className="nav-link mobile-only-link wholesale-nav-logout"
+                                onClick={() => { logout(); closeMenus(); }}
+                            >
+                                Sign Out (Wholesale)
+                            </button>
+                        ) : (
+                            <Link to="/wholesale/login" className="nav-link mobile-only-link" onClick={closeMenus}>
+                                Wholesale Login
+                            </Link>
+                        )}
                     </div>
 
                     <div className="navbar-actions">
@@ -174,6 +195,28 @@ export default function Navbar({ cartCount, onCartClick, onSearchClick }) {
                         <Link to="/admin/login" className="action-btn desktop-user-btn" aria-label="Account / Admin" onClick={closeMenus}>
                             <User size={20} />
                         </Link>
+
+                        {wholesaleClient ? (
+                            <button
+                                type="button"
+                                className="action-btn desktop-user-btn wholesale-active-btn"
+                                title={`Wholesale: ${wholesaleClient.name}`}
+                                onClick={() => { logout(); closeMenus(); }}
+                                aria-label="Sign out of wholesale"
+                            >
+                                <LogOut size={18} />
+                                <span className="wholesale-dot" />
+                            </button>
+                        ) : (
+                            <Link
+                                to="/wholesale/login"
+                                className="wholesale-login-link desktop-user-btn"
+                                onClick={closeMenus}
+                                aria-label="Wholesale login"
+                            >
+                                Wholesale
+                            </Link>
+                        )}
 
                         <button
                             type="button"
