@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useOutletContext, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, SlidersHorizontal, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
@@ -28,7 +28,7 @@ export default function AllProducts() {
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const itemsPerPage = 9;
+    const itemsPerPage = 12;
     const searchInputRef = useRef(null);
 
     const categoryFromParams = searchParams.get('category');
@@ -309,25 +309,53 @@ export default function AllProducts() {
                                     <button
                                         className="page-btn"
                                         disabled={safeCurrentPage === 1}
-                                        onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                                        onClick={() => {
+                                            setCurrentPage((page) => Math.max(1, page - 1));
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}
+                                        aria-label="Previous Page"
                                     >
                                         <ChevronLeft size={20} />
                                     </button>
 
-                                    {Array.from({ length: totalPages }).map((_, index) => (
-                                        <button
-                                            key={index}
-                                            className={`page-btn ${safeCurrentPage === index + 1 ? 'active' : ''}`}
-                                            onClick={() => setCurrentPage(index + 1)}
-                                        >
-                                            {index + 1}
-                                        </button>
-                                    ))}
+                                    {(() => {
+                                        let items = [];
+                                        if (totalPages <= 7) {
+                                            items = Array.from({ length: totalPages }, (_, i) => i + 1);
+                                        } else if (safeCurrentPage <= 4) {
+                                            items = [1, 2, 3, 4, 5, '...', totalPages];
+                                        } else if (safeCurrentPage >= totalPages - 3) {
+                                            items = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+                                        } else {
+                                            items = [1, '...', safeCurrentPage - 1, safeCurrentPage, safeCurrentPage + 1, '...', totalPages];
+                                        }
+
+                                        return items.map((item, idx) =>
+                                            item === '...' ? (
+                                                <span key={`dots-${idx}`} className="pagination-ellipsis">...</span>
+                                            ) : (
+                                                <button
+                                                    key={item}
+                                                    className={`page-btn ${safeCurrentPage === item ? 'active' : ''}`}
+                                                    onClick={() => {
+                                                        setCurrentPage(item);
+                                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    }}
+                                                >
+                                                    {item}
+                                                </button>
+                                            )
+                                        );
+                                    })()}
 
                                     <button
                                         className="page-btn"
                                         disabled={safeCurrentPage === totalPages}
-                                        onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                                        onClick={() => {
+                                            setCurrentPage((page) => Math.min(totalPages, page + 1));
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}
+                                        aria-label="Next Page"
                                     >
                                         <ChevronRight size={20} />
                                     </button>

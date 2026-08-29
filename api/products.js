@@ -74,16 +74,20 @@ function getCustomField(item, label) {
   return (item.custom_fields ?? []).find((f) => f.label === label)?.value ?? null;
 }
 
+import productImagesMap from './productImages.json' with { type: 'json' };
+
 function normalizeItem(item, index) {
   const wholesaleRaw = getCustomField(item, 'Wholesale Price');
   const wholesalePrice = wholesaleRaw != null ? parseFloat(String(wholesaleRaw).replace(/[^0-9.]/g, '')) : null;
 
-  const imageUrl = getCustomField(item, 'Image URL');
+  const itemId = String(item.item_id);
+  const mappedImage = productImagesMap[itemId] || productImagesMap[item.name] || null;
+  const imageUrl = getCustomField(item, 'Image URL') || mappedImage;
   const stockOnHand = item.stock_on_hand != null ? Number(item.stock_on_hand) : null;
 
   return {
-    id: String(item.item_id),
-    zoho_item_id: String(item.item_id),
+    id: itemId,
+    zoho_item_id: itemId,
     name: item.name ?? '',
     description: item.description ?? '',
     price: Number(item.rate ?? 0),
