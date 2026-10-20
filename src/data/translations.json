@@ -1,0 +1,702 @@
+{
+  "Home": {
+    "ar": "الرئيسية",
+    "ku": "سەرەکی"
+  },
+  "Shop": {
+    "ar": "المتجر",
+    "ku": "فرۆشگا"
+  },
+  "All Products": {
+    "ar": "جميع المنتجات",
+    "ku": "هەموو بەرهەمەکان"
+  },
+  "About": {
+    "ar": "من نحن",
+    "ku": "دەربارە"
+  },
+  "Contact": {
+    "ar": "تواصل معنا",
+    "ku": "پەیوەندی"
+  },
+  "Account": {
+    "ar": "الحساب",
+    "ku": "هەژمار"
+  },
+  "Products": {
+    "ar": "المنتجات",
+    "ku": "بەرهەمەکان"
+  },
+  "Mice": {
+    "ar": "الفأرات",
+    "ku": "ماوسەکان"
+  },
+  "Keyboards": {
+    "ar": "لوحات المفاتيح",
+    "ku": "کیبۆردەکان"
+  },
+  "Headsets": {
+    "ar": "سماعات الرأس",
+    "ku": "هێدسێتەکان"
+  },
+  "Webcams": {
+    "ar": "كاميرات الويب",
+    "ku": "وێبکامەکان"
+  },
+  "Gaming": {
+    "ar": "الألعاب",
+    "ku": "یاری"
+  },
+  "Gaming Gear": {
+    "ar": "معدات الألعاب",
+    "ku": "کەلوپەلی یاری"
+  },
+  "Accessories": {
+    "ar": "الملحقات",
+    "ku": "پێداویستییەکان"
+  },
+  "Audio": {
+    "ar": "الصوتيات",
+    "ku": "دەنگ"
+  },
+  "Streaming": {
+    "ar": "البث",
+    "ku": "ستریم"
+  },
+  "All": {
+    "ar": "الكل",
+    "ku": "هەمووی"
+  },
+  "Upgrade Your Setup": {
+    "ar": "طوّر تجهيزاتك",
+    "ku": "کەلوپەلەکانت نوێ بکەرەوە"
+  },
+  "Experience the ultimate precision with computer accessories and gaming gear.": {
+    "ar": "اكتشف ملحقات الكمبيوتر ومعدات الألعاب المناسبة لك.",
+    "ku": "پێداویستی کۆمپیوتەر و کەلوپەلی یاریی گونجاو بدۆزەرەوە."
+  },
+  "Shop Now": {
+    "ar": "تسوق الآن",
+    "ku": "ئێستا بکڕە"
+  },
+  "Explore Products": {
+    "ar": "استكشف المنتجات",
+    "ku": "بەرهەمەکان ببینە"
+  },
+  "Best Sellers": {
+    "ar": "الأكثر مبيعاً",
+    "ku": "پڕفرۆشترینەکان"
+  },
+  "Featured Products": {
+    "ar": "منتجات مختارة",
+    "ku": "بەرهەمی هەڵبژێردراو"
+  },
+  "View All Products": {
+    "ar": "عرض جميع المنتجات",
+    "ku": "هەموو بەرهەمەکان ببینە"
+  },
+  "Loading products…": {
+    "ar": "جارٍ تحميل المنتجات…",
+    "ku": "بەرهەمەکان بار دەکرێن…"
+  },
+  "Shop Products": {
+    "ar": "تسوق المنتجات",
+    "ku": "بەرهەمەکان بکڕە"
+  },
+  "Discover the latest computer accessories.": {
+    "ar": "اكتشف أحدث ملحقات الكمبيوتر.",
+    "ku": "نوێترین پێداویستییەکانی کۆمپیوتەر بدۆزەرەوە."
+  },
+  "Search": {
+    "ar": "بحث",
+    "ku": "گەڕان"
+  },
+  "Category": {
+    "ar": "الفئة",
+    "ku": "پۆل"
+  },
+  "Brands": {
+    "ar": "العلامات التجارية",
+    "ku": "براندەکان"
+  },
+  "Price Range (IQD)": {
+    "ar": "نطاق السعر (د.ع)",
+    "ku": "مەودای نرخ (دینار)"
+  },
+  "Filters": {
+    "ar": "التصفية",
+    "ku": "فلتەرەکان"
+  },
+  "Close Filters": {
+    "ar": "إغلاق التصفية",
+    "ku": "داخستنی فلتەرەکان"
+  },
+  "Sort by:": {
+    "ar": "ترتيب حسب:",
+    "ku": "ڕیزکردن بەپێی:"
+  },
+  "Featured": {
+    "ar": "المختارة",
+    "ku": "هەڵبژێردراو"
+  },
+  "Newest Arrivals": {
+    "ar": "الأحدث وصولاً",
+    "ku": "نوێترینەکان"
+  },
+  "Price: Low to High": {
+    "ar": "السعر: من الأقل للأعلى",
+    "ku": "نرخ: لە کەم بۆ زۆر"
+  },
+  "Price: High to Low": {
+    "ar": "السعر: من الأعلى للأقل",
+    "ku": "نرخ: لە زۆر بۆ کەم"
+  },
+  "Reset": {
+    "ar": "إعادة ضبط",
+    "ku": "ڕیسێت"
+  },
+  "No products found.": {
+    "ar": "لم يتم العثور على منتجات.",
+    "ku": "هیچ بەرهەمێک نەدۆزرایەوە."
+  },
+  "Try adjusting your search or filters to find what you're looking for.": {
+    "ar": "جرّب تغيير البحث أو عوامل التصفية.",
+    "ku": "گەڕان یان فلتەرەکان بگۆڕە بۆ دۆزینەوەی بەرهەمەکەت."
+  },
+  "Add to Cart": {
+    "ar": "أضف إلى السلة",
+    "ku": "زیاد بکە بۆ سەبەتە"
+  },
+  "Contact for Price": {
+    "ar": "استفسر عن السعر",
+    "ku": "پرسیار لە نرخ بکە"
+  },
+  "Contact for price": {
+    "ar": "استفسر عن السعر",
+    "ku": "پرسیار لە نرخ بکە"
+  },
+  "Out of stock": {
+    "ar": "غير متوفر",
+    "ku": "بەردەست نییە"
+  },
+  "In stock": {
+    "ar": "متوفر",
+    "ku": "بەردەستە"
+  },
+  "Currently out of stock": {
+    "ar": "غير متوفر حالياً",
+    "ku": "ئێستا بەردەست نییە"
+  },
+  "Currently out of stock.": {
+    "ar": "غير متوفر حالياً.",
+    "ku": "ئێستا بەردەست نییە."
+  },
+  "Confirm availability on WhatsApp": {
+    "ar": "تأكد من التوفر عبر واتساب",
+    "ku": "لە واتساپ دڵنیا ببەرەوە لە بەردەستبوون"
+  },
+  "Ask about restocking": {
+    "ar": "اسأل عن موعد التوفر",
+    "ku": "پرسیار لە دووبارە بەردەستبوون بکە"
+  },
+  "Buy via WhatsApp": {
+    "ar": "اطلب عبر واتساب",
+    "ku": "لە واتساپ داوا بکە"
+  },
+  "Buy on WhatsApp": {
+    "ar": "اطلب عبر واتساب",
+    "ku": "لە واتساپ داوا بکە"
+  },
+  "View full product page": {
+    "ar": "عرض تفاصيل المنتج",
+    "ku": "وردەکاریی بەرهەم ببینە"
+  },
+  "Wholesale": {
+    "ar": "الجملة",
+    "ku": "کۆفرۆشی"
+  },
+  "Retail:": {
+    "ar": "التجزئة:",
+    "ku": "تاکفرۆشی:"
+  },
+  "Your Cart": {
+    "ar": "سلتك",
+    "ku": "سەبەتەکەت"
+  },
+  "Your cart is empty.": {
+    "ar": "سلتك فارغة.",
+    "ku": "سەبەتەکەت بەتاڵە."
+  },
+  "Continue Shopping": {
+    "ar": "متابعة التسوق",
+    "ku": "بەردەوام بە لە کڕین"
+  },
+  "Delivery details": {
+    "ar": "تفاصيل التوصيل",
+    "ku": "وردەکاریی گەیاندن"
+  },
+  "(optional)": {
+    "ar": "(اختياري)",
+    "ku": "(ئارەزوومەندانە)"
+  },
+  "These details will be included in your WhatsApp message.": {
+    "ar": "ستُضاف هذه التفاصيل إلى رسالتك على واتساب.",
+    "ku": "ئەم زانیارییانە لە نامەی واتساپەکەتدا دەبن."
+  },
+  "Your name": {
+    "ar": "اسمك",
+    "ku": "ناوت"
+  },
+  "City / area": {
+    "ar": "المدينة / المنطقة",
+    "ku": "شار / ناوچە"
+  },
+  "Notes": {
+    "ar": "ملاحظات",
+    "ku": "تێبینی"
+  },
+  "Product subtotal": {
+    "ar": "مجموع المنتجات",
+    "ku": "کۆی نرخی بەرهەمەکان"
+  },
+  "Send order on WhatsApp": {
+    "ar": "أرسل الطلب عبر واتساب",
+    "ku": "داواکاری لە واتساپ بنێرە"
+  },
+  "Delivery & ordering information": {
+    "ar": "معلومات التوصيل والطلب",
+    "ku": "زانیاریی گەیاندن و داواکردن"
+  },
+  "Delivery across all Iraq and Kurdistan. Delivery fee and arrival time confirmed in the chat.": {
+    "ar": "التوصيل إلى جميع أنحاء العراق وكردستان. نؤكد رسوم التوصيل والموعد في المحادثة.",
+    "ku": "گەیاندن بۆ هەموو عێراق و کوردستان. کرێ و کاتی گەیاندن لە چاتەکەدا دیاری دەکرێن."
+  },
+  "This is an order request. Our team will confirm stock, payment method and final total on WhatsApp.": {
+    "ar": "هذا طلب مبدئي. سيؤكد فريقنا التوفر وطريقة الدفع والمبلغ النهائي على واتساب.",
+    "ku": "ئەمە داواکارییەکی سەرەتاییە. تیمەکەمان بەردەستبوون و شێوازی پارەدان و کۆی کۆتایی لە واتساپ پشتڕاست دەکاتەوە."
+  },
+  "Delivery across all Iraq and Kurdistan. Delivery fee, timing and final total confirmed on WhatsApp.": {
+    "ar": "التوصيل لجميع أنحاء العراق وكردستان. نؤكد الرسوم والموعد والمبلغ النهائي عبر واتساب.",
+    "ku": "گەیاندن بۆ هەموو عێراق و کوردستان. کرێ و کات و کۆی کۆتایی لە واتساپ دیاری دەکرێن."
+  },
+  "Delivery across all Iraq and Kurdistan. Delivery fee, timing, payment method and final total confirmed on WhatsApp. Your order is confirmed after our team replies.": {
+    "ar": "التوصيل لجميع أنحاء العراق وكردستان. نؤكد الرسوم والموعد وطريقة الدفع والمبلغ النهائي عبر واتساب. يتأكد طلبك بعد رد فريقنا.",
+    "ku": "گەیاندن بۆ هەموو عێراق و کوردستان. کرێ و کات و شێوازی پارەدان و کۆی کۆتایی لە واتساپ دیاری دەکرێن. داواکارییەکەت دوای وەڵامی تیمەکەمان پشتڕاست دەکرێتەوە."
+  },
+  "How WhatsApp orders work": {
+    "ar": "كيفية الطلب عبر واتساب",
+    "ku": "چۆنیەتی داواکردن لە واتساپ"
+  },
+  "100% Original": {
+    "ar": "أصلي ١٠٠٪",
+    "ku": "١٠٠٪ ڕەسەن"
+  },
+  "Guaranteed authentic": {
+    "ar": "منتجات أصلية",
+    "ku": "بەرهەمی ڕەسەن"
+  },
+  "Across Iraq & Kurdistan": {
+    "ar": "في العراق وكردستان",
+    "ku": "لە عێراق و کوردستان"
+  },
+  "Ask us for delivery fees & timing": {
+    "ar": "اسألنا عن رسوم وموعد التوصيل",
+    "ku": "پرسیار لە کرێ و کاتی گەیاندن بکە"
+  },
+  "Order Confirmation": {
+    "ar": "تأكيد الطلب",
+    "ku": "پشتڕاستکردنەوەی داواکاری"
+  },
+  "Confirm every detail in the chat": {
+    "ar": "أكد كل التفاصيل في المحادثة",
+    "ku": "هەموو وردەکارییەکان لە چات پشتڕاست بکەرەوە"
+  },
+  "Order on WhatsApp": {
+    "ar": "اطلب عبر واتساب",
+    "ku": "لە واتساپ داوا بکە"
+  },
+  "Talk directly with our team": {
+    "ar": "تحدث مباشرة مع فريقنا",
+    "ku": "ڕاستەوخۆ لەگەڵ تیمەکەمان قسە بکە"
+  },
+  "Support": {
+    "ar": "الدعم",
+    "ku": "پشتگیری"
+  },
+  "Delivery & Ordering": {
+    "ar": "التوصيل والطلب",
+    "ku": "گەیاندن و داواکردن"
+  },
+  "Contact Us": {
+    "ar": "تواصل معنا",
+    "ku": "پەیوەندیمان پێوە بکە"
+  },
+  "Email Support": {
+    "ar": "الدعم عبر البريد",
+    "ku": "پشتگیری لە ئیمەیڵ"
+  },
+  "Warranty": {
+    "ar": "الضمان",
+    "ku": "گەرەنتی"
+  },
+  "Returns": {
+    "ar": "الإرجاع",
+    "ku": "گەڕاندنەوە"
+  },
+  "Our Story": {
+    "ar": "قصتنا",
+    "ku": "چیرۆکەکەمان"
+  },
+  "Why Choose Us": {
+    "ar": "لماذا تختارنا",
+    "ku": "بۆچی ئێمە"
+  },
+  "New Arrivals": {
+    "ar": "وصل حديثاً",
+    "ku": "نوێ گەیشتووەکان"
+  },
+  "Stay in the Loop": {
+    "ar": "ابق على اطلاع",
+    "ku": "ئاگادار بە"
+  },
+  "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.": {
+    "ar": "اشترك لتصلك أخبار المنتجات والعروض الجديدة.",
+    "ku": "بەشدار بە بۆ هەواڵی بەرهەم و ئۆفەرە نوێیەکان."
+  },
+  "Play to win. The ultimate gear for gamers and creators.": {
+    "ar": "تجهيزات مميزة للاعبين وصنّاع المحتوى.",
+    "ku": "کەلوپەلی تایبەت بۆ یاریزان و دروستکەرانی ناوەڕۆک."
+  },
+  "IT LAND. All rights reserved.": {
+    "ar": "IT LAND. جميع الحقوق محفوظة.",
+    "ku": "IT LAND. هەموو مافەکان پارێزراون."
+  },
+  "Join the Elite Setup": {
+    "ar": "تابع أحدث تجهيزاتنا",
+    "ku": "ئاگاداری نوێترین کەلوپەلەکان بە"
+  },
+  "Subscribe for new products and offers, or chat with our team on WhatsApp.": {
+    "ar": "اشترك لأخبار المنتجات والعروض أو تواصل مع فريقنا على واتساب.",
+    "ku": "بۆ بەرهەم و ئۆفەری نوێ بەشدار بە یان لە واتساپ لەگەڵ تیمەکەمان قسە بکە."
+  },
+  "Chat on WhatsApp": {
+    "ar": "تحدث عبر واتساب",
+    "ku": "لە واتساپ قسە بکە"
+  },
+  "OR": {
+    "ar": "أو",
+    "ku": "یان"
+  },
+  "What Our Customers Say": {
+    "ar": "آراء عملائنا",
+    "ku": "ڕای کڕیارەکانمان"
+  },
+  "Leave Your Feedback": {
+    "ar": "شاركنا رأيك",
+    "ku": "ڕاکەت بنووسە"
+  },
+  "Share your experience and help others choose the right setup.": {
+    "ar": "شارك تجربتك وساعد الآخرين على الاختيار.",
+    "ku": "ئەزموونەکەت بنووسە و یارمەتیی کەسانی تر بدە لە هەڵبژاردن."
+  },
+  "No reviews yet — be the first to tell others about your experience.": {
+    "ar": "لا توجد تقييمات بعد. كن أول من يشارك تجربته.",
+    "ku": "هێشتا هەڵسەنگاندن نییە. یەکەم کەس بە ئەزموونەکەت بنووسە."
+  },
+  "Submit Review": {
+    "ar": "إرسال التقييم",
+    "ku": "ناردنی هەڵسەنگاندن"
+  },
+  "Submitting…": {
+    "ar": "جارٍ الإرسال…",
+    "ku": "دەنێردرێت…"
+  },
+  "Ask on WhatsApp": {
+    "ar": "اسأل عبر واتساب",
+    "ku": "لە واتساپ بپرسە"
+  },
+  "Delivery & WhatsApp orders": {
+    "ar": "التوصيل والطلبات عبر واتساب",
+    "ku": "گەیاندن و داواکاریی واتساپ"
+  },
+  "Warranty support": {
+    "ar": "دعم الضمان",
+    "ku": "پشتگیریی گەرەنتی"
+  },
+  "Returns & exchanges": {
+    "ar": "الإرجاع والاستبدال",
+    "ku": "گەڕاندنەوە و گۆڕینەوە"
+  },
+  "Prices & payment": {
+    "ar": "الأسعار والدفع",
+    "ku": "نرخ و پارەدان"
+  },
+  "Page not found": {
+    "ar": "الصفحة غير موجودة",
+    "ku": "پەڕەکە نەدۆزرایەوە"
+  },
+  "Loading product…": {
+    "ar": "جارٍ تحميل المنتج…",
+    "ku": "بەرهەمەکە بار دەکرێت…"
+  },
+  "Product not found": {
+    "ar": "المنتج غير موجود",
+    "ku": "بەرهەمەکە نەدۆزرایەوە"
+  },
+  "Browse all products": {
+    "ar": "تصفح جميع المنتجات",
+    "ku": "هەموو بەرهەمەکان ببینە"
+  },
+  "Something went wrong": {
+    "ar": "حدث خطأ",
+    "ku": "هەڵەیەک ڕوویدا"
+  },
+  "Loading IQD price…": {
+    "ar": "جارٍ تحميل السعر بالدينار…",
+    "ku": "نرخ بە دینار بار دەکرێت…"
+  },
+  "Confirm IQD price": {
+    "ar": "تأكد من السعر بالدينار",
+    "ku": "دڵنیا ببەرەوە لە نرخ بە دینار"
+  },
+  "Loading IQD prices…": {
+    "ar": "جارٍ تحميل الأسعار بالدينار…",
+    "ku": "نرخەکان بە دینار بار دەکرێن…"
+  },
+  "IQD rate unavailable. Confirm prices on WhatsApp.": {
+    "ar": "سعر الصرف غير متاح. تأكد من الأسعار عبر واتساب.",
+    "ku": "نرخی ئاڵوگۆڕ بەردەست نییە. نرخەکان لە واتساپ پشتڕاست بکەرەوە."
+  },
+  "Prices in IQD · final total confirmed on WhatsApp": {
+    "ar": "الأسعار بالدينار · نؤكد المبلغ النهائي عبر واتساب",
+    "ku": "نرخەکان بە دینارن · کۆی کۆتایی لە واتساپ دیاری دەکرێت"
+  },
+  "Email address": {
+    "ar": "البريد الإلكتروني",
+    "ku": "ناونیشانی ئیمەیڵ"
+  },
+  "Enter your email": {
+    "ar": "أدخل بريدك الإلكتروني",
+    "ku": "ئیمەیڵەکەت بنووسە"
+  },
+  "Subscribe": {
+    "ar": "اشتراك",
+    "ku": "بەشداربوون"
+  },
+  "Search products": {
+    "ar": "ابحث عن منتج",
+    "ku": "گەڕان بەدوای بەرهەم"
+  },
+  "Find products...": {
+    "ar": "ابحث عن المنتجات...",
+    "ku": "بەدوای بەرهەم بگەڕێ..."
+  },
+  "Minimum price in IQD": {
+    "ar": "أقل سعر بالدينار",
+    "ku": "کەمترین نرخ بە دینار"
+  },
+  "Maximum price in IQD": {
+    "ar": "أعلى سعر بالدينار",
+    "ku": "زۆرترین نرخ بە دینار"
+  },
+  "Min IQD": {
+    "ar": "أقل سعر",
+    "ku": "کەمترین نرخ"
+  },
+  "Max IQD": {
+    "ar": "أعلى سعر",
+    "ku": "زۆرترین نرخ"
+  },
+  "Sort products": {
+    "ar": "ترتيب المنتجات",
+    "ku": "ڕیزکردنی بەرهەمەکان"
+  },
+  "Your Name": {
+    "ar": "اسمك",
+    "ku": "ناوت"
+  },
+  "Write your review here...": {
+    "ar": "اكتب تقييمك هنا...",
+    "ku": "هەڵسەنگاندنەکەت لێرە بنووسە..."
+  },
+  "Review rating": {
+    "ar": "درجة التقييم",
+    "ku": "نمرەی هەڵسەنگاندن"
+  },
+  "Close cart": {
+    "ar": "إغلاق السلة",
+    "ku": "داخستنی سەبەتە"
+  },
+  "Close product preview": {
+    "ar": "إغلاق معاينة المنتج",
+    "ku": "داخستنی پێشبینینی بەرهەم"
+  },
+  "Previous image": {
+    "ar": "الصورة السابقة",
+    "ku": "وێنەی پێشوو"
+  },
+  "Next image": {
+    "ar": "الصورة التالية",
+    "ku": "وێنەی دواتر"
+  },
+  "Close menu": {
+    "ar": "إغلاق القائمة",
+    "ku": "داخستنی لیست"
+  },
+  "Open menu": {
+    "ar": "فتح القائمة",
+    "ku": "کردنەوەی لیست"
+  },
+  "Cart": {
+    "ar": "السلة",
+    "ku": "سەبەتە"
+  },
+  "Go to homepage": {
+    "ar": "الصفحة الرئيسية",
+    "ku": "پەڕەی سەرەکی"
+  },
+  "You're subscribed. Thank you!": {
+    "ar": "تم الاشتراك. شكراً لك!",
+    "ku": "بەشدار بوویت. سوپاس!"
+  },
+  "Please enter a valid email address.": {
+    "ar": "يرجى إدخال بريد إلكتروني صالح.",
+    "ku": "تکایە ئیمەیڵێکی دروست بنووسە."
+  },
+  "Subscriptions are unavailable right now.": {
+    "ar": "الاشتراكات غير متاحة حالياً.",
+    "ku": "بەشداربوون ئێستا بەردەست نییە."
+  },
+  "We could not add you to the list. Please try again.": {
+    "ar": "تعذر تسجيل اشتراكك. حاول مرة أخرى.",
+    "ku": "نەتوانرا بەشدارت بکەین. دووبارە هەوڵ بدەرەوە."
+  },
+  "View All Products →": {
+    "ar": "عرض جميع المنتجات ←",
+    "ku": "هەموو بەرهەمەکان ببینە ←"
+  },
+  "Up to 30% OFF Gaming Accessories": {
+    "ar": "خصم حتى ٣٠٪ على ملحقات الألعاب",
+    "ku": "تا ٣٠٪ داشکاندن لە پێداویستییەکانی یاری"
+  },
+  "Level up your gameplay with premium gear at unbeatable prices.": {
+    "ar": "طوّر تجربة اللعب بمعدات مميزة وأسعار منافسة.",
+    "ku": "ئەزموونی یارییەکەت بە کەلوپەلی باشتر و نرخی گونجاو باشتر بکە."
+  },
+  "Shop the Sale": {
+    "ar": "تسوق العروض",
+    "ku": "ئۆفەرەکان ببینە"
+  },
+  "We deliver across all Iraq and Kurdistan. All orders are arranged and confirmed on WhatsApp.": {
+    "ar": "نوصل إلى جميع أنحاء العراق وكردستان. تُرتب جميع الطلبات وتُؤكد عبر واتساب.",
+    "ku": "گەیاندنمان هەیە بۆ هەموو عێراق و کوردستان. هەموو داواکارییەکان لە واتساپ ڕێک دەخرێن و پشتڕاست دەکرێنەوە."
+  },
+  "1. Choose your products": {
+    "ar": "١. اختر منتجاتك",
+    "ku": "١. بەرهەمەکانت هەڵبژێرە"
+  },
+  "2. Confirm the details": {
+    "ar": "٢. أكد التفاصيل",
+    "ku": "٢. وردەکارییەکان پشتڕاست بکەرەوە"
+  },
+  "3. Receive your confirmation": {
+    "ar": "٣. استلم تأكيد الطلب",
+    "ku": "٣. پشتڕاستکردنەوەی داواکاری وەربگرە"
+  },
+  "Add available products to your cart, then choose “Send order on WhatsApp”. You can also ask about a single product from its product page.": {
+    "ar": "أضف المنتجات المتوفرة إلى السلة واختر «أرسل الطلب عبر واتساب». يمكنك أيضاً الاستفسار عن منتج من صفحته.",
+    "ku": "بەرهەمە بەردەستەکان بۆ سەبەتە زیاد بکە و «داواکاری لە واتساپ بنێرە» هەڵبژێرە. دەتوانیت لە پەڕەی بەرهەمەکەش پرسیار بکەیت."
+  },
+  "Send your city and area in the chat. Our team will confirm stock, delivery availability, delivery fee, estimated arrival time and payment method for your address.": {
+    "ar": "أرسل مدينتك ومنطقتك في المحادثة. سيؤكد فريقنا التوفر وإمكانية التوصيل ورسومه وموعد الوصول المتوقع وطريقة الدفع لعنوانك.",
+    "ku": "شار و ناوچەکەت لە چات بنێرە. تیمەکەمان بەردەستبوون و گەیاندن و کرێ و کاتی گەیشتن و شێوازی پارەدان بۆ ناونیشانەکەت دیاری دەکات."
+  },
+  "Opening WhatsApp or sending a message does not place a confirmed order. Your order is confirmed when our team agrees the items and final total with you in the chat. Keep that conversation for reference.": {
+    "ar": "فتح واتساب أو إرسال رسالة لا يؤكد الطلب. يتأكد طلبك عندما يتفق فريقنا معك على المنتجات والمبلغ النهائي في المحادثة. احتفظ بالمحادثة للرجوع إليها.",
+    "ku": "کردنەوەی واتساپ یان ناردنی نامە داواکاری پشتڕاست ناکاتەوە. داواکارییەکەت کاتێک پشتڕاست دەبێتەوە کە تیمەکەمان لەگەڵت لەسەر بەرهەمەکان و کۆی کۆتایی ڕێک بکەون. چاتەکە بپارێزە."
+  },
+  "Product prices are displayed in Iraqi dinars using the IQWealth Baghdad market rate and exclude delivery. Prices are indicative; our team will confirm the final IQD total before you order. Delivery times and fees depend on your address; confirm them on WhatsApp.": {
+    "ar": "تُعرض الأسعار بالدينار العراقي حسب سعر سوق بغداد من IQWealth ولا تشمل التوصيل. الأسعار إرشادية، ويؤكد فريقنا المبلغ النهائي بالدينار قبل الطلب. تعتمد رسوم ومدة التوصيل على عنوانك؛ أكدها عبر واتساب.",
+    "ku": "نرخەکان بە دیناری عێراقی بەپێی نرخی بازاڕی بەغدای IQWealth پیشان دەدرێن و کرێی گەیاندن ناگرنەوە. نرخەکان ڕێنمایین و تیمەکەمان کۆی کۆتایی بە دینار پێش داواکردن پشتڕاست دەکاتەوە. کرێ و کاتی گەیاندن بە ناونیشانەکەتەوە پەیوەستە؛ لە واتساپ دیاریان بکە."
+  },
+  "Ask our team about the warranty for your exact product before confirming your WhatsApp order.": {
+    "ar": "اسأل فريقنا عن ضمان منتجك بالتحديد قبل تأكيد طلبك على واتساب.",
+    "ku": "پێش پشتڕاستکردنەوەی داواکاریی واتساپ پرسیار لە گەرەنتیی بەرهەمەکەت بکە."
+  },
+  "Check coverage before ordering": {
+    "ar": "تأكد من التغطية قبل الطلب",
+    "ku": "پێش داواکردن گەرەنتییەکە بپشکنە"
+  },
+  "Warranty duration, coverage and service arrangements depend on the product. Contact us with the product name or link so we can confirm the applicable terms in writing on WhatsApp.": {
+    "ar": "تختلف مدة الضمان وتغطيته وإجراءات الخدمة حسب المنتج. أرسل اسم المنتج أو رابطه لنؤكد الشروط المطبقة كتابياً عبر واتساب.",
+    "ku": "ماوە و سنوور و ڕێکخستنی خزمەتگوزاریی گەرەنتی بە بەرهەمەکەوە پەیوەستن. ناو یان لینکی بەرهەمەکە بنێرە بۆ ئەوەی مەرجەکان بە نووسین لە واتساپ پشتڕاست بکەینەوە."
+  },
+  "Get help with a product": {
+    "ar": "احصل على مساعدة لمنتجك",
+    "ku": "یارمەتی بۆ بەرهەمەکەت وەربگرە"
+  },
+  "Share your order conversation or receipt, product model and a description of the issue. Photos or a short video can help our team understand the problem.": {
+    "ar": "شارك محادثة الطلب أو الوصل وموديل المنتج ووصف المشكلة. تساعد الصور أو مقطع فيديو قصير فريقنا على فهم المشكلة.",
+    "ku": "چاتی داواکاری یان پسووڵە و مۆدێلی بەرهەم و وەسفی کێشەکە بنێرە. وێنە یان ڤیدیۆیەکی کورت یارمەتیی تیمەکەمان دەدات کێشەکە تێبگات."
+  },
+  "Next steps": {
+    "ar": "الخطوات التالية",
+    "ku": "هەنگاوەکانی دواتر"
+  },
+  "Our team will explain the applicable support options and any delivery arrangements. Confirm these details before sending a product back.": {
+    "ar": "سيوضح فريقنا خيارات الدعم وترتيبات التوصيل المطبقة. أكد هذه التفاصيل قبل إعادة إرسال المنتج.",
+    "ku": "تیمەکەمان هەڵبژاردەکانی پشتگیری و ڕێکخستنی گەیاندن ڕوون دەکاتەوە. پێش ناردنەوەی بەرهەمەکە ئەم وردەکارییانە پشتڕاست بکەرەوە."
+  },
+  "Contact IT Land on WhatsApp to confirm the return or exchange terms for your item.": {
+    "ar": "تواصل مع IT Land عبر واتساب لتأكيد شروط إرجاع أو استبدال منتجك.",
+    "ku": "لە واتساپ پەیوەندی بە IT Land بکە بۆ دیاریکردنی مەرجەکانی گەڕاندنەوە یان گۆڕینەوەی بەرهەمەکەت."
+  },
+  "Before you order": {
+    "ar": "قبل الطلب",
+    "ku": "پێش داواکردن"
+  },
+  "Ask about return eligibility, time limits, packaging requirements and any delivery charges before confirming your purchase. These details are confirmed by our team for your item.": {
+    "ar": "اسأل عن أهلية الإرجاع والمهلة وشروط التغليف ورسوم التوصيل قبل تأكيد الشراء. يؤكد فريقنا هذه التفاصيل لمنتجك.",
+    "ku": "پێش پشتڕاستکردنەوەی کڕین پرسیار لە مەرج و ماوەی گەڕاندنەوە و پێویستییەکانی پاکەت و کرێی گەیاندن بکە. تیمەکەمان ئەم وردەکارییانە بۆ بەرهەمەکەت دیاری دەکات."
+  },
+  "Request a return or exchange": {
+    "ar": "اطلب إرجاعاً أو استبدالاً",
+    "ku": "داوای گەڕاندنەوە یان گۆڕینەوە بکە"
+  },
+  "Send your order conversation or receipt, product name, reason for the request and photos if relevant. Our team will review your request and explain the available options.": {
+    "ar": "أرسل محادثة الطلب أو الوصل واسم المنتج وسبب الطلب وصوراً عند الحاجة. سيراجع فريقنا طلبك ويوضح الخيارات المتاحة.",
+    "ku": "چاتی داواکاری یان پسووڵە و ناوی بەرهەم و هۆکاری داواکارییەکە و وێنە ئەگەر پێویست بوو بنێرە. تیمەکەمان داواکارییەکەت دەبینێت و هەڵبژاردەکان ڕوون دەکاتەوە."
+  },
+  "Before sending an item back": {
+    "ar": "قبل إعادة إرسال المنتج",
+    "ku": "پێش ناردنەوەی بەرهەم"
+  },
+  "Agree the return destination, shipping arrangements and any refund or replacement details with our team on WhatsApp first.": {
+    "ar": "اتفق أولاً مع فريقنا عبر واتساب على عنوان الإرجاع وترتيبات الشحن وتفاصيل استرداد المبلغ أو الاستبدال.",
+    "ku": "سەرەتا لە واتساپ لەگەڵ تیمەکەمان لەسەر ناونیشانی گەڕاندنەوە و ڕێکخستنی ناردن و وردەکاریی گەڕاندنەوەی پارە یان گۆڕینەوە ڕێک بکەوە."
+  },
+  "1 Star": {
+    "ar": "1 نجوم",
+    "ku": "1 ئەستێرە"
+  },
+  "2 Stars": {
+    "ar": "2 نجوم",
+    "ku": "2 ئەستێرە"
+  },
+  "3 Stars": {
+    "ar": "3 نجوم",
+    "ku": "3 ئەستێرە"
+  },
+  "4 Stars": {
+    "ar": "4 نجوم",
+    "ku": "4 ئەستێرە"
+  },
+  "5 Stars": {
+    "ar": "5 نجوم",
+    "ku": "5 ئەستێرە"
+  },
+  "Showing {count} results": {
+    "ar": "عرض {count} نتيجة",
+    "ku": "{count} ئەنجام"
+  }
+}

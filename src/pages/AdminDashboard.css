@@ -452,3 +452,81 @@
     opacity: 1;
     color: var(--logi-cyan);
 }
+.admin-identity {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+}
+
+.dashboard-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-card {
+    background-color: var(--logi-surface);
+    border: 1px solid var(--logi-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.message-card.handled {
+    opacity: 0.6;
+}
+
+.message-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.message-name {
+    color: var(--text-primary);
+    margin-right: 0.75rem;
+}
+
+.message-email {
+    color: var(--logi-cyan);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.message-date {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.message-body {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+}
+
+.review-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.message-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    padding: 6px 12px;
+}
+
+.message-action.danger {
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.4);
+}

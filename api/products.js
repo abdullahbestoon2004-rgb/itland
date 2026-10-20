@@ -11,6 +11,11 @@ let cachedProducts = null;
 let productsExpiresAt = 0;
 const PRODUCTS_TTL_MS = 60 * 60 * 1000; // 1 hour
 
+// A forced refresh bypasses the cache; throttled so it can't be used to hammer
+// Zoho's rate limit from the open internet.
+let lastForcedRefreshAt = 0;
+const FORCED_REFRESH_COOLDOWN_MS = 30 * 1000;
+
 async function getAccessToken() {
   if (cachedToken && Date.now() < tokenExpiresAt) return cachedToken;
 
@@ -98,7 +103,7 @@ function normalizeItem(item, index) {
     featured: getCustomField(item, 'Featured')?.toLowerCase() === 'true',
     order_index: index,
     stock_on_hand: stockOnHand,
-    in_stock: stockOnHand === null || stockOnHand > 0,
+    in_stock: stockOnHand === null ? null : stockOnHand > 0,
   };
 }
 
@@ -113,11 +118,18 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'ZOHO_REFRESH_TOKEN is not set.' });
   }
 
+  const wantsRefresh = req.query?.refresh === '1' || req.query?.refresh === 'true';
+  const refreshAllowed = wantsRefresh && Date.now() - lastForcedRefreshAt > FORCED_REFRESH_COOLDOWN_MS;
+
   try {
-    // Serve from memory cache if still fresh
-    if (cachedProducts && Date.now() < productsExpiresAt) {
+    // Serve from memory cache if still fresh (unless an allowed refresh asked for live data)
+    if (!refreshAllowed && cachedProducts && Date.now() < productsExpiresAt) {
       res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
       return res.status(200).json({ products: cachedProducts });
+    }
+
+    if (refreshAllowed) {
+      lastForcedRefreshAt = Date.now();
     }
 
     const token = await getAccessToken();
@@ -127,9 +139,12 @@ export default async function handler(req, res) {
     cachedProducts = products;
     productsExpiresAt = Date.now() + PRODUCTS_TTL_MS;
 
-    // CDN edge cache: serve for 1 hour, allow stale up to 24h while revalidating in background
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
-    return res.status(200).json({ products });
+    // A forced refresh must not be answered — or stored — by the CDN.
+    res.setHeader(
+      'Cache-Control',
+      wantsRefresh ? 'no-store' : 's-maxage=3600, stale-while-revalidate=86400',
+    );
+    return res.status(200).json({ products, refreshed: refreshAllowed });
   } catch (err) {
     console.error('api/products error:', err);
     return res.status(500).json({ error: err.message });

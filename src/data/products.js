@@ -1,6 +1,4 @@
-import productImagesMap from './productImages.json';
-import fallbackCatalog from './productCatalog.json';
-
+import { cleanDescription, cleanProductName, stockLimit } from '../utils/storefront';
 const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
 
 const KNOWN_BRANDS = [
@@ -35,21 +33,21 @@ function detectCategory(text) {
   return 'Accessories';
 }
 
-function getCleanTitle(p) {
-  const name = (p.name || '').trim();
-  const desc = (p.description || '').trim();
-  if ((/^\d+$/.test(name) || name.length <= 4) && desc.length > 3) {
-    const firstLine = desc.split('\n')[0]
-      .replace(/office price.*$/i, '')
-      .replace(/price.*$/i, '')
-      .replace(/\(\d+[\$\s]*\)/g, '')
-      .trim();
-    if (firstLine && !/^\d+$/.test(firstLine)) return firstLine;
-  }
-  return name || desc.split('\n')[0] || 'Product';
-}
+// These two JSON files are ~1MB together. Loading them on demand keeps them out
+// of the initial bundle — the catalog in particular is only needed if the API is down.
+let imagesMapPromise = null;
+const loadProductImages = () => {
+  imagesMapPromise ??= import('./productImages.json').then((module) => module.default);
+  return imagesMapPromise;
+};
 
-const normalizeProduct = (product, index = 0) => {
+let fallbackCatalogPromise = null;
+const loadFallbackCatalog = () => {
+  fallbackCatalogPromise ??= import('./productCatalog.json').then((module) => module.default);
+  return fallbackCatalogPromise;
+};
+
+const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
   const id = String(product.id ?? product.zoho_item_id ?? index);
   const zohoId = product.zoho_item_id ? String(product.zoho_item_id) : null;
   const fullText = `${product.name || ''} ${product.description || ''}`.trim();
@@ -63,7 +61,7 @@ const normalizeProduct = (product, index = 0) => {
   const brand = product.brand && product.brand !== '' ? product.brand : detectBrand(fullText);
   const rawCat = product.category || '';
   const category = rawCat && rawCat.toLowerCase() !== 'goods' ? rawCat : detectCategory(fullText);
-  const cleanName = getCleanTitle(product);
+  const cleanName = cleanProductName(product);
 
   return {
     id: id,
@@ -74,20 +72,40 @@ const normalizeProduct = (product, index = 0) => {
     brand: brand,
     price: Number(product.price ?? 0),
     wholesale_price: product.wholesale_price != null ? Number(product.wholesale_price) : null,
-    description: product.description ?? '',
+    description: cleanDescription(product.description),
     images: existingImages,
     featured: Boolean(product.featured),
+    stock_on_hand: product.stock_on_hand != null ? Number(product.stock_on_hand) : null,
+    in_stock: stockLimit(product) === 0 ? false : (product.in_stock === true || Number(product.stock_on_hand) > 0 ? true : null),
     order_index: product.order_index ?? index,
   };
 };
 
-export const getAllProducts = async () => {
+/** Turns a product into a stable, readable URL slug: "logitech-b100-mouse-12345". */
+export const toProductSlug = (product) => {
+  const base = String(product?.name ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 70);
+
+  return base ? `${base}-${product.id}` : String(product.id);
+};
+
+/** The id is the trailing segment of the slug, so renamed products keep working. */
+export const productIdFromSlug = (slug) => {
+  const parts = String(slug ?? '').split('-');
+  return parts[parts.length - 1] || '';
+};
+
+const fetchProducts = async ({ refresh = false } = {}) => {
   try {
-    const res = await fetch('/api/products');
+    const res = await fetch(refresh ? '/api/products?refresh=1' : '/api/products', { signal: AbortSignal.timeout(12000) });
     if (res.ok) {
       const { products } = await res.json();
       if (Array.isArray(products) && products.length > 0) {
-        return products.map((p, i) => normalizeProduct(p, i));
+        const imagesMap = await loadProductImages();
+        return products.map((p, i) => normalizeProduct(p, i, imagesMap));
       }
     }
   } catch (err) {
@@ -95,7 +113,30 @@ export const getAllProducts = async () => {
   }
 
   // Fallback to built-in product catalog
-  return (fallbackCatalog ?? []).map((p, i) => normalizeProduct(p, i));
+  const [fallbackCatalog, imagesMap] = await Promise.all([loadFallbackCatalog(), loadProductImages()]);
+  return (fallbackCatalog ?? []).map((p, i) => normalizeProduct(p, i, imagesMap));
+};
+
+let productCache = null;
+let productCacheAt = 0;
+let pendingProducts = null;
+export const getAllProducts = async ({ refresh = false } = {}) => {
+  if (!refresh && productCache && Date.now() - productCacheAt < 60_000) return productCache;
+  if (pendingProducts) return pendingProducts;
+  pendingProducts = fetchProducts({ refresh }).then((products) => {
+    productCache = products;
+    productCacheAt = Date.now();
+    return products;
+  }).finally(() => { pendingProducts = null; });
+  return pendingProducts;
+};
+
+export const getProductBySlug = async (slug) => {
+  const id = productIdFromSlug(slug);
+  if (!id) return null;
+
+  const products = await getAllProducts();
+  return products.find((product) => String(product.id) === id) ?? null;
 };
 
 export const saveProduct = async () => {

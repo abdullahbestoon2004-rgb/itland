@@ -1,11 +1,24 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function ProtectedRoute() {
-    const isAuthenticated = localStorage.getItem('logi_admin_auth') === 'true';
+    const { session, isAdmin, isLoading } = useAuth();
 
-    if (!isAuthenticated) {
+    if (isLoading) {
+        return (
+            <div className="auth-loading">
+                <p>Checking access…</p>
+            </div>
+        );
+    }
+
+    if (!session) {
         return <Navigate to="/admin/login" replace />;
+    }
+
+    if (!isAdmin) {
+        return <Navigate to="/admin/login" replace state={{ denied: true }} />;
     }
 
     return <Outlet />;

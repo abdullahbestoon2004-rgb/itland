@@ -171,3 +171,44 @@
   }
 }
 
+
+.stock-badge, .product-stock { font-size: .8rem; font-weight: 700; }
+.stock-badge { padding: .65rem 1rem; border-radius: 12px; background: var(--logi-surface); }
+.out { color: #ff9ca8; }
+.product-stock { margin-top: .5rem; color: var(--text-secondary); }
+.product-stock.out { color: #ff9ca8; }
+.order-note { font-size: .88rem; color: var(--text-secondary); margin: .7rem 0; line-height: 1.6; }
+.help-inline-link { display: inline-block; color: var(--logi-cyan); text-decoration: underline; margin: .7rem 0; }
+.delivery-banner { padding: 1rem; text-align: center; color: var(--text-secondary); border-bottom: 1px solid var(--logi-border); }
+.newsletter-signup { min-width: 0; width: 100%; }
+.newsletter-status { margin-top: .75rem; overflow-wrap: anywhere; }
+.newsletter-status.error { color: #ff9ca8; }
+.newsletter-status.success { color: #8ee8b0; }
+.btn:disabled { cursor: not-allowed; opacity: .5; transform: none; }
+:focus-visible { outline: 2px solid var(--logi-cyan); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+.currency-note { padding: .5rem 1rem; color: var(--text-secondary); font-size: .8rem; text-align: center; }
+.currency-note summary { cursor: pointer; }
+.currency-note a { color: var(--logi-cyan); text-decoration: underline; }
+.iqd-price { unicode-bidi: isolate; }
+html[lang="ar"] {
+  --font-base: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+  --font-heading: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+}
+html[lang="ckb"] {
+  --font-base: 'Noto Sans Arabic', sans-serif;
+  --font-heading: 'Noto Sans Arabic', sans-serif;
+}
+[dir="rtl"] body { line-height: 1.85; }
+[dir="rtl"] :is(h1, h2, h3, h4, h5, h6) { line-height: 1.5; font-weight: 700; letter-spacing: 0; }
+[dir="rtl"] :is(.btn, .nav-link, .product-category, .product-brand-tag, .details-category, .filter-title, .help-eyebrow) { letter-spacing: 0; }
+[dir="rtl"] :is(input, textarea, select) { font-family: var(--font-base); }
+[dir="rtl"] .home-hero-title { line-height: 1.45; }
+[dir="rtl"] .home-hero-subtitle { line-height: 1.9; }
+.language-name:lang(ar) { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+.language-name:lang(ckb) { font-family: 'Noto Sans Arabic', sans-serif; }
+[dir="rtl"] .section-title::after { right: 0; left: auto; }
+[dir="rtl"] .product-breadcrumb, [dir="rtl"] .details-description, [dir="rtl"] .shop-sidebar, [dir="rtl"] .footer-column { text-align: start; }
+[dir="rtl"] .cart-drawer { direction: rtl; }

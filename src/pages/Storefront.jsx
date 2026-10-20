@@ -1,3 +1,6 @@
+import usePageMeta from '../hooks/usePageMeta';
+import { useLocale } from '../context/LocaleContext';
+import { homeProducts } from '../utils/storefront';
 import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
@@ -9,45 +12,48 @@ import NewsletterCTA from '../components/NewsletterCTA';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
-
-
 export default function Storefront() {
-    const { handleAddToCart } = useOutletContext();
-    const [products, setProducts] = useState([]);
-    const [productsError, setProductsError] = useState('');
-    const [selectedImageProduct, setSelectedImageProduct] = useState(null);
-
-    useEffect(() => {
-        let ignore = false;
-
-        const loadProducts = async () => {
-            try {
-                const nextProducts = await getAllProducts();
-
-                if (!ignore) {
-                    setProducts(nextProducts);
-                    setProductsError('');
-                }
-            } catch (error) {
-                console.error(error);
-
-                if (!ignore) {
-                    setProductsError('Unable to load products right now.');
-                }
-            }
-        };
-
-        loadProducts();
-
-        return () => {
-            ignore = true;
-        };
-    }, []);
-
-    const bestSellers = products.filter((product) => product.featured);
-
-    return (
-        <div className="storefront-page">
+  usePageMeta({
+    title: 'Computer Accessories & Gaming Gear',
+    description: 'Shop computer accessories and gaming gear. Delivery across all Iraq and Kurdistan. Order through WhatsApp.',
+    path: '/'
+  });
+  const {
+    t
+  } = useLocale();
+  const {
+    handleAddToCart
+  } = useOutletContext();
+  const [products, setProducts] = useState([]);
+  const [productsError, setProductsError] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [selectedImageProduct, setSelectedImageProduct] = useState(null);
+  useEffect(() => {
+    let ignore = false;
+    const loadProducts = async () => {
+      try {
+        const nextProducts = await getAllProducts();
+        if (!ignore) {
+          setProducts(nextProducts);
+          setProductsError('');
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error(error);
+        if (!ignore) {
+          setProductsError('Unable to load products right now.');
+          setLoading(false);
+        }
+      }
+    };
+    loadProducts();
+    return () => {
+      ignore = true;
+    };
+  }, []);
+  const selection = homeProducts(products);
+  const bestSellers = selection.products;
+  return <div className="storefront-page">
             <HomeHero />
 
             <FeaturedCategories />
@@ -55,33 +61,20 @@ export default function Storefront() {
             <section id="best-sellers" className="products-section">
                 <div className="section-container">
                     <div className="section-header section-header-row">
-                        <h2 className="section-title">Best Sellers</h2>
-                        <Link to="/products" className="view-all-link">
-                            View All Products &rarr;
-                        </Link>
+                        <h2 className="section-title">{selection.featured ? t("Best Sellers") : t("Featured Products")}</h2>
+                        <Link to="/products" className="view-all-link">{t("View All Products \u2192")}
+
+            </Link>
                     </div>
 
-                    {productsError && (
-                        <div className="no-results">
+                    {productsError && <div className="no-results">
                             <p>{productsError}</p>
-                        </div>
-                    )}
+                        </div>}
 
                     <div className="products-grid">
-                        {bestSellers.length > 0 ? (
-                            bestSellers.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    onAddToCart={handleAddToCart}
-                                    onImageClick={setSelectedImageProduct}
-                                />
-                            ))
-                        ) : (
-                            <div className="no-results">
-                                <p>No best sellers available.</p>
-                            </div>
-                        )}
+                        {bestSellers.length > 0 ? bestSellers.map(product => <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} onImageClick={setSelectedImageProduct} />) : <div className="no-results">
+                                <p>{loading ? t("Loading products\u2026") : 'Browse our catalog or ask our team about product availability on WhatsApp.'}</p>
+                            </div>}
                     </div>
                 </div>
             </section>
@@ -91,12 +84,7 @@ export default function Storefront() {
             <CustomerReviews />
             <NewsletterCTA />
 
-            <ProductDetailsModal
-                key={selectedImageProduct?.id ?? 'no-product'}
-                product={selectedImageProduct}
-                onClose={() => setSelectedImageProduct(null)}
-                onAddToCart={handleAddToCart}
-            />
-        </div>
-    );
+            <ProductDetailsModal key={selectedImageProduct?.id ?? 'no-product'} product={selectedImageProduct} onClose={() => setSelectedImageProduct(null)} onAddToCart={handleAddToCart} />
+
+        </div>;
 }

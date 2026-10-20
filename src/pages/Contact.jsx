@@ -7,6 +7,7 @@ import {
     Send,
     ArrowRight,
 } from 'lucide-react';
+import { submitContactMessage } from '../data/messages';
 import './Contact.css';
 
 const CONTACT_CARDS = [
@@ -44,20 +45,33 @@ const CONTACT_CARDS = [
 export default function Contact() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [sendError, setSendError] = useState('');
 
     const handleChange = (e) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setSubmitted(false), 4000);
+        setIsSending(true);
+        setSendError('');
+        setSubmitted(false);
+
+        try {
+            await submitContactMessage(formData);
+            setSubmitted(true);
+            setFormData({ name: '', email: '', message: '' });
+        } catch (error) {
+            setSendError(error.message);
+        } finally {
+            setIsSending(false);
+        }
     };
 
     return (
         <div className="contact-page">
+            <p className="delivery-banner">Delivery across all Iraq and Kurdistan. Ask on WhatsApp for fees and delivery times.</p>
             <a
                 href="https://wa.me/9647504888570"
                 target="_blank"
@@ -121,8 +135,14 @@ export default function Contact() {
                         </div>
 
                         {submitted && (
-                            <div className="contact-success-banner" role="alert">
-                                Message sent! We&apos;ll be in touch shortly.
+                            <div className="contact-success-banner" role="status">
+                                Message received! We&apos;ll be in touch shortly.
+                            </div>
+                        )}
+
+                        {sendError && (
+                            <div className="contact-error-banner" role="alert">
+                                {sendError}
                             </div>
                         )}
 
@@ -178,8 +198,9 @@ export default function Contact() {
                                 type="submit"
                                 className="btn btn-primary contact-submit-btn"
                                 id="contact-send-btn"
+                                disabled={isSending}
                             >
-                                Send Message <Send size={16} />
+                                {isSending ? 'Sending…' : 'Send Message'} <Send size={16} />
                             </button>
                         </form>
                     </div>

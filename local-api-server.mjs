@@ -1,3 +1,4 @@
+import currencyHandler from './api/currency.js';
 // Local API server — mirrors the Vercel serverless functions for development.
 // Run alongside Vite: node local-api-server.mjs
 // Vite proxies /api/* to this server (see vite.config.js).
@@ -120,7 +121,7 @@ function normalizeItem(item, index) {
     featured: getCustomField(item, 'Featured')?.toLowerCase() === 'true',
     order_index: index,
     stock_on_hand: stockOnHand,
-    in_stock: stockOnHand === null || stockOnHand > 0,
+    in_stock: stockOnHand === null ? null : stockOnHand > 0,
   };
 }
 
@@ -132,6 +133,8 @@ function json(res, status, body) {
 // ── Server ───────────────────────────────────────────────────────────────────
 http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
+
+  if (url.pathname === '/api/currency') return currencyHandler(req, res);
 
   if (url.pathname === '/api/products') {
     try {
@@ -188,6 +191,6 @@ http.createServer(async (req, res) => {
   }
 
   json(res, 404, { error: 'Not found' });
-}).listen(PORT, () => {
+}).listen(PORT, '127.0.0.1', () => {
   console.log(`✓ Local API server running on http://localhost:${PORT}`);
 });

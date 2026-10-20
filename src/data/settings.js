@@ -9,16 +9,18 @@ const LEGACY_PROMO_BANNER_IMAGES = [
     'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
 ];
 
+const LEGACY_CATEGORY_IMAGES = new Set(['https://resource.logitechg.com/w_776,h_437,ar_16:9,c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/ghub-update/2025/g-hub-tips-and-tricks-5.jpg', 'https://www.cnet.com/a/img/resize/f2ae5397b2da3754b3a3ceccd051452d6e102a71/hub/2025/02/25/f0d07227-6eaa-49e3-bf8a-09fec28c1ac3/logitech-pop-icon-keys.jpg?auto=webp&fit=crop&height=1200&width=1200', 'https://media.wired.com/photos/65394d5de1bb680c1c7a7a11/master/w_1600%2Cc_limit/Logitech-POP-Mice-Gear.jpg', 'https://store.alnabaa.com/cdn/shop/files/1684885584_1763226.jpg?v=1716797196']);
+
 export const defaultSettings = {
     promoBannerVisible: true,
     promoBannerTitle: 'Up to 30% OFF Gaming Accessories',
     promoBannerSubtitle: 'Level up your gameplay with premium gear at unbeatable prices.',
     promoBannerImage: 'https://images.unsplash.com/photo-1717283413190-d4551453b92a?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000',
     featuredCategories: [
-        { name: 'Gaming Gear', image: 'https://resource.logitechg.com/w_776,h_437,ar_16:9,c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/ghub-update/2025/g-hub-tips-and-tricks-5.jpg', path: '/products' },
-        { name: 'Keyboards', image: 'https://www.cnet.com/a/img/resize/f2ae5397b2da3754b3a3ceccd051452d6e102a71/hub/2025/02/25/f0d07227-6eaa-49e3-bf8a-09fec28c1ac3/logitech-pop-icon-keys.jpg?auto=webp&fit=crop&height=1200&width=1200', path: '/products' },
-        { name: 'Mice', image: 'https://media.wired.com/photos/65394d5de1bb680c1c7a7a11/master/w_1600%2Cc_limit/Logitech-POP-Mice-Gear.jpg', path: '/products' },
-        { name: 'Headsets', image: 'https://store.alnabaa.com/cdn/shop/files/1684885584_1763226.jpg?v=1716797196', path: '/products' },
+        { name: 'Gaming Gear', image: '/images/categories/gaming.webp', path: '/products' },
+        { name: 'Keyboards', image: '/images/categories/keyboards.webp', path: '/products' },
+        { name: 'Mice', image: '/images/categories/mice.webp', path: '/products' },
+        { name: 'Headsets', image: '/images/categories/headsets.webp', path: '/products' },
     ],
 };
 
@@ -42,7 +44,9 @@ const normalizeFeaturedCategory = (category, index) => {
 
     return {
         name: category?.name || fallbackCategory.name,
-        image: category?.image || fallbackCategory.image,
+        image: !category?.image || LEGACY_CATEGORY_IMAGES.has(category.image)
+            ? (defaultSettings.featuredCategories.find((item) => item.name === category?.name)?.image || fallbackCategory.image)
+            : category.image,
         path: category?.path || fallbackCategory.path,
     };
 };
@@ -169,6 +173,13 @@ export const loadSettings = async () => {
         }
 
         if (!data) {
+            // Only an admin may seed the row — row level security rejects anonymous
+            // writes, so visitors just fall back to the defaults instead of erroring.
+            const { data: sessionData } = await supabase.auth.getSession();
+            if (!sessionData?.session) {
+                return localSettings;
+            }
+
             try {
                 const createdSettings = await upsertRemoteSettings(localSettings);
                 return cacheSettings(createdSettings);

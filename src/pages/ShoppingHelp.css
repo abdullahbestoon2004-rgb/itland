@@ -1,0 +1,12 @@
+.shopping-help { padding: 2.5rem 1.25rem 4rem; max-width: 900px; }
+.help-nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+.help-nav a { padding: .5rem .75rem; border: 1px solid var(--logi-border); border-radius: 10px; }
+.help-nav a[aria-current] { color: var(--logi-cyan); border-color: var(--logi-cyan); }
+.help-eyebrow { color: var(--logi-cyan); font-weight: 700; margin-bottom: .75rem; }
+.shopping-help h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+.help-intro { font-size: 1.15rem; margin: 1.5rem 0 2rem; color: var(--text-secondary); }
+.help-sections { display: grid; gap: 1.25rem; margin-bottom: 2rem; }
+.help-sections section { padding: 1.5rem; border: 1px solid var(--logi-border); background: var(--logi-surface); border-radius: 14px; }
+.help-sections h2 { font-size: 1.2rem; margin-bottom: .75rem; }
+.help-sections p, .help-contact { color: var(--text-secondary); }
+.help-contact { margin-top: 1rem; }

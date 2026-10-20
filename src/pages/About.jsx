@@ -19,7 +19,7 @@ const WHY_CARDS = [
     {
         icon: <Zap size={32} />,
         title: 'Fast Delivery',
-        text: 'Quick and reliable service across Iraq. Your gear reaches you without the long wait.',
+        text: 'Delivery across all Iraq and Kurdistan. Confirm delivery fees and estimated arrival times on WhatsApp.',
         id: 'wcu-delivery',
     },
     {
@@ -31,7 +31,7 @@ const WHY_CARDS = [
     {
         icon: <Shield size={32} />,
         title: 'Warranty & Trust',
-        text: 'Every product comes with a guarantee. We stand behind what we sell.',
+        text: 'Ask our team to confirm the warranty coverage and return terms for your exact product before ordering.',
         id: 'wcu-warranty',
     },
 ];

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { LogOut, MonitorPlay, RefreshCw } from 'lucide-react';
+import { Check, LogOut, MonitorPlay, RefreshCw, Trash2 } from 'lucide-react';
 import { getAllProducts } from '../data/products';
 import { saveSettings } from '../data/settings';
+import { getContactMessages, setMessageHandled } from '../data/messages';
+import { deleteReview, getAllReviews, setReviewApproval } from '../data/reviews';
+import { useAuth } from '../context/AuthContext';
 import useStoreSettings from '../hooks/useStoreSettings';
 import './AdminDashboard.css';
 
@@ -16,7 +19,13 @@ export default function AdminDashboard() {
     const [settingsSaveError, setSettingsSaveError] = useState('');
     const [settingsSuccessMessage, setSettingsSuccessMessage] = useState('');
 
+    const [messages, setMessages] = useState([]);
+    const [messagesError, setMessagesError] = useState('');
+    const [reviews, setReviews] = useState([]);
+    const [reviewsError, setReviewsError] = useState('');
+
     const navigate = useNavigate();
+    const { user, signOut } = useAuth();
     const { settings, setSettings, settingsError: settingsLoadError, isLoadingSettings } = useStoreSettings();
 
     useEffect(() => {
@@ -29,8 +38,58 @@ export default function AdminDashboard() {
         return () => { ignore = true; };
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem('logi_admin_auth');
+    useEffect(() => {
+        let ignore = false;
+
+        getContactMessages()
+            .then((data) => { if (!ignore) setMessages(data); })
+            .catch(() => { if (!ignore) setMessagesError('Unable to load messages.'); });
+
+        getAllReviews()
+            .then((data) => { if (!ignore) setReviews(data); })
+            .catch(() => { if (!ignore) setReviewsError('Unable to load reviews.'); });
+
+        return () => { ignore = true; };
+    }, []);
+
+    const handleToggleHandled = async (message) => {
+        const next = !message.handled;
+        setMessages((prev) => prev.map((m) => (m.id === message.id ? { ...m, handled: next } : m)));
+
+        try {
+            await setMessageHandled(message.id, next);
+        } catch {
+            setMessagesError('Could not update that message.');
+            setMessages((prev) => prev.map((m) => (m.id === message.id ? { ...m, handled: !next } : m)));
+        }
+    };
+
+    const handleToggleApproval = async (review) => {
+        const next = !review.approved;
+        setReviews((prev) => prev.map((r) => (r.id === review.id ? { ...r, approved: next } : r)));
+
+        try {
+            await setReviewApproval(review.id, next);
+        } catch {
+            setReviewsError('Could not update that review.');
+            setReviews((prev) => prev.map((r) => (r.id === review.id ? { ...r, approved: !next } : r)));
+        }
+    };
+
+    const handleDeleteReview = async (review) => {
+        const previous = reviews;
+        setReviews((prev) => prev.filter((r) => r.id !== review.id));
+
+        try {
+            await deleteReview(review.id);
+        } catch {
+            setReviewsError('Could not delete that review.');
+            setReviews(previous);
+        }
+    };
+
+    const handleLogout = async () => {
+        await signOut();
         navigate('/admin/login');
     };
 
@@ -38,7 +97,7 @@ export default function AdminDashboard() {
         setIsSyncing(true);
         setSyncMessage('');
         try {
-            const data = await getAllProducts();
+            const data = await getAllProducts({ refresh: true });
             setProducts(data);
             setSyncMessage(`Loaded ${data.length} products from Zoho Books.`);
             setProductsError('');
@@ -93,6 +152,7 @@ export default function AdminDashboard() {
                     <span className="logo-text">ADMIN<span className="logo-accent">PANEL</span></span>
                 </div>
                 <div className="header-actions">
+                    {user?.email && <span className="admin-identity">{user.email}</span>}
                     <Link to="/" className="view-store-link">View Storefront</Link>
                     <button className="btn btn-secondary logout-btn" onClick={handleLogout}>
                         <LogOut size={16} /> Logout
@@ -128,10 +188,16 @@ export default function AdminDashboard() {
                         Products
                     </button>
                     <button
-                        className={`dashboard-tab ${activeTab === 'wholesale' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('wholesale')}
+                        className={`dashboard-tab ${activeTab === 'messages' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('messages')}
                     >
-                        Wholesale Clients
+                        Messages{messages.some((m) => !m.handled) ? ` (${messages.filter((m) => !m.handled).length})` : ''}
+                    </button>
+                    <button
+                        className={`dashboard-tab ${activeTab === 'reviews' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('reviews')}
+                    >
+                        Reviews{reviews.some((r) => !r.approved) ? ` (${reviews.filter((r) => !r.approved).length})` : ''}
                     </button>
                     <button
                         className={`dashboard-tab ${activeTab === 'settings' ? 'active' : ''}`}
@@ -191,25 +257,85 @@ export default function AdminDashboard() {
                     </>
                 )}
 
-                {activeTab === 'wholesale' && (
-                    <div className="wholesale-admin-section">
-                        <h2 className="dashboard-subtitle">Wholesale Clients</h2>
-                        <div style={{ background: 'rgba(0,184,252,0.06)', border: '1px solid rgba(0,184,252,0.2)', borderRadius: '8px', padding: '1.5rem', lineHeight: 1.7 }}>
-                            <p style={{ color: 'var(--text-primary)', marginBottom: '0.75rem', fontWeight: 600 }}>
-                                How to add or remove wholesale clients:
-                            </p>
-                            <ol style={{ color: 'var(--text-secondary)', paddingLeft: '1.25rem', margin: 0 }}>
-                                <li>Go to your <strong style={{ color: 'var(--text-primary)' }}>Vercel project → Settings → Environment Variables</strong></li>
-                                <li>Find (or create) the variable named <code style={{ background: 'rgba(255,255,255,0.08)', padding: '1px 5px', borderRadius: 3 }}>WHOLESALE_CLIENTS</code></li>
-                                <li>Set its value to a JSON array like this:
-                                    <pre style={{ background: 'rgba(0,0,0,0.3)', padding: '0.75rem', borderRadius: '6px', marginTop: '0.5rem', fontSize: '0.8rem', overflowX: 'auto', color: '#a3e635' }}>{`[
-  {"email":"client@company.com","password":"theirpassword","name":"John Smith","company":"Acme Corp"},
-  {"email":"other@biz.com","password":"anotherpass","name":"Jane Doe","company":"Biz LLC"}
-]`}</pre>
-                                </li>
-                                <li>Redeploy the project — clients can then log in at <strong style={{ color: 'var(--text-primary)' }}>/wholesale/login</strong></li>
-                            </ol>
-                        </div>
+                {activeTab === 'messages' && (
+                    <div className="dashboard-panel">
+                        <h2 className="dashboard-subtitle">Contact Messages</h2>
+                        {messagesError && <div className="empty-state" style={{ marginBottom: '1rem' }}>{messagesError}</div>}
+
+                        {messages.length === 0 ? (
+                            <div className="empty-state">No messages yet.</div>
+                        ) : (
+                            <div className="message-list">
+                                {messages.map((message) => (
+                                    <article key={message.id} className={`message-card ${message.handled ? 'handled' : ''}`}>
+                                        <header className="message-head">
+                                            <div>
+                                                <strong className="message-name">{message.name}</strong>
+                                                <a href={`mailto:${message.email}`} className="message-email">{message.email}</a>
+                                            </div>
+                                            <time className="message-date" dateTime={message.created_at}>
+                                                {new Date(message.created_at).toLocaleString()}
+                                            </time>
+                                        </header>
+                                        <p className="message-body">{message.message}</p>
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary message-action"
+                                            onClick={() => handleToggleHandled(message)}
+                                        >
+                                            <Check size={14} /> {message.handled ? 'Mark as new' : 'Mark as handled'}
+                                        </button>
+                                    </article>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {activeTab === 'reviews' && (
+                    <div className="dashboard-panel">
+                        <h2 className="dashboard-subtitle">Customer Reviews</h2>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>
+                            Reviews are hidden from the storefront until you approve them.
+                        </p>
+                        {reviewsError && <div className="empty-state" style={{ marginBottom: '1rem' }}>{reviewsError}</div>}
+
+                        {reviews.length === 0 ? (
+                            <div className="empty-state">No reviews submitted yet.</div>
+                        ) : (
+                            <div className="message-list">
+                                {reviews.map((review) => (
+                                    <article key={review.id} className={`message-card ${review.approved ? 'handled' : ''}`}>
+                                        <header className="message-head">
+                                            <div>
+                                                <strong className="message-name">{review.name}</strong>
+                                                <span className="message-email">{'★'.repeat(review.rating)}</span>
+                                            </div>
+                                            <time className="message-date" dateTime={review.created_at}>
+                                                {new Date(review.created_at).toLocaleString()}
+                                            </time>
+                                        </header>
+                                        <p className="message-body">{review.text}</p>
+                                        <div className="review-actions">
+                                            <button
+                                                type="button"
+                                                className="btn btn-secondary message-action"
+                                                onClick={() => handleToggleApproval(review)}
+                                            >
+                                                <Check size={14} /> {review.approved ? 'Unpublish' : 'Approve'}
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="btn btn-secondary message-action danger"
+                                                onClick={() => handleDeleteReview(review)}
+                                            >
+                                                <Trash2 size={14} /> Delete
+                                            </button>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 )}
 

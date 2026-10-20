@@ -196,3 +196,29 @@
         align-self: stretch;
     }
 }
+
+.reviews-empty {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--space-8);
+}
+
+.feedback-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.feedback-status.success {
+    color: #4ade80;
+}
+
+.feedback-status.error {
+    color: #f87171;
+}
+
+.feedback-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

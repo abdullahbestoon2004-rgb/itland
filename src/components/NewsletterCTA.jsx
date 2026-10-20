@@ -1,53 +1,33 @@
-﻿import React, { useState } from 'react';
-import { MessageCircle, Send } from 'lucide-react';
+import { useLocale } from '../context/LocaleContext';
+import React from 'react';
+import { MessageCircle } from 'lucide-react';
+import NewsletterForm from './NewsletterForm';
+import { whatsappLink } from '../utils/storefront';
 import './NewsletterCTA.css';
-
 export default function NewsletterCTA() {
-    const [email, setEmail] = useState('');
-
-    const handleSubscribe = (event) => {
-        event.preventDefault();
-        alert(`Thanks for subscribing with ${email}!`);
-        setEmail('');
-    };
-
-    return (
-        <section className="newsletter-cta">
+  const {
+    t
+  } = useLocale();
+  return <section className="newsletter-cta">
             <div className="section-container cta-container">
                 <div className="cta-content">
-                    <h2>Join the Elite Setup</h2>
-                    <p>Subscribe for exclusive drops or join our VIP WhatsApp community.</p>
+                    <h2>{t("Join the Elite Setup")}</h2>
+                    <p>{t("Subscribe for new products and offers, or chat with our team on WhatsApp.")}</p>
                 </div>
 
                 <div className="cta-actions">
-                    <form onSubmit={handleSubscribe} className="newsletter-form">
-                        <input
-                            type="email"
-                            placeholder="Enter your email address"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            required
-                        />
-                        <button type="submit" className="btn btn-primary">
-                            <Send size={18} />
-                        </button>
-                    </form>
+                    <NewsletterForm />
 
                     <div className="cta-divider">
-                        <span>OR</span>
+                        <span>{t("OR")}</span>
                     </div>
 
-                    <a
-                        href="https://wa.me/9647502045634"
-                        className="btn whatsapp-btn"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <MessageCircle size={20} />
-                        Join WhatsApp
-                    </a>
+                    <a href={whatsappLink()} className="btn whatsapp-btn" target="_blank" rel="noreferrer">
+
+                        <MessageCircle size={20} />{t("Chat on WhatsApp")}
+
+          </a>
                 </div>
             </div>
-        </section>
-    );
+        </section>;
 }

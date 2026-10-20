@@ -212,3 +212,17 @@
         padding-right: var(--space-4);
     }
 }
+
+.order-details { margin-top: 1.5rem; }
+.order-details h3 { font-size: 1rem; }
+.order-details h3 span, .order-details p { font-size: .85rem; color: var(--text-secondary); font-weight: 400; }
+.order-details label { display: grid; gap: .4rem; font-size: .9rem; margin-top: 1rem; }
+.order-details input, .order-details textarea { width: 100%; padding: .65rem; background: var(--logi-surface); border: 1px solid var(--logi-border); border-radius: 8px; color: var(--text-primary); font: inherit; }
+.order-details textarea { resize: vertical; }
+.quantity-controls button, .remove-btn, .close-btn { min-width: 44px; min-height: 44px; }
+.cart-item-details { min-width: 0; }
+.cart-item-details h4 { overflow-wrap: anywhere; }
+.cart-item-image { flex-shrink: 0; }
+.cart-footer { max-height: 50dvh; overflow-y: auto; }
+@media (max-height: 600px) { .cart-footer .order-note { font-size: .75rem; } }
+.order-details h3 span { margin-inline-start: .4rem; }

@@ -31,8 +31,10 @@
 .category-bg {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
+    background-color: #080f1c;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
     transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 1;
 }
