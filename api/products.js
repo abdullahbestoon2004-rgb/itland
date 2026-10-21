@@ -1,152 +1,48 @@
-const ZOHO_AUTH_DOMAIN = process.env.ZOHO_AUTH_DOMAIN ?? 'https://accounts.zoho.com';
-const ZOHO_API_DOMAIN = process.env.ZOHO_API_DOMAIN ?? 'https://www.zohoapis.com';
-const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
-const PER_PAGE = 200;
+import { CatalogUnavailableError, getCatalog, publicProduct } from '../server/zoho.js';
+import { bearerToken, isAdminToken, verifyWholesaleToken } from '../server/access.js';
 
-// ── Module-level caches (survive across requests on the same warm instance) ──
-let cachedToken = null;
-let tokenExpiresAt = 0;
-
-let cachedProducts = null;
-let productsExpiresAt = 0;
-const PRODUCTS_TTL_MS = 60 * 60 * 1000; // 1 hour
-
-// A forced refresh bypasses the cache; throttled so it can't be used to hammer
-// Zoho's rate limit from the open internet.
+// A forced refresh bypasses the cache; admin-only and throttled so it can't be
+// used to hammer Zoho's rate limit.
 let lastForcedRefreshAt = 0;
 const FORCED_REFRESH_COOLDOWN_MS = 30 * 1000;
-
-async function getAccessToken() {
-  if (cachedToken && Date.now() < tokenExpiresAt) return cachedToken;
-
-  const res = await fetch(`${ZOHO_AUTH_DOMAIN}/oauth/v2/token`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      refresh_token: process.env.ZOHO_REFRESH_TOKEN,
-      client_id: process.env.ZOHO_CLIENT_ID,
-      client_secret: process.env.ZOHO_CLIENT_SECRET,
-      grant_type: 'refresh_token',
-    }).toString(),
-  });
-
-  const data = await res.json();
-  if (!data.access_token) throw new Error(`Zoho token error: ${JSON.stringify(data)}`);
-
-  cachedToken = data.access_token;
-  tokenExpiresAt = Date.now() + ((data.expires_in ?? 3600) - 60) * 1000;
-  return cachedToken;
-}
-
-async function fetchPage(accessToken, orgId, page) {
-  const url = `${ZOHO_API_DOMAIN}/books/v3/items?organization_id=${orgId}&page=${page}&per_page=${PER_PAGE}&status=active`;
-  const res = await fetch(url, {
-    headers: { Authorization: `Zoho-oauthtoken ${accessToken}` },
-  });
-  if (!res.ok) throw new Error(`Zoho API error: HTTP ${res.status}`);
-  const data = await res.json();
-  if (data.code !== 0) throw new Error(`Zoho error: ${data.message}`);
-  return data;
-}
-
-const BATCH_SIZE = 5; // fetch 5 pages at a time in parallel
-
-async function fetchAllItems(accessToken, orgId) {
-  // Fetch page 1 to get first batch and check if there are more pages
-  const first = await fetchPage(accessToken, orgId, 1);
-  const items = [...(first.items ?? [])];
-  if (!first.page_context?.has_more_page) return items;
-
-  // Keep fetching batches of BATCH_SIZE pages in parallel until done
-  let nextPage = 2;
-  while (true) {
-    const batch = await Promise.all(
-      Array.from({ length: BATCH_SIZE }, (_, i) => fetchPage(accessToken, orgId, nextPage + i))
-    );
-    let done = false;
-    for (const page of batch) {
-      items.push(...(page.items ?? []));
-      if (!page.page_context?.has_more_page) { done = true; break; }
-    }
-    if (done) break;
-    nextPage += BATCH_SIZE;
-  }
-
-  return items;
-}
-
-function getCustomField(item, label) {
-  return (item.custom_fields ?? []).find((f) => f.label === label)?.value ?? null;
-}
-
-import productImagesMap from './productImages.json' with { type: 'json' };
-
-function normalizeItem(item, index) {
-  const wholesaleRaw = getCustomField(item, 'Wholesale Price');
-  const wholesalePrice = wholesaleRaw != null ? parseFloat(String(wholesaleRaw).replace(/[^0-9.]/g, '')) : null;
-
-  const itemId = String(item.item_id);
-  const mappedImage = productImagesMap[itemId] || productImagesMap[item.name] || null;
-  const imageUrl = getCustomField(item, 'Image URL') || mappedImage;
-  const stockOnHand = item.stock_on_hand != null ? Number(item.stock_on_hand) : null;
-
-  return {
-    id: itemId,
-    zoho_item_id: itemId,
-    name: item.name ?? '',
-    description: item.description ?? '',
-    price: Number(item.rate ?? 0),
-    wholesale_price: isNaN(wholesalePrice) ? null : wholesalePrice,
-    category: item.product_type ?? 'Accessories',
-    brand: getCustomField(item, 'Brand') ?? '',
-    images: imageUrl ? [imageUrl] : [PLACEHOLDER_IMAGE],
-    featured: getCustomField(item, 'Featured')?.toLowerCase() === 'true',
-    order_index: index,
-    stock_on_hand: stockOnHand,
-    in_stock: stockOnHand === null ? null : stockOnHand > 0,
-  };
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const orgId = process.env.ZOHO_ORG_ID;
-  if (!orgId) return res.status(500).json({ error: 'ZOHO_ORG_ID is not set' });
-  if (!process.env.ZOHO_REFRESH_TOKEN) {
-    return res.status(500).json({ error: 'ZOHO_REFRESH_TOKEN is not set.' });
+  // The public catalog never includes wholesale prices. ?view=wholesale (signed
+  // wholesale session) and ?view=admin (Supabase admin) do, and are never cached.
+  const view = req.query?.view;
+  const privileged = view === 'wholesale' || view === 'admin';
+  if (privileged) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const token = bearerToken(req);
+    const allowed = view === 'wholesale' ? Boolean(verifyWholesaleToken(token)) : await isAdminToken(token);
+    if (!allowed) return res.status(401).json({ error: 'Please sign in again.' });
   }
 
-  const wantsRefresh = req.query?.refresh === '1' || req.query?.refresh === 'true';
+  const wantsRefresh = view === 'admin' && (req.query?.refresh === '1' || req.query?.refresh === 'true');
   const refreshAllowed = wantsRefresh && Date.now() - lastForcedRefreshAt > FORCED_REFRESH_COOLDOWN_MS;
+  if (refreshAllowed) lastForcedRefreshAt = Date.now();
 
   try {
-    // Serve from memory cache if still fresh (unless an allowed refresh asked for live data)
-    if (!refreshAllowed && cachedProducts && Date.now() < productsExpiresAt) {
-      res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
-      return res.status(200).json({ products: cachedProducts });
+    const { products, stale } = await getCatalog({ refresh: refreshAllowed });
+
+    if (!privileged) {
+      // A stale copy (Zoho failing) is cached briefly so the CDN retries sooner.
+      res.setHeader('Cache-Control', stale ? 's-maxage=300, stale-while-revalidate=3600' : 's-maxage=3600, stale-while-revalidate=86400');
     }
-
-    if (refreshAllowed) {
-      lastForcedRefreshAt = Date.now();
-    }
-
-    const token = await getAccessToken();
-    const items = await fetchAllItems(token, orgId);
-    const products = items.map((item, i) => normalizeItem(item, i));
-
-    cachedProducts = products;
-    productsExpiresAt = Date.now() + PRODUCTS_TTL_MS;
-
-    // A forced refresh must not be answered — or stored — by the CDN.
-    res.setHeader(
-      'Cache-Control',
-      wantsRefresh ? 'no-store' : 's-maxage=3600, stale-while-revalidate=86400',
-    );
-    return res.status(200).json({ products, refreshed: refreshAllowed });
+    return res.status(200).json({
+      products: privileged ? products : products.map(publicProduct),
+      stale,
+      ...(wantsRefresh ? { refreshed: refreshAllowed && !stale } : {}),
+    });
   } catch (err) {
-    console.error('api/products error:', err);
-    return res.status(500).json({ error: err.message });
+    if (!(err instanceof CatalogUnavailableError)) console.error('api/products error:', err);
+    // Zoho's own error text stays in the server log.
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('Retry-After', '60');
+    return res.status(503).json({ error: 'The product catalog is temporarily unavailable.' });
   }
 }

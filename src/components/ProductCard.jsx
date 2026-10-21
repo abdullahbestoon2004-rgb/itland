@@ -26,7 +26,8 @@ export default function ProductCard({
     t
   } = useLocale();
   const {
-    wholesaleClient
+    wholesaleClient,
+    wholesalePriceOf
   } = useWholesale();
   const unavailable = isOutOfStock(product);
   const displayName = getCleanProductName(product);
@@ -36,7 +37,8 @@ export default function ProductCard({
   const fallback = DEFAULT_CATEGORY_FALLBACKS[displayCategory] || DEFAULT_CATEGORY_FALLBACKS.Accessories;
   const imgSrc = !initialImage || failedImage === initialImage ? fallback : initialImage;
   const handleImgError = () => setFailedImage(initialImage);
-  const hasWholesalePrice = product.wholesale_price != null && !isNaN(product.wholesale_price) && Number(product.wholesale_price) > 0;
+  const wholesalePrice = wholesalePriceOf(product);
+  const hasWholesalePrice = wholesalePrice > 0;
   const hasRetailPrice = product.price != null && !isNaN(product.price) && Number(product.price) > 0;
 
   // Wholesale user without an explicit wholesale price must NOT have the retail price auto-assigned
@@ -60,7 +62,7 @@ export default function ProductCard({
       handleContactForPrice(e);
       return;
     }
-    const effectivePrice = wholesaleClient && hasWholesalePrice ? Number(product.wholesale_price) : Number(product.price);
+    const effectivePrice = wholesaleClient && hasWholesalePrice ? wholesalePrice : Number(product.price);
     onAddToCart({
       ...product,
       price: effectivePrice,
@@ -109,7 +111,7 @@ export default function ProductCard({
                 <div className="product-price-block">
                     {wholesaleClient ? hasWholesalePrice ? <>
                                 <span className="product-price wholesale-price">
-                                    <Price usd={product.wholesale_price} />
+                                    <Price usd={wholesalePrice} />
                                 </span>
                                 {hasRetailPrice && <span className="product-price-retail">{t("Retail:")}
               <Price usd={product.price} />

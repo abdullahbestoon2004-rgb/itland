@@ -68,12 +68,23 @@ export const normalizeSettings = (settings = {}) => {
     };
 };
 
+// The local copy is only a cache. Storage can be full (large uploaded images)
+// or blocked (private browsing), and neither may stop settings from loading or saving.
 const persistLocalSettings = (settings) => {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    try {
+        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch {
+        try {
+            localStorage.removeItem(SETTINGS_KEY);
+        } catch { /* Storage unavailable. */ }
+    }
 };
 
 const readLocalSettings = () => {
-    const data = localStorage.getItem(SETTINGS_KEY);
+    let data = null;
+    try {
+        data = localStorage.getItem(SETTINGS_KEY);
+    } catch { /* Storage unavailable. */ }
 
     if (!data) {
         const defaults = createDefaultSettings();

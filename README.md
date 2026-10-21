@@ -19,6 +19,14 @@ Server-only (set these in Vercel → Settings → Environment Variables, never w
 
 - `ZOHO_CLIENT_ID`, `ZOHO_CLIENT_SECRET`, `ZOHO_REFRESH_TOKEN`, `ZOHO_ORG_ID`
 - `ZOHO_AUTH_DOMAIN` / `ZOHO_API_DOMAIN` (only for EU/IN/AU Zoho accounts)
+- `WHOLESALE_CLIENTS` — JSON array of wholesale logins (see `.env.example`)
+- `WHOLESALE_SESSION_SECRET` (recommended) — any long random string used to sign
+  wholesale sessions; without it the Zoho client secret is used
+
+The admin dashboard's product list calls `/api/products?view=admin`, which checks
+the admin's Supabase session on the server, so the Supabase URL and publishable
+key must also be available to the serverless functions (the `VITE_` variables
+above are enough).
 
 ## 2. Database setup
 
@@ -70,9 +78,17 @@ Vercel. `vercel.json` rewrites `/sitemap.xml` to the generator in `api/sitemap.j
 ## Notes
 
 - Product content is managed in Zoho Books. The dashboard's **Refresh from Zoho**
-  button bypasses the one-hour cache; it is throttled to once every 30 seconds.
+  button bypasses the one-hour cache; it is admin-only and throttled to once every
+  30 seconds.
+- The public `/api/products` response never contains wholesale prices or internal
+  "office price" notes. Wholesale prices are returned only with a signed wholesale
+  session or an admin session (`?view=wholesale` / `?view=admin`), uncached.
+- When Zoho fails (outage or rate limit), the API keeps serving the last product
+  list it loaded and waits before asking Zoho again (30 seconds, doubling to 10
+  minutes), instead of retrying on every visit.
 - `src/data/productCatalog.json` is a built-in fallback used only when the Zoho
   API is unreachable. It is lazy-loaded so it stays out of the initial bundle.
+- The cart is saved in the browser (`localStorage`) for 7 days.
 - Reviews submitted on the storefront stay hidden until approved in the
   dashboard's Reviews tab.
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter, Routes, Route } from 'react-router-dom';
-import { WholesaleProvider } from './context/WholesaleContext';
+import WholesaleProvider from './components/WholesaleProvider';
 import { MetadataContext, PageDataContext } from './context/PageDataContext';
 import StoreLayout from './components/StoreLayout';
 import Storefront from './pages/Storefront';

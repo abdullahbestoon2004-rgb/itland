@@ -32,7 +32,8 @@ export default function ProductDetailsModal({
     snapshot
   } = useCurrency();
   const {
-    wholesaleClient
+    wholesaleClient,
+    wholesalePriceOf
   } = useWholesale();
   const [currentIndex, setCurrentIndex] = useState(0);
   const displayName = getCleanProductName(product);
@@ -62,7 +63,8 @@ export default function ProductDetailsModal({
   }, [handleNext, handlePrev, onClose, product]);
   if (!product || images.length === 0) return null;
   const unavailable = isOutOfStock(product);
-  const hasWholesalePrice = product.wholesale_price != null && !isNaN(product.wholesale_price) && Number(product.wholesale_price) > 0;
+  const wholesalePrice = wholesalePriceOf(product);
+  const hasWholesalePrice = wholesalePrice > 0;
   const hasRetailPrice = product.price != null && !isNaN(product.price) && Number(product.price) > 0;
   const isWholesaleMissingPrice = wholesaleClient && !hasWholesalePrice;
   const isContactForPrice = isWholesaleMissingPrice || !wholesaleClient && !hasRetailPrice;
@@ -73,7 +75,7 @@ export default function ProductDetailsModal({
       const inquiryType = wholesaleClient ? 'wholesale pricing' : 'pricing';
       message = `*Hello! I'm inquiring about ${inquiryType} for:*\n\n- ${displayName}\n\nPlease let me know the price!`;
     } else {
-      const activePrice = wholesaleClient && hasWholesalePrice ? Number(product.wholesale_price) : Number(product.price);
+      const activePrice = wholesaleClient && hasWholesalePrice ? wholesalePrice : Number(product.price);
       message = `*Hello! I'm interested in buying this product:*\n\n- ${displayName} - ${formatIqd(activePrice, snapshot) ?? 'Please confirm IQD price'}\n\nPlease let me know if it's available!`;
     }
     const whatsappUrl = whatsappLink(message);
@@ -86,7 +88,7 @@ export default function ProductDetailsModal({
       handleDirectWhatsAppBuy(event);
       return;
     }
-    const effectivePrice = wholesaleClient && hasWholesalePrice ? Number(product.wholesale_price) : Number(product.price);
+    const effectivePrice = wholesaleClient && hasWholesalePrice ? wholesalePrice : Number(product.price);
     onAddToCart({
       ...product,
       price: effectivePrice,
@@ -102,7 +104,7 @@ export default function ProductDetailsModal({
     }
   };
   return <div className="gallery-backdrop" onClick={handleBackdropClick}>
-            <div className="product-modal-container">
+            <div className="product-modal-container" role="dialog" aria-modal="true" aria-label={displayName}>
                 <button aria-label={t("Close product preview")} className="gallery-close" onClick={onClose}>
                     <X size={24} />
                 </button>
@@ -110,7 +112,7 @@ export default function ProductDetailsModal({
                 <div className="product-modal-content">
                     <div className="product-modal-left">
                         <div className="modal-main-image-wrapper">
-                            {images.length > 1 && <button className="modal-nav prev" onClick={event => {
+                            {images.length > 1 && <button type="button" className="modal-nav prev" aria-label={t("Previous image")} onClick={event => {
               event.stopPropagation();
               handlePrev();
             }}>
@@ -120,7 +122,7 @@ export default function ProductDetailsModal({
                             <img src={currentImageSrc} alt={`${displayName} view`} className="modal-main-image" onError={() => setFailedImage(activeImage)} />
 
 
-                            {images.length > 1 && <button className="modal-nav next" onClick={event => {
+                            {images.length > 1 && <button type="button" className="modal-nav next" aria-label={t("Next image")} onClick={event => {
               event.stopPropagation();
               handleNext();
             }}>
@@ -145,7 +147,7 @@ export default function ProductDetailsModal({
                             <h2 className="modal-title">{displayName}</h2>
                             {wholesaleClient ? hasWholesalePrice ? <div className="modal-price-block">
                                         <div className="modal-price modal-price-wholesale">
-                                            <Price usd={product.wholesale_price} />
+                                            <Price usd={wholesalePrice} />
                                             <span className="modal-wholesale-badge">{t("Wholesale")}</span>
                                         </div>
                                         {hasRetailPrice && <div className="modal-price-retail">{t("Retail:")}<Price usd={product.price} /></div>}

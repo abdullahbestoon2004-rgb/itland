@@ -28,7 +28,9 @@ test('category pagination has distinct metadata, content and crawlable links', (
     assert.match(page.head, /Mice in Iraq - Page 2/);
     assert.match(page.head, /category=Mice&amp;page=2/);
     assert.match(page.body, /href="\/products\?category=Mice&amp;page=3"/);
-    assert.match(page.body, /href="\/product\/logitech-mouse-12-112"/);
+    // Out-of-stock products sort last, so page 2 starts after twelve available ones.
+    assert.match(page.body, /href="\/product\/logitech-mouse-13-113"/);
+    assert.match(renderPage('/products?category=Mice&page=3', products, snapshot).body, /href="\/product\/logitech-mouse-1-101"/);
     assert.doesNotMatch(page.body, />All Products</);
     assert.match(renderPage('/products?category=Keyboards', products).head, /noindex, follow/);
     assert.match(renderPage('/products?page=999', products).head, /noindex, follow/);

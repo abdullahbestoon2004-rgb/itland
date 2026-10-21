@@ -3,6 +3,7 @@ import usePageMeta from '../hooks/usePageMeta';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { isFreshRate } from '../utils/currency';
+import { isOutOfStock } from '../utils/storefront';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useOutletContext, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, SlidersHorizontal, X } from 'lucide-react';
@@ -11,6 +12,10 @@ import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
 import './AllProducts.css';
 const categories = ['All', 'Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
+// Every sort lists buyable products first, then "contact for price", then out of stock.
+const availabilityRank = product => isOutOfStock(product) ? 2 : Number(product.price) > 0 ? 0 : 1;
+// Zoho ids exceed Number.MAX_SAFE_INTEGER, so compare them as digit strings.
+const compareIds = (a, b) => String(a).length - String(b).length || String(a).localeCompare(String(b));
 export default function AllProducts() {
   const {
     t
@@ -147,9 +152,11 @@ export default function AllProducts() {
     const matchesPrice = !hasRate || (priceRange.min === '' || iqdPrice >= Number(priceRange.min)) && (priceRange.max === '' || iqdPrice <= Number(priceRange.max));
     return matchesCategory && matchesBrand && matchesSearch && matchesPrice;
   }).sort((a, b) => {
+    const rank = availabilityRank(a) - availabilityRank(b);
+    if (rank) return rank;
     if (sortBy === 'price-low') return a.price - b.price;
     if (sortBy === 'price-high') return b.price - a.price;
-    if (sortBy === 'newest') return b.id - a.id;
+    if (sortBy === 'newest') return compareIds(b.id, a.id);
     return (b.featured === true ? 1 : 0) - (a.featured === true ? 1 : 0);
   });
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / itemsPerPage));

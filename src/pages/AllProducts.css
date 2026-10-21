@@ -1,5 +1,4 @@
 .all-products-page {
-    padding-top: calc(var(--nav-height) - 4px);
     min-height: 100vh;
     background:
         linear-gradient(180deg, rgba(8, 12, 18, 0.9) 0%, rgba(8, 12, 18, 0.98) 100%),

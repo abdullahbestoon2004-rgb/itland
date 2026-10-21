@@ -98,7 +98,7 @@ export default function CartDrawer({
                 <div className="cart-summary"><span>{t("Product subtotal")}</span><span className="cart-total"><Price usd={total} /></span></div>
                 <p className="order-note">{t("Delivery across all Iraq and Kurdistan. Delivery fee and arrival time confirmed in the chat.")}</p>
                 <p className="order-note">{t("This is an order request. Our team will confirm stock, payment method and final total on WhatsApp.")}</p>
-                {invalidItems ? <p role="alert">Please remove unavailable items or reduce quantities before ordering.</p> : <a className="btn btn-primary checkout-btn" href={whatsappLink(orderMessage(cartItems, details, snapshot))} target="_blank" rel="noreferrer"><MessageCircle size={20} />{t("Send order on WhatsApp")}</a>}
+                {invalidItems ? <p role="alert">{t("Please remove unavailable items or reduce quantities before ordering.")}</p> : <a className="btn btn-primary checkout-btn" href={whatsappLink(orderMessage(cartItems, details, snapshot))} target="_blank" rel="noreferrer"><MessageCircle size={20} />{t("Send order on WhatsApp")}</a>}
                 <Link className="help-inline-link" to="/help/delivery" onClick={onClose}>{t("Delivery & ordering information")}</Link>
             </div>}
         </div>

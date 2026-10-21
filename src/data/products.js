@@ -33,8 +33,9 @@ function detectCategory(text) {
   return 'Accessories';
 }
 
-// These two JSON files are ~1MB together. Loading them on demand keeps them out
-// of the initial bundle — the catalog in particular is only needed if the API is down.
+// These two JSON files are ~1MB together, and only needed if the API is down —
+// the API already applies the image map. Loading them on demand keeps them out
+// of the initial bundle.
 let imagesMapPromise = null;
 const loadProductImages = () => {
   imagesMapPromise ??= import('./productImages.json').then((module) => module.default);
@@ -90,14 +91,13 @@ export const productIdFromSlug = (slug) => {
   return parts[parts.length - 1] || '';
 };
 
-const fetchProducts = async ({ refresh = false } = {}) => {
+const fetchProducts = async () => {
   try {
-    const res = await fetch(refresh ? '/api/products?refresh=1' : '/api/products', { signal: AbortSignal.timeout(12000) });
+    const res = await fetch('/api/products', { signal: AbortSignal.timeout(12000) });
     if (res.ok) {
       const { products } = await res.json();
       if (Array.isArray(products) && products.length > 0) {
-        const imagesMap = await loadProductImages();
-        return products.map((p, i) => normalizeProduct(p, i, imagesMap));
+        return products.map((p, i) => normalizeProduct(p, i));
       }
     }
   } catch (err) {
@@ -112,15 +112,36 @@ const fetchProducts = async ({ refresh = false } = {}) => {
 let productCache = null;
 let productCacheAt = 0;
 let pendingProducts = null;
-export const getAllProducts = async ({ refresh = false } = {}) => {
-  if (!refresh && productCache && Date.now() - productCacheAt < 60_000) return productCache;
+export const getAllProducts = async () => {
+  if (productCache && Date.now() - productCacheAt < 60_000) return productCache;
   if (pendingProducts) return pendingProducts;
-  pendingProducts = fetchProducts({ refresh }).then((products) => {
+  pendingProducts = fetchProducts().then((products) => {
     productCache = products;
     productCacheAt = Date.now();
     return products;
   }).finally(() => { pendingProducts = null; });
   return pendingProducts;
+};
+
+/**
+ * The admin view: includes wholesale prices and, unlike getAllProducts, never
+ * falls back to the built-in catalog — the dashboard must show Zoho's real state.
+ * `refresh` asks the server to bypass its one-hour cache (throttled to every 30s).
+ */
+export const getAdminProducts = async ({ accessToken, refresh = false }) => {
+  const res = await fetch(`/api/products?view=admin${refresh ? '&refresh=1' : ''}`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+    signal: AbortSignal.timeout(30000),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !Array.isArray(data.products)) {
+    throw new Error(data.error || `Product request failed (HTTP ${res.status}).`);
+  }
+  return {
+    products: data.products.map((p, i) => normalizeProduct(p, i)),
+    stale: Boolean(data.stale),
+    refreshed: Boolean(data.refreshed),
+  };
 };
 
 export const getProductBySlug = async (slug) => {

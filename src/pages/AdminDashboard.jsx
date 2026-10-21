@@ -2,13 +2,22 @@ import usePageMeta from '../hooks/usePageMeta';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, LogOut, MonitorPlay, RefreshCw, Trash2 } from 'lucide-react';
-import { getAllProducts } from '../data/products';
+import { getAdminProducts } from '../data/products';
 import { saveSettings } from '../data/settings';
+import { supabase } from '../lib/supabase';
+import { imageFileToDataUrl } from '../utils/image';
 import { getContactMessages, setMessageHandled } from '../data/messages';
 import { deleteReview, getAllReviews, setReviewApproval } from '../data/reviews';
 import { useAuth } from '../context/AuthContext';
 import useStoreSettings from '../hooks/useStoreSettings';
 import './AdminDashboard.css';
+
+// The current access token, so a refresh after an hour-long session still works.
+const loadAdminProducts = async ({ refresh = false } = {}) => {
+    if (!supabase) throw new Error('Supabase is not configured.');
+    const { data } = await supabase.auth.getSession();
+    return getAdminProducts({ accessToken: data.session?.access_token, refresh });
+};
 
 export default function AdminDashboard() {
     usePageMeta({ title: 'AdminDashboard', noindex: true });
@@ -32,10 +41,12 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         let ignore = false;
-        getAllProducts().then((data) => {
-            if (!ignore) setProducts(data);
-        }).catch(() => {
-            if (!ignore) setProductsError('Unable to load products from Zoho Books.');
+        loadAdminProducts().then(({ products: data, stale }) => {
+            if (ignore) return;
+            setProducts(data);
+            if (stale) setProductsError('Zoho Books is not responding. Showing the last product list loaded from Zoho.');
+        }).catch((err) => {
+            if (!ignore) setProductsError(`Unable to load products from Zoho Books: ${err.message}`);
         });
         return () => { ignore = true; };
     }, []);
@@ -99,10 +110,16 @@ export default function AdminDashboard() {
         setIsSyncing(true);
         setSyncMessage('');
         try {
-            const data = await getAllProducts({ refresh: true });
+            const { products: data, stale, refreshed } = await loadAdminProducts({ refresh: true });
             setProducts(data);
-            setSyncMessage(`Loaded ${data.length} products from Zoho Books.`);
             setProductsError('');
+            if (refreshed) {
+                setSyncMessage(`Loaded ${data.length} products from Zoho Books.`);
+            } else if (stale) {
+                setSyncMessage('Error: Zoho Books is not responding. Showing the last product list loaded from Zoho.');
+            } else {
+                setSyncMessage('Zoho can be refreshed once every 30 seconds. Showing the latest loaded list — try again shortly.');
+            }
         } catch (err) {
             setSyncMessage(`Error: ${err.message}`);
         } finally {
@@ -110,14 +127,29 @@ export default function AdminDashboard() {
         }
     };
 
-    const handlePromoImageUpload = (e) => {
+    const handlePromoImageUpload = async (e) => {
         const file = e.target.files[0];
+        e.target.value = '';
         if (!file) return;
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setSettings((prev) => ({ ...prev, promoBannerImage: reader.result }));
-        };
-        reader.readAsDataURL(file);
+        setSettingsSaveError('');
+        try {
+            const image = await imageFileToDataUrl(file, { maxWidth: 1920 });
+            setSettings((prev) => ({ ...prev, promoBannerImage: image }));
+        } catch (error) {
+            setSettingsSaveError(error.message);
+        }
+    };
+
+    const handleCategoryImageUpload = async (index, e) => {
+        const file = e.target.files[0];
+        e.target.value = '';
+        if (!file) return;
+        setSettingsSaveError('');
+        try {
+            handleCategoryImageChange(index, await imageFileToDataUrl(file, { maxWidth: 900 }));
+        } catch (error) {
+            setSettingsSaveError(error.message);
+        }
     };
 
     const handleCategoryImageChange = (index, image) => {
@@ -430,13 +462,7 @@ export default function AdminDashboard() {
                                                         <input
                                                             type="file"
                                                             accept="image/*"
-                                                            onChange={(e) => {
-                                                                const file = e.target.files[0];
-                                                                if (!file) return;
-                                                                const reader = new FileReader();
-                                                                reader.onloadend = () => handleCategoryImageChange(index, reader.result);
-                                                                reader.readAsDataURL(file);
-                                                            }}
+                                                            onChange={(e) => handleCategoryImageUpload(index, e)}
                                                             style={{ display: 'none' }}
                                                         />
                                                     </label>

@@ -698,5 +698,9 @@
   "Showing {count} results": {
     "ar": "عرض {count} نتيجة",
     "ku": "{count} ئەنجام"
+  },
+  "Please remove unavailable items or reduce quantities before ordering.": {
+    "ar": "يرجى إزالة المنتجات غير المتوفرة أو تقليل الكميات قبل الطلب.",
+    "ku": "تکایە بەرهەمە بەردەست نەبووەکان لابەرە یان ژمارەکان کەم بکەرەوە پێش داواکردن."
   }
 }

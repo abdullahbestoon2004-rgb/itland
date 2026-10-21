@@ -78,7 +78,7 @@ export default function CustomerReviews() {
                         </div>
 
                         {reviews.length > 1 && <div className="slider-dots">
-                                {reviews.map((review, index) => <span key={review.id} className={`dot ${index === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(index)} />)}
+                                {reviews.map((review, index) => <button type="button" key={review.id} className={`dot ${index === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(index)} aria-label={`Review ${index + 1} of ${reviews.length}`} aria-current={index === currentIndex ? 'true' : undefined} />)}
                             </div>}
                     </div> : <p className="reviews-empty">{t("No reviews yet \u2014 be the first to tell others about your experience.")}
 

@@ -26,7 +26,8 @@ export default function ProductDetails() {
     snapshot
   } = useCurrency();
   const {
-    wholesaleClient
+    wholesaleClient,
+    wholesalePriceOf
   } = useWholesale();
   const initial = usePageData();
   const [loaded, setLoaded] = useState({
@@ -68,11 +69,12 @@ export default function ProductDetails() {
     if (raw) return raw.slice(0, 300);
     return product ? `${product.name} — available at IT Land, Erbil. ${product.brand || ''}`.trim() : '';
   }, [product]);
-  const hasWholesalePrice = product?.wholesale_price != null && !isNaN(product.wholesale_price) && Number(product.wholesale_price) > 0;
+  const wholesalePrice = wholesalePriceOf(product);
+  const hasWholesalePrice = wholesalePrice > 0;
   const hasRetailPrice = product?.price != null && !isNaN(product.price) && Number(product.price) > 0;
   const isWholesaleMissingPrice = wholesaleClient && !hasWholesalePrice;
   const isContactForPrice = isWholesaleMissingPrice || !wholesaleClient && !hasRetailPrice;
-  const activePrice = wholesaleClient && hasWholesalePrice ? Number(product.wholesale_price) : Number(product?.price ?? 0);
+  const activePrice = wholesaleClient && hasWholesalePrice ? wholesalePrice : Number(product?.price ?? 0);
   const jsonLd = useMemo(() => {
     if (!product) return null;
     return {
@@ -184,7 +186,7 @@ export default function ProductDetails() {
 
                         {wholesaleClient ? hasWholesalePrice ? <div className="details-price-block">
                                     <div className="details-price details-price-wholesale">
-                                        <Price usd={product.wholesale_price} />
+                                        <Price usd={wholesalePrice} />
                                         <span className="details-wholesale-badge">{t("Wholesale")}</span>
                                     </div>
                                     {hasRetailPrice && <p className="details-price-retail">{t("Retail:")}<Price usd={product.price} /></p>}
@@ -194,7 +196,7 @@ export default function ProductDetails() {
                         {unavailable && <p className="details-stock out">{t("Currently out of stock")}</p>}
 
                         {product.description && <div className="details-description">
-                                {product.description.split('\n').filter(Boolean).map(line => <p key={line}>{line}</p>)}
+                                {product.description.split('\n').filter(Boolean).map((line, index) => <p key={index}>{line}</p>)}
                             </div>}
 
                         <p className="order-note">{t("Delivery across all Iraq and Kurdistan. Delivery fee, timing, payment method and final total confirmed on WhatsApp. Your order is confirmed after our team replies.")}</p>

@@ -13,8 +13,8 @@ import WholesaleLogin from './pages/WholesaleLogin';
 import ProtectedRoute from './components/ProtectedRoute';
 import StoreLayout from './components/StoreLayout';
 import ScrollToTop from './components/ScrollToTop';
-import { AuthProvider } from './context/AuthContext';
-import { WholesaleProvider } from './context/WholesaleContext';
+import AuthProvider from './components/AuthProvider';
+import WholesaleProvider from './components/WholesaleProvider';
 import './App.css';
 
 function App() {

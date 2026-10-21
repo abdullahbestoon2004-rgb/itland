@@ -1,14 +1,13 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
-
-const AuthContext = createContext(null);
 
 /**
  * Admin identity comes from Supabase Auth (Google OAuth). The `isAdmin` flag
  * below only controls what the UI shows — the real gate is the `is_admin()`
  * check in the row level security policies, so a forged flag buys nothing.
  */
-export function AuthProvider({ children }) {
+export default function AuthProvider({ children }) {
     const [session, setSession] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     // Without Supabase there is nothing to wait for, so don't start in a loading state.
@@ -21,23 +20,26 @@ export function AuthProvider({ children }) {
         }
 
         let ignore = false;
+        // The account whose admin status was last checked. Token refreshes and
+        // returning to the tab fire auth events for the same account; checking
+        // again would swap the dashboard for a loading screen and lose edits.
+        let checkedEmail;
 
-        const checkAdmin = async (nextSession) => {
-            if (!nextSession?.user?.email) {
-                if (!ignore) {
-                    setIsAdmin(false);
-                    setIsLoading(false);
-                }
+        const checkAdmin = async (email) => {
+            if (!email) {
+                setIsAdmin(false);
+                setIsLoading(false);
                 return;
             }
 
+            // Row level security only returns the caller's own admin_users row.
             const { data, error } = await supabase
                 .from('admin_users')
                 .select('email')
-                .ilike('email', nextSession.user.email)
+                .limit(1)
                 .maybeSingle();
 
-            if (ignore) return;
+            if (ignore || email !== checkedEmail) return;
 
             if (error) {
                 console.error('Admin lookup failed:', error);
@@ -47,17 +49,19 @@ export function AuthProvider({ children }) {
             setIsLoading(false);
         };
 
-        supabase.auth.getSession().then(({ data }) => {
-            if (ignore) return;
-            setSession(data.session ?? null);
-            checkAdmin(data.session);
-        });
-
+        // Fires INITIAL_SESSION straight away, then on sign-in, sign-out and token refresh.
         const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
             if (ignore) return;
             setSession(nextSession);
+
+            const email = nextSession?.user?.email ?? null;
+            if (email === checkedEmail) return;
+            checkedEmail = email;
             setIsLoading(true);
-            checkAdmin(nextSession);
+            // Supabase calls made inside this callback can deadlock its auth lock.
+            setTimeout(() => {
+                if (!ignore) checkAdmin(email);
+            }, 0);
         });
 
         return () => {
@@ -96,10 +100,4 @@ export function AuthProvider({ children }) {
     );
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-export function useAuth() {
-    const ctx = useContext(AuthContext);
-    if (!ctx) throw new Error('useAuth must be used inside AuthProvider');
-    return ctx;
 }

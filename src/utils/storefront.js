@@ -40,7 +40,26 @@ export function cleanProductName(product) {
 export function homeProducts(products) {
     const available = products.filter((product) => !isOutOfStock(product) && Number(product.price) > 0);
     const featured = available.filter((product) => product.featured);
-    return { products: (featured.length ? featured : available).slice(0, 8), featured: featured.length > 0 };
+    // Products marked Featured in Zoho keep their order; otherwise take one per
+    // category in turn so the home page isn't eight variants of one headset.
+    return { products: featured.length ? featured.slice(0, 8) : mixCategories(available, 8), featured: featured.length > 0 };
+}
+
+function mixCategories(products, count) {
+    const byCategory = new Map();
+    for (const product of products) {
+        const key = product.category ?? '';
+        if (!byCategory.has(key)) byCategory.set(key, []);
+        byCategory.get(key).push(product);
+    }
+    const queues = [...byCategory.values()];
+    const picked = [];
+    while (picked.length < count && queues.some((queue) => queue.length)) {
+        for (const queue of queues) {
+            if (queue.length && picked.length < count) picked.push(queue.shift());
+        }
+    }
+    return picked;
 }
 
 export function orderMessage(items, details = {}, snapshot = null) {

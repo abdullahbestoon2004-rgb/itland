@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
-import { WholesaleProvider } from '../src/context/WholesaleContext';
+import WholesaleProvider from '../src/components/WholesaleProvider';
 import { CurrencyContext } from '../src/context/CurrencyContext';
 import ProductCard from '../src/components/ProductCard';
 import ProductDetailsModal from '../src/components/ProductDetailsModal';
