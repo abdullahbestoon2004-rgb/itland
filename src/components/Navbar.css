@@ -102,10 +102,6 @@
     width: 100%;
 }
 
-.all-products-link {
-    opacity: 0.92;
-}
-
 .mega-menu {
     position: absolute;
     top: calc(100% + 18px);
@@ -296,8 +292,7 @@
         display: none;
     }
 
-    .nav-item,
-    .all-products-link {
+    .nav-item {
         width: 100%;
     }
 

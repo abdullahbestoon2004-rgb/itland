@@ -118,3 +118,33 @@ returned to the local admin dashboard. Google OAuth remains in Testing with the
 configured administrator as a test user. The client secret is stored in Supabase,
 not in this repository. Configure the public URL/key in the hosting environment
 when deploying. Orders continue to use WhatsApp.
+
+### Search engine rendering
+
+`npm run build` now produces both `dist` (browser assets) and `dist-ssr`
+(the React server renderer). Deploy both through the checked-in Vercel routes;
+serving `dist` alone with a static host does not enable server rendering.
+Public pages return their actual React content, metadata and JSON-LD in the
+first HTTP response. The renderer uses the same product normalizer and slug
+function as the browser and sitemap. Renamed product links redirect permanently
+to the current slug; missing products/pages return HTTP 404. Temporary catalog
+failures return 503 with Retry-After rather than an indexed empty catalog.
+
+The rendering function needs the same existing `ZOHO_*` server environment
+variables as `/api/products`. Fresh IQD rates are optional: if unavailable,
+price offers are omitted from structured data. No wholesale price fields are
+embedded in the initial public HTML. Admin/wholesale routes are excluded from
+indexing through both response headers and page metadata.
+
+Run `npm test` for the existing checks plus server HTML/SEO regression tests.
+For a production-style local preview after building, run
+`node scripts/preview-server.mjs` (port 4173); inject the existing server
+credentials through the environment or local `.env`. Vite development still
+works with the existing local API server.
+
+After deployment, submit `https://itlandforcomputer.com/sitemap.xml` in Google
+Search Console, inspect representative product/category URLs with URL Inspection,
+and validate product pages with Google's Rich Results Test. The existing Google
+site-verification token is preserved. Search indexing, rankings, Merchant Center
+setup and a verified Google Business Profile require separate account-level
+validation; code changes alone do not confirm these outcomes.

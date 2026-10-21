@@ -1,3 +1,4 @@
+import usePageMeta from '../hooks/usePageMeta';
 import React, { useState } from 'react';
 import {
     Phone,
@@ -43,6 +44,7 @@ const CONTACT_CARDS = [
 ];
 
 export default function Contact() {
+    usePageMeta({ title: 'Contact IT Land in Erbil', description: 'Contact IT Land in Erbil on WhatsApp at +9647504888570 for computer accessories, product availability, delivery and order support.', path: '/contact' });
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
     const [isSending, setIsSending] = useState(false);

@@ -6,6 +6,7 @@ import './NotFound.css';
 export default function NotFound() {
     usePageMeta({
         title: 'Page not found',
+        noindex: true,
         description: 'The page you are looking for does not exist on IT Land.',
     });
 

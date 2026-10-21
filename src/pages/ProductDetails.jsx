@@ -1,3 +1,5 @@
+import { absoluteUrl } from '../utils/seo';
+import { usePageData } from '../context/PageDataContext';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatIqd, isFreshRate } from '../utils/currency';
@@ -26,10 +28,11 @@ export default function ProductDetails() {
   const {
     wholesaleClient
   } = useWholesale();
+  const initial = usePageData();
   const [loaded, setLoaded] = useState({
-    slug: null,
-    product: null,
-    state: 'loading'
+    slug: initial.slug ?? null,
+    product: initial.product ?? null,
+    state: initial.slug ? (initial.product ? 'ready' : 'missing') : 'loading'
   });
   const [imageIndex, setImageIndex] = useState(0);
   useEffect(() => {
@@ -75,9 +78,11 @@ export default function ProductDetails() {
     return {
       '@context': 'https://schema.org',
       '@type': 'Product',
+      '@id': `${SITE_URL}/product/${toProductSlug(product)}#product`,
+      url: `${SITE_URL}/product/${toProductSlug(product)}`,
       name: product.name,
       description,
-      image: images,
+      image: images.map(absoluteUrl),
       brand: product.brand ? {
         '@type': 'Brand',
         name: product.brand
@@ -89,7 +94,7 @@ export default function ProductDetails() {
         url: `${SITE_URL}/product/${toProductSlug(product)}`,
         priceCurrency: 'IQD',
         price: String(Math.round(Number(product.price ?? 0) * snapshot.rate)),
-        availability: product.in_stock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'
+        ...(product.in_stock != null ? { availability: product.in_stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' } : {})
       } : undefined
     };
   }, [product, description, images, snapshot, hasRetailPrice]);
@@ -98,7 +103,15 @@ export default function ProductDetails() {
     description,
     image: images[0],
     path: product ? `/product/${toProductSlug(product)}` : undefined,
-    jsonLd
+    jsonLd: product ? [jsonLd, {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Shop', item: `${SITE_URL}/products` },
+        { '@type': 'ListItem', position: 3, name: product.name, item: `${SITE_URL}/product/${toProductSlug(product)}` }
+      ]
+    }] : null,
+    noindex: state === 'missing' || state === 'error'
   });
   if (state === 'loading') {
     return <div className="product-details-state">{t("Loading product\u2026")}</div>;

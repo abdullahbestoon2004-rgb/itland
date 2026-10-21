@@ -145,6 +145,7 @@ const upsertRemoteSettings = async (settings) => {
 };
 
 export const getSettings = () => {
+    if (typeof window === 'undefined') return createDefaultSettings();
     settingsCache ??= readLocalSettings();
     return settingsCache;
 };

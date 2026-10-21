@@ -1,3 +1,4 @@
+import usePageMeta from '../hooks/usePageMeta';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MonitorPlay, ShieldAlert } from 'lucide-react';
@@ -17,6 +18,7 @@ function GoogleMark() {
 }
 
 export default function AdminLogin() {
+    usePageMeta({ title: 'AdminLogin', noindex: true });
     const { session, isAdmin, isLoading, authError, signInWithGoogle, signOut } = useAuth();
     const [isRedirecting, setIsRedirecting] = useState(false);
     const navigate = useNavigate();

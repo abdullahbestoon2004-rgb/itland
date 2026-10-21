@@ -1,12 +1,14 @@
+import { usePageData } from '../context/PageDataContext';
 import { useEffect, useState } from 'react';
 import { CurrencyContext } from '../context/CurrencyContext';
 import { isFreshRate } from '../utils/currency';
 export default function CurrencyProvider({
   children
 }) {
+  const initial = usePageData();
   const [state, setState] = useState({
-    snapshot: null,
-    loading: true
+    snapshot: isFreshRate(initial.snapshot) ? initial.snapshot : null,
+    loading: !initial.serverRendered
   });
   useEffect(() => {
     let active = true;

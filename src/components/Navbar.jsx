@@ -1,6 +1,6 @@
 import { useLocale } from '../context/LocaleContext';
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, Search, ShoppingCart, User, X } from 'lucide-react';
 import LanguageMenu from './LanguageMenu';
 import './Navbar.css';
@@ -16,7 +16,6 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
   const megaMenuRef = useRef(null);
-  const navigate = useNavigate();
   const {
     pathname
   } = useLocation();
@@ -60,20 +59,12 @@ export default function Navbar({
     setMenuPath(pathname);
     closeMenus();
   }
-  const handleCategoryClick = category => {
-    closeMenus();
-    navigate(`/products?category=${encodeURIComponent(category)}`);
-  };
   return <>
             <nav className={`navbar ${scrolled ? 'glass scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`.trim()}>
                 <div className="navbar-container">
-                    <button type="button" className="navbar-logo-button" aria-label={t("Go to homepage")} onClick={() => {
-          closeMenus();
-          navigate('/');
-        }}>
-
+                    <Link to="/" className="navbar-logo-button" aria-label={t("Go to homepage")} onClick={closeMenus}>
                         <img src="/newitlandlogo.png" alt="IT LAND" className="navbar-logo-image" />
-                    </button>
+                    </Link>
 
                     <div className={`navbar-links ${mobileMenuOpen ? 'active' : ''}`}>
                         <NavLink to="/" className={({
@@ -85,47 +76,37 @@ export default function Navbar({
 
                         <div className="nav-item has-dropdown" ref={megaMenuRef} onMouseEnter={() => window.innerWidth > 900 && setShopMenuOpen(true)} onMouseLeave={() => window.innerWidth > 900 && setShopMenuOpen(false)}>
 
-                            <button type="button" className="nav-link dropdown-toggle" aria-expanded={shopMenuOpen} aria-haspopup="true" onClick={() => {
-              closeMenus();
-              navigate('/products');
-            }}>{t("Shop")}
-
-
-              </button>
+                            <NavLink to="/products" className={({ isActive }) => `nav-link dropdown-toggle ${isActive ? 'active' : ''}`} onClick={closeMenus}>{t("Shop")}</NavLink>
 
                             <div className={`mega-menu glass ${shopMenuOpen ? 'show' : ''}`}>
                                 <div className="mega-menu-grid">
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Mice')}>
+                                    <Link className="mega-category" to="/products?category=Mice" onClick={closeMenus}>
                                         <h4>{t("Mice")}</h4>
                                         <p>Gaming and Productivity</p>
-                                    </button>
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Keyboards')}>
+                                    </Link>
+                                    <Link className="mega-category" to="/products?category=Keyboards" onClick={closeMenus}>
                                         <h4>{t("Keyboards")}</h4>
                                         <p>Mechanical and Wireless</p>
-                                    </button>
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Headsets')}>
+                                    </Link>
+                                    <Link className="mega-category" to="/products?category=Headsets" onClick={closeMenus}>
                                         <h4>{t("Headsets")}</h4>
                                         <p>Pro Audio Gear</p>
-                                    </button>
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Webcams')}>
+                                    </Link>
+                                    <Link className="mega-category" to="/products?category=Webcams" onClick={closeMenus}>
                                         <h4>{t("Webcams")}</h4>
                                         <p>Streaming and Video</p>
-                                    </button>
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Gaming')}>
+                                    </Link>
+                                    <Link className="mega-category" to="/products?category=Gaming" onClick={closeMenus}>
                                         <h4>{t("Gaming")}</h4>
                                         <p>Controllers and Wheels</p>
-                                    </button>
-                                    <button type="button" className="mega-category" onClick={() => handleCategoryClick('Accessories')}>
+                                    </Link>
+                                    <Link className="mega-category" to="/products?category=Accessories" onClick={closeMenus}>
                                         <h4>{t("Accessories")}</h4>
                                         <p>Mats and Mounts</p>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
-
-                        <Link to="/products" className="nav-link all-products-link" onClick={closeMenus}>{t("All Products")}
-
-            </Link>
 
                         <NavLink to="/about" className={({
             isActive

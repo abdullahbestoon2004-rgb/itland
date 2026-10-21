@@ -47,7 +47,7 @@ const loadFallbackCatalog = () => {
   return fallbackCatalogPromise;
 };
 
-const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
+export const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
   const id = String(product.id ?? product.zoho_item_id ?? index);
   const zohoId = product.zoho_item_id ? String(product.zoho_item_id) : null;
   const fullText = `${product.name || ''} ${product.description || ''}`.trim();
@@ -82,15 +82,7 @@ const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
 };
 
 /** Turns a product into a stable, readable URL slug: "logitech-b100-mouse-12345". */
-export const toProductSlug = (product) => {
-  const base = String(product?.name ?? '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 70);
-
-  return base ? `${base}-${product.id}` : String(product.id);
-};
+export { toProductSlug } from '../utils/seo.js';
 
 /** The id is the trailing segment of the slug, so renamed products keep working. */
 export const productIdFromSlug = (slug) => {

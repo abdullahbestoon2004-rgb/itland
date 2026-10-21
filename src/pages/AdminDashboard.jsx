@@ -1,3 +1,4 @@
+import usePageMeta from '../hooks/usePageMeta';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, LogOut, MonitorPlay, RefreshCw, Trash2 } from 'lucide-react';
@@ -10,6 +11,7 @@ import useStoreSettings from '../hooks/useStoreSettings';
 import './AdminDashboard.css';
 
 export default function AdminDashboard() {
+    usePageMeta({ title: 'AdminDashboard', noindex: true });
     const [products, setProducts] = useState([]);
     const [productsError, setProductsError] = useState('');
     const [isSyncing, setIsSyncing] = useState(false);

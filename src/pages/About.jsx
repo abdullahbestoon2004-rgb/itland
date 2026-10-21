@@ -1,3 +1,4 @@
+import usePageMeta from '../hooks/usePageMeta';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -40,6 +41,7 @@ const STORY_IMAGE_SRC = '/backgroundimage.png';
 const STORY_IMAGE_FALLBACK = 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=1400&q=80';
 
 export default function About() {
+    usePageMeta({ title: 'About IT Land in Erbil', description: 'Learn about IT Land in Erbil, your computer accessories and gaming gear store. Retail and wholesale orders with delivery across Iraq and Kurdistan.', path: '/about' });
     return (
         <div className="about-page">
             <section className="about-hero">

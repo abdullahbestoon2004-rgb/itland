@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "lint": "eslint .",
-    "test": "node --test tests/storefront.test.mjs && node tests/run-components.mjs",
-    "preview": "vite preview"
+    "test": "node --test tests/storefront.test.mjs && node tests/run-components.mjs && npm run test:seo",
+    "preview": "vite preview",
+    "test:seo": "npm run build && node --test tests/seo.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.0",

@@ -1,9 +1,10 @@
+import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { isFreshRate } from '../utils/currency';
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, useOutletContext, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useOutletContext, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, SlidersHorizontal, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
@@ -11,11 +12,6 @@ import { getAllProducts } from '../data/products';
 import './AllProducts.css';
 const categories = ['All', 'Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
 export default function AllProducts() {
-  usePageMeta({
-    title: 'Shop Products',
-    description: 'Browse IT Land computer accessories and gaming gear, with prices in Iraqi dinars.',
-    path: '/products'
-  });
   const {
     t
   } = useLocale();
@@ -28,7 +24,8 @@ export default function AllProducts() {
   } = useOutletContext();
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [products, setProducts] = useState([]);
+  const initial = usePageData();
+  const [products, setProducts] = useState(initial.products ?? []);
   const [productsError, setProductsError] = useState('');
   const [selectedImageProduct, setSelectedImageProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,7 +36,16 @@ export default function AllProducts() {
     max: ''
   });
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const pageParam = Number(searchParams.get('page'));
+  const currentPage = Number.isSafeInteger(pageParam) && pageParam > 0 ? pageParam : 1;
+  const setCurrentPage = value => {
+    const nextPage = typeof value === 'function' ? value(currentPage) : value;
+    setSearchParams(params => {
+      const next = new URLSearchParams(params);
+      if (nextPage > 1) next.set('page', String(nextPage)); else next.delete('page');
+      return next;
+    }, { replace: true });
+  };
   const itemsPerPage = 12;
   const searchInputRef = useRef(null);
   const categoryFromParams = searchParams.get('category');
@@ -93,10 +99,10 @@ export default function AllProducts() {
     } else {
       nextSearchParams.set('category', category);
     }
+    nextSearchParams.delete('page');
     setSearchParams(nextSearchParams, {
       replace: true
     });
-    setCurrentPage(1);
     if (window.innerWidth <= 1024) {
       setMobileSidebarOpen(false);
     }
@@ -120,6 +126,7 @@ export default function AllProducts() {
   const handleResetFilters = () => {
     const nextSearchParams = new URLSearchParams(searchParams);
     nextSearchParams.delete('category');
+    nextSearchParams.delete('page');
     setSearchParams(nextSearchParams, {
       replace: true
     });
@@ -130,7 +137,6 @@ export default function AllProducts() {
       min: '',
       max: ''
     });
-    setCurrentPage(1);
   };
   const brands = [...new Set(products.map(product => product.brand).filter(Boolean))].sort();
   const filteredProducts = products.filter(product => {
@@ -150,9 +156,25 @@ export default function AllProducts() {
   const safeCurrentPage = Math.min(currentPage, totalPages);
   const paginatedProducts = filteredProducts.slice((safeCurrentPage - 1) * itemsPerPage, safeCurrentPage * itemsPerPage);
   const filtersChanged = searchQuery.length > 0 || activeCategory !== 'All' || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== '';
+  const canonicalParams = new URLSearchParams();
+  if (activeCategory !== 'All') canonicalParams.set('category', activeCategory);
+  if (currentPage > 1) canonicalParams.set('page', String(currentPage));
+  const canonicalPath = `/products${canonicalParams.size ? `?${canonicalParams}` : ''}`;
+  const scrollToProducts = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const pagePath = page => {
+    const params = new URLSearchParams(searchParams);
+    if (page > 1) params.set('page', String(page)); else params.delete('page');
+    return `/products${params.size ? `?${params}` : ''}`;
+  };
+  usePageMeta({
+    title: `${activeCategory === 'All' ? 'Computer Accessories & Gaming Gear' : `${activeCategory} in Iraq`}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
+    description: `Shop ${activeCategory === 'All' ? 'computer accessories and gaming gear' : activeCategory.toLowerCase()} at IT Land in Erbil. Compare products and brands. Delivery across Iraq and Kurdistan. Order on WhatsApp.`,
+    path: canonicalPath,
+    noindex: Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
+  });
   return <div className="all-products-page">
             <header className="shop-header">
-                <h1 className="shop-title">{t("Shop Products")}</h1>
+                <h1 className="shop-title">{activeCategory === 'All' ? t('Shop Products') : t(activeCategory)}</h1>
                 <p className="shop-subtitle">{t("Discover the latest computer accessories.")}</p>
                 {productsError && <p className="shop-subtitle">{productsError}</p>}
             </header>
@@ -180,7 +202,7 @@ export default function AllProducts() {
                             {categories.map(category => <label key={t(category)} className="filter-label">
                                     <input type="radio" name="category" checked={activeCategory === category} onChange={() => handleCategoryChange(category)} />
 
-                                    {t(category)}
+                                    <Link to={category === 'All' ? '/products' : `/products?category=${encodeURIComponent(category)}`}>{t(category)}</Link>
                                 </label>)}
                         </div>
                     </div>
@@ -245,54 +267,16 @@ export default function AllProducts() {
                                 {paginatedProducts.map(product => <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} onImageClick={setSelectedImageProduct} />)}
                             </div>
 
-                            {totalPages > 1 && <div className="pagination">
-                                    <button className="page-btn" disabled={safeCurrentPage === 1} onClick={() => {
-              setCurrentPage(page => Math.max(1, page - 1));
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            }} aria-label="Previous Page">
-
-                                        <ChevronLeft size={20} />
-                                    </button>
-
-                                    {(() => {
-              let items = [];
-              if (totalPages <= 7) {
-                items = Array.from({
-                  length: totalPages
-                }, (_, i) => i + 1);
-              } else if (safeCurrentPage <= 4) {
-                items = [1, 2, 3, 4, 5, '...', totalPages];
-              } else if (safeCurrentPage >= totalPages - 3) {
-                items = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-              } else {
-                items = [1, '...', safeCurrentPage - 1, safeCurrentPage, safeCurrentPage + 1, '...', totalPages];
-              }
-              return items.map((item, idx) => item === '...' ? <span key={`dots-${idx}`} className="pagination-ellipsis">...</span> : <button key={item} className={`page-btn ${safeCurrentPage === item ? 'active' : ''}`} onClick={() => {
-                setCurrentPage(item);
-                window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth'
-                });
-              }}>
-
-                                                    {item}
-                                                </button>);
-            })()}
-
-                                    <button className="page-btn" disabled={safeCurrentPage === totalPages} onClick={() => {
-              setCurrentPage(page => Math.min(totalPages, page + 1));
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            }} aria-label="Next Page">
-
-                                        <ChevronRight size={20} />
-                                    </button>
-                                </div>}
+                            {totalPages > 1 && <nav className="pagination" aria-label="Product pages">
+                                {safeCurrentPage > 1 && <Link className="page-btn" onClick={scrollToProducts} to={pagePath(safeCurrentPage - 1)} aria-label="Previous page"><ChevronLeft size={20} /></Link>}
+                                {Array.from({ length: totalPages }, (_, i) => i + 1)
+                                    .filter(page => page === 1 || page === totalPages || Math.abs(page - safeCurrentPage) <= 2)
+                                    .map((page, index, pages) => <React.Fragment key={page}>
+                                        {index > 0 && page - pages[index - 1] > 1 && <span className="pagination-ellipsis">…</span>}
+                                        <Link className={`page-btn ${safeCurrentPage === page ? 'active' : ''}`} onClick={scrollToProducts} to={pagePath(page)} aria-current={safeCurrentPage === page ? 'page' : undefined}>{page}</Link>
+                                    </React.Fragment>)}
+                                {safeCurrentPage < totalPages && <Link className="page-btn" onClick={scrollToProducts} to={pagePath(safeCurrentPage + 1)} aria-label="Next page"><ChevronRight size={20} /></Link>}
+                            </nav>}
                         </> : <div className="no-results no-results-boxed">
                             <h3 className="no-results-title">{t("No products found.")}</h3>
                             <p className="no-results-text">{t("Try adjusting your search or filters to find what you're looking for.")}</p>

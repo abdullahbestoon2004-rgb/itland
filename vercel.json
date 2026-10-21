@@ -1,6 +1,27 @@
 {
-  "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  "functions": {
+    "api/page.js": {
+      "includeFiles": "{dist/index.html,dist-ssr/**}"
+    },
+    "api/sitemap.js": {
+      "includeFiles": "dist-ssr/**"
+    }
+  },
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "dest": "/api/sitemap"
+    },
+    {
+      "src": "/",
+      "dest": "/api/page?__path=/"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/((?!api/).*)",
+      "dest": "/api/page?__path=/$1"
+    }
   ]
 }

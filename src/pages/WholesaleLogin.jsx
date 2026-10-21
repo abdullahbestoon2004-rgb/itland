@@ -1,3 +1,4 @@
+import usePageMeta from '../hooks/usePageMeta';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogIn } from 'lucide-react';
@@ -5,6 +6,7 @@ import { useWholesale } from '../context/WholesaleContext';
 import './WholesaleLogin.css';
 
 export default function WholesaleLogin() {
+    usePageMeta({ title: 'WholesaleLogin', noindex: true });
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
