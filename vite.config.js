@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
+  // Vercel traces API files before this generated renderer exists. Bundle its
+  // package dependencies so the deployed function does not omit React Router.
+  ssr: { noExternal: true },
   build: {
     rollupOptions: {
       output: {
