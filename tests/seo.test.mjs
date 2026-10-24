@@ -102,6 +102,7 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         await sitemapHandler({}, sitemap);
         assert.equal(sitemap.code, 200);
         assert.match(sitemap.body, /\/help\/delivery/);
+        assert.match(sitemap.body, /\/brands\/logitech/);
         assert.match(sitemap.body, /\/products\?category=Mice/);
         assert.match(sitemap.body, /\/product\/logitech-mouse-0-100/);
         assert.doesNotMatch(sitemap.body, /<lastmod>|\/admin\/|\/wholesale\//);
@@ -109,4 +110,26 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         globalThis.fetch = oldFetch;
         process.env = oldEnv;
     }
+});
+
+
+test('brand landing pages are rendered, linked, paginated and canonical', () => {
+    const page = renderPage('/brands/logitech', products, snapshot);
+    assert.equal(page.status, 200);
+    assert.match(page.head, /Logitech Products in Iraq/);
+    assert.match(page.head, /href="https:\/\/itlandforcomputer.com\/brands\/logitech"/);
+    assert.match(page.head, /content="index, follow/);
+    assert.match(page.body, /lang="ar" dir="rtl"/);
+    assert.match(page.body, /href="\/brands\/logitech\?page=2"/);
+    assert.match(page.body, /href="\/brands\/logitech\?category=Mice"/);
+    assert.equal(schemas(page.head)[0]['@type'], 'CollectionPage');
+    assert.match(renderPage('/brands/logitech?page=2', products, snapshot).body, /logitech-mouse-13-113/);
+    assert.match(renderPage('/', products, snapshot).body, /href="\/brands\/logitech"/);
+    assert.match(renderPage('/product/logitech-mouse-0-100', products, snapshot).body, /href="\/brands\/logitech"/);
+    const missing = renderPage('/brands/nonexistent', products, snapshot);
+    assert.equal(missing.status, 404);
+    assert.match(missing.head, /noindex, follow/);
+    assert.match(renderPage('/brands/logitech?category=Keyboards', products, snapshot).head, /noindex, follow/);
+    assert.match(renderPage('/wp-admin/', products, snapshot).head, /noindex, follow/);
+    assert.equal(renderPage('/wp-admin/', products, snapshot).status, 404);
 });

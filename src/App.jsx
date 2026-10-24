@@ -26,6 +26,7 @@ function App() {
           <Route element={<StoreLayout />}>
             <Route path="/" element={<Storefront />} />
             <Route path="/products" element={<AllProducts />} />
+                    <Route path="/brands/:brand" element={<AllProducts />} />
             <Route path="/product/:slug" element={<ProductDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

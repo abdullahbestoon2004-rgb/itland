@@ -1,6 +1,8 @@
 export const SITE_NAME = 'IT Land';
 export const SITE_URL = 'https://itlandforcomputer.com';
 export const DEFAULT_DESCRIPTION = 'Shop computer accessories, keyboards, mice, headsets and gaming gear at IT Land in Erbil. Delivery across Iraq and Kurdistan. Order on WhatsApp.';
+export const brandSlug = brand => String(brand).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+export const brandPath = brand => `/brands/${brandSlug(brand)}`;
 export const CATEGORIES = ['Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
 export const absoluteUrl = (value = '/') => new URL(value, SITE_URL).href;
 export const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -13,6 +15,11 @@ export const organization = {
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME, url: `${SITE_URL}/`, logo: absoluteUrl('/itlandlogo.png'),
     telephone: '+9647504888570', areaServed: { '@type': 'Country', name: 'Iraq' }
+};
+export const storeBusiness = {
+    ...organization, '@type': 'ComputerStore', '@id': `${SITE_URL}/#store`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Erbil', addressRegion: 'Kurdistan Region', addressCountry: 'IQ' },
+    hasMap: 'https://maps.app.goo.gl/FnZ4478eTBAsR7ym9'
 };
 export function pageMetadata({ title, description, image, path = '/', jsonLd, noindex = false, type = 'website' } = {}) {
     return {

@@ -1,3 +1,5 @@
+import { brandPath, brandSlug, absoluteUrl, toProductSlug } from '../utils/seo';
+import { useParams } from 'react-router-dom';
 import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
 import { useLocale } from '../context/LocaleContext';
@@ -28,6 +30,7 @@ export default function AllProducts() {
     handleAddToCart
   } = useOutletContext();
   const location = useLocation();
+  const { brand: routeBrand } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const initial = usePageData();
   const [products, setProducts] = useState(initial.products ?? []);
@@ -144,9 +147,11 @@ export default function AllProducts() {
     });
   };
   const brands = [...new Set(products.map(product => product.brand).filter(Boolean))].sort();
+  const landingBrand = routeBrand ? brands.find(brand => brandSlug(brand) === routeBrand) : null;
+  const collectionName = landingBrand ? `${landingBrand}${activeCategory !== 'All' ? ` ${activeCategory}` : ' Products'}` : activeCategory === 'All' ? 'Computer Accessories & Gaming Gear' : activeCategory;
   const filteredProducts = products.filter(product => {
     const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
-    const matchesBrand = activeBrands.length === 0 || activeBrands.includes(product.brand);
+    const matchesBrand = (!routeBrand || product.brand === landingBrand) && (activeBrands.length === 0 || activeBrands.includes(product.brand));
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const iqdPrice = hasRate ? Math.round(product.price * snapshot.rate) : null;
     const matchesPrice = !hasRate || (priceRange.min === '' || iqdPrice >= Number(priceRange.min)) && (priceRange.max === '' || iqdPrice <= Number(priceRange.max));
@@ -166,23 +171,30 @@ export default function AllProducts() {
   const canonicalParams = new URLSearchParams();
   if (activeCategory !== 'All') canonicalParams.set('category', activeCategory);
   if (currentPage > 1) canonicalParams.set('page', String(currentPage));
-  const canonicalPath = `/products${canonicalParams.size ? `?${canonicalParams}` : ''}`;
+  const collectionPath = landingBrand ? brandPath(landingBrand) : routeBrand ? `/brands/${routeBrand}` : '/products';
+  const canonicalPath = `${collectionPath}${canonicalParams.size ? `?${canonicalParams}` : ''}`;
   const scrollToProducts = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   const pagePath = page => {
     const params = new URLSearchParams(searchParams);
     if (page > 1) params.set('page', String(page)); else params.delete('page');
-    return `/products${params.size ? `?${params}` : ''}`;
+    return `${collectionPath}${params.size ? `?${params}` : ''}`;
   };
   usePageMeta({
-    title: `${activeCategory === 'All' ? 'Computer Accessories & Gaming Gear' : `${activeCategory} in Iraq`}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
-    description: `Shop ${activeCategory === 'All' ? 'computer accessories and gaming gear' : activeCategory.toLowerCase()} at IT Land in Erbil. Compare products and brands. Delivery across Iraq and Kurdistan. Order on WhatsApp.`,
+    title: `${collectionName} in Iraq${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
+    description: `Shop ${collectionName} at IT Land in Erbil, Iraq. Browse prices and availability, with delivery across Iraq and Kurdistan. Order on WhatsApp.`,
     path: canonicalPath,
-    noindex: Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${collectionName} in Iraq`, url: absoluteUrl(canonicalPath), mainEntity: { '@type': 'ItemList', itemListElement: paginatedProducts.map((product, index) => ({ '@type': 'ListItem', position: (safeCurrentPage - 1) * itemsPerPage + index + 1, name: product.name, url: absoluteUrl(`/product/${toProductSlug(product)}`) })) } },
+    noindex: Boolean(routeBrand && !landingBrand) || Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
   });
   return <div className="all-products-page">
             <header className="shop-header">
-                <h1 className="shop-title">{activeCategory === 'All' ? t('Shop Products') : t(activeCategory)}</h1>
+                <h1 className="shop-title">{landingBrand ? `${landingBrand} ${activeCategory === 'All' ? t('Products') : t(activeCategory)} in Iraq` : activeCategory === 'All' ? t('Shop Products') : t(activeCategory)}</h1>
                 <p className="shop-subtitle">{t("Discover the latest computer accessories.")}</p>
+                {landingBrand && <div className="brand-intro">
+                    <p>Browse {landingBrand} products at IT Land in Erbil. Compare models, current prices and availability below. Contact us on WhatsApp for delivery fees and timing across Iraq and Kurdistan.</p>
+                    {landingBrand === 'Logitech' && <p lang="ar" dir="rtl">تسوق منتجات لوجيتك Logitech في العراق من آي تي لاند في أربيل. تصفح الماوس والكيبورد والسماعات وكاميرات الويب المتوفرة، وتواصل معنا عبر واتساب لمعرفة تفاصيل التوصيل والأسعار.</p>}
+                    <Link to="/help/delivery">Delivery and ordering</Link> · <Link to="/help/warranty">Warranty information</Link>
+                </div>}
                 {productsError && <p className="shop-subtitle">{productsError}</p>}
             </header>
 
@@ -209,7 +221,7 @@ export default function AllProducts() {
                             {categories.map(category => <label key={t(category)} className="filter-label">
                                     <input type="radio" name="category" checked={activeCategory === category} onChange={() => handleCategoryChange(category)} />
 
-                                    <Link to={category === 'All' ? '/products' : `/products?category=${encodeURIComponent(category)}`}>{t(category)}</Link>
+                                    <Link to={category === 'All' ? collectionPath : `${collectionPath}?category=${encodeURIComponent(category)}`}>{t(category)}</Link>
                                 </label>)}
                         </div>
                     </div>
@@ -220,7 +232,7 @@ export default function AllProducts() {
                             {brands.map(brand => <label key={brand} className="filter-label">
                                     <input type="checkbox" checked={activeBrands.includes(brand)} onChange={event => handleBrandToggle(brand, event.target.checked)} />
 
-                                    {brand}
+                                    <Link to={brandPath(brand)}>{brand}</Link>
                                 </label>)}
                         </div>
                     </div>

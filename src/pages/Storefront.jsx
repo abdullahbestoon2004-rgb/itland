@@ -1,6 +1,6 @@
 import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
-import { organization, SITE_URL } from '../utils/seo';
+import { brandPath, organization, SITE_URL } from '../utils/seo';
 import { useLocale } from '../context/LocaleContext';
 import { homeProducts } from '../utils/storefront';
 import React, { useEffect, useState } from 'react';
@@ -16,8 +16,8 @@ import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
 export default function Storefront() {
   usePageMeta({
-    title: 'Computer Accessories & Gaming Gear in Iraq',
-    description: 'Shop computer accessories and gaming gear. Delivery across all Iraq and Kurdistan. Order through WhatsApp.',
+    title: 'Logitech & Computer Accessories in Iraq',
+    description: 'Shop Logitech, computer accessories and gaming gear at IT Land in Erbil. Mice, keyboards, headsets and webcams with delivery across Iraq and Kurdistan.',
     path: '/',
     jsonLd: [organization, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', url: `${SITE_URL}/`, publisher: { '@id': `${SITE_URL}/#organization` } }]
   });
@@ -61,6 +61,11 @@ export default function Storefront() {
             <HomeHero />
 
             <FeaturedCategories />
+            {products.length > 0 && <section className="section-container brand-directory" aria-label="Shop by brand">
+                <h2>{t('Brands')}</h2>
+                <p>Computer accessories and gaming gear from IT Land, Erbil. Delivery across Iraq and Kurdistan.</p>
+                <div className="brand-links">{[...new Set(products.map(product => product.brand).filter(Boolean))].sort().map(brand => <Link key={brand} to={brandPath(brand)}>{brand}</Link>)}</div>
+            </section>}
 
             <section id="best-sellers" className="products-section">
                 <div className="section-container">

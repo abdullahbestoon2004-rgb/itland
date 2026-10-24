@@ -426,3 +426,9 @@
     }
 }
 
+
+.brand-intro { max-width: 780px; margin: 1rem auto; line-height: 1.8; }
+.brand-intro p { margin-bottom: .75rem; }
+.brand-directory { padding-top: 2rem; padding-bottom: 2rem; }
+.brand-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.brand-links a { padding: .65rem 1rem; border: 1px solid var(--border-color, #334155); border-radius: .6rem; }

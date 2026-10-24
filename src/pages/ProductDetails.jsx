@@ -1,4 +1,4 @@
-import { absoluteUrl } from '../utils/seo';
+import { absoluteUrl, brandPath } from '../utils/seo';
 import { usePageData } from '../context/PageDataContext';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
@@ -94,6 +94,7 @@ export default function ProductDetails() {
       offers: isFreshRate(snapshot) && hasRetailPrice ? {
         '@type': 'Offer',
         url: `${SITE_URL}/product/${toProductSlug(product)}`,
+        seller: { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'IT Land' },
         priceCurrency: 'IQD',
         price: String(Math.round(Number(product.price ?? 0) * snapshot.rate)),
         ...(product.in_stock != null ? { availability: product.in_stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' } : {})
@@ -101,8 +102,8 @@ export default function ProductDetails() {
     };
   }, [product, description, images, snapshot, hasRetailPrice]);
   usePageMeta({
-    title: product ? product.name : 'Product',
-    description,
+    title: product ? `${product.name} in Iraq` : 'Product',
+    description: product ? `${product.name} at IT Land in Erbil, Iraq. ${description} Delivery across Iraq and Kurdistan. Contact us for availability.` : description,
     image: images[0],
     path: product ? `/product/${toProductSlug(product)}` : undefined,
     jsonLd: product ? [jsonLd, {
@@ -182,7 +183,7 @@ export default function ProductDetails() {
                     <div className="product-details-info">
                         <p className="details-category">{t(product.category)}</p>
                         <h1 className="details-name">{product.name}</h1>
-                        {product.brand && <p className="details-brand">by {product.brand}</p>}
+                        {product.brand && <p className="details-brand">by <Link to={brandPath(product.brand)}>{product.brand}</Link></p>}
 
                         {wholesaleClient ? hasWholesalePrice ? <div className="details-price-block">
                                     <div className="details-price details-price-wholesale">

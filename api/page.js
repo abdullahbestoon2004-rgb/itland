@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         return res.status(200).send(template.replace('content="index, follow"', 'content="noindex, nofollow"'));
     }
     try {
-        const needsCatalog = path === '/' || path === '/products' || path.startsWith('/product/');
+        const needsCatalog = path === '/' || path === '/products' || path.startsWith('/product/') || path.startsWith('/brands/');
         const [products, snapshot] = await Promise.all([
             needsCatalog ? loadCatalog() : [],
             needsCatalog ? getCurrencyRate().catch(() => null) : null
