@@ -10,6 +10,7 @@ import ProductDetailsModal from '../src/components/ProductDetailsModal';
 import CartDrawer from '../src/components/CartDrawer';
 import NewsletterForm from '../src/components/NewsletterForm';
 import { subscribeToNewsletter } from '../src/data/newsletter';
+import { LEGACY_PLACEHOLDER_IMAGE, normalizeProduct } from '../src/data/products';
 
 const product = { id: 'test', name: 'USB-C cable', description: 'USB-C cable office price (5$)', price: 10, category: 'Accessories', images: ['/test.png'], in_stock: false, stock_on_hand: 0 };
 const render = (node) => renderToStaticMarkup(<MemoryRouter><WholesaleProvider><CurrencyContext.Provider value={{ snapshot: { rate: 1510, asOf: new Date().toISOString() }, loading: false }}>{node}</CurrencyContext.Provider></WholesaleProvider></MemoryRouter>);
@@ -26,6 +27,18 @@ test('unavailable cards and previews do not offer add-to-cart', () => {
 test('available cards offer add-to-cart and closed cart is absent from accessibility tree', () => {
     assert.match(render(<ProductCard product={{ ...product, in_stock: true, stock_on_hand: 2 }} onAddToCart={() => {}} />), /Add to Cart/);
     assert.doesNotMatch(render(<CartDrawer isOpen={false} cartItems={[]} />), /Your Cart/);
+});
+
+test('products without a photo show their category icon, never a stand-in photo', () => {
+    const mouse = normalizeProduct({ id: 'm1', name: 'Logitech wireless mouse', price: 10, images: [LEGACY_PLACEHOLDER_IMAGE] });
+    assert.deepEqual(mouse.images, []);
+    const card = render(<ProductCard product={mouse} onAddToCart={() => {}} />);
+    const preview = render(<ProductDetailsModal product={mouse} onClose={() => {}} onAddToCart={() => {}} />);
+    for (const html of [card, preview]) {
+        assert.doesNotMatch(html, /<img/);
+        assert.match(html, /class="product-image-fallback" role="img" aria-label="Logitech wireless mouse[^"]*"><svg[^>]*lucide-mouse/);
+    }
+    assert.match(render(<ProductCard product={{ ...product, images: [] }} onAddToCart={() => {}} />), /lucide-cable/);
 });
 
 test('newsletter renders an accessible real signup form', () => {

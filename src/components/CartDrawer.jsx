@@ -1,6 +1,7 @@
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
 import Price from './Price';
+import ProductImage from './ProductImage';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Minus, Plus, Trash2, X } from 'lucide-react';
@@ -72,7 +73,7 @@ export default function CartDrawer({
                     <button className="btn btn-primary" onClick={onClose}>{t("Continue Shopping")}</button>
                 </div> : <>
                     <div className="cart-items">{cartItems.map(item => <div key={item.id} className="cart-item">
-                        <div className="cart-item-image"><img src={item.images?.[0] || item.image} alt={item.name} /></div>
+                        <div className="cart-item-image"><ProductImage src={item.images?.[0] || item.image} alt={item.name} category={item.category} /></div>
                         <div className="cart-item-details">
                             <h4>{item.name}</h4><p className="cart-item-price"><Price usd={item.price} /></p>
                             <div className="cart-item-actions">

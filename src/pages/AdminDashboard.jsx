@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, LogOut, MonitorPlay, RefreshCw, Trash2 } from 'lucide-react';
 import { getAdminProducts } from '../data/products';
+import ProductImage from '../components/ProductImage';
 import { saveSettings } from '../data/settings';
 import { supabase } from '../lib/supabase';
 import { imageFileToDataUrl } from '../utils/image';
@@ -266,7 +267,7 @@ export default function AdminDashboard() {
                                         <tr key={product.id}>
                                             <td>
                                                 <div className="table-img-container">
-                                                    <img src={product.images[0]} alt={product.name} />
+                                                    <ProductImage src={product.images[0]} alt={product.name} category={product.category} />
                                                 </div>
                                             </td>
                                             <td className="font-bold">{product.name}</td>

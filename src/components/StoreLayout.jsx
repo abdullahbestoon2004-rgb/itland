@@ -28,6 +28,7 @@ export default function StoreLayout() {
         name: product.name,
         price: product.price,
         images: product.images?.length ? product.images.slice(0, 1) : product.image ? [product.image] : [],
+        category: product.category ?? null,
         in_stock: product.in_stock ?? null,
         stock_on_hand: product.stock_on_hand ?? null,
         quantity: 1

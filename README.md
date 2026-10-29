@@ -88,6 +88,11 @@ Vercel. `vercel.json` rewrites `/sitemap.xml` to the generator in `api/sitemap.j
   minutes), instead of retrying on every visit.
 - `src/data/productCatalog.json` is a built-in fallback used only when the Zoho
   API is unreachable. It is lazy-loaded so it stays out of the initial bundle.
+- Product photos come from Zoho's "Image URL" field, else from
+  `api/productImages.json` (keep `src/data/productImages.json` identical). Photos
+  in `public/product_images/` were checked by eye against the product model. A
+  product with no photo, or one that fails to load, shows its category's icon —
+  never a photo of a different product.
 - The cart is saved in the browser (`localStorage`) for 7 days.
 - Reviews submitted on the storefront stay hidden until approved in the
   dashboard's Reviews tab.

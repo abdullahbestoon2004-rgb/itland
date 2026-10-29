@@ -1,5 +1,9 @@
 import { cleanDescription, cleanProductName, stockLimit } from '../utils/storefront';
-const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
+// The stand-in photo (a games controller) once sent for products without one.
+// Cached API responses and saved carts may still contain it; it is dropped so
+// the category icon shows instead.
+export const LEGACY_PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
+export const realImages = (images) => (Array.isArray(images) ? images : []).filter((src) => src && src !== LEGACY_PLACEHOLDER_IMAGE);
 
 const KNOWN_BRANDS = [
   'Logitech', 'Razer', 'Onten', 'Lention', 'Anker', 'Elgato', 'JBL', 'Poly', 'Plantronics',
@@ -55,9 +59,8 @@ export const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
   
   // Real image lookup
   const lookupImage = productImagesMap[id] || (zohoId ? productImagesMap[zohoId] : null) || (product.name ? productImagesMap[product.name] : null);
-  const existingImages = Array.isArray(product.images) && product.images.length > 0 && product.images[0] !== PLACEHOLDER_IMAGE
-    ? product.images
-    : lookupImage ? [lookupImage] : (product.image && product.image !== PLACEHOLDER_IMAGE ? [product.image] : [lookupImage || PLACEHOLDER_IMAGE]);
+  const ownImages = realImages(product.images);
+  const images = ownImages.length > 0 ? ownImages : lookupImage ? [lookupImage] : realImages([product.image]);
 
   const brand = product.brand && product.brand !== '' ? product.brand : detectBrand(fullText);
   const rawCat = product.category || '';
@@ -74,7 +77,7 @@ export const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
     price: Number(product.price ?? 0),
     wholesale_price: product.wholesale_price != null ? Number(product.wholesale_price) : null,
     description: cleanDescription(product.description),
-    images: existingImages,
+    images,
     featured: Boolean(product.featured),
     stock_on_hand: product.stock_on_hand != null ? Number(product.stock_on_hand) : null,
     in_stock: stockLimit(product) === 0 ? false : (product.in_stock === true || Number(product.stock_on_hand) > 0 ? true : null),

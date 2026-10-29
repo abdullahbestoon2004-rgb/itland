@@ -166,8 +166,18 @@
 }
 
 @media (max-width: 600px) {
+    .product-image-container {
+        padding: var(--space-2);
+    }
     .product-info {
         padding: var(--space-3);
+    }
+    .product-meta-header {
+        flex-wrap: wrap;
+        gap: var(--space-1);
+    }
+    .product-info .product-stock {
+        font-size: 0.72rem;
     }
     .product-name {
         font-size: 0.9rem;
