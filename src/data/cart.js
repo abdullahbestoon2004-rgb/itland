@@ -2,6 +2,8 @@
 // across tabs. Read through useSyncExternalStore: the server (and hydration)
 // render an empty cart, then the saved one appears.
 
+import { realImages } from './products';
+
 const CART_KEY = 'itland-cart';
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 const EMPTY_CART = [];
@@ -16,7 +18,7 @@ function readSavedCart() {
     try {
         const saved = JSON.parse(localStorage.getItem(CART_KEY));
         if (!Array.isArray(saved?.items) || !(Date.now() - saved.savedAt < MAX_AGE_MS)) return EMPTY_CART;
-        return saved.items.filter(isValidItem);
+        return saved.items.filter(isValidItem).map((item) => ({ ...item, images: realImages(item.images) }));
     } catch {
         return EMPTY_CART;
     }

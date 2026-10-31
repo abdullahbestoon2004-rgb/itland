@@ -11,6 +11,7 @@ import { ChevronLeft, ChevronRight, MessageCircle, ShoppingCart } from 'lucide-r
 import { getProductBySlug, toProductSlug } from '../data/products';
 import { useWholesale } from '../context/WholesaleContext';
 import usePageMeta, { SITE_URL } from '../hooks/usePageMeta';
+import ProductImage from '../components/ProductImage';
 import './ProductDetails.css';
 export default function ProductDetails() {
   const {
@@ -84,7 +85,7 @@ export default function ProductDetails() {
       url: `${SITE_URL}/product/${toProductSlug(product)}`,
       name: product.name,
       description,
-      image: images.map(absoluteUrl),
+      image: images.length ? images.map(absoluteUrl) : undefined,
       brand: product.brand ? {
         '@type': 'Brand',
         name: product.brand
@@ -164,7 +165,7 @@ export default function ProductDetails() {
                                     <ChevronLeft size={28} />
                                 </button>}
 
-                            <img src={images[imageIndex]} alt={product.name} />
+                            <ProductImage src={images[imageIndex]} alt={product.name} category={product.category} />
 
                             {images.length > 1 && <button type="button" className="details-nav next" onClick={() => setImageIndex(i => i === images.length - 1 ? 0 : i + 1)} aria-label={t("Next image")}>
 
@@ -175,7 +176,7 @@ export default function ProductDetails() {
                         {images.length > 1 && <div className="details-thumbs">
                                 {images.map((image, index) => <button type="button" key={image} className={`details-thumb ${index === imageIndex ? 'active' : ''}`} onClick={() => setImageIndex(index)} aria-label={`View image ${index + 1}`}>
 
-                                        <img src={image} alt="" />
+                                        <ProductImage src={image} alt="" category={product.category} />
                                     </button>)}
                             </div>}
                     </div>

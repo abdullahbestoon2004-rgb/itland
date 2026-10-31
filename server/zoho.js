@@ -1,9 +1,8 @@
 import productImagesMap from '../api/productImages.json' with { type: 'json' };
-import { cleanDescription } from '../src/utils/storefront.js';
+import { cleanDescription, isPlaceholderImage } from '../src/utils/storefront.js';
 
 const ZOHO_AUTH_DOMAIN = process.env.ZOHO_AUTH_DOMAIN ?? 'https://accounts.zoho.com';
 const ZOHO_API_DOMAIN = process.env.ZOHO_API_DOMAIN ?? 'https://www.zohoapis.com';
-const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
 const PER_PAGE = 200;
 const BATCH_SIZE = 5; // fetch 5 pages at a time in parallel
 const PRODUCTS_TTL_MS = 60 * 60 * 1000; // 1 hour
@@ -104,7 +103,8 @@ function normalizeItem(item, index) {
 
   const itemId = String(item.item_id);
   const mappedImage = productImagesMap[itemId] || productImagesMap[item.name] || null;
-  const imageUrl = getCustomField(item, 'Image URL') || mappedImage;
+  const zohoImage = getCustomField(item, 'Image URL');
+  const imageUrl = (zohoImage && !isPlaceholderImage(zohoImage) ? zohoImage : null) || mappedImage;
   const stockOnHand = item.stock_on_hand != null ? Number(item.stock_on_hand) : null;
 
   return {
@@ -116,7 +116,8 @@ function normalizeItem(item, index) {
     wholesale_price: isNaN(wholesalePrice) ? null : wholesalePrice,
     category: item.product_type ?? 'Accessories',
     brand: getCustomField(item, 'Brand') ?? '',
-    images: imageUrl ? [imageUrl] : [PLACEHOLDER_IMAGE],
+    // No stand-in photo: the storefront shows the category icon instead.
+    images: imageUrl ? [imageUrl] : [],
     featured: getCustomField(item, 'Featured')?.toLowerCase() === 'true',
     order_index: index,
     stock_on_hand: stockOnHand,

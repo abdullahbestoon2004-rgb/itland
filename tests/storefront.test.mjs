@@ -149,3 +149,20 @@ test('catalog keeps serving the last good list while Zoho fails, without retryin
         assert.ok(CatalogUnavailableError);
     } finally { console.error = previous; }
 });
+
+test('products new in Zoho without a photo get no stand-in photo', async (t) => {
+    const original = { fetch: globalThis.fetch, env: { ...process.env } };
+    Object.assign(process.env, { ZOHO_ORG_ID: 'org', ZOHO_REFRESH_TOKEN: 'refresh' });
+    const items = [
+        { item_id: '999000000000000001', name: 'Dell Thunderbolt 4 USB-C to USB-C Cable', rate: 30, custom_fields: [] },
+        { item_id: '999000000000000002', name: 'Poly Blackwire 5220', rate: 100, custom_fields: [{ label: 'Image URL', value: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800' }] },
+        { item_id: '999000000000000003', name: 'Logitech M171', rate: 8, custom_fields: [{ label: 'Image URL', value: 'https://example.com/m171.jpg' }] },
+    ];
+    globalThis.fetch = async (url) => String(url).includes('/oauth/')
+        ? { json: async () => ({ access_token: 'token', expires_in: 3600 }) }
+        : { ok: true, status: 200, json: async () => ({ code: 0, items, page_context: { has_more_page: false } }) };
+    t.after(() => { globalThis.fetch = original.fetch; process.env = original.env; });
+    const { getCatalog } = await import('../server/zoho.js?test=photos');
+    const { products } = await getCatalog();
+    assert.deepEqual(products.map((product) => product.images), [[], [], ['https://example.com/m171.jpg']]);
+});

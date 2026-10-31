@@ -9,17 +9,8 @@ import { ChevronLeft, ChevronRight, MessageCircle, ShoppingCart, X } from 'lucid
 import { toProductSlug } from '../data/products';
 import { useWholesale } from '../context/WholesaleContext';
 import { cleanProductName as getCleanProductName, getCleanProductCategory } from '../utils/storefront';
+import ProductImage from './ProductImage';
 import './ProductDetailsModal.css';
-const DEFAULT_CATEGORY_FALLBACKS = {
-  Mice: 'https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/gallery-5-pro-x-superlight-2-gaming-mouse-black.png?v=1',
-  Keyboards: 'https://resource.logitechg.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-tkl/gallery-2-pro-x-tkl-black-lightspeed-gaming-keyboard.png.png',
-  Headsets: 'https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/pro-x-2-lightspeed/gallery/gallery-1-pro-x-2-lightspeed-gaming-headset-black.png',
-  Webcams: 'https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920s/gallery/c920s-gallery-1.png',
-  Gaming: 'https://www.logitechg.com/content/dam/gaming/en/non-braid/hyjal-g502-hero/2025/g502-hero-mouse-top-angle-gallery-1.png',
-  Streaming: 'https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/plp-microphones/pdp-yeti-gx-gaming-microphone/yeti-gx-gallery-3.png?v=1',
-  Audio: 'https://m.media-amazon.com/images/I/71PBEF24hPL._AC_.jpg',
-  Accessories: 'https://proflashtech.com/cdn/shop/files/otn-910602m-onten-otn-9106-usb-c-male-to-female-extension-cable-02m-787-feet-charger-converter-cable-for-mobile-phone-computer-macbook-chromebook-287620.jpg?v=1732112325&width=533'
-};
 export default function ProductDetailsModal({
   product,
   onClose,
@@ -38,18 +29,13 @@ export default function ProductDetailsModal({
   const [currentIndex, setCurrentIndex] = useState(0);
   const displayName = getCleanProductName(product);
   const displayCategory = getCleanProductCategory(product);
-  const rawImages = product?.images || (product?.image ? [product.image] : []);
-  const fallbackImage = DEFAULT_CATEGORY_FALLBACKS[displayCategory] || DEFAULT_CATEGORY_FALLBACKS.Accessories;
-  const images = rawImages.length > 0 ? rawImages : [fallbackImage];
-  const [failedImage, setFailedImage] = useState(null);
-  const activeImage = images[currentIndex] || fallbackImage;
-  const currentImageSrc = failedImage === activeImage ? fallbackImage : activeImage;
+  const images = product?.images?.length ? product.images : product?.image ? [product.image] : [];
   const imageCount = images.length;
   const handlePrev = useCallback(() => {
-    setCurrentIndex(prev => prev === 0 ? imageCount - 1 : prev - 1);
+    if (imageCount > 1) setCurrentIndex(prev => prev === 0 ? imageCount - 1 : prev - 1);
   }, [imageCount]);
   const handleNext = useCallback(() => {
-    setCurrentIndex(prev => prev === imageCount - 1 ? 0 : prev + 1);
+    if (imageCount > 1) setCurrentIndex(prev => prev === imageCount - 1 ? 0 : prev + 1);
   }, [imageCount]);
   useEffect(() => {
     if (!product) return undefined;
@@ -61,7 +47,7 @@ export default function ProductDetailsModal({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleNext, handlePrev, onClose, product]);
-  if (!product || images.length === 0) return null;
+  if (!product) return null;
   const unavailable = isOutOfStock(product);
   const wholesalePrice = wholesalePriceOf(product);
   const hasWholesalePrice = wholesalePrice > 0;
@@ -93,8 +79,7 @@ export default function ProductDetailsModal({
       ...product,
       price: effectivePrice,
       name: displayName,
-      category: displayCategory,
-      images: [currentImageSrc]
+      category: displayCategory
     });
     onClose();
   };
@@ -119,7 +104,7 @@ export default function ProductDetailsModal({
                                     <ChevronLeft size={32} />
                                 </button>}
 
-                            <img src={currentImageSrc} alt={`${displayName} view`} className="modal-main-image" onError={() => setFailedImage(activeImage)} />
+                            <ProductImage src={images[currentIndex]} alt={`${displayName} view`} category={displayCategory} className="modal-main-image" />
 
 
                             {images.length > 1 && <button type="button" className="modal-nav next" aria-label={t("Next image")} onClick={event => {
@@ -136,7 +121,7 @@ export default function ProductDetailsModal({
               setCurrentIndex(index);
             }}>
 
-                                        <img src={image} alt={`Thumbnail ${index + 1}`} />
+                                        <ProductImage src={image} alt={`Thumbnail ${index + 1}`} category={displayCategory} />
                                     </button>)}
                             </div>}
                     </div>
