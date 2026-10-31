@@ -1,5 +1,5 @@
 import productImagesMap from '../api/productImages.json' with { type: 'json' };
-import { cleanDescription } from '../src/utils/storefront.js';
+import { cleanDescription, isPlaceholderImage } from '../src/utils/storefront.js';
 
 const ZOHO_AUTH_DOMAIN = process.env.ZOHO_AUTH_DOMAIN ?? 'https://accounts.zoho.com';
 const ZOHO_API_DOMAIN = process.env.ZOHO_API_DOMAIN ?? 'https://www.zohoapis.com';
@@ -103,7 +103,8 @@ function normalizeItem(item, index) {
 
   const itemId = String(item.item_id);
   const mappedImage = productImagesMap[itemId] || productImagesMap[item.name] || null;
-  const imageUrl = getCustomField(item, 'Image URL') || mappedImage;
+  const zohoImage = getCustomField(item, 'Image URL');
+  const imageUrl = (zohoImage && !isPlaceholderImage(zohoImage) ? zohoImage : null) || mappedImage;
   const stockOnHand = item.stock_on_hand != null ? Number(item.stock_on_hand) : null;
 
   return {

@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Cable, Gamepad2, Headphones, Keyboard, Mic, Mouse, Package, Speaker, Webcam } from 'lucide-react';
+import { isPlaceholderImage } from '../utils/storefront';
 import './ProductImage.css';
 
 const CATEGORY_ICONS = {
@@ -22,7 +23,7 @@ export default function ProductImage({ src, alt, category, ...imgProps }) {
     if (img?.complete && img.naturalWidth === 0) setFailedSrc(src);
   }, [src]);
 
-  if (!src || failedSrc === src) {
+  if (!src || isPlaceholderImage(src) || failedSrc === src) {
     const Icon = CATEGORY_ICONS[category] ?? Package;
     return <span className="product-image-fallback" {...alt ? { role: 'img', 'aria-label': alt } : { 'aria-hidden': true }}>
         <Icon strokeWidth={1.4} aria-hidden="true" />

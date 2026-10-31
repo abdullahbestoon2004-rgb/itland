@@ -14,6 +14,12 @@ export function stockLimit(product) {
 
 export const isOutOfStock = (product) => stockLimit(product) === 0;
 
+// The stand-in photo (a PS4 controller) the site once used for products without
+// one. Old API responses, saved carts or a pasted Zoho "Image URL" may still
+// carry it, at any size; it counts as no photo, so the category icon shows.
+const PLACEHOLDER_PHOTO_ID = 'photo-1552820728-8b83bb6b773f';
+export const isPlaceholderImage = (src) => String(src ?? '').includes(PLACEHOLDER_PHOTO_ID);
+
 export function cleanDescription(value) {
     return String(value ?? '')
         .split('\n')

@@ -10,7 +10,7 @@ import ProductDetailsModal from '../src/components/ProductDetailsModal';
 import CartDrawer from '../src/components/CartDrawer';
 import NewsletterForm from '../src/components/NewsletterForm';
 import { subscribeToNewsletter } from '../src/data/newsletter';
-import { LEGACY_PLACEHOLDER_IMAGE, normalizeProduct } from '../src/data/products';
+import { normalizeProduct } from '../src/data/products';
 
 const product = { id: 'test', name: 'USB-C cable', description: 'USB-C cable office price (5$)', price: 10, category: 'Accessories', images: ['/test.png'], in_stock: false, stock_on_hand: 0 };
 const render = (node) => renderToStaticMarkup(<MemoryRouter><WholesaleProvider><CurrencyContext.Provider value={{ snapshot: { rate: 1510, asOf: new Date().toISOString() }, loading: false }}>{node}</CurrencyContext.Provider></WholesaleProvider></MemoryRouter>);
@@ -30,8 +30,10 @@ test('available cards offer add-to-cart and closed cart is absent from accessibi
 });
 
 test('products without a photo show their category icon, never a stand-in photo', () => {
-    const mouse = normalizeProduct({ id: 'm1', name: 'Logitech wireless mouse', price: 10, images: [LEGACY_PLACEHOLDER_IMAGE] });
+    const ps4Photo = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=1200';
+    const mouse = normalizeProduct({ id: 'm1', name: 'Logitech wireless mouse', price: 10, images: [ps4Photo] });
     assert.deepEqual(mouse.images, []);
+    assert.match(render(<ProductCard product={{ ...product, images: [ps4Photo] }} onAddToCart={() => {}} />), /lucide-cable/);
     const card = render(<ProductCard product={mouse} onAddToCart={() => {}} />);
     const preview = render(<ProductDetailsModal product={mouse} onClose={() => {}} onAddToCart={() => {}} />);
     for (const html of [card, preview]) {

@@ -1,9 +1,5 @@
-import { cleanDescription, cleanProductName, stockLimit } from '../utils/storefront';
-// The stand-in photo (a games controller) once sent for products without one.
-// Cached API responses and saved carts may still contain it; it is dropped so
-// the category icon shows instead.
-export const LEGACY_PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600&auto=format&fit=crop';
-export const realImages = (images) => (Array.isArray(images) ? images : []).filter((src) => src && src !== LEGACY_PLACEHOLDER_IMAGE);
+import { cleanDescription, cleanProductName, isPlaceholderImage, stockLimit } from '../utils/storefront';
+export const realImages = (images) => (Array.isArray(images) ? images : []).filter((src) => src && !isPlaceholderImage(src));
 
 const KNOWN_BRANDS = [
   'Logitech', 'Razer', 'Onten', 'Lention', 'Anker', 'Elgato', 'JBL', 'Poly', 'Plantronics',
