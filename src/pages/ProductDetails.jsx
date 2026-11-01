@@ -1,4 +1,4 @@
-import { absoluteUrl, brandPath, CATEGORIES } from '../utils/seo';
+import { absoluteUrl, brandPath, CATEGORIES, shortProductTitle } from '../utils/seo';
 import { usePageData } from '../context/PageDataContext';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
@@ -83,6 +83,7 @@ export default function ProductDetails() {
   const isWholesaleMissingPrice = wholesaleClient && !hasWholesalePrice;
   const isContactForPrice = isWholesaleMissingPrice || !wholesaleClient && !hasRetailPrice;
   const activePrice = wholesaleClient && hasWholesalePrice ? wholesalePrice : Number(product?.price ?? 0);
+  const categoryPath = product && CATEGORIES.includes(product.category) ? `/products?category=${encodeURIComponent(product.category)}` : null;
   const jsonLd = useMemo(() => {
     if (!product) return null;
     return {
@@ -99,19 +100,24 @@ export default function ProductDetails() {
       } : undefined,
       category: product.category,
       sku: product.id,
+      // Logitech part numbers (910-001935) identify the exact model and colour.
+      mpn: product.brand === 'Logitech' ? `${product.name} ${product.description ?? ''}`.match(/\b9\d{2}-\d{6}\b/)?.[0] : undefined,
       offers: isFreshRate(snapshot) && hasRetailPrice ? {
         '@type': 'Offer',
         url: `${SITE_URL}/product/${toProductSlug(product)}`,
-        seller: { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'IT Land' },
+        seller: { '@type': 'ComputerStore', '@id': `${SITE_URL}/#store`, name: 'IT Land' },
         priceCurrency: 'IQD',
         price: String(Math.round(Number(product.price ?? 0) * snapshot.rate)),
         ...(product.in_stock != null ? { availability: product.in_stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' } : {})
       } : undefined
     };
   }, [product, description, images, snapshot, hasRetailPrice]);
+  const shortName = product ? shortProductTitle(product.name) : '';
+  const iqdPrice = hasRetailPrice ? formatIqd(product.price, snapshot) : null;
+  const stockText = !product ? '' : isOutOfStock(product) ? 'Currently out of stock, ask us about restocking.' : product.in_stock === true ? 'In stock.' : '';
   usePageMeta({
-    title: product ? `${product.name} in Iraq` : 'Product',
-    description: product ? `${product.name} at IT Land in Erbil, Iraq. ${description} Delivery across Iraq and Kurdistan. Contact us for availability.` : description,
+    title: product ? `${shortName} Price in Iraq` : 'Product',
+    description: product ? `${shortName} price in Iraq${iqdPrice ? `: ${iqdPrice}` : ''} at IT Land, Erbil. ${stockText} Delivery across Iraq and Kurdistan. Order on WhatsApp.` : description,
     image: images[0],
     path: product ? `/product/${toProductSlug(product)}` : undefined,
     jsonLd: product ? [jsonLd, {
@@ -119,7 +125,8 @@ export default function ProductDetails() {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
         { '@type': 'ListItem', position: 2, name: 'Shop', item: `${SITE_URL}/products` },
-        { '@type': 'ListItem', position: 3, name: product.name, item: `${SITE_URL}/product/${toProductSlug(product)}` }
+        ...(categoryPath ? [{ '@type': 'ListItem', position: 3, name: product.category, item: `${SITE_URL}${categoryPath}` }] : []),
+        { '@type': 'ListItem', position: categoryPath ? 4 : 3, name: product.name, item: `${SITE_URL}/product/${toProductSlug(product)}` }
       ]
     }] : null,
     noindex: state === 'missing' || state === 'error'
@@ -161,6 +168,10 @@ export default function ProductDetails() {
                     <span aria-hidden="true">/</span>
                     <Link to="/products">{t("Products")}</Link>
                     <span aria-hidden="true">/</span>
+                    {categoryPath && <>
+                            <Link to={categoryPath}>{t(product.category)}</Link>
+                            <span aria-hidden="true">/</span>
+                        </>}
                     <span className="breadcrumb-current">{product.name}</span>
                 </nav>
 

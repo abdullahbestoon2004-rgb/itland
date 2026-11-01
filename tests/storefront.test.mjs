@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProducts, orderMessage, relatedProducts, whatsappLink } from '../src/utils/storefront.js';
 import { parseMarketRate, isFreshRate, formatIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
+import { shortProductTitle } from '../src/utils/seo.js';
 
 const now = Date.now();
 const market = { kind: 'fx', unit: 'IQD per 1 USD', generatedAt: new Date(now).toISOString(), parallel: { stale: false, buy: 1500, sell: 1520, publishedAt: new Date(now).toISOString() } };
@@ -49,6 +50,14 @@ test('related products favour same category and brand, skip sold-out items and r
     assert.deepEqual(relatedProducts(product, catalog).map((related) => related.id), ['4', '9', '2', '3', '7']);
     assert.equal(relatedProducts(product, catalog, 2).length, 2);
     assert.deepEqual(relatedProducts(null, catalog), []);
+});
+
+test('search titles keep the model and colour of long catalog names', () => {
+    assert.equal(shortProductTitle('Logitech M705 Marathon Wireless Mouse 910-001935 – Long 3 Year Battery Life Ergonomic Sculpted'), 'Logitech M705 Marathon Wireless Mouse 910-001935');
+    assert.equal(shortProductTitle('Logitech G502 X PLUS LIGHTSPEED Wireless RGB Gaming Mouse 910-006169 White'), 'Logitech G502 X PLUS LIGHTSPEED Wireless RGB Gaming Mouse White');
+    assert.equal(shortProductTitle('Plantronics Poly Blackwire 3310 MS USB-A - Wired, Single Ear (Mono) Headset'), 'Plantronics Poly Blackwire 3310 MS USB-A');
+    assert.equal(shortProductTitle('Jabra 510 UC+Link 370'), 'Jabra 510 UC+Link 370');
+    assert.ok(shortProductTitle('Logitech '.repeat(20)).length <= 60);
 });
 
 test('IQD uses buy/sell midpoint and rejects stale, future, official or malformed observations', () => {

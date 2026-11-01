@@ -1,6 +1,6 @@
 import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
-import { brandPath, organization, SITE_URL } from '../utils/seo';
+import { brandPath, organization, SITE_URL, storeBusiness } from '../utils/seo';
 import { useLocale } from '../context/LocaleContext';
 import { homeProducts } from '../utils/storefront';
 import React, { useEffect, useState } from 'react';
@@ -16,10 +16,10 @@ import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
 export default function Storefront() {
   usePageMeta({
-    title: 'Logitech & Computer Accessories in Iraq',
-    description: 'Shop Logitech, computer accessories and gaming gear at IT Land in Erbil. Mice, keyboards, headsets and webcams with delivery across Iraq and Kurdistan.',
+    title: 'Computer & Logitech Store in Erbil, Iraq',
+    description: 'IT Land (iTland For Computer), Muzaffariya Street, Erbil: Logitech, Jabra and Poly mice, keyboards, headsets and webcams. Delivery across Iraq and Kurdistan.',
     path: '/',
-    jsonLd: [organization, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', url: `${SITE_URL}/`, publisher: { '@id': `${SITE_URL}/#organization` } }]
+    jsonLd: [organization, storeBusiness, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', alternateName: ['iTland For Computer', 'IT Land Erbil'], url: `${SITE_URL}/`, publisher: { '@id': `${SITE_URL}/#organization` } }]
   });
   const {
     t

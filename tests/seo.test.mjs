@@ -21,12 +21,27 @@ test('public pages render actual content and unique metadata without JavaScript'
     }
     assert.equal(titles.size, 7);
     assert.equal(schemas(renderPage('/', products).head)[0]['@type'], 'Organization');
+    // The store's address, map pin and hours match its Google Maps listing.
+    for (const path of ['/', '/contact']) {
+        const store = schemas(renderPage(path, products).head).find(item => item['@type'] === 'ComputerStore');
+        assert.equal(store.address.streetAddress, 'Muzaffariya Street');
+        assert.deepEqual(store.geo, { '@type': 'GeoCoordinates', latitude: 36.1899364, longitude: 44.0033506 });
+        assert.equal(store.openingHoursSpecification.length, 2);
+        assert.ok(!store.openingHoursSpecification.some(spec => spec.dayOfWeek.includes('Friday')));
+    }
+    assert.match(renderPage('/contact', products).body, /Muzaffariya Street/);
 });
 
 test('category pagination has distinct metadata, content and crawlable links', () => {
     const page = renderPage('/products?category=Mice&page=2', products, snapshot);
     assert.match(page.head, /Mice in Iraq - Page 2/);
     assert.match(page.head, /category=Mice&amp;page=2/);
+    // Only page 1 is indexed, so a brand or category search lands on it, not on
+    // a later page of sold-out items; later pages still pass on their links.
+    assert.match(page.head, /content="noindex, follow"/);
+    const first = renderPage('/products?category=Mice', products, snapshot);
+    assert.match(first.head, /content="index, follow/);
+    assert.match(first.body, /Shop mice from Logitech at IT Land in Erbil/);
     assert.match(page.body, /href="\/products\?category=Mice&amp;page=3"/);
     // Out-of-stock products sort last, so page 2 starts after twelve available ones.
     assert.match(page.body, /href="\/product\/logitech-mouse-13-113"/);
@@ -49,6 +64,13 @@ test('product markup uses public price, accurate availability, breadcrumbs and c
     assert.equal(schemas(renderPage(`/product/${toProductSlug(products[1])}`, products, snapshot).head)[0].offers.availability, 'https://schema.org/OutOfStock');
     assert.equal(schemas(renderPage(path, products).head)[0].offers, undefined);
     assert.deepEqual(renderPage('/product/old-name-100', products), { status: 301, redirect: path });
+    assert.match(page.head, /<title>Logitech Mouse 0 Price in Iraq \| IT Land<\/title>/);
+    assert.match(page.head, /price in Iraq: 30,000 IQD at IT Land, Erbil/);
+    assert.deepEqual(schema[1].itemListElement.map(item => item.name), ['Home', 'Shop', 'Mice', 'Logitech Mouse 0']);
+    assert.match(page.body, /href="\/products\?category=Mice"/);
+    const partNumbered = { ...products[2], id: '999', name: 'Logitech M705 Marathon Mouse 910-001935 – Long Battery Life' };
+    const partSchema = schemas(renderPage(`/product/${toProductSlug(partNumbered)}`, [...products, partNumbered], snapshot).head)[0];
+    assert.equal(partSchema.mpn, '910-001935');
     // Related products are crawlable links in the first response; sold-out ones are left out.
     assert.match(page.body, /Related products/);
     assert.match(page.body, /href="\/product\/logitech-mouse-2-102"/);
@@ -87,7 +109,7 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         process.env.ZOHO_REFRESH_TOKEN = 'test';
         globalThis.fetch = async url => {
             if (String(url).includes('/oauth/')) return { json: async () => ({ access_token: 'test', expires_in: 3600 }) };
-            if (String(url).includes('/books/')) return { ok: true, json: async () => ({ code: 0, items: products.map(p => ({ item_id: p.id, name: p.name, description: p.description, rate: p.price, product_type: 'goods', stock_on_hand: p.stock_on_hand, custom_fields: [] })), page_context: {} }) };
+            if (String(url).includes('/books/')) return { ok: true, json: async () => ({ code: 0, items: products.map(p => ({ item_id: p.id, name: p.name, description: p.description, rate: p.price, product_type: 'goods', stock_on_hand: p.stock_on_hand, custom_fields: p.id === '100' ? [{ label: 'Image URL', value: '/itlandlogo.png' }] : [] })), page_context: {} }) };
             throw new Error('Rate unavailable');
         };
         const rendered = response();
@@ -109,7 +131,7 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         assert.match(sitemap.body, /\/help\/delivery/);
         assert.match(sitemap.body, /\/brands\/logitech/);
         assert.match(sitemap.body, /\/products\?category=Mice/);
-        assert.match(sitemap.body, /\/product\/logitech-mouse-0-100/);
+        assert.match(sitemap.body, /\/product\/logitech-mouse-0-100<\/loc><image:image><image:loc>https:\/\/itlandforcomputer.com\/itlandlogo.png<\/image:loc>/);
         assert.doesNotMatch(sitemap.body, /<lastmod>|\/admin\/|\/wholesale\//);
     } finally {
         globalThis.fetch = oldFetch;
@@ -128,7 +150,9 @@ test('brand landing pages are rendered, linked, paginated and canonical', () => 
     assert.match(page.body, /href="\/brands\/logitech\?page=2"/);
     assert.match(page.body, /href="\/brands\/logitech\?category=Mice"/);
     assert.equal(schemas(page.head)[0]['@type'], 'CollectionPage');
-    assert.match(renderPage('/brands/logitech?page=2', products, snapshot).body, /logitech-mouse-13-113/);
+    const secondPage = renderPage('/brands/logitech?page=2', products, snapshot);
+    assert.match(secondPage.body, /logitech-mouse-13-113/);
+    assert.match(secondPage.head, /content="noindex, follow"/);
     assert.match(renderPage('/', products, snapshot).body, /href="\/brands\/logitech"/);
     assert.match(renderPage('/product/logitech-mouse-0-100', products, snapshot).body, /href="\/brands\/logitech"/);
     const missing = renderPage('/brands/nonexistent', products, snapshot);

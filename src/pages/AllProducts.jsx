@@ -14,6 +14,8 @@ import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
 import './AllProducts.css';
 const categories = ['All', 'Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
+// How each category reads inside a sentence on its landing page.
+const categoryPhrases = { Mice: 'mice', Keyboards: 'keyboards', Headsets: 'headsets and headphones', Webcams: 'webcams and conference cameras', Gaming: 'gaming gear', Accessories: 'computer accessories, cables and adapters', Audio: 'speakers and conference audio', Streaming: 'streaming and recording gear' };
 // Every sort lists buyable products first, then "contact for price", then out of stock.
 const availabilityRank = product => isOutOfStock(product) ? 2 : Number(product.price) > 0 ? 0 : 1;
 // Zoho ids exceed Number.MAX_SAFE_INTEGER, so compare them as digit strings.
@@ -147,6 +149,13 @@ export default function AllProducts() {
     });
   };
   const brands = [...new Set(products.map(product => product.brand).filter(Boolean))].sort();
+  const brandCounts = new Map();
+  for (const product of products) {
+    if (product.brand && product.category === activeCategory && !isOutOfStock(product)) brandCounts.set(product.brand, (brandCounts.get(product.brand) ?? 0) + 1);
+  }
+  const topCategoryBrands = [...brandCounts].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([brand]) => brand);
+  const brandList = topCategoryBrands.length > 1 ? `${topCategoryBrands.slice(0, -1).join(', ')} and ${topCategoryBrands.at(-1)}` : topCategoryBrands[0];
+  const categoryIntro = `Shop ${categoryPhrases[activeCategory]}${brandList ? ` from ${brandList}` : ''} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.`;
   const landingBrand = routeBrand ? brands.find(brand => brandSlug(brand) === routeBrand) : null;
   const collectionName = landingBrand ? `${landingBrand}${activeCategory !== 'All' ? ` ${activeCategory}` : ' Products'}` : activeCategory === 'All' ? 'Computer Accessories & Gaming Gear' : activeCategory;
   const filteredProducts = products.filter(product => {
@@ -184,7 +193,10 @@ export default function AllProducts() {
     description: `Shop ${collectionName} at IT Land in Erbil, Iraq. Browse prices and availability, with delivery across Iraq and Kurdistan. Order on WhatsApp.`,
     path: canonicalPath,
     jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${collectionName} in Iraq`, url: absoluteUrl(canonicalPath), mainEntity: { '@type': 'ItemList', itemListElement: paginatedProducts.map((product, index) => ({ '@type': 'ListItem', position: (safeCurrentPage - 1) * itemsPerPage + index + 1, name: product.name, url: absoluteUrl(`/product/${toProductSlug(product)}`) })) } },
-    noindex: Boolean(routeBrand && !landingBrand) || Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
+    // Only the first page of a collection is indexed: later pages list the
+    // sold-out items last, and Google would otherwise show them for a brand
+    // search. Their links are still followed, and every product is in the sitemap.
+    noindex: currentPage > 1 || Boolean(routeBrand && !landingBrand) || Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
   });
   return <div className="all-products-page">
             <header className="shop-header">
@@ -194,6 +206,9 @@ export default function AllProducts() {
                     <p>Browse {landingBrand} products at IT Land in Erbil. Compare models, current prices and availability below. Contact us on WhatsApp for delivery fees and timing across Iraq and Kurdistan.</p>
                     {landingBrand === 'Logitech' && <p lang="ar" dir="rtl">تسوق منتجات لوجيتك Logitech في العراق من آي تي لاند في أربيل. تصفح الماوس والكيبورد والسماعات وكاميرات الويب المتوفرة، وتواصل معنا عبر واتساب لمعرفة تفاصيل التوصيل والأسعار.</p>}
                     <Link to="/help/delivery">Delivery and ordering</Link> · <Link to="/help/warranty">Warranty information</Link>
+                </div>}
+                {!landingBrand && activeCategory !== 'All' && <div className="brand-intro">
+                    <p>{categoryIntro}</p>
                 </div>}
                 {productsError && <p className="shop-subtitle">{productsError}</p>}
             </header>

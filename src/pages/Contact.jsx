@@ -1,4 +1,4 @@
-import { storeBusiness } from '../utils/seo';
+import { STORE_ADDRESS, STORE_HOURS, STORE_MAP_URL, storeBusiness } from '../utils/seo';
 import usePageMeta from '../hooks/usePageMeta';
 import React, { useState } from 'react';
 import {
@@ -31,8 +31,8 @@ const CONTACT_CARDS = [
         id: 'contact-location',
         icon: <MapPin size={28} />,
         label: 'Location',
-        value: 'Erbil, Kurdistan Region, Iraq',
-        href: 'https://maps.app.goo.gl/FnZ4478eTBAsR7ym9',
+        value: 'Muzaffariya Street, Erbil',
+        href: STORE_MAP_URL,
     },
     {
         id: 'contact-whatsapp',
@@ -45,7 +45,7 @@ const CONTACT_CARDS = [
 ];
 
 export default function Contact() {
-    usePageMeta({ title: 'Contact IT Land in Erbil', description: 'Contact IT Land in Erbil on WhatsApp at +9647504888570 for computer accessories, product availability, delivery and order support.', path: '/contact', jsonLd: storeBusiness });
+    usePageMeta({ title: 'Contact & Store Location in Erbil', description: 'Visit IT Land (iTland For Computer) on Muzaffariya Street, Erbil, or contact us on WhatsApp at 0750 488 8570. Open Saturday to Thursday; closed Friday.', path: '/contact', jsonLd: storeBusiness });
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
     const [isSending, setIsSending] = useState(false);
@@ -215,6 +215,24 @@ export default function Contact() {
                     <div className="contact-map-header">
                         <p className="contact-eyebrow">Visit Us</p>
                         <h2 className="contact-section-title">Our Location</h2>
+                        <div className="contact-store-details">
+                            <address>
+                                <strong>iTland For Computer</strong><br />
+                                {STORE_ADDRESS}
+                            </address>
+                            <ul className="contact-hours" aria-label="Opening hours">
+                                {STORE_HOURS.map(({ days, opens, closes }) => (
+                                    <li key={days[0]}>
+                                        <span>{days.length > 1 ? `${days[0]} – ${days[days.length - 1]}` : days[0]}</span>
+                                        <span>{opens} – {closes}</span>
+                                    </li>
+                                ))}
+                                <li><span>Friday</span><span>Closed</span></li>
+                            </ul>
+                            <a href={STORE_MAP_URL} target="_blank" rel="noreferrer" className="contact-map-link">
+                                Open in Google Maps <ArrowRight size={16} />
+                            </a>
+                        </div>
                     </div>
                     <div className="contact-map-wrap">
                         <iframe

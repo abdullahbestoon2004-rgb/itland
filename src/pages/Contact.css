@@ -394,6 +394,45 @@
     margin-bottom: 2.5rem;
 }
 
+.contact-store-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-4) var(--space-8);
+    margin-top: var(--space-4);
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.contact-store-details address {
+    font-style: normal;
+}
+
+.contact-store-details strong {
+    color: var(--text-primary);
+}
+
+.contact-hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 260px;
+}
+
+.contact-hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-5);
+}
+
+.contact-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--logi-cyan);
+    font-weight: 700;
+}
+
 .contact-map-wrap {
     border-radius: 20px;
     overflow: hidden;
