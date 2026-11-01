@@ -32,7 +32,7 @@ export default function Footer() {
                         <h4 className="column-title">{t("Support")}</h4>
                         <Link to="/help/delivery" className="footer-link">{t("Delivery & Ordering")}</Link>
                         <a href={whatsappLink()} className="footer-link" target="_blank" rel="noreferrer">{t("Contact Us")}</a>
-                        <a href="mailto:hello@itland.store" className="footer-link">{t("Email Support")}</a>
+                        <a href="mailto:info@itlandforcomputer.com" className="footer-link">{t("Email Support")}</a>
                         <Link to="/help/warranty" className="footer-link">{t("Warranty")}</Link>
                         <Link to="/help/returns" className="footer-link">{t("Returns")}</Link>
                     </div>

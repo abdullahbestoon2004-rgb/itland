@@ -24,8 +24,8 @@ const CONTACT_CARDS = [
         id: 'contact-email',
         icon: <Mail size={28} />,
         label: 'Email',
-        value: 'hello@itland.store',
-        href: 'mailto:hello@itland.store',
+        value: 'info@itlandforcomputer.com',
+        href: 'mailto:info@itlandforcomputer.com',
     },
     {
         id: 'contact-location',
