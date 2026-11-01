@@ -14,6 +14,7 @@ import ShoppingHelp from './pages/ShoppingHelp';
 import { helpContent } from './data/help';
 import NotFound from './pages/NotFound';
 import { normalizeProduct, productIdFromSlug } from './data/products';
+import { relatedProducts } from './utils/storefront';
 import imageMap from './data/productImages.json';
 import { brandSlug, CATEGORIES, pageMetadata, renderHead, serializeJson, toProductSlug } from './utils/seo';
 
@@ -36,7 +37,7 @@ export function renderPage(requestUrl, products = [], snapshot = null) {
     if (product && slug !== toProductSlug(product)) {
         return { status: 301, redirect: `/product/${toProductSlug(product)}` };
     }
-    const pageData = productRoute ? { slug, product: product ?? null, snapshot, serverRendered: true } : { products: catalog, snapshot, serverRendered: true };
+    const pageData = productRoute ? { slug, product: product ?? null, related: relatedProducts(product, catalog), snapshot, serverRendered: true } : { products: catalog, snapshot, serverRendered: true };
     const known = ['/', '/products', '/about', '/contact'].includes(path) || (path.startsWith('/help/') && Object.hasOwn(helpContent, path.slice(6))) || Boolean(product) || (path.startsWith('/brands/') && catalog.some(item => item.brand && brandSlug(item.brand) === path.slice(8)));
     let metadata = null;
     const collectMetadata = value => { metadata = value; };

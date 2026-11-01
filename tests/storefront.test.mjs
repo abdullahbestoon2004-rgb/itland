@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProducts, orderMessage, whatsappLink } from '../src/utils/storefront.js';
+import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProducts, orderMessage, relatedProducts, whatsappLink } from '../src/utils/storefront.js';
 import { parseMarketRate, isFreshRate, formatIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
 
 const now = Date.now();
@@ -30,6 +30,25 @@ test('homepage shows available selections without presenting unselected items as
     const mixed = homeProducts([...headsets, { id: 'm', price: 10, category: 'Mice' }, { id: 'k', price: 10, category: 'Keyboards' }]).products;
     assert.deepEqual(mixed.slice(0, 3).map((product) => product.category), ['Headsets', 'Mice', 'Keyboards']);
     assert.equal(mixed.length, 8);
+});
+
+test('related products favour same category and brand, skip sold-out items and repeated listings', () => {
+    const item = (id, name, category, brand, price, extra = {}) => ({ id, name, category, brand, price, images: ['/x.png'], in_stock: true, ...extra });
+    const product = item('1', 'Logitech G502 X Plus Gaming Mouse', 'Mice', 'Logitech', 140);
+    const catalog = [
+        product,
+        item('2', 'Razer Viper Mouse', 'Mice', 'Razer', 90),
+        item('3', 'Logitech M90 Mouse', 'Mice', 'Logitech', 8),
+        item('4', 'Logitech G502 Hero Gaming Mouse', 'Mice', 'Logitech', 50),
+        item('5', 'Logitech G502 Hero Gaming Mouse', 'Mice', 'Logitech', 50),
+        item('6', 'Logitech G Pro Mouse', 'Mice', 'Logitech', 130, { in_stock: false }),
+        item('7', 'Logitech K380 Keyboard', 'Keyboards', 'Logitech', 40),
+        item('8', 'Onten HDMI Cable', 'Accessories', 'Onten', 10),
+        item('9', 'Logitech MX Master 3S Mouse', 'Mice', 'Logitech', 120),
+    ];
+    assert.deepEqual(relatedProducts(product, catalog).map((related) => related.id), ['4', '9', '2', '3', '7']);
+    assert.equal(relatedProducts(product, catalog, 2).length, 2);
+    assert.deepEqual(relatedProducts(null, catalog), []);
 });
 
 test('IQD uses buy/sell midpoint and rejects stale, future, official or malformed observations', () => {

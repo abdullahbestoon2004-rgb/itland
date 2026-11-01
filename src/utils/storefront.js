@@ -68,6 +68,51 @@ function mixCategories(products, count) {
     return picked;
 }
 
+const COMMON_NAME_WORDS = new Set(['the', 'and', 'for', 'with', 'wireless', 'wired', 'usb', 'bluetooth', 'black', 'white', 'grey', 'gray', 'graphite', 'new', 'logitech', 'logi']);
+const nameWords = (product) => new Set(cleanProductName(product).toLowerCase().split(/[^a-z0-9]+/)
+    .filter((word) => word.length > 1 && !/^\d+$/.test(word) && !COMMON_NAME_WORDS.has(word)));
+
+// Products to suggest under a product page, from the same category or brand.
+// Each scores for sharing the category (most), the brand, and model words
+// (G502, Blackwire, Signature), and loses points the further its price is from
+// this product's, so a $38 speaker suggests other desktop speakers before a
+// $400 conference dock. Sold-out items are left out, and listings that share a
+// name (one model under several barcodes) appear once.
+export function relatedProducts(product, catalog, count = 8) {
+    if (!product) return [];
+    const category = getCleanProductCategory(product);
+    const brand = (product.brand ?? '').toLowerCase();
+    const price = Number(product.price) || 0;
+    const words = nameWords(product);
+    const candidates = [];
+    catalog.forEach((item, index) => {
+        if (String(item.id) === String(product.id) || isOutOfStock(item)) return;
+        const sameCategory = getCleanProductCategory(item) === category;
+        const sameBrand = Boolean(brand) && (item.brand ?? '').toLowerCase() === brand;
+        if (!sameCategory && !sameBrand) return;
+        let shared = 0;
+        for (const word of nameWords(item)) if (words.has(word)) shared += 1;
+        const priceGap = Math.abs(Math.log((Number(item.price) || 0) + 1) - Math.log(price + 1));
+        candidates.push({
+            item,
+            index,
+            score: (sameCategory ? 3 : 0) + (sameBrand ? 1 : 0) + Math.min(shared, 3) - priceGap,
+            hasImage: item.images?.length > 0 ? 1 : 0,
+        });
+    });
+    candidates.sort((a, b) => b.score - a.score || b.hasImage - a.hasImage || a.index - b.index);
+    const seen = new Set([cleanProductName(product).toLowerCase()]);
+    const picked = [];
+    for (const { item } of candidates) {
+        const name = cleanProductName(item).toLowerCase();
+        if (seen.has(name)) continue;
+        seen.add(name);
+        picked.push(item);
+        if (picked.length === count) break;
+    }
+    return picked;
+}
+
 export function orderMessage(items, details = {}, snapshot = null) {
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     return [

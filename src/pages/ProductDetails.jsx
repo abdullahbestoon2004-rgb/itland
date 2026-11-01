@@ -1,17 +1,18 @@
-import { absoluteUrl, brandPath } from '../utils/seo';
+import { absoluteUrl, brandPath, CATEGORIES } from '../utils/seo';
 import { usePageData } from '../context/PageDataContext';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatIqd, isFreshRate } from '../utils/currency';
 import Price from '../components/Price';
-import { isOutOfStock, whatsappLink } from '../utils/storefront';
+import { isOutOfStock, relatedProducts, whatsappLink } from '../utils/storefront';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useOutletContext, useParams } from 'react-router-dom';
+import { Link, useNavigate, useOutletContext, useParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, MessageCircle, ShoppingCart } from 'lucide-react';
-import { getProductBySlug, toProductSlug } from '../data/products';
+import { getAllProducts, getProductBySlug, toProductSlug } from '../data/products';
 import { useWholesale } from '../context/WholesaleContext';
 import usePageMeta, { SITE_URL } from '../hooks/usePageMeta';
 import ProductImage from '../components/ProductImage';
+import ProductCard from '../components/ProductCard';
 import './ProductDetails.css';
 export default function ProductDetails() {
   const {
@@ -30,27 +31,32 @@ export default function ProductDetails() {
     wholesaleClient,
     wholesalePriceOf
   } = useWholesale();
+  const navigate = useNavigate();
   const initial = usePageData();
   const [loaded, setLoaded] = useState({
     slug: initial.slug ?? null,
     product: initial.product ?? null,
+    related: initial.related ?? [],
     state: initial.slug ? (initial.product ? 'ready' : 'missing') : 'loading'
   });
   const [imageIndex, setImageIndex] = useState(0);
   useEffect(() => {
     let ignore = false;
-    getProductBySlug(slug).then(found => {
+    // Both read the same cached catalog, so this is one request.
+    Promise.all([getProductBySlug(slug), getAllProducts()]).then(([found, catalog]) => {
       if (ignore) return;
       setImageIndex(0);
       setLoaded({
         slug,
         product: found,
+        related: relatedProducts(found, catalog),
         state: found ? 'ready' : 'missing'
       });
     }).catch(() => {
       if (!ignore) setLoaded({
         slug,
         product: null,
+        related: [],
         state: 'error'
       });
     });
@@ -63,6 +69,7 @@ export default function ProductDetails() {
   // showing the product we were looking at a moment ago.
   const isCurrent = loaded.slug === slug;
   const product = isCurrent ? loaded.product : null;
+  const related = isCurrent ? loaded.related : [];
   const state = isCurrent ? loaded.state : 'loading';
   const images = useMemo(() => product?.images?.length ? product.images : [], [product]);
   const description = useMemo(() => {
@@ -221,6 +228,16 @@ export default function ProductDetails() {
                         </div>
                     </div>
                 </div>
+
+                {related.length > 0 && <section className="related-products" aria-labelledby="related-products-title">
+                        <div className="section-header section-header-row">
+                            <h2 id="related-products-title" className="section-title">{t("Related products")}</h2>
+                            {CATEGORIES.includes(product.category) && <Link to={`/products?category=${encodeURIComponent(product.category)}`} className="view-all-link">{t("More in this category \u2192")}</Link>}
+                        </div>
+                        <div className="products-grid">
+                            {related.map(item => <ProductCard key={item.id} product={item} onAddToCart={handleAddToCart} onImageClick={card => navigate(`/product/${toProductSlug(card)}`)} />)}
+                        </div>
+                    </section>}
             </div>
         </div>;
 }

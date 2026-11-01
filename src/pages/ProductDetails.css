@@ -1,5 +1,5 @@
 .product-details-page {
-    padding: var(--space-8) 0 var(--space-9);
+    padding: var(--space-8) var(--space-4) var(--space-9);
 }
 
 .product-details-state {
@@ -257,4 +257,14 @@
 .details-contact-btn:hover {
     background: #0096c7;
     border-color: #0096c7;
+}
+
+.related-products {
+    margin-top: var(--space-9);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.related-products .section-title {
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
 }

@@ -49,6 +49,11 @@ test('product markup uses public price, accurate availability, breadcrumbs and c
     assert.equal(schemas(renderPage(`/product/${toProductSlug(products[1])}`, products, snapshot).head)[0].offers.availability, 'https://schema.org/OutOfStock');
     assert.equal(schemas(renderPage(path, products).head)[0].offers, undefined);
     assert.deepEqual(renderPage('/product/old-name-100', products), { status: 301, redirect: path });
+    // Related products are crawlable links in the first response; sold-out ones are left out.
+    assert.match(page.body, /Related products/);
+    assert.match(page.body, /href="\/product\/logitech-mouse-2-102"/);
+    assert.doesNotMatch(page.body.split('Related products')[1], /href="\/product\/logitech-mouse-1-101"/);
+    assert.equal(JSON.parse(page.data).related.length, 8);
 });
 
 test('missing pages and products return 404 and noindex', () => {
