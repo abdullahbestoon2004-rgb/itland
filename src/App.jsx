@@ -15,6 +15,7 @@ import StoreLayout from './components/StoreLayout';
 import ScrollToTop from './components/ScrollToTop';
 import AuthProvider from './components/AuthProvider';
 import WholesaleProvider from './components/WholesaleProvider';
+import LazyLegalPage from './pages/app/LazyLegalPage';
 import './App.css';
 
 function App() {
@@ -35,9 +36,12 @@ function App() {
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/wholesale/login" element={<WholesaleLogin />} />
+          <Route path="/app/privacy" element={<LazyLegalPage doc="privacy" />} />
+          <Route path="/app/terms" element={<LazyLegalPage doc="terms" />} />
+          <Route path="/app/delete-account" element={<LazyLegalPage doc="delete-account" />} />
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
           </Route>
         </Routes>
       </WholesaleProvider>

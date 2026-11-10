@@ -1,15 +1,15 @@
 import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
-import { brandPath, organization, SITE_URL, storeBusiness } from '../utils/seo';
+import { organization, SITE_URL, storeBusiness } from '../utils/seo';
 import { useLocale } from '../context/LocaleContext';
 import { homeProducts } from '../utils/storefront';
 import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
 import FeaturedCategories from '../components/FeaturedCategories';
+import BrandMarquee from '../components/BrandMarquee';
 import WhyChooseUs from '../components/WhyChooseUs';
 import PromoBanner from '../components/PromoBanner';
-import CustomerReviews from '../components/CustomerReviews';
 import NewsletterCTA from '../components/NewsletterCTA';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
@@ -61,11 +61,7 @@ export default function Storefront() {
             <HomeHero />
 
             <FeaturedCategories />
-            {products.length > 0 && <section className="section-container brand-directory" aria-label="Shop by brand">
-                <h2>{t('Brands')}</h2>
-                <p>Computer accessories and gaming gear from IT Land, Erbil. Delivery across Iraq and Kurdistan.</p>
-                <div className="brand-links">{[...new Set(products.map(product => product.brand).filter(Boolean))].sort().map(brand => <Link key={brand} to={brandPath(brand)}>{brand}</Link>)}</div>
-            </section>}
+            <BrandMarquee products={products} />
 
             <section id="best-sellers" className="products-section">
                 <div className="section-container">
@@ -90,7 +86,6 @@ export default function Storefront() {
 
             <WhyChooseUs />
             <PromoBanner />
-            <CustomerReviews />
             <NewsletterCTA />
 
             <ProductDetailsModal key={selectedImageProduct?.id ?? 'no-product'} product={selectedImageProduct} onClose={() => setSelectedImageProduct(null)} onAddToCart={handleAddToCart} />

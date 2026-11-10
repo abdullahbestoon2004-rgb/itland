@@ -160,7 +160,11 @@
 }
 
 .details-stock.in {
-    color: #4ade80;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-pill);
+    background: #15803d;
+    color: #fff;
 }
 
 .details-stock.out {

@@ -92,7 +92,7 @@ export default function ProductCard({
                         {displayName}
                     </Link>
                 </h3>
-                <p className={`product-stock ${unavailable ? 'out' : ''}`}>{unavailable ? t("Out of stock") : product.in_stock === true ? t("In stock") : t("Confirm availability on WhatsApp")}</p>
+                <p className={`product-stock ${unavailable ? 'out' : product.in_stock === true ? 'in' : ''}`}>{unavailable ? t("Out of stock") : product.in_stock === true ? t("In stock") : t("Confirm availability on WhatsApp")}</p>
                 <div className="product-price-block">
                     {wholesaleClient ? hasWholesalePrice ? <>
                                 <span className="product-price wholesale-price">

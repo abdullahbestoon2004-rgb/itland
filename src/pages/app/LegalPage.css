@@ -1,0 +1,286 @@
+/* App legal pages (/app/privacy, /app/terms, /app/delete-account).
+   Own class prefix (lgl-), uses the site's colour tokens from index.css. */
+
+.lgl-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    font-family: var(--font-base);
+    line-height: 1.7;
+}
+
+.lgl-page:lang(ar) {
+    font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+    line-height: 1.9;
+}
+
+.lgl-page:lang(ckb) {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    line-height: 1.95;
+}
+
+.lgl-page:is(:lang(ar), :lang(ckb)) :is(h1, h2) {
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+
+/* ── Header ── */
+.lgl-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(13, 17, 23, 0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--logi-border);
+}
+
+.lgl-bar {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0.625rem 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.lgl-wordmark {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.lgl-langs {
+    display: flex;
+    padding: 3px;
+    border: 1px solid var(--logi-border);
+    border-radius: var(--radius-pill);
+    background: var(--logi-darker);
+}
+
+.lgl-lang {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 0.85rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.lgl-lang:lang(en) { font-family: var(--font-base); }
+.lgl-lang:lang(ar) { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+.lgl-lang:lang(ckb) { font-family: 'Noto Sans Arabic', sans-serif; }
+
+.lgl-lang:hover { color: var(--text-primary); }
+
+.lgl-lang[aria-current='true'] {
+    background: var(--logi-cyan);
+    color: var(--text-inverse);
+}
+
+/* ── Document ── */
+.lgl-main {
+    flex: 1;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.25rem 16px 3rem;
+}
+
+.lgl-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--logi-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.lgl-page:is(:lang(ar), :lang(ckb)) .lgl-eyebrow {
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.lgl-title {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+    margin-bottom: 0.5rem;
+}
+
+.lgl-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.lgl-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--logi-border);
+}
+
+.lgl-section {
+    margin-top: 2rem;
+}
+
+.lgl-section h2,
+.lgl-contact h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.lgl-section p,
+.lgl-contact p {
+    color: var(--text-secondary);
+}
+
+.lgl-section p + p {
+    margin-top: 0.6rem;
+}
+
+.lgl-list,
+.lgl-steps {
+    color: var(--text-secondary);
+    padding-inline-start: 1.25rem;
+    margin: 0.4rem 0;
+}
+
+.lgl-list li,
+.lgl-steps li {
+    padding-inline-start: 0.25rem;
+    margin-bottom: 0.45rem;
+}
+
+.lgl-list li::marker,
+.lgl-steps li::marker {
+    color: var(--logi-cyan);
+    font-weight: 700;
+}
+
+.lgl-list strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.lgl-section .lgl-note {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-inline-start: 3px solid var(--logi-cyan);
+    border-radius: var(--radius-sm);
+    background: var(--logi-surface);
+    color: var(--text-primary);
+}
+
+.lgl-link,
+.lgl-section a,
+.lgl-contact-list a:not(.lgl-chip) {
+    color: var(--logi-cyan);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lgl-ltr {
+    unicode-bidi: isolate;
+    overflow-wrap: anywhere;
+}
+
+/* ── Contact ── */
+.lgl-contact {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--logi-border);
+    border-radius: var(--radius-lg);
+    background: var(--logi-surface);
+}
+
+.lgl-contact-list {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+}
+
+.lgl-contact-list dt {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.lgl-contact-list dd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.lgl-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 0.8rem;
+    border-radius: var(--radius-pill);
+    background: #25d366;
+    color: #04210f;
+    font-family: var(--font-base);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ── Footer ── */
+.lgl-footer {
+    border-top: 1px solid var(--logi-border);
+    padding: 1.25rem 16px 2rem;
+    text-align: center;
+}
+
+.lgl-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.lgl-footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.lgl-footer-nav a:hover,
+.lgl-footer-nav a[aria-current='page'] {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lgl-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+    .lgl-bar { padding-inline: 24px; }
+    .lgl-main { padding: 3rem 24px 4rem; }
+    .lgl-contact { padding: 1.5rem 1.75rem; }
+}
+
+@media print {
+    .lgl-header, .lgl-footer-nav, .lgl-chip { display: none; }
+    .lgl-page { color: #000; }
+    .lgl-section p, .lgl-list, .lgl-steps, .lgl-contact p { color: #000; }
+}

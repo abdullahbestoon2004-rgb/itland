@@ -315,7 +315,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_B100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/b100/gallery/b100-blackcharcoal-gallery-1.png"
     ],
     "featured": false,
     "order_index": 17,
@@ -333,7 +333,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_R800.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r800/gallery/r800-comparison.png"
     ],
     "featured": false,
     "order_index": 18,
@@ -351,7 +351,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK710.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/refurbished/mk710-refurbished/gallery/mk710-refurb-gallery1.png"
     ],
     "featured": false,
     "order_index": 19,
@@ -387,7 +387,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M705.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m705/gallery/m705-gallery-1.png"
     ],
     "featured": false,
     "order_index": 21,
@@ -405,7 +405,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c270-hd-webcam/gallery/c270-hd-webcam-1-0224.png"
     ],
     "featured": false,
     "order_index": 22,
@@ -423,7 +423,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C920_PRO.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920/gallery/c920-gallery-1.png"
     ],
     "featured": false,
     "order_index": 23,
@@ -441,7 +441,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M185.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-grey-emea.png"
     ],
     "featured": false,
     "order_index": 24,
@@ -459,7 +459,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk270/gallery/mk270-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 25,
@@ -477,7 +477,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M235.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m317-wireless-mouse/gallery/m317-colt-glossy-gallery-1.png"
     ],
     "featured": false,
     "order_index": 26,
@@ -495,7 +495,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_BCC950.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/bcc950/gallery/bcc950-gallery-1.png"
     ],
     "featured": false,
     "order_index": 27,
@@ -513,7 +513,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H340.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h340/gallery/2024-update/h340-headset-mic-gallery-01.png"
     ],
     "featured": false,
     "order_index": 28,
@@ -531,7 +531,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://media.ldlc.com/r1600/ld/products/00/01/35/29/LD0001352982_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h650e/gallery/h650e-stereo-gallery-01.png"
     ],
     "featured": false,
     "order_index": 29,
@@ -567,7 +567,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C930e.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c930e/gallery/c930e-gallery-1.png"
     ],
     "featured": false,
     "order_index": 31,
@@ -585,7 +585,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z150.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z150/gallery/z150-gallery-1.png"
     ],
     "featured": false,
     "order_index": 32,
@@ -603,7 +603,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/8132/8132087cv12d.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g402/gallery-5.png"
     ],
     "featured": false,
     "order_index": 33,
@@ -621,7 +621,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H570e.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h570e/gallery/h570e-uc-version-mono-usba-left.png"
     ],
     "featured": false,
     "order_index": 34,
@@ -639,7 +639,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://www.voipsupply.com/media/version1749428793/catalog/product/cache/1a46f9adc35a17df9cce3850e14779ac/l/o/logitech_h570e_usb_headset_stereo_981-000574.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h570e/gallery/h570e-uc-version-stereo-usba-left.png"
     ],
     "featured": false,
     "order_index": 35,
@@ -657,7 +657,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "https://cdn11.bigcommerce.com/s-mfdnq9n4ks/images/stencil/1280x1280/products/440/16177/Logitech_GROUP_Expansion_Mics_Supports_20_Seats-1__42542.1680003653.jpg?c=2"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-expansion-mics/gallery/vc-group-expansion-gallery-1.png"
     ],
     "featured": false,
     "order_index": 36,
@@ -675,7 +675,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C925e.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c925e/gallery/c925e-gallery-1.png"
     ],
     "featured": false,
     "order_index": 37,
@@ -693,7 +693,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51KixhXtaRL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m720/gallery/m720-gallery-1a.png"
     ],
     "featured": false,
     "order_index": 38,
@@ -711,7 +711,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK850.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk850-keyboard-mouse/gallery/mk850-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 39,
@@ -729,7 +729,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C922.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c922/gallery/c922-gallery-1.png"
     ],
     "featured": false,
     "order_index": 40,
@@ -747,7 +747,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_4K.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio/gallery/brio-gallery-1.png"
     ],
     "featured": false,
     "order_index": 41,
@@ -765,7 +765,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_4K.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-stream-4k-hd-webcam/gallery/brio-stream-4k-ultra-hd-webcam-gallery-1.png"
     ],
     "featured": false,
     "order_index": 42,
@@ -783,7 +783,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Spotlight.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/spotlight/gallery/spotlight-comparison.png"
     ],
     "featured": false,
     "order_index": 43,
@@ -801,7 +801,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Spotlight.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/spotlight/gallery/spotlight-comparison.png"
     ],
     "featured": false,
     "order_index": 44,
@@ -819,7 +819,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://assets.logitech.com/assets/65032/ptz-pro-2-camera.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/ptz-pro2-conferencecam/gallery/ptz-pro-2-gallery-1.png"
     ],
     "featured": false,
     "order_index": 45,
@@ -837,7 +837,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://hightech-lb.com/wp-content/uploads/2022/08/group-10m-extended-cable-510x438-2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-10m-extended-cable/gallery/vc-10m-cable-gallery-1.png"
     ],
     "featured": false,
     "order_index": 46,
@@ -855,7 +855,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MeetUp.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup/gallery/meetup-taa-gallery-global-1.png"
     ],
     "featured": false,
     "order_index": 47,
@@ -873,7 +873,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "https://www.dmos.co.za/wp-content/uploads/2022/09/989-000405-computerxpress-b.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup-expansion-mics/gallery/meetup-expansion-mics-gallery-1.png"
     ],
     "featured": false,
     "order_index": 48,
@@ -891,7 +891,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://geon.com.my/wp-content/uploads/2020/12/GROUP-15M-EXTENDER-CABLE.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-15m-extended-cable/gallery/vc-15m-extender-gallery-1.png"
     ],
     "featured": false,
     "order_index": 49,
@@ -909,7 +909,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Craft.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/craft/gallery/us-gallery-top-new.png"
     ],
     "featured": false,
     "order_index": 50,
@@ -927,7 +927,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://c1.neweggimages.com/productimage/nb640/26-197-302-V02.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-ergo/gallery/mx-ergo-gallery-02.png"
     ],
     "featured": false,
     "order_index": 51,
@@ -945,7 +945,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://product.newcomme.com/wp-content/uploads/2022/08/logitech-tv-mount-for-meetup-conference-cam-black-939-001498.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/tv-mount-for-meetup/gallery/tv-mount-for-meetup-gallery-1.png"
     ],
     "featured": false,
     "order_index": 52,
@@ -963,7 +963,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6080/6080600_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-ergo/gallery/mx-ergo-plus-gallery-02.png"
     ],
     "featured": false,
     "order_index": 53,
@@ -981,7 +981,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/814Pq5czeFL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c922/gallery/c922-gallery-1.png"
     ],
     "featured": false,
     "order_index": 54,
@@ -1017,7 +1017,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G305.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g305/2025-update/g305-lightspeed-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 56,
@@ -1035,7 +1035,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://citycenter.jo/image/cache/catalog/1-1-2019/R500-1200x1200.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r500s/gallery/r500s-gallery-1.png"
     ],
     "featured": false,
     "order_index": 57,
@@ -1053,7 +1053,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "https://resource.zotim.com.au/uploads/images/II35335/editor/h.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-speaker/gallery/rally-speaker-gallery-1.png"
     ],
     "featured": false,
     "order_index": 58,
@@ -1071,7 +1071,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Mounting_Kit.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/mounting-kit-for-rally/gallery/rally-mounting-kit-gallery-1.png"
     ],
     "featured": false,
     "order_index": 59,
@@ -1089,7 +1089,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Vertical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-vertical/gallery/mx-vertical-gallery-04.png"
     ],
     "featured": false,
     "order_index": 60,
@@ -1107,7 +1107,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/4b3ba09a2f6e1b52cf6c9e94b54bd394-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920s/gallery/c920s-gallery-1.png"
     ],
     "featured": false,
     "order_index": 61,
@@ -1143,7 +1143,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://cdn11.bigcommerce.com/s-u3uxlvxq3h/images/stencil/1280x1280/products/3597/20951/939-001799-2__96491.1584427651.jpg?c=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/strong-usb/gallery/strong-usb-cable-gallery-1.png"
     ],
     "featured": false,
     "order_index": 63,
@@ -1161,7 +1161,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://5.imimg.com/data5/SELLER/Default/2021/10/KL/AQ/SK/125340359/logitech-tap-pc-mount-video-conferencing-controller-mounting-kit-939-001825--500x500.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/pc-mount/gallery/pc-mount-gallery-1-v2.png"
     ],
     "featured": false,
     "order_index": 64,
@@ -1179,7 +1179,7 @@
     "category": "Streaming",
     "brand": "",
     "images": [
-      "https://www.acatana.com.au/assets/full/950-000005.jpg?20230313192231"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup-mic-extension-cable/gallery/gallery-1.png"
     ],
     "featured": false,
     "order_index": 65,
@@ -1215,7 +1215,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71gOLg2-kqL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-black-us.png"
     ],
     "featured": false,
     "order_index": 67,
@@ -1251,7 +1251,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Spotlight.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/spotlight/gallery/spotlight-slate-comparison.png"
     ],
     "featured": false,
     "order_index": 69,
@@ -1269,7 +1269,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Mic_Pod_Mount.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-mic-pod-mount/mic-pod-mount-gallery-1.png"
     ],
     "featured": false,
     "order_index": 70,
@@ -1323,7 +1323,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://okoffice.bg/uploads/bank/5099206126268/4/atf4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-headset/gallery/zone-wireless-gallery-01.png"
     ],
     "featured": false,
     "order_index": 73,
@@ -1341,7 +1341,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G733.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g733/gallery/g733-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 74,
@@ -1359,7 +1359,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G915_TKL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery/us-g915-tkl-carbon-gallery-topdown.png"
     ],
     "featured": false,
     "order_index": 75,
@@ -1395,7 +1395,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61cxf3x-gdS._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wired-headset/gallery/zone-wired-gallery-01.png"
     ],
     "featured": false,
     "order_index": 77,
@@ -1413,7 +1413,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://www.mondrian.co.ke/wp-content/uploads/2025/08/zone-wired-gallery-01-600x450.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wired-headset/gallery/zone-wired-gallery-01.png"
     ],
     "featured": false,
     "order_index": 78,
@@ -1431,7 +1431,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-headset/gallery/zone-wireless-gallery-01.png"
     ],
     "featured": false,
     "order_index": 79,
@@ -1449,7 +1449,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G_Pro_X_Superlight.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-black-gallery-6.png"
     ],
     "featured": false,
     "order_index": 80,
@@ -1521,7 +1521,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://media.ldlc.com/r1600/ld/products/00/05/99/54/LD0005995452.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-white-gallery-6.png"
     ],
     "featured": false,
     "order_index": 84,
@@ -1557,7 +1557,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.thepcwholesale.com/wp-content/uploads/2021/04/87087391_2700171935.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/ergo-m575/gallery/ergo-m575-gallery-black-1-new.png"
     ],
     "featured": false,
     "order_index": 86,
@@ -1575,7 +1575,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6440/6440329_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/ergo-m575/gallery/ergo-m575-gallery-off-white-1-new.png"
     ],
     "featured": false,
     "order_index": 87,
@@ -1593,7 +1593,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61xgpXecLML.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m510-wireless-mouse/gallery/m510-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 88,
@@ -1611,7 +1611,7 @@
     "category": "Gaming",
     "brand": "Logitech",
     "images": [
-      "https://www.av-outlet.nl/wp-content/uploads/2024/04/Logitech-Tap-11.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/tap/2026/gallery/tap-gallery-1.png"
     ],
     "featured": false,
     "order_index": 89,
@@ -1647,7 +1647,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6448/6448067_rd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c920e/gallery/gallery-2-new.png"
     ],
     "featured": false,
     "order_index": 91,
@@ -1683,7 +1683,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://cdn2.bigcommerce.com/server2100/b2627/product_images/uploaded_images/rally-bar-mount-page-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/tv-mount/tv-mount-gallery-1.png"
     ],
     "featured": false,
     "order_index": 93,
@@ -1701,7 +1701,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/8b62767edf5744b19d7d1cdf678a7c0e-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/wall-mount/wall-mount-gallery-1.png"
     ],
     "featured": false,
     "order_index": 94,
@@ -1737,7 +1737,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61sLuO6LiAL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-corded/gallery/g502x-corded-gallery-1-white.png"
     ],
     "featured": false,
     "order_index": 96,
@@ -1755,7 +1755,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61gEGiOvkKL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-corded/gallery/g502x-corded-gallery-1-white.png"
     ],
     "featured": false,
     "order_index": 97,
@@ -1773,7 +1773,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_g_910_006160_g502_x_plus_wireless_1722686.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/2026-update/gallery/g502-x-plus-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 98,
@@ -1791,7 +1791,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_g_910_006160_g502_x_plus_wireless_1722686.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/2026-update/gallery/g502-x-plus-top-angle-white-gallery-1.png"
     ],
     "featured": false,
     "order_index": 99,
@@ -1809,7 +1809,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71EAPVwnbzL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-large/m650-graphite-large-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 100,
@@ -1827,7 +1827,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71EAPVwnbzL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/blue-large/m650-blue-large-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 101,
@@ -1845,7 +1845,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71VW+lp5zTL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-large-left/m650-graphite-large-left-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 102,
@@ -1863,7 +1863,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M650.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-medium/m650-graphite-medium-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 103,
@@ -1881,7 +1881,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71ued9OR0WL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/rose-medium/m650-rose-medium-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 104,
@@ -1899,7 +1899,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_910_006252_signature_m650_wireless_mouse_1679948.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/off-white-medium/m650-off-white-medium-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 105,
@@ -1917,7 +1917,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/fb/logitech_910_006358_signature_m650_l_wireless_1679951.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/red-large/m650-red-large-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 106,
@@ -1935,7 +1935,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/41i7NA12wqL._SL1000_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/mic-pod-extension-cable/2026/mic-pod-extension-cable-gallery-1.png"
     ],
     "featured": false,
     "order_index": 107,
@@ -1953,7 +1953,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71EAPVwnbzL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/black-large/m-650-large-black-mouse-top-angle-1.png"
     ],
     "featured": false,
     "order_index": 108,
@@ -1971,7 +1971,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M650.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650-for-business/gallery/m650-signature-for-business-gallery-medium-graphite-1.png"
     ],
     "featured": false,
     "order_index": 109,
@@ -1989,7 +1989,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71EAPVwnbzL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650-for-business/gallery/m650-signature-for-business-gallery-large-graphite-1.png"
     ],
     "featured": false,
     "order_index": 110,
@@ -2043,7 +2043,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_Mini.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-mini/gallery/us/mx-keys-mini-top-pale-gray-us.png"
     ],
     "featured": false,
     "order_index": 113,
@@ -2061,7 +2061,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_Mini.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-mini/gallery/us/mx-keys-mini-top-black-us.png"
     ],
     "featured": false,
     "order_index": 114,
@@ -2079,7 +2079,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Lift_Vertical.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/graphite/lift-mouse-top-angle-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 115,
@@ -2097,7 +2097,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://lapsol.ke/wp-content/uploads/2025/04/Logitech-R500s-Laser-Pointer-Presentation-Remote-910-006518-–-Precision-Control-for-Presentations-in-Kenya.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r500s/gallery/r500s-gallery-1.png"
     ],
     "featured": false,
     "order_index": 116,
@@ -2133,7 +2133,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Litra_Glow.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/lighting/litra-glow/gallery/litra-glow-streaming-light-front-view-graphite.png"
     ],
     "featured": false,
     "order_index": 118,
@@ -2151,7 +2151,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_Mini.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-mini-for-business/gallery/mx-keys-mini-business-keyboard-gallery-us-graphite-1.png"
     ],
     "featured": false,
     "order_index": 119,
@@ -2205,7 +2205,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Mechanical_Mini.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical-mini-mac/gallery/pale-grey/mx-mechanical-mini-for-mac-keyboard-top-view-pale-grey-us.png"
     ],
     "featured": false,
     "order_index": 122,
@@ -2223,7 +2223,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Mechanical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/migration-assets-for-delorean-2025/gallery/mx-mechanical-top-view-graphite-us.png"
     ],
     "featured": false,
     "order_index": 123,
@@ -2241,7 +2241,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M550_L.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m550-signature-wireless-mouse/2025-update/gallery/graphite-large/m550-large-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 124,
@@ -2258,7 +2258,9 @@
     "wholesale_price": null,
     "category": "Mice",
     "brand": "Logitech",
-    "images": [],
+    "images": [
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m550-signature-wireless-mouse/2025-update/gallery/off-white-medium/m550-medium-off-white-top-angle-gallery-1.png"
+    ],
     "featured": false,
     "order_index": 125,
     "stock_on_hand": 2,
@@ -2275,7 +2277,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_3S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png"
     ],
     "featured": false,
     "order_index": 126,
@@ -2293,7 +2295,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6502/6502578_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-top-view-pale-grey.png"
     ],
     "featured": false,
     "order_index": 127,
@@ -2311,7 +2313,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61jFSvCTfpL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s-mac-bluetooth-mouse/gallery/pale-grey/mx-master-3s-for-mac-mouse-top-view-pale-grey.png"
     ],
     "featured": false,
     "order_index": 128,
@@ -2329,7 +2331,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_3S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png"
     ],
     "featured": false,
     "order_index": 129,
@@ -2347,7 +2349,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_910_006570_mx_master_3s_wireless_1728699.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-top-view-pale-grey.png"
     ],
     "featured": false,
     "order_index": 130,
@@ -2365,7 +2367,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-2/gallery/zone-wireless-2-teams-graphite-1.png"
     ],
     "featured": false,
     "order_index": 131,
@@ -2383,7 +2385,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_4K.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-stream-4k-hd-webcam/gallery/brio-stream-4k-ultra-hd-webcam-gallery-1.png"
     ],
     "featured": false,
     "order_index": 132,
@@ -2401,7 +2403,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/gallery-6-pro-x-superlight-2-gaming-mouse-black.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/new-gallery-assets-2025/pro-x-superlight-2-mice-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 133,
@@ -2419,7 +2421,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Vibe_100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 134,
@@ -2437,7 +2439,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6520/6520149_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-white-1.png"
     ],
     "featured": false,
     "order_index": 135,
@@ -2455,7 +2457,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6520/6520149_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-rose-1.png"
     ],
     "featured": false,
     "order_index": 136,
@@ -2473,7 +2475,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-combo-business-gen-2/gallery/mx-keys-combo-business-gen-2-gallery-us-graphite-2.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-combo-business-gen-2/gallery/mx-keys-combo-business-gen-2-gallery-us-graphite-1.png"
     ],
     "featured": false,
     "order_index": 137,
@@ -2491,7 +2493,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_500.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-500/gallery/brio-500-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 138,
@@ -2509,7 +2511,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M550_L.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m550-signature-wireless-mouse/2025-update/gallery/graphite-medium/m550-medium-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 139,
@@ -2527,7 +2529,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_1800,h_1800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/logitech-sight/sight-front-and-center-0423.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/logitech-sight/gallery/sight-front-off-white-1.png"
     ],
     "featured": false,
     "order_index": 140,
@@ -2581,7 +2583,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G_Pro_X_2.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-2-lightspeed/gallery/gallery-1-pro-x-2-lightspeed-gaming-headset-black.png"
     ],
     "featured": false,
     "order_index": 143,
@@ -2599,7 +2601,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Anywhere_3S.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3s/product-gallery/black/mx-anywhere-3s-mouse-top-view-black.png"
     ],
     "featured": false,
     "order_index": 144,
@@ -2617,7 +2619,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/aa8beb3de8c316a27dd7427886b7638b-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/mx-brio/buy/migration-assets-for-delorean-2025/gallery/mx-brio-3qtr-front-right-black.png"
     ],
     "featured": false,
     "order_index": 145,
@@ -2635,7 +2637,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://elbadrgroupeg.store/image/cache/catalog/logitech/RVp9eRtdYXhyoobz0zZfD7uu7F-550x550.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pebble-mouse-2-m350s/2026-refresh/gallery/pebble-mouse-2-m350s-tonal-white-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 146,
@@ -2653,7 +2655,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Pebble_Mouse_2.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pebble-mouse-2-m350s/2026-refresh/gallery/pebble-mouse-2-m350s-tonal-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 147,
@@ -2671,7 +2673,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/ff2dac7cd85541572673f665a365ff0c-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/mx-brio/buy/migration-assets-for-delorean-2025/gallery/mx-brio-3qtr-front-right-graphite.png"
     ],
     "featured": false,
     "order_index": 148,
@@ -2705,7 +2707,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-black-us.png"
     ],
     "featured": false,
     "order_index": 150,
@@ -2723,7 +2725,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_920_012061_pebble_2_wireless_keyboard_1786575.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/pebble-2-combo/2026-refresh/gallery/tonal-graphite/pebble-2-combo-tonal-graphite-top-angle-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 151,
@@ -2741,7 +2743,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71rtgVAeTzL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk370-combo-business/gallery/mk370-combo-business-gallery-1.png"
     ],
     "featured": false,
     "order_index": 152,
@@ -2759,7 +2761,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-100/gallery/brio-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 153,
@@ -2777,7 +2779,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6550/6550199_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-100/gallery/brio-100-gallery-offwhite-1.png"
     ],
     "featured": false,
     "order_index": 154,
@@ -2795,7 +2797,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-s-combo/product-gallery/graphite/mx-keys-s-combo-keyboard-top-view-graphite-us.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-s-combo/product-gallery/black/mx-keys-s-combo-keyboard-top-view-black-us.png"
     ],
     "featured": false,
     "order_index": 155,
@@ -2813,7 +2815,7 @@
     "category": "Gaming",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Yeti_GX.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/plp-microphones/pdp-yeti-gx-gaming-microphone/2025/gallery/yeti-gx-front-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 156,
@@ -2831,7 +2833,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Pebble_Mouse_2.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pebble-mouse-2-m350s/2026-refresh/gallery/pebble-mouse-2-m350s-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 157,
@@ -2849,7 +2851,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_910_007197_g309_lightspeed_black_1835406.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/G309-Lightspeed-Gaming-Mouse/gallery/g309-lightspeed-wireless-mouse-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 158,
@@ -2867,7 +2869,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G309.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/G309-Lightspeed-Gaming-Mouse/gallery/g309-lightspeed-wireless-mouse-white-gallery-1.png"
     ],
     "featured": false,
     "order_index": 159,
@@ -2903,7 +2905,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_Slim_Combo_MK955.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-slim-combo-mk955/update-2025/gallery/graphite/mk955-graphite-combo-topview-gallery1.png"
     ],
     "featured": false,
     "order_index": 161,
@@ -2921,7 +2923,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_Slim_Combo_MK955.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-slim-combo-mk950-for-business/gallery/mk950-combo-business-gallery-large-1.png"
     ],
     "featured": false,
     "order_index": 162,
@@ -2939,7 +2941,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/fb/logitech_920_012537_g515_lightspeed_tkl_linear_1835415.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g515-lightspeed-tkl/gallery/g515-keyboard-white-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 163,
@@ -2957,7 +2959,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G515_TKL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g515-lightspeed-tkl/gallery/g515-keyboard-black-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 164,
@@ -2975,7 +2977,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/768c47cfe3be8250ea8419e108a34852-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-300/gallery/zone-300-graphite-1.png"
     ],
     "featured": false,
     "order_index": 165,
@@ -2993,7 +2995,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M550_L.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m550-signature-wireless-mouse/2025-update/gallery/black-medium/m550-medium-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 166,
@@ -3011,7 +3013,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G305.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g305/2025-update/g305-lightspeed-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 167,
@@ -3029,7 +3031,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H570e.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h570e/gallery/h570e-team-version-mono-3qtr-front-left.png"
     ],
     "featured": false,
     "order_index": 168,
@@ -3047,7 +3049,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitechg.com/w_1440,h_810,ar_16:9,c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-2-lightspeed/pro2-lightspeed-feature1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-2-lightspeed/gallery/pro2-lightspeed-black-new-gallery1.png"
     ],
     "featured": false,
     "order_index": 169,
@@ -3065,7 +3067,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_776,h_437,ar_16:9,c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m340/m340-design-standout-feature1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m340/gallery/m340-floral-bouquet-gallery1.png"
     ],
     "featured": false,
     "order_index": 170,
@@ -3083,7 +3085,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-2/gallery/zone-wireless-2-teams-nbt-graphite-1.png"
     ],
     "featured": false,
     "order_index": 171,
@@ -3101,7 +3103,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/fb/logitech_g_920_012950_g915_x_wired_rgb_1851741.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-x-wired/gallery/g915-x-mechanical-gaming-keyboard-carbon-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 172,
@@ -3119,7 +3121,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Creative_Console.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-creative-console/buy/gallery/2025/mx-creative-console-top-view-graphite-2.png"
     ],
     "featured": false,
     "order_index": 173,
@@ -3137,7 +3139,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MeetUp_2.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup-2/2026/gallery/meetup2-conferencecam-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 174,
@@ -3155,7 +3157,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Keys-To-Go_2.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mobility/keys-to-go2-universal/gallery/keys-to-go-2-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 175,
@@ -3173,7 +3175,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G_Pro_X_Superlight_2_DEX.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2-dex/gallery/new-gallery-assets-2025/pro-x-superlight-2-dex-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 176,
@@ -3191,7 +3193,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://c1.neweggimages.com/productimage/nb640/A24GD2503180CIDVG89.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m750/2026-updates/gallery/graphite-medium/m750-medium-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 177,
@@ -3209,7 +3211,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-100/gallery/brio-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 178,
@@ -3245,7 +3247,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-2-es/gallery/teams-version-native-bluetooth/b2b-zone-wireless-2-es-business-headset-graphite-teams-version-native-bluetooth-image-1.png"
     ],
     "featured": false,
     "order_index": 180,
@@ -3263,7 +3265,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pimcdn.sharafdg.com/cdn-cgi/image/width=600,height=600,fit=pad,format=webp,quality=70/images/S500955203_1?1765777991?g=0"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2-se-pdp/gallery/pro-x-superlight-2-se-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 181,
@@ -3281,7 +3283,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71+JUdA7wVL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-comfort-plus-mk880/gallery/black/us/signature-comfort-plus-combo-mk880-black-top-angle-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 182,
@@ -3299,7 +3301,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51+51Ur4jzL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x2-superstrike-pdp/2026/pro-x2-superstrike-top-angle-lifestyle-gallery-2.png"
     ],
     "featured": false,
     "order_index": 183,
@@ -3747,7 +3749,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-UCA9702.webp"
+      "/product_images/Onten_OTN-UCA9702_official.webp"
     ],
     "featured": false,
     "order_index": 208,
@@ -3764,7 +3766,9 @@
     "wholesale_price": null,
     "category": "Accessories",
     "brand": "Onten",
-    "images": [],
+    "images": [
+      "/product_images/Onten_OTN-UC302_official.webp"
+    ],
     "featured": false,
     "order_index": 209,
     "stock_on_hand": 12,
@@ -3817,7 +3821,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-UC601.jpg"
+      "/product_images/Onten_OTN-UC601_official.webp"
     ],
     "featured": false,
     "order_index": 212,
@@ -3853,7 +3857,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://qonooz.com/wp-content/uploads/2024/08/EDA006652801A.jpg"
+      "/product_images/Onten_OTN-UC620_official.webp"
     ],
     "featured": false,
     "order_index": 214,
@@ -3871,7 +3875,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://elcomputer.net/wp-content/uploads/2026/01/ONTEN-UC962-USB-C-Docking-Station-HDMI-4K_30Hz-Ethernet-RJ45-100010015-USB-3.0-X4-3.5mm-Audio-Jack-SD-3.0TF3.0-USB-C-PD-3.jpg"
+      "/product_images/Onten_OTN-UC962_official.webp"
     ],
     "featured": false,
     "order_index": 215,
@@ -3889,7 +3893,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://alexnld.com/wp-content/uploads/2024/03/EDA006245601A_7.jpg"
+      "/product_images/Onten_OTN-UC982_official.webp"
     ],
     "featured": false,
     "order_index": 216,
@@ -3907,7 +3911,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://static.alaneesqatar.qa/2024/12/Untitled-design-2024-12-03T162316-184_ND8RR_VAR.png?tr=w-303,q-100"
+      "/product_images/Onten_OTN-UCA310_official.webp"
     ],
     "featured": false,
     "order_index": 217,
@@ -3925,7 +3929,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://shifttechbd.com/wp-content/uploads/2026/02/onten-otn-uca321-ssd.jpg"
+      "/product_images/Onten_OTN-UCA321_official.webp"
     ],
     "featured": false,
     "order_index": 218,
@@ -3943,7 +3947,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://evotecheg.com/wp-content/uploads/2026/04/ONTEN-OTN-UCA322-M.2-NVMe-SSD-Enclosure-2230-2242-2260-2280-10Gbps-USB-C-to-USB-A-01-600x600.jpg.webp"
+      "/product_images/Onten_OTN-UCA322_official.webp"
     ],
     "featured": false,
     "order_index": 219,
@@ -3961,7 +3965,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://static.alaneesqatar.qa/2024/11/jgj-60_jEEKox28l.png"
+      "/product_images/Onten_OTN-UE106_official.webp"
     ],
     "featured": false,
     "order_index": 220,
@@ -3979,7 +3983,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-th.img.susercontent.com/file/th-11134207-81ztm-mgempxnvda8918"
+      "/product_images/Onten_OTN-M205_official.webp"
     ],
     "featured": false,
     "order_index": 221,
@@ -4051,7 +4055,7 @@
     "category": "Streaming",
     "brand": "Onten",
     "images": [
-      "https://www.teqmartzonegh.com/wp-content/uploads/2023/09/51Wo5mur9TL._AC_UF8941000_QL80_.jpg"
+      "/product_images/Onten_OTN-US331_official.webp"
     ],
     "featured": false,
     "order_index": 225,
@@ -4123,7 +4127,7 @@
     "category": "Audio",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-5138HV.jpg"
+      "/product_images/Onten_OTN-5138HV_official.webp"
     ],
     "featured": false,
     "order_index": 229,
@@ -4177,7 +4181,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-5215B.jpg"
+      "/product_images/Onten_OTN-5215B_official.webp"
     ],
     "featured": false,
     "order_index": 232,
@@ -4195,7 +4199,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://vmart.pk/cdn/shop/files/Onten5220USB3.0to3-PortsUSB3.0HubwithGigabitEthernetAdapter.jpg?v=1747824177"
+      "/product_images/Onten_OTN-5220_official.webp"
     ],
     "featured": false,
     "order_index": 233,
@@ -4213,7 +4217,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-5222.webp"
+      "/product_images/Onten_OTN-5222_official.webp"
     ],
     "featured": false,
     "order_index": 234,
@@ -4231,7 +4235,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://nonsmanonline.com/wp-content/uploads/2025/11/ONTEN-OTN-5225-USB-Gigabit-Ethernet-Adapter-1.webp"
+      "/product_images/Onten_OTN-5225_official.webp"
     ],
     "featured": false,
     "order_index": 235,
@@ -4249,7 +4253,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://playtech.pk/wp-content/uploads/2023/06/onten-3156as.png"
+      "/product_images/Onten_OTN-5311T_official.webp"
     ],
     "featured": false,
     "order_index": 236,
@@ -4285,7 +4289,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://static.alaneesqatar.qa/2024/11/Untitled-design-2024-11-26T132019-599_JrFLvhMdP.png"
+      "/product_images/Onten_OTN-5706_official.webp"
     ],
     "featured": false,
     "order_index": 238,
@@ -4321,7 +4325,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://joebz.com/cdn/shop/files/baa4ef5293fef9b276ed20985fdd0cc01bee93a6_1606291694_1024x1024.jpg?v=1722395484"
+      "/product_images/Onten_OTN-8107_official.webp"
     ],
     "featured": false,
     "order_index": 240,
@@ -4339,7 +4343,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://bf1af2.akinoncloudcdn.com/products/2024/09/21/131623/503b94fb-9577-4809-9653-ed8cb2c7963c_size3840_cropCenter.jpg"
+      "/product_images/Onten_OTN-8108_official.webp"
     ],
     "featured": false,
     "order_index": 241,
@@ -4393,7 +4397,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.hitech-land.com/assets/images/products/large/onten-9175k-4-in-1-usb-c-type-c-to-dual-hdmi-usb-3-0-pd3-0-usb-c-type-c-charging-port-4k-hd-video-converter_p1530_i18050.jpg"
+      "/product_images/Onten_OTN-9175K_official.webp"
     ],
     "featured": false,
     "order_index": 244,
@@ -4447,7 +4451,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.imediastores.com/wp-content/uploads/2023/11/Onten-OTN-9598-USB-C-to-Gigabit-Ethernet-Adapter-0.2M-11.jpg"
+      "/product_images/Onten_OTN-9598_official.webp"
     ],
     "featured": false,
     "order_index": 247,
@@ -4483,7 +4487,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://nonsmanonline.com/wp-content/uploads/2025/11/ont-9602.jpeg"
+      "/product_images/Onten_OTN-9602_official.webp"
     ],
     "featured": false,
     "order_index": 249,
@@ -4569,7 +4573,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-my.img.susercontent.com/file/my-11134207-7r98y-llu270564m8m29"
+      "/product_images/Onten_OTN-95117_official.webp"
     ],
     "featured": false,
     "order_index": 254,
@@ -5053,7 +5057,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z207.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/z207/gallery/z207-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 281,
@@ -5071,7 +5075,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_R400.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r400/gallery/r400-comparison.png"
     ],
     "featured": false,
     "order_index": 282,
@@ -5089,7 +5093,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK120.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk120/gallery/mk120-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 283,
@@ -5107,7 +5111,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K120.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k120/gallery/k120-gallery-01-de.png"
     ],
     "featured": false,
     "order_index": 284,
@@ -5125,7 +5129,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK710.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/refurbished/mk710-refurbished/gallery/mk710-refurb-gallery1.png"
     ],
     "featured": false,
     "order_index": 285,
@@ -5215,7 +5219,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z313.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z313/gallery/z313-gallery-1.png"
     ],
     "featured": false,
     "order_index": 290,
@@ -5251,7 +5255,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M235.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m317-wireless-mouse/gallery/m317-colt-glossy-gallery-1.png"
     ],
     "featured": false,
     "order_index": 292,
@@ -5269,7 +5273,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M185.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-grey-emea.png"
     ],
     "featured": false,
     "order_index": 293,
@@ -5305,7 +5309,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://i5.walmartimages.com/asr/53d0498b-e7b8-401d-b507-7c1fb607024d.75d5ba9ae4ed301af0c71f5324180c4b.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-blue-emea.png"
     ],
     "featured": false,
     "order_index": 295,
@@ -5359,7 +5363,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://assets.logitech.com/assets/65397/usb-headset-h540-refresh.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h540/gallery/h540-gallery-01.png"
     ],
     "featured": false,
     "order_index": 298,
@@ -5377,7 +5381,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk270/gallery/mk270-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 299,
@@ -5395,7 +5399,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://arabcomputer.net/wp-content/uploads/2023/01/H650e-mono__57878-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h650e/gallery/h650e-mono-gallery-01.png"
     ],
     "featured": false,
     "order_index": 300,
@@ -5413,7 +5417,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://media.ldlc.com/r1600/ld/products/00/01/35/29/LD0001352982_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h650e/gallery/h650e-stereo-gallery-01.png"
     ],
     "featured": false,
     "order_index": 301,
@@ -5485,7 +5489,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/df1cdcdbc5073dec6ad4c96716d07901-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z150/gallery/z150-gallery-white-1.png"
     ],
     "featured": false,
     "order_index": 305,
@@ -5503,7 +5507,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z150.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z150/gallery/z150-gallery-1.png"
     ],
     "featured": false,
     "order_index": 306,
@@ -5575,7 +5579,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71x2TPvyGeL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h570e/gallery/h570e-uc-version-stereo-usba-left.png"
     ],
     "featured": false,
     "order_index": 310,
@@ -5647,7 +5651,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H151.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h151/gallery/h151-gallery-01.png"
     ],
     "featured": false,
     "order_index": 314,
@@ -5683,7 +5687,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "https://c1.neweggimages.com/ProductImageCompressAll1280/36-121-202-02.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z533/gallery/z533-gallery-1.png"
     ],
     "featured": false,
     "order_index": 316,
@@ -5701,7 +5705,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images2500x2500/logitech_920007119_k400_plus_wireless_touch_1357323.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k400-plus/gallery/k400-plus-black-gallery-1-uk.png"
     ],
     "featured": false,
     "order_index": 317,
@@ -5737,7 +5741,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M171.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-black.png"
     ],
     "featured": false,
     "order_index": 319,
@@ -5755,7 +5759,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M170.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-grey.png"
     ],
     "featured": false,
     "order_index": 320,
@@ -5773,7 +5777,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/38359-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk235/gallery/mk235-gallery-01-new.png"
     ],
     "featured": false,
     "order_index": 321,
@@ -5791,7 +5795,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C925e.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c925e/gallery/c925e-gallery-1.png"
     ],
     "featured": false,
     "order_index": 322,
@@ -5809,7 +5813,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://images-eu.ssl-images-amazon.com/images/I/41THKNnKZPL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g640/g640-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 323,
@@ -5827,7 +5831,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://gigaclic.cl/wp-content/uploads/2021/06/29LOGPD440-2-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g440/g440-gallery-2-new.png"
     ],
     "featured": false,
     "order_index": 324,
@@ -5845,7 +5849,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c270-hd-webcam/gallery/c270-hd-webcam-1-0224.png"
     ],
     "featured": false,
     "order_index": 325,
@@ -5863,7 +5867,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71sLRBeCWxS.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z625/gallery/z625-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 326,
@@ -5881,7 +5885,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51KixhXtaRL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m720/gallery/m720-gallery-1a.png"
     ],
     "featured": false,
     "order_index": 327,
@@ -5917,7 +5921,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C922.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c922/gallery/c922-gallery-1.png"
     ],
     "featured": false,
     "order_index": 329,
@@ -5935,7 +5939,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_4K.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-stream-4k-hd-webcam/gallery/brio-stream-4k-ultra-hd-webcam-gallery-1.png"
     ],
     "featured": false,
     "order_index": 330,
@@ -5953,7 +5957,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MeetUp.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup/gallery/meetup-gallery-global-1.png"
     ],
     "featured": false,
     "order_index": 331,
@@ -5971,7 +5975,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Craft.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/craft/gallery/us-gallery-top-new.png"
     ],
     "featured": false,
     "order_index": 332,
@@ -5989,7 +5993,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G840_XL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g840/g840-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 333,
@@ -6007,7 +6011,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z207.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/z207/gallery/z207-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 334,
@@ -6025,7 +6029,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z207.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/z207/gallery/z207-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 335,
@@ -6061,7 +6065,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://erp.jomla.ae/web/image/product.template/1045790/image_1920?unique=e6f238b"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk540-mouse-keyboard-combo/gallery/mk540-uk-gallery1.png"
     ],
     "featured": false,
     "order_index": 337,
@@ -6079,7 +6083,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/7835d3063aad088594a53306a407de2b-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-camera/gallery/rally-gallery-1.png"
     ],
     "featured": false,
     "order_index": 338,
@@ -6097,7 +6101,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://www.legitreviews.com/wp-content/uploads/2019/10/Logitech-G-Pro-X-Gaming-Headset.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x/pro-headset-gallery-1.png"
     ],
     "featured": false,
     "order_index": 339,
@@ -6151,7 +6155,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G915_TKL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery/fra-g915-tkl-carbon-gallery-topdown.png"
     ],
     "featured": false,
     "order_index": 342,
@@ -6169,7 +6173,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images2500x2500/logitech_910_005791_g203_lightsync_gaming_mouse_1574403.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-white-gallery-1.png"
     ],
     "featured": false,
     "order_index": 343,
@@ -6187,7 +6191,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-headset/gallery/zone-wireless-gallery-01.png"
     ],
     "featured": false,
     "order_index": 344,
@@ -6205,7 +6209,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6366/6366560_rd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-mac/gallery/us-int-mx-keys-for-mac-gallery-front.png"
     ],
     "featured": false,
     "order_index": 345,
@@ -6223,7 +6227,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://mmsrilanka.com/image/cache/catalog/data/Products/Computer Accessories/Mouse/M190-Colors-1000x1000.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-charcoal-gallery-01.png"
     ],
     "featured": false,
     "order_index": 346,
@@ -6241,7 +6245,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/2e3380515b40c1c4e6c31ca8cd43a13e-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk295-keyboard-mouse-combo/gallery/mk295-graphite-gallery-01-new.png"
     ],
     "featured": false,
     "order_index": 347,
@@ -6259,7 +6263,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Z407.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/z407-bluetooth-speakers/gallery/z407-gallery-01.png"
     ],
     "featured": false,
     "order_index": 348,
@@ -6277,7 +6281,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/b1649bb77c76589eb9b98b856fd5a2ce-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk345/gallery/mk345-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 349,
@@ -6295,7 +6299,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.ictechdistribution.com/images/products/IC00732IBJ/LOGITECH-SLIM-WL-COMBO-MK470---GRAPHITE-920-010069-I3533S.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk470-slim-wireless-combo/gallery-images/mk470-gallery-graphite-matt-uk-1.png"
     ],
     "featured": false,
     "order_index": 350,
@@ -6313,7 +6317,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K580.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k580-multi-device-wireless-keyboard/gallery/k580-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 351,
@@ -6331,7 +6335,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.konzolkiraly.hu/img/38258/212427/212427.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/product-gallery/graphite/mx-keys-s-keyboard-top-view-graphite-tur.png"
     ],
     "featured": false,
     "order_index": 352,
@@ -6349,7 +6353,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71EAPVwnbzL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-large/m650-graphite-large-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 353,
@@ -6367,7 +6371,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M650.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650-for-business/gallery/m650-signature-for-business-gallery-medium-graphite-1.png"
     ],
     "featured": false,
     "order_index": 354,
@@ -6385,7 +6389,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK850.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk850-keyboard-mouse/gallery/mk850-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 355,
@@ -6439,7 +6443,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K580.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k580-multi-device-wireless-keyboard/gallery/k580-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 358,
@@ -6457,7 +6461,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.4home.co.za/images/stories/virtuemart/product/Logitech-956-000051.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mouse-pad-studio-series/gallery/logitech-mouse-pad-studio-series-corner-view-blue-grey.png"
     ],
     "featured": false,
     "order_index": 359,
@@ -6475,7 +6479,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/81dvECEMAgL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k860-ergo/gallery/ergo-k860-gallery-1-uk-new.png"
     ],
     "featured": false,
     "order_index": 360,
@@ -6493,7 +6497,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/5385d8f141cec3ffc74377cd4e183e30-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/pop-keys-wireless-mechanical/gallery/pop-keys-daydream-gallery-1-uk.png"
     ],
     "featured": false,
     "order_index": 361,
@@ -6511,7 +6515,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/5385d8f141cec3ffc74377cd4e183e30-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/pop-keys-wireless-mechanical/gallery/pop-keys-blast-gallery-1-uk.png"
     ],
     "featured": false,
     "order_index": 362,
@@ -6529,7 +6533,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Vibe_100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 363,
@@ -6547,7 +6551,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://advanti.com/images/product/7d05d9d3ba5ccff0c612de853e2a8239-hi.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m100/gallery/m100-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 364,
@@ -6565,7 +6569,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G840_XL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g840/g840-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 365,
@@ -6601,7 +6605,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_920_010908_signature_k650_wireless_keyboard_1720777.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k650-signature-wireless-keyboard/gallery/k650-top-graphite-us-intl.png"
     ],
     "featured": false,
     "order_index": 367,
@@ -6619,7 +6623,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_920_010908_signature_k650_wireless_keyboard_1720777.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k650-signature-wireless-keyboard/gallery/k650-top-off-white-us-intl.png"
     ],
     "featured": false,
     "order_index": 368,
@@ -6637,7 +6641,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-2-es/gallery/teams-version-with-receiver/graphite/b2b-zone-wireless-2-es-business-headset-graphite-teams-version-with-receiver-image-1.png"
     ],
     "featured": false,
     "order_index": 369,
@@ -6655,7 +6659,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.stuhia.store/cdn/shop/files/202422811545710.png?v=1759161612"
+      "/product_images/Onten_OTN-5225D_official.webp"
     ],
     "featured": false,
     "order_index": 370,
@@ -7213,7 +7217,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://i5.walmartimages.com/asr/5406253d-5ef1-4755-a99a-cccfe843dcb0.be25c9eccb77a31ea7bd32099bcff98a.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m220/gallery/m220-rose-gallery-1.png"
     ],
     "featured": false,
     "order_index": 401,
@@ -7231,7 +7235,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://start.ba/uploads/images/26497-logitech-mi-m186-swift-grey-1_1770673824.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-grey-emea.png"
     ],
     "featured": false,
     "order_index": 402,
@@ -7249,7 +7253,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.elryan.com/img/600/600/resize/catalog/product/6/4/64d1f625cd8cfd002be370b6752628-30118.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-blue-emea.png"
     ],
     "featured": false,
     "order_index": 403,
@@ -7267,7 +7271,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://phco.my/images/thumbs/products/6920377901271/0.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-red-emea.png"
     ],
     "featured": false,
     "order_index": 404,
@@ -7303,7 +7307,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_R800.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r800/gallery/r800-comparison.png"
     ],
     "featured": false,
     "order_index": 406,
@@ -7321,7 +7325,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C920_PRO.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920/gallery/c920-gallery-1.png"
     ],
     "featured": false,
     "order_index": 407,
@@ -7339,7 +7343,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c270-hd-webcam/gallery/c270-hd-webcam-1-0224.png"
     ],
     "featured": false,
     "order_index": 408,
@@ -7375,7 +7379,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_BCC950.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/bcc950/gallery/bcc950-gallery-1.png"
     ],
     "featured": false,
     "order_index": 410,
@@ -7393,7 +7397,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K480.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k480/gallery/k480-gallery-black-uk-wide-1.png"
     ],
     "featured": false,
     "order_index": 411,
@@ -7447,7 +7451,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/b1649bb77c76589eb9b98b856fd5a2ce-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk345/gallery/2024-update/mk345-keyboard-mouse-black-us-gallery-01.png"
     ],
     "featured": false,
     "order_index": 414,
@@ -7501,7 +7505,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H111.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h111/gallery/h111-gallery-01.png"
     ],
     "featured": false,
     "order_index": 417,
@@ -7519,7 +7523,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_H151.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h151/gallery/h151-gallery-01.png"
     ],
     "featured": false,
     "order_index": 418,
@@ -7537,7 +7541,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_ConferenceCam_Connect.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/connect-conferencecam/gallery/connect-gallery-1.png"
     ],
     "featured": false,
     "order_index": 419,
@@ -7627,7 +7631,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "https://lk-tronics.com/wp-content/uploads/2022/02/logitech-cc-3500-e-group-hd-video-audio-co_main-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-conferencecam/gallery/group-gallery-1.png"
     ],
     "featured": false,
     "order_index": 424,
@@ -7645,7 +7649,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M171.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-black.png"
     ],
     "featured": false,
     "order_index": 425,
@@ -7663,7 +7667,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.eezepc.com/wp-content/uploads/2020/05/logitech-m171-blue-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-blue.png"
     ],
     "featured": false,
     "order_index": 426,
@@ -7681,7 +7685,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://eezepc.com/wp-content/uploads/2020/05/logitech-m171-red.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-red.png"
     ],
     "featured": false,
     "order_index": 427,
@@ -7699,7 +7703,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M170.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m171/gallery/m171-mouse-top-view-grey.png"
     ],
     "featured": false,
     "order_index": 428,
@@ -7717,7 +7721,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/91Xr6TGcLHL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-expansion-mics/gallery/vc-group-expansion-gallery-1.png"
     ],
     "featured": false,
     "order_index": 429,
@@ -7735,7 +7739,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K780.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k780-wireless-keyboard/delorean-2025/dark-grey-speckled-white/k780-wireless-keyboard-white-speckled-topdown-gallery.png"
     ],
     "featured": false,
     "order_index": 430,
@@ -7771,7 +7775,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51KixhXtaRL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m720/gallery/m720-gallery-1a.png"
     ],
     "featured": false,
     "order_index": 432,
@@ -7789,7 +7793,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://www.devicedeal.com.au/assets/full/960-001086.jpg?20211115113116"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c920e/gallery/gallery-2-new.png"
     ],
     "featured": false,
     "order_index": 433,
@@ -7807,7 +7811,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://assets.logitech.com/assets/64703/23/logitech-m220-silent.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m220/gallery/m220-charcoal-gallery-1.png"
     ],
     "featured": false,
     "order_index": 434,
@@ -7825,7 +7829,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_M330_Silent_Plus.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m330-wireless-silent-mouse/2024-update/gallery/m330-wireless-mouse-top-view-black-gallery-01.png"
     ],
     "featured": false,
     "order_index": 435,
@@ -7861,7 +7865,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C922.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c922/gallery/c922-gallery-1.png"
     ],
     "featured": false,
     "order_index": 437,
@@ -7897,7 +7901,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C925e.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c925e/gallery/c925e-gallery-1.png"
     ],
     "featured": false,
     "order_index": 439,
@@ -7951,7 +7955,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://assets.logitech.com/assets/65032/ptz-pro-2-camera.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/ptz-pro2-conferencecam/gallery/ptz-pro-2-gallery-1.png"
     ],
     "featured": false,
     "order_index": 442,
@@ -7987,7 +7991,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://geon.com.my/wp-content/uploads/2020/12/LOGITECH-43-1.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-10m-extended-cable/gallery/vc-10m-cable-gallery-1.png"
     ],
     "featured": false,
     "order_index": 444,
@@ -8005,7 +8009,7 @@
     "category": "Audio",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MeetUp.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/meetup/gallery/meetup-gallery-global-1.png"
     ],
     "featured": false,
     "order_index": 445,
@@ -8023,7 +8027,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK850.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk850-keyboard-mouse/gallery/mk850-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 446,
@@ -8041,7 +8045,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://techarc.pk/wp-content/uploads/2020/08/logitech-m590.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m590/gallery/m590-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 447,
@@ -8059,7 +8063,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://techarc.pk/wp-content/uploads/2020/08/logitech-m590.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m590/gallery/m590-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 448,
@@ -8077,7 +8081,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://www.amazon.com/images/I/51nfqbCmDsL._FMwebp_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-15m-extended-cable/gallery/vc-15m-extender-gallery-1.png"
     ],
     "featured": false,
     "order_index": 449,
@@ -8095,7 +8099,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Craft.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/craft/gallery/us-gallery-top-new.png"
     ],
     "featured": false,
     "order_index": 450,
@@ -8113,7 +8117,7 @@
     "category": "Gaming",
     "brand": "Logitech",
     "images": [
-      "https://os-jo.com/image/cache/catalog/products/Accessories/Audio/G560-LightSync-Speaker/G560-LightSync-Speaker-1200x630.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g560/2025-update/g560-3qtr-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 451,
@@ -8149,7 +8153,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61--ZEXa4yL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk540-mouse-keyboard-combo/gallery/mk540-uk-gallery1.png"
     ],
     "featured": false,
     "order_index": 453,
@@ -8167,7 +8171,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://zahcomputers.pk/wp-content/uploads/2025/11/Logitech-G304-LIGHTSPEED-Wireless-Gaming-Mouse-Black-910-005286-Price-in-Pakistan-02.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g305/2025-update/g305-lightspeed-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 454,
@@ -8185,7 +8189,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.tebilon.com/picture/logitech-g-g502-hero-kablolu-25-600-dpi-siyah-gaming-mouse-910-005474.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/hyjal-g502-hero/2025/g502-hero-mouse-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 455,
@@ -8203,7 +8207,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Mounting_Kit.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/mounting-kit-for-rally/gallery/rally-mounting-kit-gallery-1.png"
     ],
     "featured": false,
     "order_index": 456,
@@ -8221,7 +8225,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Vertical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-vertical/gallery/mx-vertical-gallery-04.png"
     ],
     "featured": false,
     "order_index": 457,
@@ -8275,7 +8279,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G502_Lightspeed.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502-lightspeed-gaming-mouse/g502-lightspeed-gallery-1.png"
     ],
     "featured": false,
     "order_index": 460,
@@ -8383,7 +8387,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/d1f243d09718628abe7c36a60f1b8e43-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m350/m350-eucalyptus-gallery-01-new.png"
     ],
     "featured": false,
     "order_index": 466,
@@ -8401,7 +8405,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://nairobicomputershop.co.ke/media/products/h390_1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/h390-usb-headset/gallery/h390-frontview-gallery-black.png"
     ],
     "featured": false,
     "order_index": 467,
@@ -8473,7 +8477,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://c1.neweggimages.com/ProductImageCompressAll1280/26-197-341-Z01.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g903-hero/2025-update/g903-lightspeed-mouse-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 471,
@@ -8509,7 +8513,7 @@
     "category": "Gaming",
     "brand": "",
     "images": [
-      "https://m.media-amazon.com/images/I/71+MFEJ7bWL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/streaming-gear/yeti-premium-usb-microphone/2025/gallery/yeti-front-angle-blackout-gallery-1.png"
     ],
     "featured": false,
     "order_index": 473,
@@ -8527,7 +8531,7 @@
     "category": "Gaming",
     "brand": "",
     "images": [
-      "https://m.media-amazon.com/images/I/71+MFEJ7bWL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/streaming-gear/yeti-premium-usb-microphone/2025/gallery/yeti-front-angle-midnight-blue-gallery-1.png"
     ],
     "featured": false,
     "order_index": 474,
@@ -8545,7 +8549,7 @@
     "category": "Gaming",
     "brand": "",
     "images": [
-      "https://m.media-amazon.com/images/I/71+MFEJ7bWL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/streaming-gear/yeti-premium-usb-microphone/2025/gallery/yeti-front-angle-silver-gallery-1.png"
     ],
     "featured": false,
     "order_index": 475,
@@ -8563,7 +8567,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images2500x2500/logitech_910_005647_mx_master_3_wireless_1502446.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-black-new-1.png"
     ],
     "featured": false,
     "order_index": 476,
@@ -8599,7 +8603,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images2500x2500/logitech_920_009437_mk470_slim_wireless_keyboard_1507973.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk470-slim-wireless-combo/gallery-images/mk470-gallery-graphite-matt-us-intl-1.png"
     ],
     "featured": false,
     "order_index": 478,
@@ -8617,7 +8621,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_K580.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k580-multi-device-wireless-keyboard/gallery/k580-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 479,
@@ -8635,7 +8639,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_1800,h_1800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k580-multi-device-wireless-keyboard/k580-slim-multi-device-wireless-kb-graphite-collage-desktop.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/k580-multi-device-wireless-keyboard/gallery/k580-gallery-white-1.png"
     ],
     "featured": false,
     "order_index": 480,
@@ -8653,7 +8657,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71OsXeVABlL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-graphite-us-intl.png"
     ],
     "featured": false,
     "order_index": 481,
@@ -8671,7 +8675,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://ae01.alicdn.com/kf/H42c9582f1d6a46f3b40a62b87bc93a1cE.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/streamcam/gallery/streamcam-gallery-1-graphite.png"
     ],
     "featured": false,
     "order_index": 482,
@@ -8689,7 +8693,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/519Xke4dPdL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 483,
@@ -8707,7 +8711,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://images-na.ssl-images-amazon.com/images/I/61UxfXTUyvL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-white-gallery-1.png"
     ],
     "featured": false,
     "order_index": 484,
@@ -8725,7 +8729,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_G_Pro_X_Superlight.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-black-gallery-6.png"
     ],
     "featured": false,
     "order_index": 485,
@@ -8779,7 +8783,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61yj5IcmcNL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/unifying-receiver-usb/gallery/usb-unifying-receiver-pico-rcv-3mm-gallery-1.png"
     ],
     "featured": false,
     "order_index": 488,
@@ -8797,7 +8801,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/product_description/2978268_1612180707.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-white-gallery-6.png"
     ],
     "featured": false,
     "order_index": 489,
@@ -8815,7 +8819,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/e6eef623a248c93cfd43913e760e8027-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-charcoal-gallery-01.png"
     ],
     "featured": false,
     "order_index": 490,
@@ -8833,7 +8837,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/e6eef623a248c93cfd43913e760e8027-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-charcoal-gallery-01.png"
     ],
     "featured": false,
     "order_index": 491,
@@ -8851,7 +8855,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/e6eef623a248c93cfd43913e760e8027-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190-wireless-mouse/m190-wireless-mouse-charcoal-gallery-01.png"
     ],
     "featured": false,
     "order_index": 492,
@@ -8887,7 +8891,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/612K2ZucmjL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/ergo-m575/gallery/ergo-m575-gallery-black-1-new.png"
     ],
     "featured": false,
     "order_index": 494,
@@ -8941,7 +8945,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://i5.walmartimages.com/seo/Logitech-MX-Anywhere-3-Mac-Wireless-Ultrafast-Magnetic-Scrolling-Surface-4000DPI-Sensor-USB-C-Bluetooth-MacBook-Pro-Air-iMac-iPad-Compatible-Pale-Gre_3784d34a-f832-47c2-8101-126d3cf648fc.c11ede1a32aa041fd0acebdd11453810.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3-for-mac/gallery/mx-anywhere-3-for-mac-product-gallery-pale-gray-top.png"
     ],
     "featured": false,
     "order_index": 497,
@@ -8959,7 +8963,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61AfwpNoUpL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/ergo-m575/gallery/ergo-m575-gallery-off-white-1-new.png"
     ],
     "featured": false,
     "order_index": 498,
@@ -9049,7 +9053,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://starlight-kw.com/cdn/shop/files/Logitech-M221-Silent-Wireless-Mouse-Off-White-Mouse-Logitech-Star-Light-Kuwait.png?v=1741458961"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m220/gallery/m220-offwhite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 503,
@@ -9067,7 +9071,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://i5.walmartimages.com/asr/5406253d-5ef1-4755-a99a-cccfe843dcb0.be25c9eccb77a31ea7bd32099bcff98a.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m220/gallery/m220-rose-gallery-1.png"
     ],
     "featured": false,
     "order_index": 504,
@@ -9121,7 +9125,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/ec3ee0ead56db40fb628b610e4d88d6e-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/ergo-k860-business/gallery/ergo-k860-for-business-gallery-1-intl-new.png"
     ],
     "featured": false,
     "order_index": 507,
@@ -9139,7 +9143,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://cdn2.bigcommerce.com/server2100/b2627/product_images/uploaded_images/rally-bar-mount-page-1.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/tv-mount/tv-mount-gallery-1.png"
     ],
     "featured": false,
     "order_index": 508,
@@ -9175,7 +9179,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_g_910_006160_g502_x_plus_wireless_1722686.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/2026-update/gallery/g502-x-plus-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 510,
@@ -9193,7 +9197,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/images1500x1500/logitech_g_910_006160_g502_x_plus_wireless_1722686.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/2026-update/gallery/g502-x-plus-top-angle-white-gallery-1.png"
     ],
     "featured": false,
     "order_index": 511,
@@ -9211,7 +9215,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61LaIVlVOwL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-lightspeed/gallery/g502-x-lightspeed-mouse-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 512,
@@ -9228,7 +9232,9 @@
     "wholesale_price": null,
     "category": "Mice",
     "brand": "Logitech",
-    "images": [],
+    "images": [
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-lightspeed/gallery/g502-x-lightspeed-mouse-top-angle-white-gallery-1.png"
+    ],
     "featured": false,
     "order_index": 513,
     "stock_on_hand": 0,
@@ -9245,7 +9251,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://i.pcmag.com/imagery/reviews/07o6GEqkVTe4zcLb5kiBEwN-8.fit_lim.size_1200x630.v1643230250.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/pop-keys-wireless-mechanical/gallery/pop-keys-blast-gallery-1-us-intl.png"
     ],
     "featured": false,
     "order_index": 514,
@@ -9263,7 +9269,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/5385d8f141cec3ffc74377cd4e183e30-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/pop-keys-wireless-mechanical/gallery/pop-keys-daydream-gallery-1-us-intl.png"
     ],
     "featured": false,
     "order_index": 515,
@@ -9281,7 +9287,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_POP_Keys.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/pop-keys-wireless-mechanical/gallery/pop-keys-heartbreak-gallery-1-us-intl.png"
     ],
     "featured": false,
     "order_index": 516,
@@ -9299,7 +9305,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_Business.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-for-business/gallery/mx-keys-business-keyboard-gallery-int-graphite-1.png"
     ],
     "featured": false,
     "order_index": 517,
@@ -9317,7 +9323,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_M650.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-medium/m650-graphite-medium-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 518,
@@ -9371,7 +9377,7 @@
     "category": "Accessories",
     "brand": "",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6490/6490955_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/logi-bolt-usb-receiver/gallery/logi-bolt-usb-receiver-gallery-01.png"
     ],
     "featured": false,
     "order_index": 521,
@@ -9389,7 +9395,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://down-my.img.susercontent.com/file/my-11134207-7ras8-m6rt7jc4kxo9a1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/audio/g735-wireless-headset/gallery/2025/g735-3qtr-front-left-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 522,
@@ -9407,7 +9413,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://setra.mk/wp-content/uploads/2023/03/Logitech-Signature-M650-L-Wireless-mouse-P-3.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/rose-medium/m650-rose-medium-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 523,
@@ -9443,7 +9449,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://down-ph.img.susercontent.com/file/ph-11134207-7rasj-m1tin0exomed4d"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pop-wireless-mouse/2026-refresh/gallery/pop-mouse-top-angle-daydream-gallery-1.png"
     ],
     "featured": false,
     "order_index": 525,
@@ -9461,7 +9467,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://down-ph.img.susercontent.com/file/ph-11134207-7rasj-m1tin0exomed4d"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pop-wireless-mouse/2026-refresh/gallery/pop-mouse-top-angle-heartbreaker-gallery-1.png"
     ],
     "featured": false,
     "order_index": 526,
@@ -9479,7 +9485,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://down-ph.img.susercontent.com/file/ph-11134207-7rasj-m1tin0exomed4d"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pop-wireless-mouse/2026-refresh/gallery/pop-mouse-top-angle-blast-gallery-1.png"
     ],
     "featured": false,
     "order_index": 527,
@@ -9497,7 +9503,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Lift_Vertical.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/graphite/lift-mouse-top-angle-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 528,
@@ -9515,7 +9521,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://introstatshop.co.za/wp-content/uploads/2026/02/910-006486-1.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/off-white/lift-mouse-top-angle-offwhite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 529,
@@ -9533,7 +9539,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Lift_Vertical.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/rose/lift-mouse-top-angle-rose-gallery-1.png"
     ],
     "featured": false,
     "order_index": 530,
@@ -9551,7 +9557,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://pakistanstore.pk/wp-content/uploads/2022/12/Logitech-R500-Laser-Remote.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r500s/gallery/r500s-grey-gallery-1.png"
     ],
     "featured": false,
     "order_index": 531,
@@ -9569,7 +9575,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://pakistanstore.pk/wp-content/uploads/2022/12/Logitech-R500-Laser-Remote.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r500s/gallery/r500s-gallery-1.png"
     ],
     "featured": false,
     "order_index": 532,
@@ -9605,7 +9611,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6507/6507826_sd.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-wireless/gallery/zone-vibe-wireless-mic-up-teams-nbt-graphite-2a.png"
     ],
     "featured": false,
     "order_index": 534,
@@ -9623,7 +9629,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Mechanical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/migration-assets-for-delorean-2025/gallery/mx-mechanical-top-view-graphite-us-intl.png"
     ],
     "featured": false,
     "order_index": 535,
@@ -9641,7 +9647,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Mechanical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/migration-assets-for-delorean-2025/gallery/mx-mechanical-top-view-graphite-us-intl.png"
     ],
     "featured": false,
     "order_index": 536,
@@ -9659,7 +9665,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_3S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png"
     ],
     "featured": false,
     "order_index": 537,
@@ -9677,7 +9683,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/1af61394db14df2bda59f084288102f2-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-top-view-pale-grey.png"
     ],
     "featured": false,
     "order_index": 538,
@@ -9695,7 +9701,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Vibe_100.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 539,
@@ -9713,7 +9719,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_300.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-300/gallery/brio-300-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 540,
@@ -9731,7 +9737,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk650-signature-combo-business/gallery/mk650-signature-combo-business-gallery-graphite-3.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk650-signature-combo-business/gallery/mk650-signature-combo-business-gallery-us-int-graphite-1.png"
     ],
     "featured": false,
     "order_index": 541,
@@ -9749,7 +9755,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Anywhere_3S.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3s/product-gallery/graphite/mx-anywhere-3s-mouse-top-view-graphite.png"
     ],
     "featured": false,
     "order_index": 542,
@@ -9767,7 +9773,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://media.hifi.lu/sys-master/products/9291620352030/1440x1440.62008800_05.webp"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m240/product-gallery/m240-mouse-top-view-graphite.png"
     ],
     "featured": false,
     "order_index": 543,
@@ -9785,7 +9791,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51ewAtjRCPL._AC_SL1200_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m240/product-gallery/m240-mouse-top-view-graphite.png"
     ],
     "featured": false,
     "order_index": 544,
@@ -9803,7 +9809,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Keys_Business.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-for-business/gallery/mx-keys-business-keyboard-gallery-int-graphite-1.png"
     ],
     "featured": false,
     "order_index": 545,
@@ -9821,7 +9827,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-s-combo/product-gallery/graphite/mx-keys-s-combo-keyboard-top-view-graphite-us.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mx-keys-s-combo/product-gallery/graphite/mx-keys-s-combo-keyboard-top-view-graphite-us-intl.png"
     ],
     "featured": false,
     "order_index": 546,
@@ -9839,7 +9845,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Wave_Keys.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/wave-keys/2025/wave-keys-top-angle-graphite-gallery-1us-intl.png"
     ],
     "featured": false,
     "order_index": 547,
@@ -9857,7 +9863,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://down-sg.img.susercontent.com/file/sg-11134207-7rcf9-ltuloekkm3pkab"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-slim-combo-mk950/gallery/slim-combo-mk950-graphite-gallery1-front-view-intl.png"
     ],
     "featured": false,
     "order_index": 548,
@@ -9875,7 +9881,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://down-sg.img.susercontent.com/file/sg-11134207-7rcf9-ltuloekkm3pkab"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-slim-combo-mk950/gallery/slim-combo-mk950-off-white-gallery1-front-view-intl.png"
     ],
     "featured": false,
     "order_index": 549,
@@ -9893,7 +9899,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/768c47cfe3be8250ea8419e108a34852-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-300/gallery/zone-300-graphite-1.png"
     ],
     "featured": false,
     "order_index": 550,
@@ -9911,7 +9917,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/768c47cfe3be8250ea8419e108a34852-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-300/gallery/zone-300-offwhite-1.png"
     ],
     "featured": false,
     "order_index": 551,
@@ -9929,7 +9935,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/b1649bb77c76589eb9b98b856fd5a2ce-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk345/gallery/2024-update/mk345-keyboard-mouse-black-us-gallery-01.png"
     ],
     "featured": false,
     "order_index": 552,
@@ -9947,7 +9953,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61Xsc-lNsXL._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-ergo-s-wireless-trackball-mouse/gallery/mx-ergo-s-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 553,
@@ -9965,7 +9971,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 554,
@@ -10969,7 +10975,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.imediastores.com/wp-content/uploads/2024/12/Onten-USB-C-Gigabit-Ethernet-Adapter-1000M-OTN-UC101-1.jpg"
+      "/product_images/Onten_OTN-UC101_official.webp"
     ],
     "featured": false,
     "order_index": 610,
@@ -11005,7 +11011,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/S/aplus-media/sc/4564c2b9-9ecd-4f41-a38e-d495dc73c104.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_1cc32378-3fc1-4c2a-bccf-998d587b7fa2.jpg?v=1638001216"
     ],
     "featured": false,
     "order_index": 612,
@@ -11023,7 +11029,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://phucanhcdn.com/media/product/53981_bo_chuyen_lention_uc_4khdmi_usb_c_sang_hdmi_2.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_28f52fe5-d204-4c7f-8483-7e10a25c574c.jpg?v=1754043240"
     ],
     "featured": false,
     "order_index": 613,
@@ -11237,7 +11243,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/04_32acf53a-1d36-4a11-960a-4d23f3ab253a_1800x1800.jpg?v=1642054692"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/800_0013_2_fecac31c-2c90-4872-98e1-17b473a3e872.jpg?v=1630986170"
     ],
     "featured": false,
     "order_index": 625,
@@ -11255,7 +11261,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/I/41TTdeJO8GL._AC_.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/1_b1a8e6e3-a67b-486d-9be2-954e53f9a35d.jpg?v=1638002505"
     ],
     "featured": false,
     "order_index": 626,
@@ -11273,7 +11279,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/I/61tQYl9hRuL._AC_SL1500_.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/b1_19d4c0ad-bf09-47e9-8594-e98213c9374f.jpg?v=1612519111"
     ],
     "featured": false,
     "order_index": 627,
@@ -11309,7 +11315,7 @@
     "category": "Streaming",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/products/02_c6b7f0c6-b8d9-4d84-8355-510cf82a817c_740x.jpg?v=1614764782"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_4fe18961-c5a4-4e93-8537-c1d7edbd7b37.jpg?v=1752139604"
     ],
     "featured": false,
     "order_index": 629,
@@ -11345,7 +11351,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://cdn0757.cdn4s.com/media/san-pham/h3.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/61g_O5LmKRL._AC_SL1500.jpg?v=1614421448"
     ],
     "featured": false,
     "order_index": 631,
@@ -11363,7 +11369,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/S/aplus-media/sc/4564c2b9-9ecd-4f41-a38e-d495dc73c104.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_1cc32378-3fc1-4c2a-bccf-998d587b7fa2.jpg?v=1638001216"
     ],
     "featured": false,
     "order_index": 632,
@@ -11399,7 +11405,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/files/01_62cb5638-23e0-4195-9944-c35a77b2af74.jpg?v=1752639056"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_8bacb93c-b0ac-4893-b58e-3f65cf70c5ad.jpg?v=1691804530"
     ],
     "featured": false,
     "order_index": 634,
@@ -11435,7 +11441,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/products/02_2936414e-7354-4b29-91e3-5acfac8fb339_1800x1800.jpg?v=1614680619"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/10_eaa0cc20-7ba9-4fea-92fe-8c4e1a7b3bb7.jpg?v=1753166373"
     ],
     "featured": false,
     "order_index": 636,
@@ -11453,7 +11459,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/files/1600x1600-01_74d597f7-4c32-41ef-b703-b5759a8ae571.jpg?v=1772779674"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/1_f3131d07-793d-4545-b9b2-678be82f8a3a.jpg?v=1616487089"
     ],
     "featured": false,
     "order_index": 637,
@@ -11471,7 +11477,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/products/01_9416b31b-b4a2-4f29-9d7d-c77d14ffe2b1.jpg?v=1614931549"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_9416b31b-b4a2-4f29-9d7d-c77d14ffe2b1.jpg?v=1614931549"
     ],
     "featured": false,
     "order_index": 638,
@@ -11489,7 +11495,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/products/3_d93f4c07-2009-49aa-b00c-10b3f5deaad3_740x.jpg?v=1638002379"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/1600x1600.jpg?v=1770195726"
     ],
     "featured": false,
     "order_index": 639,
@@ -11525,7 +11531,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/I/61zeqgd6hSL._AC_SL1500_.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/10_eaa0cc20-7ba9-4fea-92fe-8c4e1a7b3bb7.jpg?v=1753166373"
     ],
     "featured": false,
     "order_index": 641,
@@ -11543,7 +11549,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/files/07_7081a2cd-bd43-4d89-b2ab-f5266074c9b5.jpg?v=1753166373"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/1_b17234e8-84fa-4044-b97c-8dd37c39c225.jpg?v=1753166373"
     ],
     "featured": false,
     "order_index": 642,
@@ -11597,7 +11603,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://store.canon-erbil.com/wp-content/uploads/2022/12/lension-d55-with-laptop.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_3daada9d-0ba7-41f3-a705-319a8ca374f9.jpg?v=1733819847"
     ],
     "featured": false,
     "order_index": 645,
@@ -11615,7 +11621,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "http://www.lention.com/cdn/shop/files/01_7b3a5894-dca0-4a41-8f37-7b45e3a06f36.jpg?v=1752224047"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_5e1f6b03-6fda-4231-aaa3-8b2a7ad4b640.jpg?v=1752224103"
     ],
     "featured": false,
     "order_index": 646,
@@ -11687,7 +11693,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_c81c5b06-9de0-401a-9bad-5a65193576fe_740x.jpg?v=1642054692"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_c81c5b06-9de0-401a-9bad-5a65193576fe.jpg?v=1712910668"
     ],
     "featured": false,
     "order_index": 650,
@@ -11705,7 +11711,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/D55HEAVCRNA-text_2048x2048.png?v=1599716710"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01_3daada9d-0ba7-41f3-a705-319a8ca374f9.jpg?v=1733819847"
     ],
     "featured": false,
     "order_index": 651,
@@ -11723,7 +11729,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://m.media-amazon.com/images/I/516IFsaeRCL._AC_SL1500_.jpg"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/08_8237d4af-f83e-4e0e-8064-3460eb529922.jpg?v=1709717495"
     ],
     "featured": false,
     "order_index": 652,
@@ -13127,7 +13133,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-8120.jpg"
+      "/product_images/Onten_OTN-8120_official.webp"
     ],
     "featured": false,
     "order_index": 730,
@@ -13163,7 +13169,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://static.alaneesqatar.qa/2024/11/Untitled-design-2024-11-26T171031-798_5RObp8rpW.png"
+      "/product_images/Onten_OTN-UC972C_official.webp"
     ],
     "featured": false,
     "order_index": 732,
@@ -13181,7 +13187,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-my.img.susercontent.com/file/my-11134207-7rash-m44g1otd9589a0"
+      "/product_images/Onten_OTN-9199A_official.webp"
     ],
     "featured": false,
     "order_index": 733,
@@ -13235,7 +13241,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_R400.jpeg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/r400/gallery/r400-comparison.png"
     ],
     "featured": false,
     "order_index": 736,
@@ -13253,7 +13259,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.imediastores.com/wp-content/uploads/2025/01/Onten-USB-C-to-Dual-DisplayPort-Adapter-OTN-UC915-1.jpg"
+      "/product_images/Onten_OTN-UC915_official.webp"
     ],
     "featured": false,
     "order_index": 737,
@@ -13271,7 +13277,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-th.img.susercontent.com/file/th-11134207-7rask-m0plqkpkj6qga2"
+      "/product_images/Onten_OTN-5308_official.webp"
     ],
     "featured": false,
     "order_index": 738,
@@ -13307,7 +13313,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://sourceit.com.sg/cdn/shop/products/logitech-tap-scheduler-lcd-scheduling-display-graphite-952-000091-813707_580x.png?v=1700210252"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/tap-scheduler/logitech-tap-scheduler-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 740,
@@ -13325,7 +13331,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://www.barclays.lk/mmBC/Images/WEBL2528.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/group-conferencecam/gallery/group-gallery-1.png"
     ],
     "featured": false,
     "order_index": 741,
@@ -13343,7 +13349,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://www.voipon.co.uk/images/rally4k.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally/buy/gallery/rally-plus-rally-01.png"
     ],
     "featured": false,
     "order_index": 742,
@@ -13361,7 +13367,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Bar.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-bar/buy/2026/gallery/rally-bar-front-angle-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 743,
@@ -13379,7 +13385,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-UCD22.jpg"
+      "/product_images/Onten_OTN-UCD22_official.webp"
     ],
     "featured": false,
     "order_index": 744,
@@ -13415,7 +13421,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mdr5xxwu7hp4b0"
+      "/product_images/Onten_OTN-CS21_official.webp"
     ],
     "featured": false,
     "order_index": 746,
@@ -13433,7 +13439,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://assets.asaxiy.uz/product/items/desktop/907ae17a77ee24cd998d7dc3b5ceefcf2025072814065898889cJL9vAPVZd.jpeg"
+      "/product_images/Onten_OTN-9591A_official.webp"
     ],
     "featured": false,
     "order_index": 747,
@@ -13469,7 +13475,7 @@
     "category": "Webcams",
     "brand": "Onten",
     "images": [
-      "https://down-th.img.susercontent.com/file/b49ede07557ed180a35dee62820b1559"
+      "/product_images/Onten_OTN-91182_official.webp"
     ],
     "featured": false,
     "order_index": 749,
@@ -13505,7 +13511,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://img.lazcdn.com/g/p/62da1a6c75bfb3268b7bd0d5c38fe0cf.jpg_720x720q80.jpg"
+      "/product_images/Onten_OTN-9199_official.webp"
     ],
     "featured": false,
     "order_index": 751,
@@ -13523,7 +13529,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "/product_images/Onten_OTN-9299.jpg"
+      "/product_images/Onten_OTN-9299_official.webp"
     ],
     "featured": false,
     "order_index": 752,
@@ -13559,7 +13565,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/main/onten-otn-5117-displayport-male-to-hdmi-female-11765543199.webp"
+      "/product_images/Onten_OTN-DP82D_official.webp"
     ],
     "featured": false,
     "order_index": 754,
@@ -13577,7 +13583,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-th.img.susercontent.com/file/th-11134207-81zth-mi17ggnm914xe3"
+      "/product_images/Onten_OTN-HD807D_official.webp"
     ],
     "featured": false,
     "order_index": 755,
@@ -13595,7 +13601,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://buyerhub.pk/wp-content/uploads/2025/03/Onten-UCA322-M.2-SSD-Enclosure.png"
+      "/product_images/Onten_OTN-UCA322_official.webp"
     ],
     "featured": false,
     "order_index": 756,
@@ -13613,7 +13619,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://img.advice.co.th/images_nas/pic_product4/A0171125/A0171125OK_BIG_2.jpg"
+      "/product_images/Onten_OTN-CS144S_official.webp"
     ],
     "featured": false,
     "order_index": 757,
@@ -13631,7 +13637,7 @@
     "category": "Mice",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/small/onten-ms331-24g-wireless-black-11767444449.webp"
+      "/product_images/Onten_OTN-MS331_official.webp"
     ],
     "featured": false,
     "order_index": 758,
@@ -13649,7 +13655,7 @@
     "category": "Mice",
     "brand": "Onten",
     "images": [
-      "https://www.phonelcdparts.com/media/catalog/product/cache/401d8e4e9df832a2e1c3c3777755bdef/o/t/otn-ms332.jpg"
+      "/product_images/Onten_OTN-MS332_official.webp"
     ],
     "featured": false,
     "order_index": 759,
@@ -13721,7 +13727,7 @@
     "category": "Mice",
     "brand": "Onten",
     "images": [
-      "https://www.price.com.hk/space/product/678000/678878_4oz3ro_0.png"
+      "/product_images/Onten_OTN-MS661_official.webp"
     ],
     "featured": false,
     "order_index": 763,
@@ -13739,7 +13745,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-822wq-mousgsy80m4u31"
+      "/product_images/Onten_OTN-DP121_official.webp"
     ],
     "featured": false,
     "order_index": 764,
@@ -13757,7 +13763,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-81zto-meid28nwzbb812"
+      "/product_images/Onten_OTN-DP122_official.webp"
     ],
     "featured": false,
     "order_index": 765,
@@ -13775,7 +13781,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-822wq-mousgsy80m4u31"
+      "/product_images/Onten_OTN-DP121_official.webp"
     ],
     "featured": false,
     "order_index": 766,
@@ -13793,7 +13799,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-81zto-meid28nwzbb812"
+      "/product_images/Onten_OTN-DP122_official.webp"
     ],
     "featured": false,
     "order_index": 767,
@@ -13811,7 +13817,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-822wq-mousgsy80m4u31"
+      "/product_images/Onten_OTN-DP121_official.webp"
     ],
     "featured": false,
     "order_index": 768,
@@ -13829,7 +13835,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-81zto-meid28nwzbb812"
+      "/product_images/Onten_OTN-DP122_official.webp"
     ],
     "featured": false,
     "order_index": 769,
@@ -13847,7 +13853,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-822wq-mousgsy80m4u31"
+      "/product_images/Onten_OTN-DP121_official.webp"
     ],
     "featured": false,
     "order_index": 770,
@@ -13865,7 +13871,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://down-id.img.susercontent.com/file/id-11134207-81zto-meid28nwzbb812"
+      "/product_images/Onten_OTN-DP122_official.webp"
     ],
     "featured": false,
     "order_index": 771,
@@ -13883,7 +13889,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/main/onten-otn-hd183-hdmi-21-male-to-male-15-meter-11765278119.webp"
+      "/product_images/Onten_OTN-HD183_official.webp"
     ],
     "featured": false,
     "order_index": 772,
@@ -13901,7 +13907,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/main/onten-otn-hd183-hdmi-21-male-to-male-2-meter-21767421761.webp"
+      "/product_images/Onten_OTN-HD183_official.webp"
     ],
     "featured": false,
     "order_index": 773,
@@ -13919,7 +13925,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/main/onten-otn-hd183-hdmi-21-male-to-male-15-meter-11765278119.webp"
+      "/product_images/Onten_OTN-HD183_official.webp"
     ],
     "featured": false,
     "order_index": 774,
@@ -13937,7 +13943,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.ryans.com/storage/products/main/onten-otn-hd183-hdmi-21-male-to-male-15-meter-11765278119.webp"
+      "/product_images/Onten_OTN-HD183_official.webp"
     ],
     "featured": false,
     "order_index": 775,
@@ -13973,7 +13979,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://www.bhphotovideo.com/images/fb/logitech_981_000513_usb_headset_mono_h650e_1591984.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h650e/gallery/h650e-mono-gallery-01.png"
     ],
     "featured": false,
     "order_index": 777,
@@ -14565,7 +14571,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://images-na.ssl-images-amazon.com/images/I/71A0Pp767BL.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-100/gallery/brio-100-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 810,
@@ -14601,7 +14607,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_300.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-300/gallery/brio-300-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 812,
@@ -14619,7 +14625,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Brio_4K.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/4k-pro-webcam/gallery/4k-pro-gallery-1.png"
     ],
     "featured": false,
     "order_index": 813,
@@ -14691,7 +14697,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_C270.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c270-hd-webcam/gallery/c270-hd-webcam-1-0224.png"
     ],
     "featured": false,
     "order_index": 817,
@@ -15753,7 +15759,7 @@
     "category": "Accessories",
     "brand": "",
     "images": [
-      "https://cdn11.bigcommerce.com/s-ms4wz8cgi2/images/stencil/1280x1280/products/33941/19058/CABOEMUCHDMI3M__95290.1695264554.jpg?c=1?imbypass=on"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/files/01-01_7434dd45-0c52-432d-8a67-c98a4a862416.jpg?v=1752487753"
     ],
     "featured": false,
     "order_index": 876,
@@ -16057,7 +16063,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/51ncb3XF4ML._AC_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m575s-ergo-wireless-trackball/gallery/ergo-m575s-m575sp-black-blue-ball-gallery-1.png"
     ],
     "featured": false,
     "order_index": 893,
@@ -16183,7 +16189,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/5243/PMP20000786197/full_image-1.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g440/g440-gallery-2-new.png"
     ],
     "featured": false,
     "order_index": 900,
@@ -16219,7 +16225,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g515-tkl-wired/gallery/g515-wired-keyboard-black-gallery-1-us.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g515-tkl-wired/gallery/g515-wired-keyboard-white-gallery-1-us.png"
     ],
     "featured": false,
     "order_index": 902,
@@ -16237,7 +16243,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/90b2c439-5973-46ed-a115-74be77dabaa2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g522-lightspeed-pdp/gallery-images/g522-midnight-black-3qtr-front-left-gallery-1.png"
     ],
     "featured": false,
     "order_index": 903,
@@ -16254,7 +16260,9 @@
     "wholesale_price": null,
     "category": "Mice",
     "brand": "Logitech",
-    "images": [],
+    "images": [
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g703-hero/2025-update/g703-mouse-top-angle-gallery-1.png"
+    ],
     "featured": false,
     "order_index": 904,
     "stock_on_hand": 3,
@@ -16271,7 +16279,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery-1-carbon.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery/pan-g915-tkl-white-gallery-topdown.png"
     ],
     "featured": false,
     "order_index": 905,
@@ -16325,7 +16333,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://assets.logitech.com/assets/65397/usb-headset-h540-refresh.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h540/gallery/h540-gallery-01.png"
     ],
     "featured": false,
     "order_index": 908,
@@ -16343,7 +16351,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/71fIKhmfXpL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/h570e/gallery/h570e-team-version-stereo-3qtr-front-left.png"
     ],
     "featured": false,
     "order_index": 909,
@@ -16649,7 +16657,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_Slim_Solar_Plus.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/signature-slim-solar-plus-k980-for-business/gallery/us/b2b-k980-graphite-us-gallery1.png"
     ],
     "featured": false,
     "order_index": 926,
@@ -16667,7 +16675,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_Slim_Solar_Plus.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/solar-k980-keyboard/gallery-images/signature-slim-solar-plus-wireless-keyboard-k980-graphite-top-view-1.png"
     ],
     "featured": false,
     "order_index": 927,
@@ -17081,7 +17089,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "https://cdn.mwave.com.au/images/400/logitech_mx_creative_console_keypad_pale_grey_ac78726_89760.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-creative-console/buy/gallery/2025/mx-creative-console-top-view-pale-gray-2.png"
     ],
     "featured": false,
     "order_index": 950,
@@ -17153,7 +17161,7 @@
     "category": "Keyboards",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Wave_Keys.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/wave-keys/2025/wave-keys-top-angle-graphite-gallery-1.png"
     ],
     "featured": false,
     "order_index": 954,
@@ -17171,7 +17179,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m196/gallery/m196-white-rightview-gallery3.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m196/gallery/m196-white-topview-gallery1.png"
     ],
     "featured": false,
     "order_index": 955,
@@ -17243,7 +17251,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitech.com/content/dam/logitech/en/products/video-conferencing/rally-mic-pod/gallery/mic-pod-gallery-graphite-1.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-mic-pod/gallery/mic-pod-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 959,
@@ -17333,7 +17341,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6411/6411501cv19d.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk470-slim-wireless-combo/gallery-images/mk470-gallery-graphite-matt-us-intl-1.png"
     ],
     "featured": false,
     "order_index": 964,
@@ -17351,7 +17359,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Signature_Slim_Combo_MK955.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/signature-slim-combo-mk955/update-2025/gallery/graphite/mk955-graphite-combo-topview-gallery1.png"
     ],
     "featured": false,
     "order_index": 965,
@@ -17567,7 +17575,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Anywhere_3S.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3s-for-business/gallery/mx-anywhere-3s-portable-business-mouse-gallery-graphite-1.png"
     ],
     "featured": false,
     "order_index": 977,
@@ -17585,7 +17593,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Brio_705.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/mx-brio-705/gallery/mx-brio-705-for-business-1.png"
     ],
     "featured": false,
     "order_index": 978,
@@ -17621,7 +17629,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_3S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-black-new-1.png"
     ],
     "featured": false,
     "order_index": 980,
@@ -17639,7 +17647,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_3S.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png"
     ],
     "featured": false,
     "order_index": 981,
@@ -17657,7 +17665,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://m.media-amazon.com/images/I/61z3ENJubZL._AC_SL1500_.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-pale-grey-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 982,
@@ -17675,7 +17683,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 983,
@@ -17693,7 +17701,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 984,
@@ -17711,7 +17719,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-graphite-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 985,
@@ -17729,7 +17737,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Master_4.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4-mac/gallery/mx-master-4-mac-space-black-top-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 986,
@@ -17747,7 +17755,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MX_Vertical.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-vertical/gallery/mx-vertical-gallery-04.png"
     ],
     "featured": false,
     "order_index": 987,
@@ -18285,7 +18293,7 @@
     "category": "Accessories",
     "brand": "Onten",
     "images": [
-      "https://www.psccomputer.com.kh/image/04e2858b208d7a1bc3fa44a09e165e30.jpg"
+      "/product_images/Onten_OTN-9106_official.webp"
     ],
     "featured": false,
     "order_index": 1017,
@@ -18465,7 +18473,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_MK850.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk850-keyboard-mouse/gallery/mk850-gallery-1-new.png"
     ],
     "featured": false,
     "order_index": 1027,
@@ -18735,7 +18743,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "https://microless.com/cdn/products/7835d3063aad088594a53306a407de2b-hi.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-camera/gallery/rally-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1042,
@@ -18753,7 +18761,7 @@
     "category": "Streaming",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Mic_Pod_Cat_Coupler.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally-mic-pod-cat-coupler/2026/rally-mic-pod-cat-coupler-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1043,
@@ -18771,7 +18779,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Rally_Plus.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/rally/buy/2026/gallery/rally-plus-front-angle-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1044,
@@ -19077,7 +19085,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Spotlight.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/presenters/spotlight/gallery/spotlight-slate-comparison.png"
     ],
     "featured": false,
     "order_index": 1061,
@@ -19203,7 +19211,7 @@
     "category": "Webcams",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_StreamCam.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/streamcam/gallery/streamcam-gallery-1-graphite.png"
     ],
     "featured": false,
     "order_index": 1068,
@@ -19239,7 +19247,7 @@
     "category": "Mice",
     "brand": "Logitech",
     "images": [
-      "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/gallery-6-pro-x-superlight-2-gaming-mouse-black.png?v=1"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/new-gallery-assets-2025/pro-x-superlight-2-mice-top-angle-black-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1070,
@@ -19455,7 +19463,7 @@
     "category": "Accessories",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Unifying_Receiver.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/unifying-receiver-usb/gallery/usb-unifying-receiver-pico-rcv-3mm-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1082,
@@ -19527,7 +19535,7 @@
     "category": "Accessories",
     "brand": "",
     "images": [
-      "/product_images/Logitech_Unifying_Receiver.png"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/unifying-receiver-usb/gallery/usb-unifying-receiver-pico-rcv-3mm-gallery-1.png"
     ],
     "featured": false,
     "order_index": 1086,
@@ -19689,7 +19697,7 @@
     "category": "Accessories",
     "brand": "Lention",
     "images": [
-      "https://www.lention.com/cdn/shop/products/01_9416b31b-b4a2-4f29-9d7d-c77d14ffe2b1.jpg?v=1614931549"
+      "https://cdn.shopify.com/s/files/1/0466/3794/0896/products/01_9416b31b-b4a2-4f29-9d7d-c77d14ffe2b1.jpg?v=1614931549"
     ],
     "featured": false,
     "order_index": 1095,
@@ -19977,7 +19985,7 @@
     "category": "Headsets",
     "brand": "Logitech",
     "images": [
-      "/product_images/Logitech_Zone_Wireless_2.jpg"
+      "https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-wireless-2/gallery/zone-wireless-2-graphite-1.png"
     ],
     "featured": false,
     "order_index": 1111,

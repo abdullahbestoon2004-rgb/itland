@@ -183,6 +183,7 @@
 .out { color: #ff9ca8; }
 .product-stock { margin-top: .5rem; color: var(--text-secondary); }
 .product-stock.out { color: #ff9ca8; }
+.product-stock.in { align-self: flex-start; padding: .2rem .65rem; border-radius: var(--radius-pill); background: #15803d; color: #fff; }
 .order-note { font-size: .88rem; color: var(--text-secondary); margin: .7rem 0; line-height: 1.6; }
 .help-inline-link { display: inline-block; color: var(--logi-cyan); text-decoration: underline; margin: .7rem 0; }
 .delivery-banner { padding: 1rem; text-align: center; color: var(--text-secondary); border-bottom: 1px solid var(--logi-border); }

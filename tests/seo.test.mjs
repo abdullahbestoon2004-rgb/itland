@@ -78,6 +78,28 @@ test('product markup uses public price, accurate availability, breadcrumbs and c
     assert.equal(JSON.parse(page.data).related.length, 8);
 });
 
+test('app legal pages render in English, Arabic and Kurdish without JavaScript', () => {
+    for (const path of ['/app/privacy', '/app/terms', '/app/delete-account']) {
+        const page = renderPage(path, []);
+        assert.equal(page.status, 200);
+        assert.match(page.body, /<h1/);
+        assert.match(page.body, /Last updated: 8 November 2026/);
+        assert.match(page.body, /info@itlandforcomputer\.com/);
+        assert.match(page.head, new RegExp(`rel="canonical" href="https://itlandforcomputer.com${path}"`));
+        assert.match(page.head, /content="index, follow/);
+        for (const [code, lang] of [['ar', 'ar'], ['ku', 'ckb']]) {
+            const translated = renderPage(`${path}?lang=${code}`, []);
+            assert.equal(translated.status, 200);
+            assert.match(translated.body, new RegExp(`class="lgl-page" lang="${lang}" dir="rtl"`));
+            assert.match(translated.head, new RegExp(`rel="canonical" href="https://itlandforcomputer.com${path}\\?lang=${code}"`));
+        }
+    }
+    assert.match(renderPage('/app/privacy', []).body, /href="\/app\/delete-account"/);
+    assert.match(renderPage('/app/privacy?lang=ar', []).body, /href="\/app\/delete-account\?lang=ar"/);
+    assert.match(renderPage('/app/terms', []).body, /5,000 IQD/);
+    assert.equal(renderPage('/app/missing', []).status, 404);
+});
+
 test('missing pages and products return 404 and noindex', () => {
     for (const path of ['/missing', '/help/missing', '/product/missing-999']) {
         const page = renderPage(path, products);
@@ -129,6 +151,7 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         await sitemapHandler({}, sitemap);
         assert.equal(sitemap.code, 200);
         assert.match(sitemap.body, /\/help\/delivery/);
+        assert.match(sitemap.body, /\/app\/privacy<\/loc>[\s\S]*\/app\/terms<\/loc>[\s\S]*\/app\/delete-account<\/loc>/);
         assert.match(sitemap.body, /\/brands\/logitech/);
         assert.match(sitemap.body, /\/products\?category=Mice/);
         assert.match(sitemap.body, /\/product\/logitech-mouse-0-100<\/loc><image:image><image:loc>https:\/\/itlandforcomputer.com\/itlandlogo.png<\/image:loc>/);

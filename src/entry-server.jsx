@@ -13,6 +13,8 @@ import Contact from './pages/Contact';
 import ShoppingHelp from './pages/ShoppingHelp';
 import { helpContent } from './data/help';
 import NotFound from './pages/NotFound';
+import LegalPage from './pages/app/LegalPage';
+import { LEGAL_PATHS } from './pages/app/legalDocs';
 import { normalizeProduct, productIdFromSlug } from './data/products';
 import { relatedProducts } from './utils/storefront';
 import imageMap from './data/productImages.json';
@@ -38,7 +40,7 @@ export function renderPage(requestUrl, products = [], snapshot = null) {
         return { status: 301, redirect: `/product/${toProductSlug(product)}` };
     }
     const pageData = productRoute ? { slug, product: product ?? null, related: relatedProducts(product, catalog), snapshot, serverRendered: true } : { products: catalog, snapshot, serverRendered: true };
-    const known = ['/', '/products', '/about', '/contact'].includes(path) || (path.startsWith('/help/') && Object.hasOwn(helpContent, path.slice(6))) || Boolean(product) || (path.startsWith('/brands/') && catalog.some(item => item.brand && brandSlug(item.brand) === path.slice(8)));
+    const known = ['/', '/products', '/about', '/contact', ...LEGAL_PATHS].includes(path) || (path.startsWith('/help/') && Object.hasOwn(helpContent, path.slice(6))) || Boolean(product) || (path.startsWith('/brands/') && catalog.some(item => item.brand && brandSlug(item.brand) === path.slice(8)));
     let metadata = null;
     const collectMetadata = value => { metadata = value; };
     const body = renderToString(
@@ -54,9 +56,12 @@ export function renderPage(requestUrl, products = [], snapshot = null) {
                     <Route path="/help/:topic" element={<ShoppingHelp />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
+                <Route path="/app/privacy" element={<LegalPage doc="privacy" />} />
+                <Route path="/app/terms" element={<LegalPage doc="terms" />} />
+                <Route path="/app/delete-account" element={<LegalPage doc="delete-account" />} />
             </Routes></WholesaleProvider></StaticRouter>
         </PageDataContext.Provider></MetadataContext.Provider>
     );
     return { status: known ? 200 : 404, head: renderHead(metadata ?? pageMetadata({ path, noindex: !known })), body, data: serializeJson(pageData) };
 }
-export { CATEGORIES, toProductSlug, helpContent };
+export { CATEGORIES, toProductSlug, helpContent, LEGAL_PATHS };
