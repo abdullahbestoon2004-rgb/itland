@@ -33,6 +33,8 @@ test('public pages render actual content and unique metadata without JavaScript'
         assert.match(store.openingHoursSpecification[0].closes, /^1[6-9]:[0-5]\d$/);
     }
     assert.match(renderPage('/contact', products).body, /Muzaffariya Street/);
+    // The hours line shows the times themselves, on the 12-hour clock.
+    assert.match(renderPage('/contact', products).body.replaceAll('<!-- -->', ''), /Saturday – Thursday: <bdi>10:00 AM – [4-7]:[0-5]\d PM<\/bdi>/);
 });
 
 test('category pagination has distinct metadata, content and crawlable links', () => {

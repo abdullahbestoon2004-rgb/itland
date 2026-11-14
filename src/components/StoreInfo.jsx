@@ -2,8 +2,7 @@ import React from 'react';
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { useLocale } from '../context/LocaleContext';
 import { STORE_GEO, STORE_MAP_URL } from '../utils/seo';
-import { erbilWeekday, maghribTime, STORE_CLOSED_DAYS, STORE_OPEN_DAYS, STORE_OPENS } from '../utils/storeHours';
-import { fill } from '../utils/locale';
+import { maghribTime, STORE_CLOSED_DAYS, STORE_OPEN_DAYS, STORE_OPENS, twelveHour } from '../utils/storeHours';
 import { WHATSAPP_DISPLAY, WHATSAPP_NUMBER, whatsappLink } from '../utils/storefront';
 import './StoreInfo.css';
 
@@ -19,8 +18,11 @@ function dayRange(days, t) {
 // page and on landing pages, so a visitor always sees there is a real store.
 export default function StoreInfo({ title = 'Visit our store in Erbil' }) {
   const { t } = useLocale();
-  // The shop closes at Maghrib, which moves with the seasons: show today's time.
-  const openToday = STORE_OPEN_DAYS.includes(erbilWeekday());
+  // "10:00 AM", with the AM/PM mark in the page's language.
+  const clock = value => {
+    const { time, period } = twelveHour(value);
+    return `${time} ${t(period)}`;
+  };
   return <section className="store-info" aria-labelledby="store-info-title">
       <div className="section-container store-info-grid">
         <div className="store-info-details">
@@ -38,8 +40,8 @@ export default function StoreInfo({ title = 'Visit our store in Erbil' }) {
               <Clock size={20} aria-hidden="true" />
               <div>
                 <strong>{t('Opening hours')}</strong>
-                <span>{dayRange(STORE_OPEN_DAYS, t)}: <bdi>{STORE_OPENS}</bdi> – {t('Maghrib prayer')}</span>
-                {openToday && <span suppressHydrationWarning>{fill(t('Closes today at {time}'), { time: maghribTime() })}</span>}
+                {/* The closing time is today's Maghrib in Erbil, so it moves with the seasons. */}
+                <span>{dayRange(STORE_OPEN_DAYS, t)}: <bdi suppressHydrationWarning>{clock(STORE_OPENS)} – {clock(maghribTime())}</bdi></span>
                 <span>{dayRange(STORE_CLOSED_DAYS, t)}: {t('Closed')}</span>
               </div>
             </li>

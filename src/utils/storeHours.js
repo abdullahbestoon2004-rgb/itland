@@ -33,7 +33,13 @@ export function maghribMinutes(now = Date.now()) {
     return Math.round(sunsetUtc + ERBIL_UTC_OFFSET_HOURS * 60);
 }
 
-/** Today's closing time in Erbil, "HH:MM" on the 24-hour clock. */
+/** A clock time as people read it: "16:58" becomes { time: "4:58", period: "PM" }. */
+export function twelveHour(clock) {
+    const [hours, minutes] = String(clock).split(':').map(Number);
+    return { time: `${hours % 12 || 12}:${String(minutes).padStart(2, '0')}`, period: hours < 12 ? 'AM' : 'PM' };
+}
+
+/** Today's closing time in Erbil, "HH:MM" on the 24-hour clock (the form search engines read). */
 export function maghribTime(now = Date.now()) {
     const minutes = maghribMinutes(now);
     return `${String(Math.floor(minutes / 60)).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;

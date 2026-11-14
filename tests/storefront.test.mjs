@@ -4,7 +4,7 @@ import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProdu
 import { parseMarketRate, isFreshRate, formatIqd, formatIqdAmount, iqdTotal, toIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
 import { shortProductTitle } from '../src/utils/seo.js';
 import { colourOf, withColourVariants } from '../src/utils/colours.js';
-import { erbilWeekday, maghribMinutes, maghribTime } from '../src/utils/storeHours.js';
+import { erbilWeekday, maghribMinutes, maghribTime, twelveHour } from '../src/utils/storeHours.js';
 import { ROOM_SIZES, roomSizePicks, videoConferencingGroup, videoConferencingProducts } from '../src/utils/videoConferencing.js';
 
 const now = Date.now();
@@ -95,6 +95,11 @@ test('the shop closes at Maghrib in Erbil, which follows the seasons', () => {
     assert.equal(erbilWeekday(at('2026-11-12', '20:59')), 'Thursday');
     assert.equal(erbilWeekday(at('2026-11-12', '21:00')), 'Friday');
     assert.equal(maghribTime(at('2026-11-14', '00:30')), maghribTime(at('2026-11-14', '20:00')));
+    // Shown on the 12-hour clock.
+    assert.deepEqual(twelveHour('10:00'), { time: '10:00', period: 'AM' });
+    assert.deepEqual(twelveHour('16:58'), { time: '4:58', period: 'PM' });
+    assert.deepEqual(twelveHour('12:05'), { time: '12:05', period: 'PM' });
+    assert.deepEqual(twelveHour('00:30'), { time: '12:30', period: 'AM' });
 });
 
 test('IQD prices are rounded to the nearest 250, and totals equal their lines added up', () => {
