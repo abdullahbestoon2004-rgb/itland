@@ -1,7 +1,7 @@
 .brand-marquee {
     padding: var(--space-7) 0;
-    border-block: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(7, 10, 17, 0.45);
+    border-block: 1px solid var(--line);
+    background: #ffffff;
 }
 
 .brand-marquee-title {
@@ -54,7 +54,7 @@
     justify-content: center;
     height: 44px;
     color: var(--text-primary);
-    opacity: 0.6;
+    opacity: 0.55;
     transition: opacity var(--transition-fast);
 }
 
@@ -63,14 +63,14 @@
     opacity: 1;
 }
 
-/* Every logo is drawn in one colour, whatever colours its file uses. */
+/* Every logo is drawn in black, whatever colours its file uses. */
 .brand-marquee-item img {
     display: block;
     width: auto;
     height: 30px;
     max-width: 124px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    filter: brightness(0);
 }
 
 .brand-marquee-name {

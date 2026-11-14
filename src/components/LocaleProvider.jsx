@@ -1,28 +1,33 @@
-import { useEffect, useState } from 'react';
-import { LocaleContext } from '../context/LocaleContext';
+import { useCallback, useContext, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { LocaleContext, RouteLocaleContext } from '../context/LocaleContext';
+import { LOCALES, localePath } from '../utils/locale';
 import translations from '../data/translations.json';
+
+// The language comes from the address (/ar, /ku, or none for English), so the
+// server and the browser always agree. Choosing another language in the menu
+// remembers the choice and opens the same page at that language's address.
 export default function LocaleProvider({
   children
 }) {
-  const [language, setLanguage] = useState(() => {
-    try {
-      const saved = localStorage.getItem('itland-language');
-      return ['ar', 'ku'].includes(saved) ? saved : 'en';
-    } catch {
-      return 'en';
-    }
-  });
+  const language = useContext(RouteLocaleContext);
+  const { pathname, search, hash } = useLocation();
   useEffect(() => {
-    document.documentElement.lang = language === 'ku' ? 'ckb' : language;
-    document.documentElement.dir = language === 'en' ? 'ltr' : 'rtl';
-    try {
-      localStorage.setItem('itland-language', language);
-    } catch {/* Storage may be unavailable. */}
+    document.documentElement.lang = LOCALES[language].lang;
+    document.documentElement.dir = LOCALES[language].dir;
   }, [language]);
-  const t = text => translations[text]?.[language] || text;
-  return <LocaleContext.Provider value={{
+  const setLanguage = useCallback(next => {
+    if (!LOCALES[next] || next === language) return;
+    try {
+      localStorage.setItem('itland-language', next);
+    } catch {/* Storage may be unavailable. */}
+    window.location.assign(localePath(next, `${pathname}${search}${hash}`));
+  }, [language, pathname, search, hash]);
+  const value = useMemo(() => ({
     language,
+    localized: true,
     setLanguage,
-    t
-  }}>{children}</LocaleContext.Provider>;
+    t: text => translations[text]?.[language] || text
+  }), [language, setLanguage]);
+  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
 }

@@ -1,22 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
 @import './fonts.css';
 
 :root {
-  --logi-cyan: #00b8fc;
-  --logi-cyan-hover: #0096cc;
-  --logi-dark: #0d1117;
-  --logi-darker: #070a11;
-  --logi-surface: #151c27;
-  --logi-surface-hover: #1c2636;
-  --logi-border: #27344a;
+  /* Light theme: white pages, grey product tiles, near-black type, one bright accent. */
+  --accent: #00fdcf;
+  --accent-hover: #00e0b8;
+  --accent-ink: #006b5a;
+  --accent-tint: #d6f5f0;
+  --ink: #1b1b1b;
+  --tile: #eeeff1;
+  --line: #dcdee2;
 
-  --text-primary: #f4f8ff;
-  --text-secondary: #9fb0cb;
-  --text-muted: #7788a7;
-  --text-inverse: #02060d;
+  /* Older names, kept so every component keeps working. */
+  --logi-cyan: var(--accent);
+  --logi-cyan-hover: var(--accent-hover);
+  --logi-dark: #ffffff;
+  --logi-darker: #ffffff;
+  --logi-surface: #f5f6f7;
+  --logi-surface-hover: #eaebed;
+  --logi-border: var(--line);
 
-  --font-base: 'Manrope', 'Segoe UI', sans-serif;
-  --font-heading: 'Sora', 'Segoe UI', sans-serif;
+  --text-primary: var(--ink);
+  --text-secondary: #54575d;
+  --text-muted: #7b7f86;
+  --text-inverse: #000000;
+
+  --font-base: 'Figtree', 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', sans-serif;
+  --font-heading: 'Figtree', 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
   --space-1: 0.25rem;
@@ -31,13 +40,14 @@
 
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-lg: 16px;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 14px 28px rgba(0, 0, 0, 0.3);
-  --shadow-deep: 0 24px 48px rgba(0, 0, 0, 0.45);
-  --container-max: 1240px;
-  --nav-height: 84px;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-deep: 0 18px 44px rgba(0, 0, 0, 0.14);
+  --container-max: 1328px;
+  --topbar-height: 40px;
+  --nav-height: 112px;
 
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease;
@@ -58,12 +68,9 @@ body,
 
 body {
   font-family: var(--font-base);
-  background:
-    radial-gradient(55% 50% at 85% 0%, rgba(0, 184, 252, 0.16), transparent 65%),
-    radial-gradient(70% 70% at 0% 100%, rgba(94, 122, 255, 0.12), transparent 72%),
-    var(--logi-dark);
+  background: #ffffff;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -75,9 +82,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 a {
@@ -102,15 +109,15 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--logi-darker);
+  background: #f1f2f4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--logi-surface-hover);
+  background: #c5c8ce;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--logi-border);
+  background: #a9adb5;
 }
 

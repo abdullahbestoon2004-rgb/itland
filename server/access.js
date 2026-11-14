@@ -65,15 +65,31 @@ export function verifyWholesaleToken(token) {
   return wholesaleClients()?.find((client) => normalizeEmail(client.email) === claims.email) ?? null;
 }
 
+/** The claims of a Supabase access token, without checking its signature. */
+function jwtClaims(token) {
+  const payload = String(token).split('.')[1];
+  if (!payload) return null;
+  try {
+    return JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+  } catch {
+    return null;
+  }
+}
+
 /**
- * True when the token belongs to an allow-listed admin. Row level security on
- * admin_users only returns the caller's own row, and PostgREST rejects a forged
- * or expired token, so a non-empty result is the proof.
+ * True when the token belongs to an allow-listed admin who finished two-step
+ * sign-in. Row level security on admin_users only returns the caller's own row,
+ * and PostgREST rejects a forged or expired token, so a non-empty result proves
+ * the token is genuine; its `aal` claim must then be aal2 (an authenticator code
+ * was entered). The admin_users row alone is not enough: it is readable at aal1.
  */
 export async function isAdminToken(token) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
   if (!url || !key || !token) return false;
+  // Checked before the request only to skip it; PostgREST below proves the
+  // token, and with it this claim, is genuine.
+  if (jwtClaims(token)?.aal !== 'aal2') return false;
 
   try {
     const res = await fetch(`${url}/rest/v1/admin_users?select=email&limit=1`, {

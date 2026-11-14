@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderPage } from '../dist-ssr/entry-server.js';
-import { pageMetadata, renderHead, serializeJson, toProductSlug } from '../src/utils/seo.js';
+import { clipDescription, pageMetadata, renderHead, serializeJson, toProductSlug } from '../src/utils/seo.js';
 import pageHandler from '../api/page.js';
 import sitemapHandler from '../api/sitemap.js';
 
@@ -144,6 +144,11 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         const admin = response();
         await pageHandler({ method: 'GET', url: '/admin/login', query: {} }, admin);
         assert.equal(admin.headers['X-Robots-Tag'], 'noindex, nofollow');
+        // The video conferencing page is sent with its products, not an empty shell.
+        const meetings = response();
+        await pageHandler({ method: 'GET', url: '/video-conferencing', query: {} }, meetings);
+        assert.equal(meetings.code, 200);
+        assert.match(meetings.body, /"products":\[\{/);
         const missing = response();
         await pageHandler({ method: 'GET', url: '/missing', query: {} }, missing);
         assert.equal(missing.code, 404);
@@ -151,10 +156,26 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         await sitemapHandler({}, sitemap);
         assert.equal(sitemap.code, 200);
         assert.match(sitemap.body, /\/help\/delivery/);
+        assert.match(sitemap.body, /\/video-conferencing<\/loc>/);
         assert.match(sitemap.body, /\/app\/privacy<\/loc>[\s\S]*\/app\/terms<\/loc>[\s\S]*\/app\/delete-account<\/loc>/);
         assert.match(sitemap.body, /\/brands\/logitech/);
         assert.match(sitemap.body, /\/products\?category=Mice/);
-        assert.match(sitemap.body, /\/product\/logitech-mouse-0-100<\/loc><image:image><image:loc>https:\/\/itlandforcomputer.com\/itlandlogo.png<\/image:loc>/);
+        assert.match(sitemap.body, /\/product\/logitech-mouse-0-100<\/loc>(<xhtml:link[^>]*\/>)+<image:image><image:loc>https:\/\/itlandforcomputer.com\/itlandlogo.png<\/image:loc>/);
+        // Each store page is listed in all three languages, every entry naming the others.
+        assert.match(sitemap.body, /<loc>https:\/\/itlandforcomputer.com\/ar\/products<\/loc><xhtml:link rel="alternate" hreflang="en" href="https:\/\/itlandforcomputer.com\/products"\/><xhtml:link rel="alternate" hreflang="ar" href="https:\/\/itlandforcomputer.com\/ar\/products"\/><xhtml:link rel="alternate" hreflang="ckb" href="https:\/\/itlandforcomputer.com\/ku\/products"\/><xhtml:link rel="alternate" hreflang="x-default" href="https:\/\/itlandforcomputer.com\/products"\/>/);
+        assert.match(sitemap.body, /<loc>https:\/\/itlandforcomputer.com\/ku<\/loc>/);
+        assert.match(sitemap.body, /<loc>https:\/\/itlandforcomputer.com\/ku\/product\/logitech-mouse-0-100<\/loc>/);
+        assert.doesNotMatch(sitemap.body, /\/(ar|ku)\/app\//);
+        // The server marks the page's language and direction on the <html> tag.
+        const arabic = response();
+        await pageHandler({ method: 'GET', url: '/ar/products', query: {} }, arabic);
+        assert.equal(arabic.code, 200);
+        assert.match(arabic.body, /<html lang="ar" dir="rtl">/);
+        assert.match(arabic.body, /"products":\[\{/);
+        assert.match(rendered.body, /<html lang="en" dir="ltr">/);
+        const arabicAdmin = response();
+        await pageHandler({ method: 'GET', url: '/ar/admin/login', query: {} }, arabicAdmin);
+        assert.equal(arabicAdmin.headers['X-Robots-Tag'], 'noindex, nofollow');
         assert.doesNotMatch(sitemap.body, /<lastmod>|\/admin\/|\/wholesale\//);
     } finally {
         globalThis.fetch = oldFetch;
@@ -162,6 +183,101 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
     }
 });
 
+
+test('every page type gives search engines a full title, description, breadcrumb trail and social preview', () => {
+    const trail = path => schemas(renderPage(path, products, snapshot).head).find(item => item['@type'] === 'BreadcrumbList')?.itemListElement.map(item => item.name);
+    assert.deepEqual(trail('/products'), ['Home', 'Shop']);
+    assert.deepEqual(trail('/products?category=Mice'), ['Home', 'Shop', 'Mice']);
+    assert.deepEqual(trail('/brands/logitech'), ['Home', 'Shop', 'Logitech']);
+    assert.deepEqual(trail('/about'), ['Home', 'About']);
+    assert.deepEqual(trail('/contact'), ['Home', 'Contact']);
+    assert.deepEqual(trail('/help/delivery'), ['Home', 'Delivery & WhatsApp orders']);
+    assert.deepEqual(schemas(renderPage('/about', products).head).map(item => item['@type']), ['AboutPage', 'ComputerStore', 'BreadcrumbList']);
+    assert.equal(schemas(renderPage('/contact', products).head)[0]['@type'], 'ContactPage');
+
+    const descriptions = new Set();
+    for (const path of ['/', '/products', '/products?category=Mice', '/brands/logitech', '/video-conferencing', '/about', '/contact', '/help/delivery', '/help/warranty', '/help/returns', `/product/${toProductSlug(products[0])}`]) {
+        const head = renderPage(path, products, snapshot).head;
+        const title = head.match(/<title>(.*?)<\/title>/)[1].replace(/&amp;/g, '&');
+        const description = head.match(/name="description" content="(.*?)"/)[1];
+        assert.ok(title.length >= 30 && title.length <= 70, `${path} title length ${title.length}: ${title}`);
+        assert.ok(description.length >= 110 && description.length <= 161, `${path} description length ${description.length}`);
+        assert.match(head, /property="og:image" content="https:\/\//);
+        assert.match(head, /property="og:locale" content="en_US"/);
+        descriptions.add(description);
+    }
+    assert.equal(descriptions.size, 11);
+    assert.match(renderPage('/products?category=Mice', products, snapshot).head, /<title>Computer Mice in Iraq: Prices &amp; Stock \| IT Land<\/title>/);
+    assert.match(renderPage(`/product/${toProductSlug(products[0])}`, products, snapshot).head, /property="og:type" content="product"/);
+    // A long catalog name is shortened so "Price in Iraq" still fits in a search result.
+    const long = { ...products[2], id: '998', name: 'Logitech Keys S Combo 920-011889 Performance Combo MX Master 3S, MX keys S MX Palm rest English' };
+    const longTitle = renderPage(`/product/${toProductSlug(long)}`, [...products, long], snapshot).head.match(/<title>(.*?)<\/title>/)[1];
+    assert.equal(longTitle, 'Logitech Keys S Combo 920-011889 Price in Iraq | IT Land');
+    assert.ok(longTitle.length <= 70, longTitle);
+    // The home page's main heading carries the store line as well as the headline.
+    assert.match(renderPage('/', products).body.match(/<h1[^>]*>(.*?)<\/h1>/s)[1].replace(/<[^>]+>/g, ''), /Computer store in Erbil\s+Everything for your desk/);
+    // Descriptions end on a whole sentence or word, never mid-word.
+    assert.equal(clipDescription('One short sentence.'), 'One short sentence.');
+    assert.equal(clipDescription(`${'A full sentence that is long enough to keep. '.repeat(3)}And a last one that will not fit in the space that is left over.`), 'A full sentence that is long enough to keep. '.repeat(3).trim());
+    assert.match(clipDescription('word '.repeat(60)), /word…$/);
+});
+
+test('Arabic and Kurdish pages have their own addresses, translated titles and links that keep the language', () => {
+    const site = 'https://itlandforcomputer.com';
+    const english = renderPage('/products?category=Mice', products, snapshot);
+    const productPath = `/product/${toProductSlug(products[0])}`;
+    for (const [prefix, lang] of [['/ar', 'ar'], ['/ku', 'ckb']]) {
+        const page = renderPage(`${prefix}/products?category=Mice`, products, snapshot);
+        assert.equal(page.status, 200);
+        assert.deepEqual([page.lang, page.dir], [lang, 'rtl']);
+        assert.match(page.head, new RegExp(`rel="canonical" href="${site}${prefix}/products\\?category=Mice"`));
+        for (const [code, href] of [['en', '/products?category=Mice'], ['ar', '/ar/products?category=Mice'], ['ckb', '/ku/products?category=Mice'], ['x-default', '/products?category=Mice']]) {
+            assert.ok(page.head.includes(`<link rel="alternate" hreflang="${code}" href="${site}${href}" />`), `${prefix} lists ${code}`);
+        }
+        // The title and description are in the page's language, not copies of the English ones.
+        const title = text => text.match(/<title>(.*?)<\/title>/)[1];
+        const description = text => text.match(/name="description" content="(.*?)"/)[1];
+        assert.notEqual(title(page.head), title(english.head));
+        assert.notEqual(description(page.head), description(english.head));
+        assert.doesNotMatch(title(page.head) + description(page.head), /[{}]/);
+        // Every link on the page stays in the same language.
+        const links = [...page.body.matchAll(/<a\b[^>]*href="(\/[^"]*)"/g)].map(match => match[1]);
+        assert.ok(links.length > 20);
+        assert.deepEqual(links.filter(href => href !== prefix && !href.startsWith(`${prefix}/`) && !href.startsWith(`${prefix}?`)), []);
+        // Product pages: address, structured data and breadcrumbs all use the language's address.
+        const product = renderPage(`${prefix}${productPath}`, products, snapshot);
+        assert.match(product.head, new RegExp(`rel="canonical" href="${site}${prefix}${productPath}"`));
+        const [schema, trail] = schemas(product.head);
+        assert.equal(schema.url, `${site}${prefix}${productPath}`);
+        assert.equal(schema.offers.url, `${site}${prefix}${productPath}`);
+        assert.equal(schema.offers.seller['@id'], `${site}/#store`);
+        assert.deepEqual(trail.itemListElement.map(item => item.item), [`${site}${prefix}`, `${site}${prefix}/products`, `${site}${prefix}/products?category=Mice`, `${site}${prefix}${productPath}`]);
+        assert.notEqual(trail.itemListElement[0].name, 'Home');
+        assert.equal(trail.itemListElement[3].name, 'Logitech Mouse 0');
+        assert.notEqual(title(product.head), title(renderPage(productPath, products, snapshot).head));
+        // An old product address keeps its language when it is redirected.
+        assert.deepEqual(renderPage(`${prefix}/product/old-name-100`, products), { status: 301, redirect: `${prefix}${productPath}` });
+        // The home page of each language, and pages that are not indexed.
+        const home = renderPage(prefix, products, snapshot);
+        assert.match(home.head, new RegExp(`rel="canonical" href="${site}${prefix}"`));
+        assert.match(home.body, /<h1/);
+        assert.doesNotMatch(renderPage(`${prefix}/products?page=2`, products, snapshot).head, /hreflang/);
+        assert.equal(renderPage(`${prefix}/nope`, products).status, 404);
+        // The app's legal pages have one address only.
+        assert.deepEqual(renderPage(`${prefix}/app/privacy`, products), { status: 301, redirect: '/app/privacy' });
+        for (const path of ['/about', '/contact', '/help/delivery', '/video-conferencing', '/brands/logitech']) {
+            const other = renderPage(`${prefix}${path}`, products, snapshot);
+            assert.equal(other.status, 200, `${prefix}${path}`);
+            assert.notEqual(title(other.head), title(renderPage(path, products, snapshot).head), `${prefix}${path} title is translated`);
+            assert.doesNotMatch(title(other.head) + description(other.head), /[{}]/);
+        }
+    }
+    // English pages name their translations too; pages outside the store do not.
+    assert.match(english.head, /hreflang="ckb" href="https:\/\/itlandforcomputer.com\/ku\/products\?category=Mice"/);
+    assert.doesNotMatch(renderPage('/app/privacy', products).head, /hreflang/);
+    assert.match(english.head, /property="og:locale" content="en_US"/);
+    assert.match(renderPage('/ar', products).head, /property="og:locale" content="ar_IQ"/);
+});
 
 test('brand landing pages are rendered, linked, paginated and canonical', () => {
     const page = renderPage('/brands/logitech', products, snapshot);
@@ -184,4 +300,33 @@ test('brand landing pages are rendered, linked, paginated and canonical', () => 
     assert.match(renderPage('/brands/logitech?category=Keyboards', products, snapshot).head, /noindex, follow/);
     assert.match(renderPage('/wp-admin/', products, snapshot).head, /noindex, follow/);
     assert.equal(renderPage('/wp-admin/', products, snapshot).status, 404);
+});
+
+test('video conferencing page is rendered with its products, schema, links and sitemap entry', () => {
+    const catalog = [...products,
+        { id: '900', name: 'Logitech Rally Bar Video Conferencing Bar 960-001312 Graphite', description: '', category: 'goods', images: ['https://resource.logitech.com/rally-bar.png'], price: 3600, in_stock: true, stock_on_hand: 2 },
+        { id: '901', name: '960-001057', description: '960-001057', category: 'goods', images: ['/itlandlogo.png'], price: 900, in_stock: true, stock_on_hand: 1 },
+        { id: '902', name: 'Jabra Speak2 40 Portable Speakerphone', description: '', category: 'goods', images: ['/itlandlogo.png'], price: 170, in_stock: false, stock_on_hand: 0 }];
+    const page = renderPage('/video-conferencing', catalog, snapshot);
+    assert.equal(page.status, 200);
+    assert.match(page.head, /<title>Video Conferencing Equipment in Erbil, Iraq \| IT Land<\/title>/);
+    assert.match(page.head, /rel="canonical" href="https:\/\/itlandforcomputer.com\/video-conferencing"/);
+    assert.match(page.head, /content="index, follow/);
+    assert.match(page.body, /<h1[^>]*>Video Conferencing Equipment in Erbil, Iraq<\/h1>/);
+    // A listing named with only a Logitech part number is shown under the product's name.
+    assert.match(page.body, /Logitech GROUP Video Conferencing System/);
+    assert.match(page.body, /href="\/product\/logitech-rally-bar-video-conferencing-bar-960-001312-graphite-900"/);
+    assert.doesNotMatch(page.body, /logitech-mouse-0-100/);
+    const types = schemas(page.head).map(item => item['@type']);
+    assert.deepEqual(types, ['CollectionPage', 'BreadcrumbList', 'FAQPage']);
+    const list = schemas(page.head)[0].mainEntity;
+    assert.equal(list.numberOfItems, 3);
+    assert.equal(list.itemListElement[0].url, 'https://itlandforcomputer.com/product/logitech-rally-bar-video-conferencing-bar-960-001312-graphite-900');
+    // Every question shown on the page is in the FAQ schema.
+    const faq = schemas(page.head)[2].mainEntity;
+    assert.ok(faq.length >= 5);
+    for (const { name } of faq) assert.ok(page.body.includes(name.replace(/'/g, '&#x27;')), name);
+    // Linked from the home page and every page's navigation.
+    assert.match(renderPage('/', catalog, snapshot).body, /href="\/video-conferencing"/);
+    assert.match(renderPage('/about', catalog, snapshot).body, /href="\/video-conferencing"/);
 });

@@ -2,28 +2,27 @@ import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
 import { organization, SITE_URL, storeBusiness } from '../utils/seo';
 import { useLocale } from '../context/LocaleContext';
-import { homeProducts } from '../utils/storefront';
+import { homeProducts, shopDay } from '../utils/storefront';
 import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
 import FeaturedCategories from '../components/FeaturedCategories';
 import BrandMarquee from '../components/BrandMarquee';
-import WhyChooseUs from '../components/WhyChooseUs';
-import PromoBanner from '../components/PromoBanner';
-import NewsletterCTA from '../components/NewsletterCTA';
+import StoreInfo from '../components/StoreInfo';
+import HomeStories from '../components/HomeStories';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
 export default function Storefront() {
-  usePageMeta({
-    title: 'Computer & Logitech Store in Erbil, Iraq',
-    description: 'IT Land (iTland For Computer), Muzaffariya Street, Erbil: Logitech, Jabra and Poly mice, keyboards, headsets and webcams. Delivery across Iraq and Kurdistan.',
-    path: '/',
-    jsonLd: [organization, storeBusiness, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', alternateName: ['iTland For Computer', 'IT Land Erbil'], url: `${SITE_URL}/`, publisher: { '@id': `${SITE_URL}/#organization` } }]
-  });
   const {
     t
   } = useLocale();
+  usePageMeta({
+    title: t('Computer & Logitech Store in Erbil, Iraq'),
+    description: t('IT Land (iTland For Computer), Muzaffariya Street, Erbil: Logitech, Jabra and Poly mice, keyboards, headsets and webcams. Delivery across Iraq and Kurdistan.'),
+    path: '/',
+    jsonLd: [organization, storeBusiness, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', alternateName: ['iTLand', 'iTland For Computer', 'IT Land Erbil'], url: `${SITE_URL}/`, inLanguage: ['en', 'ar', 'ckb'], publisher: { '@id': `${SITE_URL}/#organization` } }]
+  });
   const {
     handleAddToCart
   } = useOutletContext();
@@ -32,6 +31,8 @@ export default function Storefront() {
   const [productsError, setProductsError] = useState('');
   const [loading, setLoading] = useState(!initial.products);
   const [selectedImageProduct, setSelectedImageProduct] = useState(null);
+  // The first paint uses the day the server rendered with, so both agree; the real day follows.
+  const [day, setDay] = useState(initial.day ?? shopDay());
   useEffect(() => {
     let ignore = false;
     const loadProducts = async () => {
@@ -39,6 +40,7 @@ export default function Storefront() {
         const nextProducts = await getAllProducts();
         if (!ignore) {
           setProducts(nextProducts);
+          setDay(shopDay());
           setProductsError('');
           setLoading(false);
         }
@@ -55,19 +57,20 @@ export default function Storefront() {
       ignore = true;
     };
   }, []);
-  const selection = homeProducts(products);
+  const selection = homeProducts(products, day);
   const bestSellers = selection.products;
   return <div className="storefront-page">
             <HomeHero />
 
             <FeaturedCategories />
-            <BrandMarquee products={products} />
+
+            <HomeStories />
 
             <section id="best-sellers" className="products-section">
                 <div className="section-container">
                     <div className="section-header section-header-row">
                         <h2 className="section-title">{selection.featured ? t("Best Sellers") : t("Featured Products")}</h2>
-                        <Link to="/products" className="view-all-link">{t("View All Products \u2192")}
+                        <Link to="/products" className="view-all-link">{t("View All Products")}
 
             </Link>
                     </div>
@@ -84,9 +87,8 @@ export default function Storefront() {
                 </div>
             </section>
 
-            <WhyChooseUs />
-            <PromoBanner />
-            <NewsletterCTA />
+            <BrandMarquee products={products} />
+            <StoreInfo />
 
             <ProductDetailsModal key={selectedImageProduct?.id ?? 'no-product'} product={selectedImageProduct} onClose={() => setSelectedImageProduct(null)} onAddToCart={handleAddToCart} />
 

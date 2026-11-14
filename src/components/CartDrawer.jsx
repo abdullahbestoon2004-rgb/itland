@@ -26,7 +26,6 @@ export default function CartDrawer({
     notes: ''
   });
   const dialog = useRef(null);
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const invalidItems = cartItems.some(item => isOutOfStock(item) || item.quantity > stockLimit(item) || item.price <= 0);
   useEffect(() => {
     if (!isOpen) return;
@@ -96,7 +95,7 @@ export default function CartDrawer({
                 </>}
             </div>
             {cartItems.length > 0 && <div className="cart-footer">
-                <div className="cart-summary"><span>{t("Product subtotal")}</span><span className="cart-total"><Price usd={total} /></span></div>
+                <div className="cart-summary"><span>{t("Product subtotal")}</span><span className="cart-total"><Price items={cartItems} /></span></div>
                 <p className="order-note">{t("Delivery across all Iraq and Kurdistan. Delivery fee and arrival time confirmed in the chat.")}</p>
                 <p className="order-note">{t("This is an order request. Our team will confirm stock, payment method and final total on WhatsApp.")}</p>
                 {invalidItems ? <p role="alert">{t("Please remove unavailable items or reduce quantities before ordering.")}</p> : <a className="btn btn-primary checkout-btn" href={whatsappLink(orderMessage(cartItems, details, snapshot))} target="_blank" rel="noreferrer"><MessageCircle size={20} />{t("Send order on WhatsApp")}</a>}

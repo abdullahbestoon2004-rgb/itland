@@ -32,7 +32,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(13, 17, 23, 0.86);
+    background: rgba(255, 255, 255, 0.86);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--logi-border);
@@ -102,7 +102,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--logi-cyan);
+    color: var(--accent-ink);
     margin-bottom: 0.5rem;
 }
 
@@ -164,7 +164,7 @@
 
 .lgl-list li::marker,
 .lgl-steps li::marker {
-    color: var(--logi-cyan);
+    color: var(--accent-ink);
     font-weight: 700;
 }
 
@@ -185,7 +185,7 @@
 .lgl-link,
 .lgl-section a,
 .lgl-contact-list a:not(.lgl-chip) {
-    color: var(--logi-cyan);
+    color: var(--accent-ink);
     text-decoration: underline;
     text-underline-offset: 3px;
 }

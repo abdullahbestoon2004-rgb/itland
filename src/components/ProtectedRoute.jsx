@@ -2,6 +2,11 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+/**
+ * Lets allow-listed admins (admin_users) into the dashboard route. Two-step
+ * sign-in happens inside it: AdminApp shows the authenticator screens until the
+ * session is aal2, and only then the dashboard.
+ */
 export default function ProtectedRoute() {
     const { session, isAdmin, isLoading } = useAuth();
 

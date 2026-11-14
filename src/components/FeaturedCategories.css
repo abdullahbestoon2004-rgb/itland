@@ -1,92 +1,74 @@
 .featured-categories {
-    padding: var(--space-7) var(--space-6) var(--space-9);
-    background-color: var(--logi-darker);
+    padding: var(--space-9) var(--space-6);
+}
+
+.featured-categories .section-title {
+    margin-bottom: var(--space-7);
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-5);
 }
 
-@media (min-width: 1024px) {
-    .category-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
-
+/* A grey tile: the product on top, the category name under it. */
 .category-card {
-    position: relative;
-    height: 320px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
     display: flex;
-    align-items: flex-end;
-    padding: var(--space-6);
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: var(--shadow-soft);
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    background: var(--tile);
+    overflow: hidden;
+    transition: background-color var(--transition-fast);
+}
+
+.category-card:hover {
+    background: #e3e5e8;
 }
 
 .category-bg {
-    position: absolute;
-    inset: 0;
-    background-color: #080f1c;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 1;
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
 }
 
-.category-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(6, 10, 16, 0.86) 0%, rgba(6, 10, 16, 0.18) 55%, rgba(6, 10, 16, 0.06) 100%);
-    z-index: 2;
-    transition: background var(--transition-normal);
+.category-card--cutout .category-bg {
+    position: relative;
 }
 
-.category-card:hover .category-bg {
+/* Sized from the tile, so tall and wide photos sit in the same box. */
+.category-card--cutout .category-bg img {
+    position: absolute;
+    inset: 14% 14% 2%;
+    width: 72%;
+    height: 84%;
+    object-fit: contain;
+    transition: transform var(--transition-slow);
+}
+
+.category-card:hover .category-bg img {
     transform: scale(1.06);
 }
 
-.category-card:hover .category-overlay {
-    background: linear-gradient(to top, rgba(0, 184, 252, 0.58) 0%, rgba(6, 10, 16, 0.32) 60%, rgba(6, 10, 16, 0.1) 100%);
-}
-
 .category-name {
-    position: relative;
-    z-index: 3;
+    padding: var(--space-4) var(--space-5) var(--space-5);
     color: var(--text-primary);
-    font-size: clamp(1.2rem, 2.3vw, 1.7rem);
-    font-weight: 800;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: transform var(--transition-normal);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-.category-card:hover .category-name {
-    transform: translateY(-4px);
-}
-
-@media (max-width: 760px) {
-    .featured-categories {
-        padding: var(--space-6) var(--space-4) var(--space-8);
-    }
-
+@media (max-width: 900px) {
     .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-4);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-3);
     }
 
-    .category-card {
-        height: 200px;
-        padding: var(--space-4);
+    .featured-categories {
+        padding: var(--space-8) var(--space-4);
     }
 
     .category-name {
-        font-size: clamp(1rem, 4vw, 1.3rem);
+        padding: var(--space-3) var(--space-4) var(--space-4);
     }
 }

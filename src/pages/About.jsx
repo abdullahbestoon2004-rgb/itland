@@ -1,149 +1,69 @@
 import usePageMeta from '../hooks/usePageMeta';
+import { useLocale } from '../context/LocaleContext';
+import { breadcrumbs, SITE_URL, storeBusiness } from '../utils/seo';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    Shield,
-    Zap,
-    MessageCircle,
-    BadgeCheck,
-    ArrowRight,
-} from 'lucide-react';
-import './About.css';
+import StoreInfo from '../components/StoreInfo';
+import './InfoPage.css';
 
-const WHY_CARDS = [
-    {
-        icon: <BadgeCheck size={32} />,
-        title: 'High Quality Products',
-        text: 'We exclusively carry trusted brands, hand-selected for build quality, durability, and performance.',
-        id: 'wcu-quality',
-    },
-    {
-        icon: <Zap size={32} />,
-        title: 'Fast Delivery',
-        text: 'Delivery across all Iraq and Kurdistan. Confirm delivery fees and estimated arrival times on WhatsApp.',
-        id: 'wcu-delivery',
-    },
-    {
-        icon: <MessageCircle size={32} />,
-        title: 'Customer Support',
-        text: 'Reach us instantly via WhatsApp. Real people, real answers, no bots and no delays.',
-        id: 'wcu-support',
-    },
-    {
-        icon: <Shield size={32} />,
-        title: 'Warranty & Trust',
-        text: 'Ask our team to confirm the warranty coverage and return terms for your exact product before ordering.',
-        id: 'wcu-warranty',
-    },
+const PAGE_SCHEMA = [{ '@context': 'https://schema.org', '@type': 'AboutPage', '@id': `${SITE_URL}/about#page`, url: `${SITE_URL}/about`, name: 'About IT Land', about: { '@id': `${SITE_URL}/#store` } }, storeBusiness, breadcrumbs(['About', '/about'])];
+
+// Logitech's own photo of products the shop sells, from Logitech's image CDN.
+const DESK_PHOTO = 'https://resource.logitech.com/w_1800,c_limit,q_auto,f_auto,dpr_1.0/content/dam/logitech/en/homepage/banners/cards/mx-keys-mini-mx-anywhere3s-laptopstand.jpg';
+
+const REASONS = [
+    { id: 'wcu-quality', title: 'High quality products', text: 'We exclusively carry trusted brands, hand-selected for build quality, durability, and performance.' },
+    { id: 'wcu-delivery', title: 'Delivery everywhere', text: 'Delivery across all Iraq and Kurdistan. Confirm delivery fees and estimated arrival times on WhatsApp.' },
+    { id: 'wcu-support', title: 'Customer support', text: 'Reach us instantly via WhatsApp. Real people, real answers, no bots and no delays.' },
+    { id: 'wcu-warranty', title: 'Warranty and trust', text: 'Ask our team to confirm the warranty coverage and return terms for your exact product before ordering.' },
 ];
 
-const STORY_IMAGE_SRC = '/backgroundimage.png';
-const STORY_IMAGE_FALLBACK = 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=1400&q=80';
-
 export default function About() {
-    usePageMeta({ title: 'About IT Land in Erbil', description: 'Learn about IT Land in Erbil, your computer accessories and gaming gear store. Retail and wholesale orders with delivery across Iraq and Kurdistan.', path: '/about' });
+    const { t } = useLocale();
+    usePageMeta({
+        title: t('About Us: Computer Accessories Store in Erbil'),
+        description: t('IT Land is a computer accessories store on Muzaffariya Street, Erbil, selling original Logitech, Jabra and Poly products to homes, offices and resellers.'),
+        path: '/about',
+        jsonLd: PAGE_SCHEMA,
+    });
     return (
-        <div className="about-page">
-            <section className="about-hero">
-                <div className="about-hero-bg" aria-hidden="true">
-                    <div className="about-hero-orb about-hero-orb--1" />
-                    <div className="about-hero-orb about-hero-orb--2" />
-                    <div className="about-hero-grid" />
-                </div>
-                <div className="about-hero-content">
-                    <p className="about-hero-eyebrow">Our Story</p>
-                    <h1 className="about-hero-title">About ITLand</h1>
-                    <p className="about-hero-subtitle">Premium Tech. Trusted Experience.</p>
+        <div className="info-page">
+            <header className="info-hero">
+                <h1>{t('About IT Land')}</h1>
+                <p>{t('A computer accessories store in Erbil, selling original Logitech, Jabra and Poly products to homes, offices and resellers across Iraq.')}</p>
+            </header>
+
+            <figure className="info-photo">
+                <img src={DESK_PHOTO} alt={t('A desk with a Logitech MX Keys Mini keyboard, an MX Anywhere 3S mouse and a laptop on a stand')} />
+            </figure>
+
+            <section className="info-split">
+                <h2>{t('Our story')}</h2>
+                <div className="info-prose">
+                    <p>{t('ITLand ForComputer was created to bring high-quality technology products to customers who value performance, design, and reliability. We focus on premium brands like Logitech and carefully selected accessories that enhance your daily workflow, gaming, and productivity.')}</p>
+                    <p>{t('Based in Erbil, Iraq, we understand what local customers need: fast delivery, honest support, and gear you can trust. Every product in our store has been personally reviewed for quality before it reaches your hands.')}</p>
                 </div>
             </section>
 
-            <section className="about-story">
-                <div className="about-container">
-                    <div className="about-story-grid">
-                        <div className="about-story-text">
-                            <p className="about-section-eyebrow">Who We Are</p>
-                            <h2 className="about-section-title">Our Story</h2>
-                            <p className="about-story-body">
-                                ITLand ForComputer was created to bring high-quality technology
-                                products to customers who value performance, design, and
-                                reliability. We focus on premium brands like Logitech and
-                                carefully selected accessories that enhance your daily workflow,
-                                gaming, and productivity.
-                            </p>
-                            <p className="about-story-body">
-                                Based in Erbil, Iraq, we understand what local customers need,
-                                fast delivery, honest support, and gear you can trust. Every
-                                product in our store has been personally reviewed for quality
-                                before it reaches your hands.
-                            </p>
+            <section className="info-split">
+                <h2>{t('Why choose us')}</h2>
+                <dl className="info-list">
+                    {REASONS.map((reason) => (
+                        <div key={reason.id} id={reason.id}>
+                            <dt>{t(reason.title)}</dt>
+                            <dd>{t(reason.text)}</dd>
                         </div>
-                        <div className="about-story-image-wrap">
-                            <img
-                                src={STORY_IMAGE_SRC}
-                                alt="Premium tech workspace setup"
-                                className="about-story-image"
-                                loading="lazy"
-                                onError={(event) => {
-                                    event.currentTarget.onerror = null;
-                                    event.currentTarget.src = STORY_IMAGE_FALLBACK;
-                                }}
-                            />
-                            <div className="about-story-image-glow" aria-hidden="true" />
-                        </div>
-                    </div>
-                </div>
+                    ))}
+                </dl>
             </section>
 
-            <section className="about-why">
-                <div className="about-container">
-                    <div className="about-section-header">
-                        <p className="about-section-eyebrow">Benefits</p>
-                        <h2 className="about-section-title">Why Choose Us</h2>
-                        <p className="about-section-sub">
-                            We built ITLand around the things that matter most to our customers.
-                        </p>
-                    </div>
-                    <div className="about-cards-grid">
-                        {WHY_CARDS.map((card) => (
-                            <div key={card.id} id={card.id} className="about-card">
-                                <div className="about-card-icon">{card.icon}</div>
-                                <h3 className="about-card-title">{card.title}</h3>
-                                <p className="about-card-text">{card.text}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            <section className="info-statement">
+                <h2>{t('We aim to become the go-to destination for premium tech in Iraq.')}</h2>
+                <p>{t('Our mission is to make world-class technology accessible, affordable, and delivered with care right here in Iraq.')}</p>
+                <Link to="/products" className="btn btn-primary" id="about-shop-btn">{t('Shop Now')}</Link>
             </section>
 
-            <section className="about-vision">
-                <div className="about-vision-bg" aria-hidden="true">
-                    <div className="about-vision-orb" />
-                </div>
-                <div className="about-container about-vision-content">
-                    <p className="about-section-eyebrow about-section-eyebrow--center">
-                        Looking Ahead
-                    </p>
-                    <h2 className="about-vision-title">
-                        We aim to become the go-to destination for premium tech in Iraq.
-                    </h2>
-                    <p className="about-vision-sub">
-                        Our mission is to make world-class technology accessible, affordable,
-                        and delivered with care right here in Iraq.
-                    </p>
-                </div>
-            </section>
-
-            <section className="about-cta">
-                <div className="about-container about-cta-content">
-                    <h2 className="about-cta-title">Ready to Upgrade Your Setup?</h2>
-                    <p className="about-cta-sub">
-                        Explore our full collection of premium tech gear.
-                    </p>
-                    <Link to="/products" className="btn btn-primary about-cta-btn" id="about-shop-btn">
-                        Shop Now <ArrowRight size={18} />
-                    </Link>
-                </div>
-            </section>
+            <StoreInfo />
         </div>
     );
 }

@@ -7,20 +7,31 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- A visitor who chose Arabic or Kurdish before is taken to that language's address. -->
+  <script>
+    try {
+      var saved = localStorage.getItem('itland-language'), path = location.pathname;
+      if ((saved === 'ar' || saved === 'ku') && !/^\/(ar|ku|admin|wholesale|app|api)(\/|$)/.test(path)) {
+        location.replace('/' + saved + (path === '/' ? '' : path) + location.search + location.hash);
+      }
+    } catch (error) { /* Storage may be unavailable. */ }
+  </script>
   <meta name="google-site-verification" content="H0-OD-UiZrIm89aKhSmZaAXHhxxcNFMDw2S9Z9nyEs0" />
   <!-- seo:start -->
-  <title>IT Land | Computer Accessories & Gaming Gear in Iraq</title>
-  <meta name="description" content="Shop computer accessories, keyboards, mice, headsets and gaming gear at IT Land in Erbil. Delivery across Iraq and Kurdistan. Order on WhatsApp." />
+  <title>IT Land | Computer Accessories Store in Erbil, Iraq</title>
+  <meta name="description" content="IT Land in Erbil sells original Logitech, Jabra and Poly mice, keyboards, headsets, webcams and meeting room equipment. Delivery across Iraq. Order on WhatsApp." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://itlandforcomputer.com/" />
   <!-- seo:end -->
 
-  <!-- Google Fonts: Inter & Outfit -->
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- The site font, loaded here so it does not wait for the stylesheet. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
-    rel="stylesheet">
+  <!-- Product and lifestyle photos come from Logitech's image server. -->
+  <link rel="preconnect" href="https://resource.logitech.com">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>

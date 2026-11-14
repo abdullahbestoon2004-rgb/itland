@@ -1,0 +1,597 @@
+.vc-page {
+    background: #ffffff;
+}
+
+/* ── Hero: one large photo of a meeting in progress ── */
+.vc-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(78vh, 720px);
+    padding: var(--space-9) var(--space-6);
+    background: #000000;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* The photo stops growing at 1920px; wider screens get black at the sides instead of a thinner crop. */
+.vc-hero-photo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -2;
+    width: min(100%, 1920px);
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 1921px) {
+    .vc-hero-photo {
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+        mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+    }
+}
+
+.vc-hero-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.2) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent 72%);
+}
+
+.vc-hero-content {
+    color: #ffffff;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.vc-breadcrumb {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    font-size: 0.85rem;
+    color: #d9dbdf;
+}
+
+.vc-breadcrumb a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.vc-hero h1 {
+    max-width: 17ch;
+    font-size: clamp(2.2rem, 5.4vw, 4.2rem);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: var(--space-5);
+}
+
+.vc-hero-lead {
+    max-width: 58ch;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #d5deee;
+    margin-bottom: var(--space-7);
+}
+
+.vc-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-7);
+}
+
+.vc-hero-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-7);
+    list-style: none;
+    color: #e6e8eb;
+    font-size: 0.92rem;
+}
+
+.vc-hero-facts li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.vc-hero-facts svg {
+    flex-shrink: 0;
+    color: var(--accent);
+}
+
+.vc-hero-facts strong {
+    color: #ffffff;
+}
+
+.vc-hero .btn-primary:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.vc-hero .btn-secondary {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.vc-hero .btn-secondary:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ── Shared section pieces ── */
+.vc-section {
+    padding: var(--space-9) var(--space-6);
+}
+
+.vc-section-head {
+    margin-bottom: var(--space-8);
+}
+
+.vc-section-head h2,
+.vc-center-title,
+.vc-platforms h2,
+.vc-cta h2 {
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-3);
+}
+
+.vc-section-head p {
+    max-width: 62ch;
+    color: var(--text-secondary);
+}
+
+.vc-center-title {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+/* ── Room sizes ── */
+.vc-room-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.vc-room-nav a {
+    display: grid;
+    gap: 2px;
+    padding: var(--space-4);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: var(--tile);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.vc-room-nav a:hover {
+    border-color: var(--ink);
+}
+
+.vc-room-nav strong {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+}
+
+.vc-room-nav span {
+    color: var(--accent-ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.vc-room {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: center;
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+}
+
+.vc-room--reverse .vc-room-photo {
+    order: 2;
+}
+
+.vc-room-photo {
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--logi-surface);
+}
+
+.vc-room-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vc-room-people {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: var(--space-3);
+    border-radius: var(--radius-pill);
+    background: var(--accent-tint);
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.vc-room-body h3 {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-3);
+}
+
+.vc-room-text {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+}
+
+.vc-room-body h4 {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+/* Suggested products: small cards, photo on top, so each product can be recognised. */
+.vc-room-picks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    list-style: none;
+    margin-bottom: var(--space-6);
+}
+
+.vc-room-picks a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--space-3);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: var(--tile);
+    transition: border-color var(--transition-fast);
+}
+
+.vc-room-picks a:hover {
+    border-color: var(--ink);
+}
+
+.vc-room-picks img {
+    display: block;
+    width: 100%;
+    height: 128px;
+    margin-bottom: var(--space-3);
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.vc-room-picks span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.vc-room-picks em {
+    margin-top: var(--space-1);
+    font-style: normal;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ── Why IT Land ── */
+.vc-benefits {
+    background: var(--logi-surface);
+}
+
+.vc-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-5);
+    list-style: none;
+}
+
+.vc-benefit-grid li {
+    padding: var(--space-6);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--logi-surface);
+}
+
+.vc-benefit-grid svg {
+    color: var(--accent-ink);
+    margin-bottom: var(--space-4);
+}
+
+.vc-benefit-grid h3 {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2);
+}
+
+.vc-benefit-grid p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+/* ── Product groups ── */
+.vc-group + .vc-group {
+    margin-top: var(--space-9);
+}
+
+.vc-group-head {
+    margin-bottom: var(--space-6);
+    padding-inline-start: var(--space-4);
+    border-inline-start: 4px solid var(--accent);
+}
+
+.vc-group-head h3 {
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    letter-spacing: -0.02em;
+}
+
+.vc-group-head p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.vc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: var(--space-5);
+}
+
+.vc-empty {
+    color: var(--text-secondary);
+}
+
+/* ── How to choose ── */
+.vc-platforms {
+    background: var(--logi-surface);
+}
+
+.vc-platforms-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: center;
+}
+
+.vc-platforms-photo {
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.vc-platforms-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vc-steps {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    list-style: none;
+}
+
+.vc-steps li {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.vc-steps svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent-ink);
+}
+
+.vc-steps h3 {
+    font-size: 1.02rem;
+    margin-bottom: 2px;
+}
+
+.vc-steps p {
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+}
+
+/* ── Comparison table ── */
+.vc-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--logi-border);
+    border-radius: var(--radius-md);
+}
+
+.vc-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: start;
+}
+
+.vc-table th,
+.vc-table td {
+    padding: var(--space-4);
+    text-align: start;
+    vertical-align: top;
+    border-bottom: 1px solid var(--line);
+}
+
+.vc-table thead th {
+    background: var(--logi-surface);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.vc-table tbody tr:last-child th,
+.vc-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.vc-table tbody th a {
+    color: var(--accent-ink);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.vc-table tbody th a:hover {
+    text-decoration: underline;
+}
+
+.vc-table td {
+    color: var(--text-secondary);
+}
+
+/* ── Questions ── */
+.vc-faq-inner {
+    max-width: 860px;
+}
+
+.vc-faq-item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--logi-surface);
+}
+
+.vc-faq-item + .vc-faq-item {
+    margin-top: var(--space-3);
+}
+
+.vc-faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.vc-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.vc-faq-item summary svg {
+    flex-shrink: 0;
+    color: var(--accent-ink);
+    transition: transform var(--transition-fast);
+}
+
+.vc-faq-item[open] summary svg {
+    transform: rotate(180deg);
+}
+
+.vc-faq-item p {
+    padding: 0 var(--space-5) var(--space-5);
+    color: var(--text-secondary);
+}
+
+/* ── Closing call to action ── */
+.vc-cta {
+    padding-top: 0;
+}
+
+.vc-cta-inner {
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-lg);
+    background: var(--ink);
+    color: #ffffff;
+    text-align: center;
+}
+
+.vc-cta-inner p {
+    max-width: 52ch;
+    margin: 0 auto var(--space-6);
+    color: #d9dbdf;
+}
+
+.vc-wa-btn {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.vc-wa-btn:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+    .vc-room,
+    .vc-platforms-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-6);
+    }
+
+    .vc-room--reverse .vc-room-photo {
+        order: 0;
+    }
+
+    .vc-benefit-grid,
+    .vc-room-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .vc-hero {
+        min-height: 0;
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .vc-section {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .vc-cta {
+        padding-top: 0;
+    }
+
+    .vc-room {
+        padding: var(--space-7) 0;
+    }
+
+    .vc-room-picks {
+        gap: var(--space-2);
+    }
+
+    .vc-room-picks img {
+        height: 104px;
+    }
+
+    .vc-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-2);
+    }
+
+    .vc-benefit-grid li {
+        padding: var(--space-4);
+    }
+
+    .vc-hero-facts {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+}

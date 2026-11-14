@@ -5,7 +5,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 70% 50%, rgba(0, 184, 252, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 50%, rgba(0, 253, 207, 0.1) 0%, transparent 50%);
 }
 
 .hero-container {
@@ -27,7 +27,7 @@
 
 .hero-badge {
     display: inline-block;
-    background-color: rgba(0, 184, 252, 0.1);
+    background-color: rgba(0, 253, 207, 0.1);
     color: var(--logi-cyan);
     padding: 6px 16px;
     border-radius: 4px;
@@ -37,7 +37,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(0, 184, 252, 0.3);
+    border: 1px solid rgba(0, 253, 207, 0.3);
 }
 
 .hero-title {
@@ -74,7 +74,7 @@
     width: 100%;
     max-width: 600px;
     transform: rotate(-10deg);
-    filter: drop-shadow(0 20px 40px rgba(0, 184, 252, 0.2));
+    filter: drop-shadow(0 20px 40px rgba(0, 253, 207, 0.2));
     animation: float 6s ease-in-out infinite;
 }
 

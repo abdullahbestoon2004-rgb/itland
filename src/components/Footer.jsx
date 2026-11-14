@@ -13,9 +13,9 @@ export default function Footer() {
             <div className="footer-container">
                 <div className="footer-brand">
                     <div className="footer-logo">
-                        <img src="/newitlandlogo.png" alt="IT LAND logo" className="footer-logo-image" />
+                        <img src="/itland-wordmark-white.webp" alt="iTLand" className="footer-logo-image" width="631" height="144" loading="lazy" />
                     </div>
-                    <p className="brand-tagline">{t("Play to win. The ultimate gear for gamers and creators.")}</p>
+                    <p className="brand-tagline">{t("Computer accessories in Erbil, delivered across Iraq and Kurdistan.")}</p>
 
                 </div>
 
@@ -26,6 +26,7 @@ export default function Footer() {
                         <Link to="/products?category=Keyboards" className="footer-link">{t("Keyboards")}</Link>
                         <Link to="/products?category=Headsets" className="footer-link">{t("Headsets")}</Link>
                         <Link to="/products?category=Webcams" className="footer-link">{t("Webcams")}</Link>
+                        <Link to="/video-conferencing" className="footer-link">{t("Video Conferencing")}</Link>
                     </div>
 
                     <div className="footer-column">
@@ -47,11 +48,13 @@ export default function Footer() {
 
                     <div className="footer-column newsletter-col">
                         <h4 className="column-title">{t("Stay in the Loop")}</h4>
-                        <p className="footer-text">{t("Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.")}</p>
+                        <p className="footer-text">{t("New products and offers, sent by email.")}</p>
                         <NewsletterForm className="footer-newsletter-form" />
                     </div>
                 </div>
             </div>
+
+            <p className="footer-wordmark" aria-hidden="true">iTLand</p>
 
             <div className="footer-bottom">
                 <CurrencyNote />

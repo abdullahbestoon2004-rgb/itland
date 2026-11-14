@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { CatalogContext, InboxContext, OrdersContext, ToastContext, useToast } from './context';
-import { getContactMessages, setMessageHandled } from '../data/messages';
-import { deleteReview, getAllReviews, setReviewApproval } from '../data/reviews';
+import { CatalogContext, OrdersContext, ToastContext, useToast } from './context';
 import {
     ORDER_SELECT, PLAIN_SORT_BASE, buildCatalog, completedAt, describeError, fetchAll, loadZohoCatalog, orderGroup, plainId,
     playChime, pricingFrom, readPref, sleep, startOfToday, unlockSound, writePref,
@@ -517,85 +515,4 @@ export function CatalogProvider({ children }) {
         reloadProducts, reloadZoho, reloadSettings, loadWebsite, saveProduct, deleteProduct, ensureOverlay, saveSettings, syncNow]);
 
     return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;
-}
-
-// ── Website inbox: contact messages and reviews (same data as the old dashboard) ──
-export function InboxProvider({ children }) {
-    const [messages, setMessages] = useState([]);
-    const [messagesState, setMessagesState] = useState({ status: 'loading', error: '' });
-    const [reviews, setReviews] = useState([]);
-    const [reviewsState, setReviewsState] = useState({ status: 'loading', error: '' });
-
-    const loadMessages = useCallback(async () => {
-        try {
-            setMessages(await getContactMessages());
-            setMessagesState({ status: 'ready', error: '' });
-        } catch {
-            setMessagesState({ status: 'error', error: 'Unable to load messages.' });
-        }
-    }, []);
-
-    const loadReviews = useCallback(async () => {
-        try {
-            setReviews(await getAllReviews());
-            setReviewsState({ status: 'ready', error: '' });
-        } catch {
-            setReviewsState({ status: 'error', error: 'Unable to load reviews.' });
-        }
-    }, []);
-
-    useEffect(() => {
-        let ignore = false;
-        Promise.resolve().then(() => {
-            if (ignore) return;
-            loadMessages();
-            loadReviews();
-        });
-        return () => { ignore = true; };
-    }, [loadMessages, loadReviews]);
-
-    const toggleHandled = useCallback(async (message) => {
-        const next = !message.handled;
-        setMessages((prev) => prev.map((m) => (m.id === message.id ? { ...m, handled: next } : m)));
-        try {
-            await setMessageHandled(message.id, next);
-        } catch {
-            setMessagesState((s) => ({ ...s, error: 'Could not update that message.' }));
-            setMessages((prev) => prev.map((m) => (m.id === message.id ? { ...m, handled: !next } : m)));
-        }
-    }, []);
-
-    const toggleApproval = useCallback(async (review) => {
-        const next = !review.approved;
-        setReviews((prev) => prev.map((r) => (r.id === review.id ? { ...r, approved: next } : r)));
-        try {
-            await setReviewApproval(review.id, next);
-        } catch {
-            setReviewsState((s) => ({ ...s, error: 'Could not update that review.' }));
-            setReviews((prev) => prev.map((r) => (r.id === review.id ? { ...r, approved: !next } : r)));
-        }
-    }, []);
-
-    const removeReview = useCallback(async (review) => {
-        let previous = null;
-        setReviews((prev) => {
-            previous = prev;
-            return prev.filter((r) => r.id !== review.id);
-        });
-        try {
-            await deleteReview(review.id);
-        } catch {
-            setReviewsState((s) => ({ ...s, error: 'Could not delete that review.' }));
-            if (previous) setReviews(previous);
-        }
-    }, []);
-
-    const value = useMemo(() => ({
-        messages, messagesState, reviews, reviewsState,
-        unhandled: messages.filter((m) => !m.handled).length,
-        pendingReviews: reviews.filter((r) => !r.approved).length,
-        loadMessages, loadReviews, toggleHandled, toggleApproval, removeReview,
-    }), [messages, messagesState, reviews, reviewsState, loadMessages, loadReviews, toggleHandled, toggleApproval, removeReview]);
-
-    return <InboxContext.Provider value={value}>{children}</InboxContext.Provider>;
 }

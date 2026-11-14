@@ -3,15 +3,14 @@ import CurrencyProvider from './CurrencyProvider';
 import { isOutOfStock, stockLimit } from '../utils/storefront';
 import { getCartSnapshot, getServerCartSnapshot, subscribeToCart, updateCart } from '../data/cart';
 import React, { useCallback, useState, useSyncExternalStore } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import CartDrawer from './CartDrawer';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 export default function StoreLayout() {
   const cartItems = useSyncExternalStore(subscribeToCart, getCartSnapshot, getServerCartSnapshot);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
   const handleAddToCart = product => {
     if (isOutOfStock(product) || !Number.isFinite(product.price) || product.price <= 0) return;
     updateCart(prev => {
@@ -48,27 +47,9 @@ export default function StoreLayout() {
   // Stable, so the open drawer doesn't re-run its focus handling (and move
   // keyboard focus) every time a quantity changes.
   const closeCart = useCallback(() => setIsCartOpen(false), []);
-  const handleSearchClick = () => {
-    if (location.pathname !== '/products') {
-      navigate('/products', {
-        state: {
-          focusSearch: true
-        }
-      });
-      return;
-    }
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-      searchInput.focus();
-      searchInput.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-    }
-  };
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return <LocaleProvider><CurrencyProvider><div className="app-container">
-            <Navbar cartCount={cartItemCount} onCartClick={() => setIsCartOpen(true)} onSearchClick={handleSearchClick} />
+            <Navbar cartCount={cartItemCount} onCartClick={() => setIsCartOpen(true)} />
 
             <main className="main-content">
                 <Outlet context={{
@@ -77,6 +58,8 @@ export default function StoreLayout() {
             </main>
 
             <Footer />
+
+            <WhatsAppButton />
 
             <CartDrawer isOpen={isCartOpen} onClose={closeCart} cartItems={cartItems} onUpdateQuantity={handleUpdateQuantity} onRemoveItem={handleRemoveItem} />
         </div></CurrencyProvider></LocaleProvider>;

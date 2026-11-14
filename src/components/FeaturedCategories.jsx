@@ -2,6 +2,7 @@ import { useLocale } from '../context/LocaleContext';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useStoreSettings from '../hooks/useStoreSettings';
+import { tileForPath } from '../data/categoryTiles';
 import './FeaturedCategories.css';
 const SHOP_CATEGORIES = new Set(['Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming']);
 const CATEGORY_ALIASES = {
@@ -44,6 +45,24 @@ const buildCategoryPath = category => {
   }
   return `${url.pathname}${url.search}`;
 };
+// Tiles show a brand's own product photo (no background) on a grey tile, so
+// they match what we sell. A tile set in the admin with its own picture keeps it.
+// Shown after the tiles managed in the admin.
+const MORE_CATEGORIES = [{
+  name: 'Video Conferencing',
+  path: '/video-conferencing'
+}, {
+  name: 'Webcams',
+  path: '/products?category=Webcams'
+}, {
+  name: 'Speakers & Audio',
+  path: '/products?category=Audio'
+}, {
+  name: 'Accessories',
+  path: '/products?category=Accessories'
+}];
+// The stock pictures the site shipped with are replaced by the cut-outs.
+const isStockPicture = image => !image || image.startsWith('/images/categories/');
 export default function FeaturedCategories() {
   const {
     t
@@ -51,15 +70,25 @@ export default function FeaturedCategories() {
   const {
     settings
   } = useStoreSettings();
-  const categories = settings?.featuredCategories || [];
-  return <section className="featured-categories">
+  const managed = settings?.featuredCategories || [];
+  const managedPaths = new Set(managed.map(buildCategoryPath));
+  const categories = [...managed, ...MORE_CATEGORIES.filter(category => !managedPaths.has(category.path))].map(category => {
+    const path = buildCategoryPath(category);
+    return {
+      name: category.name,
+      path,
+      cutout: isStockPicture(category.image) ? tileForPath(path)?.cutout ?? null : null,
+      image: category.image
+    };
+  });
+  return <section className="featured-categories" aria-labelledby="featured-categories-title">
             <div className="section-container">
+                <h2 id="featured-categories-title" className="section-title">{t("Shop by category")}</h2>
                 <div className="category-grid">
-                    {categories.map((category, index) => <Link to={buildCategoryPath(category)} key={index} className="category-card">
-                            <div className="category-bg" style={{
+                    {categories.map(category => <Link to={category.path} key={category.path + category.name} className={`category-card ${category.cutout ? 'category-card--cutout' : ''}`}>
+                            {category.cutout ? <div className="category-bg"><img src={category.cutout} alt="" loading="lazy" decoding="async" /></div> : <div className="category-bg" style={{
             backgroundImage: `url(${category.image})`
-          }} />
-                            <div className="category-overlay" />
+          }} />}
                             <h3 className="category-name">{t(category.name)}</h3>
                         </Link>)}
                 </div>

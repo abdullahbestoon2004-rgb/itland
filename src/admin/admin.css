@@ -1792,3 +1792,121 @@ textarea.adm-input { resize: vertical; min-height: 64px; line-height: 1.45; }
     .adm-toast,
     .adm-live--live .adm-live__dot { animation: none; }
 }
+
+/* ── Two-step sign-in (shown until the session is aal2) ───────────────────── */
+.adm-root.adm-root--gate {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(1.5rem, 6vh, 4rem) 16px 3rem;
+}
+
+.adm-gate {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.adm-gate__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.adm-gate__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    box-shadow: var(--a-shadow);
+}
+
+.adm-gate__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--a-radius-sm);
+    background: rgba(0, 184, 252, 0.12);
+    color: var(--a-accent);
+}
+
+.adm-gate__title { font-size: 1.35rem; line-height: 1.25; }
+.adm-gate__lead { color: var(--a-text-2); }
+
+.adm-gate__steps {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    color: var(--a-text-2);
+}
+
+.adm-gate__steps strong { color: var(--a-text); }
+.adm-gate__steps li::marker { color: var(--a-accent); font-weight: 700; }
+
+.adm-gate__qr {
+    width: fit-content;
+    margin: 0.65rem 0;
+    padding: 10px;
+    border-radius: var(--a-radius-sm);
+    background: #ffffff;
+}
+
+.adm-gate__qr img { display: block; width: 180px; height: 180px; }
+
+.adm-gate__secret {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.adm-gate__secret code {
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    background: var(--a-bg);
+    border: 1px solid var(--a-line);
+    color: var(--a-text);
+    letter-spacing: 0.08em;
+    word-break: break-all;
+}
+
+.adm-gate__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.adm-gate__code {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 1.35rem;
+    letter-spacing: 0.4em;
+    text-align: center;
+    min-height: 50px;
+}
+
+.adm-gate__code::placeholder { letter-spacing: 0.4em; }
+.adm-gate__submit { width: 100%; min-height: 44px; }
+
+.adm-gate__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--a-line-soft);
+    font-size: 0.85rem;
+}
+
+.adm-gate__foot .adm-link { flex-shrink: 0; }
+
+@media (max-width: 640px) {
+    .adm-gate__card { padding: 1.25rem; }
+}

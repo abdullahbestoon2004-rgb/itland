@@ -1,6 +1,9 @@
+import { LOCALES, localePath } from './locale.js';
+
 export const SITE_NAME = 'IT Land';
 export const SITE_URL = 'https://itlandforcomputer.com';
-export const DEFAULT_DESCRIPTION = 'Shop computer accessories, keyboards, mice, headsets and gaming gear at IT Land in Erbil. Delivery across Iraq and Kurdistan. Order on WhatsApp.';
+export const DEFAULT_TITLE = 'Computer Accessories Store in Erbil, Iraq';
+export const DEFAULT_DESCRIPTION = 'IT Land in Erbil sells original Logitech, Jabra and Poly mice, keyboards, headsets, webcams and meeting room equipment. Delivery across Iraq. Order on WhatsApp.';
 export const brandSlug = brand => String(brand).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 export const brandPath = brand => `/brands/${brandSlug(brand)}`;
 export const CATEGORIES = ['Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
@@ -37,7 +40,9 @@ export function shortProductTitle(name, max = 60) {
 export const organization = {
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME, url: `${SITE_URL}/`, logo: absoluteUrl('/itland-logo-square.png'),
-    telephone: '+9647504888570', areaServed: { '@type': 'Country', name: 'Iraq' }
+    description: 'Computer accessories store in Erbil selling original Logitech, Jabra and Poly products, with delivery across Iraq and Kurdistan.',
+    telephone: '+9647504888570', areaServed: { '@type': 'Country', name: 'Iraq' },
+    contactPoint: { '@type': 'ContactPoint', telephone: '+9647504888570', contactType: 'customer service', areaServed: 'IQ', availableLanguage: ['English', 'Arabic', 'Kurdish'] }
 };
 // Matches the shop's Google Maps listing ("iTland For Computer"): same address,
 // pin, phone and hours, so Google can tie the website to the map listing.
@@ -60,18 +65,56 @@ export const storeBusiness = {
     areaServed: [{ '@type': 'City', name: 'Erbil' }, { '@type': 'AdministrativeArea', name: 'Kurdistan Region' }, { '@type': 'Country', name: 'Iraq' }],
     parentOrganization: { '@id': `${SITE_URL}/#organization` }
 };
-export function pageMetadata({ title, description, image, path = '/', jsonLd, noindex = false, type = 'website' } = {}) {
+// The trail search results show above a page's title: Home, then each [name, path].
+export const breadcrumbs = (...trail) => ({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [['Home', '/'], ...trail].map(([name, path], index) => ({ '@type': 'ListItem', position: index + 1, name, item: absoluteUrl(path) }))
+});
+// A description that fits a search result: whole sentences where possible,
+// otherwise whole words, never a word cut in half.
+export function clipDescription(value, max = 160) {
+    const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+    if (text.length <= max) return text;
+    const cut = text.slice(0, max + 1);
+    const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+    if (sentenceEnd >= max * 0.6) return cut.slice(0, sentenceEnd + 1);
+    return `${cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s,;:–—-]+$/, '')}…`;
+}
+// Structured data for a translated page: links to the shop's own pages point at
+// that language's address, and breadcrumb names are shown in that language. The
+// shop itself (#store, #organization) stays one thing in every language.
+const PAGE_LINK_KEYS = new Set(['url', 'item', '@id']);
+export function localizeSchema(value, locale, t = text => text, key = '', parent = null) {
+    if (Array.isArray(value)) return value.map(entry => localizeSchema(entry, locale, t, key, parent));
+    if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([name, entry]) => [name, localizeSchema(entry, locale, t, name, value)]));
+    if (typeof value !== 'string') return value;
+    if (key === 'name' && parent?.['@type'] === 'ListItem' && parent.item) return t(value);
+    if (!PAGE_LINK_KEYS.has(key) || !value.startsWith(`${SITE_URL}/`)) return value;
+    const path = value.slice(SITE_URL.length);
+    const isShopItself = path === '/' ? key !== 'item' : path.startsWith('/#');
+    return isShopItself || /\.(png|jpe?g|webp|svg|gif)$/i.test(path) ? value : `${SITE_URL}${localePath(locale, path)}`;
+}
+/**
+ * `locale` is given only for pages that exist in every language (the store
+ * pages); those are listed to search engines with their other-language versions.
+ */
+export function pageMetadata({ title, description, image, path = '/', jsonLd, noindex = false, type = 'website', locale = null, t } = {}) {
+    const language = LOCALES[locale] ? locale : 'en';
     return {
-        title: title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Computer Accessories & Gaming Gear in Iraq`,
-        description: (description || DEFAULT_DESCRIPTION).replace(/\s+/g, ' ').trim().slice(0, 170),
-        url: absoluteUrl(path), image: absoluteUrl(image || '/itland-share.png'), type,
-        robots: noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large', jsonLd
+        title: title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | ${DEFAULT_TITLE}`,
+        description: clipDescription(description || DEFAULT_DESCRIPTION),
+        url: absoluteUrl(localePath(language, path)), image: absoluteUrl(image || '/itland-share.png'), type,
+        robots: noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large',
+        jsonLd: jsonLd && language !== 'en' ? localizeSchema(jsonLd, language, t) : jsonLd,
+        ogLocale: LOCALES[language].og,
+        alternates: locale && !noindex ? [...Object.entries(LOCALES).map(([code, { lang }]) => [lang, absoluteUrl(localePath(code, path))]), ['x-default', absoluteUrl(localePath('en', path))]] : [],
     };
 }
 export function renderHead(meta) {
     const tags = { description: meta.description, robots: meta.robots, 'twitter:card': 'summary_large_image', 'twitter:title': meta.title, 'twitter:description': meta.description, 'twitter:image': meta.image };
     return `<title>${escapeHtml(meta.title)}</title>\n<link rel="canonical" href="${escapeHtml(meta.url)}" />\n` +
+        (meta.alternates ?? []).map(([lang, href]) => `<link rel="alternate" hreflang="${lang}" href="${escapeHtml(href)}" />\n`).join('') +
         Object.entries(tags).map(([name, content]) => `<meta name="${name}" content="${escapeHtml(content)}" />`).join('\n') + '\n' +
-        Object.entries({ 'og:type': meta.type, 'og:site_name': SITE_NAME, 'og:title': meta.title, 'og:description': meta.description, 'og:url': meta.url, 'og:image': meta.image }).map(([property, content]) => `<meta property="${property}" content="${escapeHtml(content)}" />`).join('\n') +
+        Object.entries({ 'og:type': meta.type, 'og:site_name': SITE_NAME, 'og:locale': meta.ogLocale ?? 'en_US', 'og:title': meta.title, 'og:description': meta.description, 'og:url': meta.url, 'og:image': meta.image, 'og:image:alt': meta.title }).map(([property, content]) => `<meta property="${property}" content="${escapeHtml(content)}" />`).join('\n') +
         (meta.jsonLd ? `\n<script type="application/ld+json" data-page-meta="true">${serializeJson(meta.jsonLd)}</script>` : '');
 }

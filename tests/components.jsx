@@ -21,7 +21,7 @@ test('unavailable cards and previews do not offer add-to-cart', () => {
     assert.doesNotMatch(card, /Add to Cart/);
     assert.doesNotMatch(preview, /Add to Cart|office price/);
     assert.match(preview, /Ask about restocking/);
-    assert.match(card, /15,100 IQD/);
+    assert.match(card, /15,000 IQD/);
 });
 
 test('available cards offer add-to-cart and closed cart is absent from accessibility tree', () => {

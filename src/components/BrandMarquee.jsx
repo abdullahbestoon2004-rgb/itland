@@ -28,7 +28,7 @@ function BrandItems({ brands, hidden = false }) {
       const logo = LOGO_FILES[brandSlug(brand)];
       return <li key={brand}>
             <Link to={brandPath(brand)} className="brand-marquee-item" tabIndex={hidden ? -1 : undefined} aria-label={hidden ? undefined : brand}>
-              {logo ? <img src={`/images/brands/${logo}.svg`} alt="" decoding="async" /> : <span className="brand-marquee-name">{brand}</span>}
+              {logo ? <img src={`/images/brands/${logo}.svg`} alt={hidden ? '' : brand} decoding="async" /> : <span className="brand-marquee-name">{brand}</span>}
             </Link>
           </li>;
     })}

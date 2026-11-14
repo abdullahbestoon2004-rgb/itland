@@ -1,5 +1,15 @@
 import { cleanDescription, cleanProductName, isPlaceholderImage, stockLimit } from '../utils/storefront';
+import productCopy from './productCopy.json' with { type: 'json' };
+import { withColourVariants } from '../utils/colours.js';
 export const realImages = (images) => (Array.isArray(images) ? images : []).filter((src) => src && !isPlaceholderImage(src));
+
+// A few Zoho listings are named with nothing but the Logitech part number. These
+// are the products those numbers belong to, taken from Logitech's own catalog.
+const PART_NUMBER_NAMES = {
+  '960-001057': 'Logitech GROUP Video Conferencing System 960-001057',
+  '960-001312': 'Logitech Rally Bar Video Conferencing Bar 960-001312 Graphite',
+  '960-001237': 'Logitech Rally Video Conferencing System 960-001237',
+};
 
 const KNOWN_BRANDS = [
   'Logitech', 'Razer', 'Onten', 'Lention', 'Anker', 'Elgato', 'JBL', 'Poly', 'Plantronics',
@@ -48,20 +58,26 @@ const loadFallbackCatalog = () => {
   return fallbackCatalogPromise;
 };
 
+const galleryUrl = (path) => `https://resource.logitech.com/w_1000,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/${path}`;
+
 export const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
   const id = String(product.id ?? product.zoho_item_id ?? index);
   const zohoId = product.zoho_item_id ? String(product.zoho_item_id) : null;
-  const fullText = `${product.name || ''} ${product.description || ''}`.trim();
-  
+  // Short names and one-line summaries written for the mobile app, keyed by Zoho item id.
+  const copy = productCopy[id] ?? (zohoId ? productCopy[zohoId] : null);
+  const cleanName = copy?.name ?? PART_NUMBER_NAMES[cleanProductName(product)] ?? cleanProductName(product);
+  const fullText = `${product.name || ''} ${product.description || ''} ${cleanName}`.trim();
+
   // Real image lookup
   const lookupImage = productImagesMap[id] || (zohoId ? productImagesMap[zohoId] : null) || (product.name ? productImagesMap[product.name] : null);
   const ownImages = realImages(product.images);
-  const images = ownImages.length > 0 ? ownImages : lookupImage ? [lookupImage] : realImages([product.image]);
+  const mainImages = ownImages.length > 0 ? ownImages : lookupImage ? [lookupImage] : realImages([product.image]);
+  // More official photos of the same product (Logitech's gallery), sent as short paths.
+  const images = [...new Set([...mainImages, ...(mainImages.length ? (product.gallery ?? []).map(galleryUrl) : [])])];
 
   const brand = product.brand && product.brand !== '' ? product.brand : detectBrand(fullText);
   const rawCat = product.category || '';
   const category = rawCat && rawCat.toLowerCase() !== 'goods' ? rawCat : detectCategory(fullText);
-  const cleanName = cleanProductName(product);
 
   return {
     id: id,
@@ -73,6 +89,7 @@ export const normalizeProduct = (product, index = 0, productImagesMap = {}) => {
     price: Number(product.price ?? 0),
     wholesale_price: product.wholesale_price != null ? Number(product.wholesale_price) : null,
     description: cleanDescription(product.description),
+    tagline: copy?.tagline ?? '',
     images,
     featured: Boolean(product.featured),
     stock_on_hand: product.stock_on_hand != null ? Number(product.stock_on_hand) : null,
@@ -96,7 +113,7 @@ const fetchProducts = async () => {
     if (res.ok) {
       const { products } = await res.json();
       if (Array.isArray(products) && products.length > 0) {
-        return products.map((p, i) => normalizeProduct(p, i));
+        return withColourVariants(products.map((p, i) => normalizeProduct(p, i)));
       }
     }
   } catch (err) {
@@ -104,8 +121,8 @@ const fetchProducts = async () => {
   }
 
   // Fallback to built-in product catalog
-  const [fallbackCatalog, imagesMap] = await Promise.all([loadFallbackCatalog(), loadProductImages()]);
-  return (fallbackCatalog ?? []).map((p, i) => normalizeProduct(p, i, imagesMap));
+  const [fallbackCatalog, imagesMap, galleries] = await Promise.all([loadFallbackCatalog(), loadProductImages(), import('./productGalleries.json').then((module) => module.default)]);
+  return withColourVariants((fallbackCatalog ?? []).map((p, i) => normalizeProduct({ ...p, gallery: galleries[p.id] }, i, imagesMap)));
 };
 
 let productCache = null;

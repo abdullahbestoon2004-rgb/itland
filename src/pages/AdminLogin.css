@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--logi-darker);
-    background-image: radial-gradient(circle at 50% 50%, rgba(0, 184, 252, 0.05) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 253, 207, 0.05) 0%, transparent 60%);
 }
 
 .login-card {
@@ -14,7 +14,7 @@
     border-radius: 8px;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .login-header {
@@ -65,7 +65,7 @@
 .form-group input:focus {
     outline: none;
     border-color: var(--logi-cyan);
-    box-shadow: 0 0 0 2px rgba(0, 184, 252, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 253, 207, 0.2);
 }
 
 .login-btn {
@@ -75,7 +75,7 @@
 
 .error-message {
     background-color: rgba(255, 71, 87, 0.1);
-    color: #ff4757;
+    color: #c62828;
     padding: 12px;
     border-radius: 4px;
     border: 1px solid rgba(255, 71, 87, 0.3);
@@ -95,7 +95,7 @@
 }
 
 .back-link:hover {
-    color: var(--logi-cyan);
+    color: var(--accent-ink);
 }
 .login-subtitle {
     margin-top: 0.5rem;
@@ -114,8 +114,8 @@
     font-weight: 600;
     border-radius: 8px;
     background: #ffffff;
-    color: #1f2937;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--logi-border);
+    border: 1px solid rgba(0, 0, 0, 0.14);
     cursor: pointer;
     transition: opacity var(--transition-fast), transform var(--transition-fast);
 }

@@ -1,4 +1,5 @@
 import productImagesMap from '../api/productImages.json' with { type: 'json' };
+import productGalleries from '../src/data/productGalleries.json' with { type: 'json' };
 import { cleanDescription, isPlaceholderImage } from '../src/utils/storefront.js';
 
 const ZOHO_AUTH_DOMAIN = process.env.ZOHO_AUTH_DOMAIN ?? 'https://accounts.zoho.com';
@@ -118,6 +119,8 @@ function normalizeItem(item, index) {
     brand: getCustomField(item, 'Brand') ?? '',
     // No stand-in photo: the storefront shows the category icon instead.
     images: imageUrl ? [imageUrl] : [],
+    // Extra official photos of the same product, as short paths the storefront expands.
+    ...(mappedImage && imageUrl === mappedImage && productGalleries[itemId] ? { gallery: productGalleries[itemId] } : {}),
     featured: getCustomField(item, 'Featured')?.toLowerCase() === 'true',
     order_index: index,
     stock_on_hand: stockOnHand,

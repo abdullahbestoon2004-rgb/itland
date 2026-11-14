@@ -71,10 +71,6 @@
     "ar": "طوّر تجهيزاتك",
     "ku": "کەلوپەلەکانت نوێ بکەرەوە"
   },
-  "Experience the ultimate precision with computer accessories and gaming gear.": {
-    "ar": "اكتشف ملحقات الكمبيوتر ومعدات الألعاب المناسبة لك.",
-    "ku": "پێداویستی کۆمپیوتەر و کەلوپەلی یاریی گونجاو بدۆزەرەوە."
-  },
   "Shop Now": {
     "ar": "تسوق الآن",
     "ku": "ئێستا بکڕە"
@@ -287,37 +283,9 @@
     "ar": "كيفية الطلب عبر واتساب",
     "ku": "چۆنیەتی داواکردن لە واتساپ"
   },
-  "100% Original": {
-    "ar": "أصلي ١٠٠٪",
-    "ku": "١٠٠٪ ڕەسەن"
-  },
-  "Guaranteed authentic": {
-    "ar": "منتجات أصلية",
-    "ku": "بەرهەمی ڕەسەن"
-  },
-  "Across Iraq & Kurdistan": {
-    "ar": "في العراق وكردستان",
-    "ku": "لە عێراق و کوردستان"
-  },
-  "Ask us for delivery fees & timing": {
-    "ar": "اسألنا عن رسوم وموعد التوصيل",
-    "ku": "پرسیار لە کرێ و کاتی گەیاندن بکە"
-  },
-  "Order Confirmation": {
-    "ar": "تأكيد الطلب",
-    "ku": "پشتڕاستکردنەوەی داواکاری"
-  },
-  "Confirm every detail in the chat": {
-    "ar": "أكد كل التفاصيل في المحادثة",
-    "ku": "هەموو وردەکارییەکان لە چات پشتڕاست بکەرەوە"
-  },
   "Order on WhatsApp": {
     "ar": "اطلب عبر واتساب",
     "ku": "لە واتساپ داوا بکە"
-  },
-  "Talk directly with our team": {
-    "ar": "تحدث مباشرة مع فريقنا",
-    "ku": "ڕاستەوخۆ لەگەڵ تیمەکەمان قسە بکە"
   },
   "Support": {
     "ar": "الدعم",
@@ -359,25 +327,9 @@
     "ar": "ابق على اطلاع",
     "ku": "ئاگادار بە"
   },
-  "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.": {
-    "ar": "اشترك لتصلك أخبار المنتجات والعروض الجديدة.",
-    "ku": "بەشدار بە بۆ هەواڵی بەرهەم و ئۆفەرە نوێیەکان."
-  },
-  "Play to win. The ultimate gear for gamers and creators.": {
-    "ar": "تجهيزات مميزة للاعبين وصنّاع المحتوى.",
-    "ku": "کەلوپەلی تایبەت بۆ یاریزان و دروستکەرانی ناوەڕۆک."
-  },
   "IT LAND. All rights reserved.": {
     "ar": "IT LAND. جميع الحقوق محفوظة.",
     "ku": "IT LAND. هەموو مافەکان پارێزراون."
-  },
-  "Join the Elite Setup": {
-    "ar": "تابع أحدث تجهيزاتنا",
-    "ku": "ئاگاداری نوێترین کەلوپەلەکان بە"
-  },
-  "Subscribe for new products and offers, or chat with our team on WhatsApp.": {
-    "ar": "اشترك لأخبار المنتجات والعروض أو تواصل مع فريقنا على واتساب.",
-    "ku": "بۆ بەرهەم و ئۆفەری نوێ بەشدار بە یان لە واتساپ لەگەڵ تیمەکەمان قسە بکە."
   },
   "Chat on WhatsApp": {
     "ar": "تحدث عبر واتساب",
@@ -535,22 +487,6 @@
     "ar": "تعذر تسجيل اشتراكك. حاول مرة أخرى.",
     "ku": "نەتوانرا بەشدارت بکەین. دووبارە هەوڵ بدەرەوە."
   },
-  "View All Products →": {
-    "ar": "عرض جميع المنتجات ←",
-    "ku": "هەموو بەرهەمەکان ببینە ←"
-  },
-  "Up to 30% OFF Gaming Accessories": {
-    "ar": "خصم حتى ٣٠٪ على ملحقات الألعاب",
-    "ku": "تا ٣٠٪ داشکاندن لە پێداویستییەکانی یاری"
-  },
-  "Level up your gameplay with premium gear at unbeatable prices.": {
-    "ar": "طوّر تجربة اللعب بمعدات مميزة وأسعار منافسة.",
-    "ku": "ئەزموونی یارییەکەت بە کەلوپەلی باشتر و نرخی گونجاو باشتر بکە."
-  },
-  "Shop the Sale": {
-    "ar": "تسوق العروض",
-    "ku": "ئۆفەرەکان ببینە"
-  },
   "We deliver across all Iraq and Kurdistan. All orders are arranged and confirmed on WhatsApp.": {
     "ar": "نوصل إلى جميع أنحاء العراق وكردستان. تُرتب جميع الطلبات وتُؤكد عبر واتساب.",
     "ku": "گەیاندنمان هەیە بۆ هەموو عێراق و کوردستان. هەموو داواکارییەکان لە واتساپ ڕێک دەخرێن و پشتڕاست دەکرێنەوە."
@@ -651,8 +587,844 @@
     "ar": "منتجات ذات صلة",
     "ku": "بەرهەمە پەیوەندیدارەکان"
   },
-  "More in this category →": {
-    "ar": "المزيد من هذه الفئة ←",
-    "ku": "زیاتر لەم پۆلەدا ←"
+  "A team in a meeting room on a video call with remote colleagues, using a Logitech MeetUp conference camera": {
+    "ar": "فريق في غرفة اجتماعات يجري مكالمة فيديو مع زملاء عن بُعد باستخدام كاميرا المؤتمرات Logitech MeetUp",
+    "ku": "تیمێک لە ژووری کۆبوونەوە لە پەیوەندییەکی ڤیدیۆییدا لەگەڵ هاوکارەکانیان لە دوورەوە، بە بەکارهێنانی کامێرای کۆنفرانسی Logitech MeetUp"
+  },
+  "Video Conferencing": {
+    "ar": "مؤتمرات الفيديو",
+    "ku": "ڤیدیۆ کۆنفرانس"
+  },
+  "Video Conferencing Equipment in Erbil, Iraq": {
+    "ar": "أجهزة مؤتمرات الفيديو في أربيل، العراق",
+    "ku": "ئامێرەکانی ڤیدیۆ کۆنفرانس لە هەولێر، عێراق"
+  },
+  "Conference cameras, speakerphones and complete meeting room systems from Logitech, Jabra and Poly. For a home desk, a huddle room or a full boardroom, with delivery across Iraq and Kurdistan.": {
+    "ar": "كاميرات مؤتمرات وسماعات اجتماعات وأنظمة كاملة لغرف الاجتماعات من Logitech و Jabra و Poly. لمكتب المنزل أو غرفة صغيرة أو قاعة اجتماعات كاملة، مع توصيل إلى جميع أنحاء العراق وكردستان.",
+    "ku": "کامێرای کۆنفرانس، سپیکەرفۆن و سیستەمی تەواوی ژووری کۆبوونەوە لە Logitech، Jabra و Poly. بۆ سەر مێزی ماڵەوە، ژووری بچووک یان هۆڵی گەورەی کۆبوونەوە، لەگەڵ گەیاندن بۆ هەموو عێراق و کوردستان."
+  },
+  "Get a setup for your room": {
+    "ar": "احصل على تجهيز مناسب لغرفتك",
+    "ku": "سێتەپێک بۆ ژوورەکەت بەدەستبهێنە"
+  },
+  "See all products": {
+    "ar": "عرض جميع المنتجات",
+    "ku": "هەموو بەرهەمەکان ببینە"
+  },
+  "products in stock now": {
+    "ar": "منتجاً متوفراً الآن",
+    "ku": "بەرهەمی بەردەست لە کۆگا ئێستا"
+  },
+  "Works with Zoom, Microsoft Teams and Google Meet": {
+    "ar": "تعمل مع Zoom و Microsoft Teams و Google Meet",
+    "ku": "لەگەڵ Zoom، Microsoft Teams و Google Meet کاردەکات"
+  },
+  "Delivery across Iraq and Kurdistan": {
+    "ar": "توصيل إلى جميع أنحاء العراق وكردستان",
+    "ku": "گەیاندن بۆ هەموو عێراق و کوردستان"
+  },
+  "Find the right setup for your room": {
+    "ar": "اختر التجهيز المناسب لغرفتك",
+    "ku": "سێتەپی گونجاو بۆ ژوورەکەت بدۆزەرەوە"
+  },
+  "Start with the size of the room. Each setup below is built from products we sell.": {
+    "ar": "ابدأ بحجم الغرفة. كل تجهيز أدناه مكوّن من منتجات نبيعها.",
+    "ku": "سەرەتا لە قەبارەی ژوورەکەوە دەستپێبکە. هەر سێتەپێکی خوارەوە لەو بەرهەمانە پێکهاتووە کە دەیانفرۆشین."
+  },
+  "Room sizes": {
+    "ar": "أحجام الغرف",
+    "ku": "قەبارەی ژوورەکان"
+  },
+  "What we suggest": {
+    "ar": "ما نقترحه",
+    "ku": "ئەوەی پێشنیاری دەکەین"
+  },
+  "Ask for this setup on WhatsApp": {
+    "ar": "اطلب هذا التجهيز عبر واتساب",
+    "ku": "لە WhatsApp داوای ئەم سێتەپە بکە"
+  },
+  "Why buy video conferencing equipment from IT Land": {
+    "ar": "لماذا تشتري أجهزة مؤتمرات الفيديو من IT Land",
+    "ku": "بۆچی ئامێرەکانی ڤیدیۆ کۆنفرانس لە IT Land بکڕیت"
+  },
+  "All video conferencing products": {
+    "ar": "جميع منتجات مؤتمرات الفيديو",
+    "ku": "هەموو بەرهەمەکانی ڤیدیۆ کۆنفرانس"
+  },
+  "Everything for meetings in one place. Products in stock are listed first.": {
+    "ar": "كل ما تحتاجه للاجتماعات في مكان واحد. المنتجات المتوفرة تظهر أولاً.",
+    "ku": "هەموو پێداویستییەکی کۆبوونەوە لە یەک شوێندا. ئەو بەرهەمانەی لە کۆگان سەرەتا دانراون."
+  },
+  "How to choose a video conferencing system": {
+    "ar": "كيف تختار نظام مؤتمرات الفيديو",
+    "ku": "چۆنیەتی هەڵبژاردنی سیستەمی ڤیدیۆ کۆنفرانس"
+  },
+  "Compare meeting room systems": {
+    "ar": "قارن بين أنظمة غرف الاجتماعات",
+    "ku": "بەراوردکردنی سیستەمەکانی ژووری کۆبوونەوە"
+  },
+  "System": {
+    "ar": "النظام",
+    "ku": "سیستەم"
+  },
+  "Best for": {
+    "ar": "الأنسب لـ",
+    "ku": "باشترینە بۆ"
+  },
+  "People": {
+    "ar": "عدد الأشخاص",
+    "ku": "ژمارەی کەس"
+  },
+  "Camera": {
+    "ar": "الكاميرا",
+    "ku": "کامێرا"
+  },
+  "Sound": {
+    "ar": "الصوت",
+    "ku": "دەنگ"
+  },
+  "Video conferencing questions": {
+    "ar": "أسئلة عن مؤتمرات الفيديو",
+    "ku": "پرسیارەکانی ڤیدیۆ کۆنفرانس"
+  },
+  "Tell us about your meeting room": {
+    "ar": "أخبرنا عن غرفة اجتماعاتك",
+    "ku": "دەربارەی ژووری کۆبوونەوەکەت پێمان بڵێ"
+  },
+  "Send the room size and the number of seats. We reply with a setup and a price in Iraqi dinars.": {
+    "ar": "أرسل حجم الغرفة وعدد المقاعد، وسنرد عليك بتجهيز مناسب وسعره بالدينار العراقي.",
+    "ku": "قەبارەی ژوورەکە و ژمارەی کورسییەکان بنێرە. ئێمەش بە سێتەپێکی گونجاو و نرخ بە دیناری عێراقی وەڵامت دەدەینەوە."
+  },
+  "A person on a video call at a desk with a Logitech MX Brio webcam on the monitor": {
+    "ar": "شخص يجري مكالمة فيديو على مكتبه مع كاميرا ويب Logitech MX Brio مثبتة على الشاشة",
+    "ku": "کەسێک لە پەیوەندییەکی ڤیدیۆییدا لەسەر مێزێک لەگەڵ وێبکامی Logitech MX Brio لەسەر مۆنیتەرەکە"
+  },
+  "Colleagues in a small meeting room on a video call with a Logitech MeetUp 2 conference camera under the screen": {
+    "ar": "زملاء في غرفة اجتماعات صغيرة يجرون مكالمة فيديو مع كاميرا المؤتمرات Logitech MeetUp 2 تحت الشاشة",
+    "ku": "هاوکاران لە ژوورێکی بچووکی کۆبوونەوە لە پەیوەندییەکی ڤیدیۆییدا بە کامێرای کۆنفرانسی Logitech MeetUp 2 لە ژێر شاشەکە"
+  },
+  "A video meeting on a large display with a Logitech Rally Bar video bar below it": {
+    "ar": "اجتماع فيديو على شاشة كبيرة وتحتها شريط الفيديو Logitech Rally Bar",
+    "ku": "کۆبوونەوەیەکی ڤیدیۆیی لەسەر شاشەیەکی گەورە لەگەڵ ڤیدیۆ باری Logitech Rally Bar لە ژێریدا"
+  },
+  "A team around a boardroom table on a video conference using the Logitech GROUP camera and speakerphone": {
+    "ar": "فريق حول طاولة قاعة اجتماعات في مؤتمر فيديو باستخدام كاميرا وسماعة Logitech GROUP",
+    "ku": "تیمێک لە دەوری مێزی هۆڵی کۆبوونەوە لە کۆنفرانسێکی ڤیدیۆییدا بە بەکارهێنانی کامێرا و سپیکەرفۆنی Logitech GROUP"
+  },
+  "A Logitech MeetUp conference camera under a wall display showing a video meeting, with a Logitech Tap controller on the table": {
+    "ar": "كاميرا المؤتمرات Logitech MeetUp تحت شاشة جدارية تعرض اجتماع فيديو، مع وحدة التحكم Logitech Tap على الطاولة",
+    "ku": "کامێرای کۆنفرانسی Logitech MeetUp لە ژێر شاشەیەکی هەڵواسراوی دیوار کە کۆبوونەوەیەکی ڤیدیۆیی نیشان دەدات، لەگەڵ کۆنترۆڵەری Logitech Tap لەسەر مێزەکە"
+  },
+  "Original products": {
+    "ar": "منتجات أصلية",
+    "ku": "بەرهەمی ئەسڵی"
+  },
+  "Genuine Logitech, Jabra and Poly equipment, new in the box.": {
+    "ar": "أجهزة Logitech و Jabra و Poly أصلية وجديدة في علبتها.",
+    "ku": "ئامێری ئەسڵیی Logitech، Jabra و Poly، تازە لەناو کارتۆندا."
+  },
+  "A real store in Erbil": {
+    "ar": "متجر حقيقي في أربيل",
+    "ku": "فرۆشگایەکی ڕاستەقینە لە هەولێر"
+  },
+  "Find us on Muzaffariya Street, six days a week.": {
+    "ar": "تجدنا في شارع المظفرية، ستة أيام في الأسبوع.",
+    "ku": "لە شەقامی موزەفەرییە دەماندۆزیتەوە، شەش ڕۆژ لە هەفتەیەکدا."
+  },
+  "Delivery across Iraq": {
+    "ar": "توصيل إلى جميع أنحاء العراق",
+    "ku": "گەیاندن بۆ هەموو عێراق"
+  },
+  "Erbil, Baghdad, Basra, Sulaymaniyah, Duhok, Mosul, Kirkuk and every other city.": {
+    "ar": "أربيل، بغداد، البصرة، السليمانية، دهوك، الموصل، كركوك وكل المدن الأخرى.",
+    "ku": "هەولێر، بەغدا، بەسڕە، سلێمانی، دهۆک، مووسڵ، کەرکووک و هەموو شارەکانی تر."
+  },
+  "Advice before you buy": {
+    "ar": "استشارة قبل الشراء",
+    "ku": "ڕاوێژ پێش کڕین"
+  },
+  "Send us your room size on WhatsApp and we suggest what fits.": {
+    "ar": "أرسل لنا حجم غرفتك عبر واتساب ونقترح عليك ما يناسبها.",
+    "ku": "لە ڕێگەی WhatsApp قەبارەی ژوورەکەت بنێرە و ئێمە ئەوەی گونجاوە پێشنیار دەکەین."
+  },
+  "Count the seats": {
+    "ar": "احسب عدد المقاعد",
+    "ku": "کورسییەکان بژمێرە"
+  },
+  "The number of people and the length of the table decide how wide the camera must see and how far the microphones must reach.": {
+    "ar": "عدد الأشخاص وطول الطاولة يحددان زاوية الرؤية المطلوبة للكاميرا والمسافة التي يجب أن تلتقطها الميكروفونات.",
+    "ku": "ژمارەی کەسەکان و درێژیی مێزەکە دیاری دەکەن کە کامێراکە پێویستە چەندە فراوان ببینێت و مایکڕۆفۆنەکان پێویستە تا چەند دوور دەنگ هەڵبگرن."
+  },
+  "Choose the camera": {
+    "ar": "اختر الكاميرا",
+    "ku": "کامێراکە هەڵبژێرە"
+  },
+  "A wide fixed lens suits a small room. A longer room needs a camera that can zoom in on the far seats.": {
+    "ar": "العدسة الثابتة الواسعة تناسب الغرفة الصغيرة. الغرفة الأطول تحتاج كاميرا تستطيع التقريب على المقاعد البعيدة.",
+    "ku": "هاوێنەیەکی فراوانی جێگیر بۆ ژوورێکی بچووک دەست دەدات. ژوورێکی درێژتر پێویستی بە کامێرایەکە کە بتوانێت زووم بکاتە سەر کورسییە دوورەکان."
+  },
+  "Cover every voice": {
+    "ar": "التقط كل صوت",
+    "ku": "هەموو دەنگێک بگرەوە"
+  },
+  "Built-in microphones are enough for a short table. Add expansion microphones or mic pods when people sit further away.": {
+    "ar": "الميكروفونات المدمجة تكفي لطاولة قصيرة. أضف ميكروفونات توسعة أو وحدات ميكروفون عندما يجلس الأشخاص أبعد.",
+    "ku": "مایکڕۆفۆنە ناوەکییەکان بەشن بۆ مێزێکی کورت. مایکڕۆفۆنی زیادە یان mic pods زیاد بکە کاتێک کەسەکان لە دوورتر دادەنیشن."
+  },
+  "Connect and meet": {
+    "ar": "وصّل وابدأ الاجتماع",
+    "ku": "ببەستە و کۆببەوە"
+  },
+  "Plug the system into a laptop or room computer by USB and it works as the camera, microphone and speaker in your meeting app.": {
+    "ar": "وصّل النظام بالحاسوب المحمول أو حاسوب الغرفة عبر USB ليعمل ككاميرا وميكروفون وسماعة في تطبيق الاجتماعات.",
+    "ku": "سیستەمەکە لە ڕێگەی USB ببەستە بە لاپتۆپ یان کۆمپیوتەری ژوورەکەوە، و وەک کامێرا، مایکڕۆفۆن و سپیکەر لە ئەپی کۆبوونەوەکەت کاردەکات."
+  },
+  "Desk or small office": {
+    "ar": "مكتب أو مكتب صغير",
+    "ku": "مێز یان ئۆفیسی بچووک"
+  },
+  "1 to 4": {
+    "ar": "من 1 إلى 4",
+    "ku": "1 بۆ 4"
+  },
+  "Full HD 1080p, 78° view, motorised pan and tilt": {
+    "ar": "Full HD 1080p، زاوية رؤية 78°، تحريك آلي أفقي وعمودي",
+    "ku": "Full HD 1080p، بینینی 78°، جووڵەی ماتۆڕداری pan و tilt"
+  },
+  "Built-in speakerphone": {
+    "ar": "سماعة اجتماعات مدمجة",
+    "ku": "سپیکەرفۆنی ناوەکی"
+  },
+  "Small room, portable": {
+    "ar": "غرفة صغيرة، محمول",
+    "ku": "ژووری بچووک، گوازراوە"
+  },
+  "1 to 6": {
+    "ar": "من 1 إلى 6",
+    "ku": "1 بۆ 6"
+  },
+  "Full HD 1080p, 90° view": {
+    "ar": "Full HD 1080p، زاوية رؤية 90°",
+    "ku": "Full HD 1080p، بینینی 90°"
+  },
+  "Built-in speakerphone and rechargeable battery": {
+    "ar": "سماعة اجتماعات مدمجة وبطارية قابلة للشحن",
+    "ku": "سپیکەرفۆنی ناوەکی و پاتری شەحنکراوە"
+  },
+  "Huddle and small rooms": {
+    "ar": "الغرف الصغيرة وغرف الاجتماعات السريعة",
+    "ku": "ژووری بچووک و ژووری گفتوگۆ"
+  },
+  "2 to 6": {
+    "ar": "من 2 إلى 6",
+    "ku": "2 بۆ 6"
+  },
+  "4K sensor, extra-wide 120° view": {
+    "ar": "مستشعر 4K، زاوية رؤية واسعة جداً 120°",
+    "ku": "هەستەوەری 4K، بینینی زۆر فراوانی 120°"
+  },
+  "Three microphones and a speaker built in": {
+    "ar": "ثلاثة ميكروفونات وسماعة مدمجة",
+    "ku": "سێ مایکڕۆفۆن و سپیکەرێکی ناوەکی"
+  },
+  "Medium rooms": {
+    "ar": "الغرف المتوسطة",
+    "ku": "ژوورە مامناوەندەکان"
+  },
+  "6 to 10": {
+    "ar": "من 6 إلى 10",
+    "ku": "6 بۆ 10"
+  },
+  "4K, motorised pan, tilt and zoom": {
+    "ar": "4K، تحريك آلي أفقي وعمودي مع تقريب",
+    "ku": "4K، جووڵەی ماتۆڕداری pan، tilt و zoom"
+  },
+  "Built-in speakers and microphones, expandable with mic pods": {
+    "ar": "سماعات وميكروفونات مدمجة، قابلة للتوسعة بوحدات ميكروفون",
+    "ku": "سپیکەر و مایکڕۆفۆنی ناوەکی، دەتوانرێت بە mic pods فراوان بکرێت"
+  },
+  "Medium and large rooms": {
+    "ar": "الغرف المتوسطة والكبيرة",
+    "ku": "ژوورە مامناوەند و گەورەکان"
+  },
+  "Up to 14, or 20 with expansion microphones": {
+    "ar": "حتى 14، أو 20 مع ميكروفونات التوسعة",
+    "ku": "تا 14 کەس، یان 20 کەس بە مایکڕۆفۆنی زیادەوە"
+  },
+  "Full HD 1080p, 10x zoom": {
+    "ar": "Full HD 1080p، تقريب 10x",
+    "ku": "Full HD 1080p، زوومی 10x"
+  },
+  "Full-duplex speakerphone": {
+    "ar": "سماعة اجتماعات ثنائية الاتجاه (Full-duplex)",
+    "ku": "سپیکەرفۆنی Full-duplex"
+  },
+  "Large rooms and boardrooms": {
+    "ar": "الغرف الكبيرة وقاعات مجالس الإدارة",
+    "ku": "ژوورە گەورەکان و هۆڵەکانی کۆبوونەوە"
+  },
+  "10 and more": {
+    "ar": "10 وأكثر",
+    "ku": "10 و زیاتر"
+  },
+  "4K PTZ camera with 15x HD zoom": {
+    "ar": "كاميرا PTZ بدقة 4K مع تقريب 15x HD",
+    "ku": "کامێرای 4K PTZ لەگەڵ زوومی 15x HD"
+  },
+  "Two speakers and two mic pods, expandable": {
+    "ar": "سماعتان ووحدتا ميكروفون، قابلة للتوسعة",
+    "ku": "دوو سپیکەر و دوو mic pods، دەتوانرێت فراوان بکرێت"
+  },
+  "What equipment do I need for video conferencing in a meeting room?": {
+    "ar": "ما الأجهزة التي أحتاجها لمؤتمرات الفيديو في غرفة اجتماعات؟",
+    "ku": "چ ئامێرێکم پێویستە بۆ ڤیدیۆ کۆنفرانس لە ژووری کۆبوونەوەدا؟"
+  },
+  "A camera, microphones and a speaker that connect to the computer running your meeting. All-in-one systems such as Logitech MeetUp and Rally Bar combine the three in one device. Larger rooms use separate parts, such as the Logitech Rally Plus with its PTZ camera, speakers and table microphones.": {
+    "ar": "كاميرا وميكروفونات وسماعة تتصل بالحاسوب الذي يشغّل الاجتماع. الأنظمة المتكاملة مثل Logitech MeetUp و Rally Bar تجمع الثلاثة في جهاز واحد. الغرف الأكبر تستخدم أجزاء منفصلة، مثل Logitech Rally Plus بكاميرا PTZ وسماعات وميكروفونات للطاولة.",
+    "ku": "کامێرا، مایکڕۆفۆن و سپیکەرێک کە بەو کۆمپیوتەرەوە دەبەسترێنەوە کە کۆبوونەوەکەی پێ بەڕێوەدەبەیت. سیستەمە گشتگیرەکانی وەک Logitech MeetUp و Rally Bar هەر سێکیان لە یەک ئامێردا کۆدەکەنەوە. ژوورە گەورەترەکان پارچەی جیاواز بەکاردەهێنن، وەک Logitech Rally Plus بە کامێرای PTZ، سپیکەرەکان و مایکڕۆفۆنەکانی سەر مێز."
+  },
+  "Which video conferencing system fits my room?": {
+    "ar": "أي نظام مؤتمرات فيديو يناسب غرفتي؟",
+    "ku": "چ سیستەمێکی ڤیدیۆ کۆنفرانس بۆ ژوورەکەم دەست دەدات؟"
+  },
+  "Go by the number of seats. One person needs a business webcam and a speakerphone or headset. Up to six people are covered by an all-in-one camera such as MeetUp, Connect or BCC950. Six to ten people need a video bar such as Rally Bar. Bigger rooms need Logitech GROUP or Rally Plus. Send us your room size on WhatsApp and we will suggest a setup.": {
+    "ar": "اعتمد على عدد المقاعد. شخص واحد يحتاج كاميرا ويب للأعمال وسماعة اجتماعات أو سماعة رأس. حتى ستة أشخاص تكفيهم كاميرا متكاملة مثل MeetUp أو Connect أو BCC950. من ستة إلى عشرة أشخاص يحتاجون شريط فيديو مثل Rally Bar. الغرف الأكبر تحتاج Logitech GROUP أو Rally Plus. أرسل لنا حجم غرفتك عبر واتساب وسنقترح عليك تجهيزاً مناسباً.",
+    "ku": "بەپێی ژمارەی کورسییەکان دیاری بکە. یەک کەس پێویستی بە وێبکامی بزنس و سپیکەرفۆن یان هێدفۆنێکە. بۆ تا شەش کەس کامێرایەکی وەک MeetUp، Connect یان BCC950 بەسە. شەش بۆ دە کەس پێویستیان بە ڤیدیۆ بارێکە وەک Rally Bar. ژوورە گەورەترەکان پێویستیان بە Logitech GROUP یان Rally Plus هەیە. قەبارەی ژوورەکەت لەسەر WhatsApp بنێرە و ئێمە سێتەپێکی گونجاوت بۆ پێشنیار دەکەین."
+  },
+  "Does it work with Zoom, Microsoft Teams and Google Meet?": {
+    "ar": "هل تعمل مع Zoom و Microsoft Teams و Google Meet؟",
+    "ku": "ئایا لەگەڵ Zoom، Microsoft Teams و Google Meet کاردەکات؟"
+  },
+  "Yes. The systems on this page connect by USB and work as the camera, microphone and speaker in Zoom, Microsoft Teams, Google Meet and other calling apps on your computer.": {
+    "ar": "نعم. الأنظمة في هذه الصفحة تتصل عبر USB وتعمل ككاميرا وميكروفون وسماعة في Zoom و Microsoft Teams و Google Meet وغيرها من تطبيقات الاتصال على حاسوبك.",
+    "ku": "بەڵێ. سیستەمەکانی ئەم لاپەڕەیە لە ڕێگەی USB دەبەسترێنەوە و وەک کامێرا، مایکڕۆفۆن و سپیکەر لە Zoom، Microsoft Teams، Google Meet و ئەپەکانی تری پەیوەندیکردن لەسەر کۆمپیوتەرەکەت کاردەکەن."
+  },
+  "Do you deliver video conferencing equipment outside Erbil?": {
+    "ar": "هل توصلون أجهزة مؤتمرات الفيديو خارج أربيل؟",
+    "ku": "ئایا ئامێرەکانی ڤیدیۆ کۆنفرانس بۆ دەرەوەی هەولێر دەگەیەنن؟"
+  },
+  "Yes. IT Land delivers across Iraq and the Kurdistan Region, including Baghdad, Basra, Sulaymaniyah, Duhok, Mosul and Kirkuk. Our team confirms the delivery fee and time for your address on WhatsApp.": {
+    "ar": "نعم. IT Land يوصل إلى جميع أنحاء العراق وإقليم كردستان، ومنها بغداد والبصرة والسليمانية ودهوك والموصل وكركوك. فريقنا يؤكد أجرة التوصيل ووقته لعنوانك عبر واتساب.",
+    "ku": "بەڵێ. IT Land دەگەیەنێتە هەموو عێراق و هەرێمی کوردستان، لەوانە بەغدا، بەسڕە، سلێمانی، دهۆک، مووسڵ و کەرکووک. تیمەکەمان نرخی گەیاندن و کاتەکە بۆ ناونیشانەکەت لەسەر WhatsApp پشتڕاست دەکاتەوە."
+  },
+  "Can I add microphones for a longer table?": {
+    "ar": "هل يمكنني إضافة ميكروفونات لطاولة أطول؟",
+    "ku": "ئایا دەتوانم مایکڕۆفۆن بۆ مێزێکی درێژتر زیاد بکەم؟"
+  },
+  "Yes. MeetUp takes an expansion microphone, Logitech GROUP takes a pair of expansion microphones, and the Rally systems take additional mic pods. You will find them under speakerphones and microphones on this page.": {
+    "ar": "نعم. MeetUp يقبل ميكروفون توسعة، و Logitech GROUP يقبل زوجاً من ميكروفونات التوسعة، وأنظمة Rally تقبل وحدات ميكروفون إضافية. تجدها في قسم سماعات الاجتماعات والميكروفونات في هذه الصفحة.",
+    "ku": "بەڵێ. MeetUp مایکڕۆفۆنێکی زیادە وەردەگرێت، Logitech GROUP دوو مایکڕۆفۆنی زیادە وەردەگرێت، و سیستەمەکانی Rally پشتگیری mic podsی زیادە دەکەن. لەم لاپەڕەیەدا لە ژێر بەشی سپیکەرفۆن و مایکڕۆفۆنەکان دەستت دەکەون."
+  },
+  "How do I order?": {
+    "ar": "كيف أطلب؟",
+    "ku": "چۆن داواکاری تۆمار بکەم؟"
+  },
+  "Add the products to your cart and send the order on WhatsApp, or message us directly. Our team confirms stock, the final price in Iraqi dinars, the delivery fee and the delivery time before the order is confirmed.": {
+    "ar": "أضف المنتجات إلى السلة وأرسل الطلب عبر واتساب، أو راسلنا مباشرة. فريقنا يؤكد التوفر والسعر النهائي بالدينار العراقي وأجرة التوصيل ووقته قبل تأكيد الطلب.",
+    "ku": "بەرهەمەکان بخەرە سەبەتەکەت و داواکارییەکە لە ڕێگەی WhatsApp بنێرە، یان ڕاستەوخۆ نامەمان بۆ بنێرە. پێش پشتڕاستکردنەوەی داواکارییەکە، تیمەکەمان بوونی لە کۆگا، نرخی کۆتایی بە دیناری عێراقی، کرێی گەیاندن و کاتی گەیاندن پشتڕاست دەکاتەوە."
+  },
+  "See the products, ask our team and pick up your order, or have it delivered anywhere in Iraq and Kurdistan.": {
+    "ar": "شاهد المنتجات واسأل فريقنا واستلم طلبك من المتجر، أو نوصله لك إلى أي مكان في العراق وكردستان.",
+    "ku": "بەرهەمەکان ببینە، پرسیار لە تیمەکەمان بکە و داواکارییەکەت وەربگرەوە، یان بۆ هەر شوێنێکی عێراق و کوردستان بێت بۆت دەگەیەنین."
+  },
+  "Address": {
+    "ar": "العنوان",
+    "ku": "ناونیشان"
+  },
+  "Muzaffariya Street, Erbil, Kurdistan Region, Iraq": {
+    "ar": "شارع المظفرية، أربيل، إقليم كردستان، العراق",
+    "ku": "شەقامی موزەفەرییە، هەولێر، هەرێمی کوردستان، عێراق"
+  },
+  "Opening hours": {
+    "ar": "أوقات العمل",
+    "ku": "کاتەکانی کارکردن"
+  },
+  "Closed": {
+    "ar": "مغلق",
+    "ku": "داخراوە"
+  },
+  "Phone & WhatsApp": {
+    "ar": "الهاتف وواتساب",
+    "ku": "تەلەفۆن و WhatsApp"
+  },
+  "Open in Google Maps": {
+    "ar": "افتح في خرائط Google",
+    "ku": "لە Google Maps بیکەرەوە"
+  },
+  "IT Land store location on the map": {
+    "ar": "موقع متجر IT Land على الخريطة",
+    "ku": "شوێنی فرۆشگای IT Land لەسەر نەخشە"
+  },
+  "Visit our store in Erbil": {
+    "ar": "زر متجرنا في أربيل",
+    "ku": "سەردانی فرۆشگاکەمان بکە لە هەولێر"
+  },
+  "Meeting room systems": {
+    "ar": "أنظمة غرف الاجتماعات",
+    "ku": "سیستەمەکانی ژووری کۆبوونەوە"
+  },
+  "Camera, microphones and speaker designed to work together, from a four-seat huddle room to a boardroom.": {
+    "ar": "كاميرا وميكروفونات وسماعة مصممة لتعمل معاً، من غرفة صغيرة بأربعة مقاعد إلى قاعة مجلس الإدارة.",
+    "ku": "کامێرا، مایکڕۆفۆن و سپیکەر بۆ ئەوە دروستکراون پێکەوە کاربکەن، لە ژوورێکی بچووکی چوار کەسییەوە تا هۆڵی گەورەی کۆبوونەوە."
+  },
+  "Conference cameras and business webcams": {
+    "ar": "كاميرات المؤتمرات وكاميرات الويب للأعمال",
+    "ku": "کامێرای کۆنفرانس و وێبکامی بزنس"
+  },
+  "PTZ cameras for larger rooms and sharp webcams for a desk or a small office.": {
+    "ar": "كاميرات PTZ للغرف الأكبر وكاميرات ويب واضحة للمكتب أو المكتب الصغير.",
+    "ku": "کامێرای PTZ بۆ ژوورە گەورەترەکان و وێبکامی ڕوون بۆ مێز یان ئۆفیسی بچووک."
+  },
+  "Speakerphones and microphones": {
+    "ar": "سماعات الاجتماعات والميكروفونات",
+    "ku": "سپیکەرفۆن و مایکڕۆفۆنەکان"
+  },
+  "Clear sound for calls: USB and Bluetooth speakerphones, plus extra microphones and speakers for longer tables.": {
+    "ar": "صوت واضح للمكالمات: سماعات اجتماعات USB وبلوتوث، مع ميكروفونات وسماعات إضافية للطاولات الأطول.",
+    "ku": "دەنگێکی ڕوون بۆ پەیوەندییەکان: سپیکەرفۆنی USB و Bluetooth، لەگەڵ مایکڕۆفۆن و سپیکەری زیادە بۆ مێزی درێژتر."
+  },
+  "Room controllers and docks": {
+    "ar": "وحدات التحكم بالغرف وقواعد التوصيل",
+    "ku": "کۆنترۆڵەری ژوور و دۆکەکان"
+  },
+  "Start a meeting with one touch and keep the desk tidy.": {
+    "ar": "ابدأ الاجتماع بلمسة واحدة وحافظ على ترتيب المكتب.",
+    "ku": "بە یەک دەستلێدان دەست بە کۆبوونەوە بکە و مێزەکەت بە ڕێکوپێکی بهێڵەرەوە."
+  },
+  "Mounts, cables and add-ons": {
+    "ar": "الحوامل والكابلات والملحقات",
+    "ku": "هەڵواسەر، کێبڵ و بەشە زیادەکان"
+  },
+  "Wall and TV mounts and extension cables for a clean installation.": {
+    "ar": "حوامل للجدار والتلفاز وكابلات تمديد لتركيب مرتب.",
+    "ku": "هەڵواسەری دیوار و TV و کێبڵی درێژکەرەوە بۆ بەستنێکی ڕێک و پێک."
+  },
+  "Desk and home office": {
+    "ar": "المكتب والعمل من المنزل",
+    "ku": "مێز و ئۆفیسی ماڵەوە"
+  },
+  "1 person": {
+    "ar": "شخص واحد",
+    "ku": "1 کەس"
+  },
+  "A business webcam with a wide, sharp picture and a speakerphone or headset is all one person needs to look and sound professional on every call.": {
+    "ar": "كاميرا ويب للأعمال بصورة واسعة وواضحة مع سماعة اجتماعات أو سماعة رأس هي كل ما يحتاجه شخص واحد ليظهر ويُسمع باحترافية في كل مكالمة.",
+    "ku": "وێبکامێکی بزنس بە وێنەیەکی فراوان و ڕوون لەگەڵ سپیکەرفۆنێک یان هێدفۆنێک، هەموو ئەوەیە کە یەک کەس پێویستی پێیەتی بۆ ئەوەی لە هەموو پەیوەندییەکدا بە شێوەیەکی پرۆفیشناڵ دەربکەوێت و دەنگی ببیسترێت."
+  },
+  "2 to 6 people": {
+    "ar": "من 2 إلى 6 أشخاص",
+    "ku": "2 بۆ 6 کەس"
+  },
+  "An all-in-one conference camera above or below the TV shows everyone at the table with a wide lens and picks up every voice. One USB cable to the laptop and the meeting starts.": {
+    "ar": "كاميرا مؤتمرات متكاملة فوق التلفاز أو تحته تُظهر كل من على الطاولة بعدسة واسعة وتلتقط كل صوت. كابل USB واحد إلى الحاسوب المحمول ويبدأ الاجتماع.",
+    "ku": "کامێرایەکی کۆنفرانسی گشتگیر لە سەرەوە یان خوارەوەی TV، بە هاوێنەیەکی فراوان هەموو کەسێکی سەر مێزەکە نیشان دەدات و هەموو دەنگێک هەڵدەگرێت. تەنها یەک کێبڵی USB بۆ لاپتۆپەکە و کۆبوونەوەکە دەستپێدەکات."
+  },
+  "Medium meeting rooms": {
+    "ar": "غرف الاجتماعات المتوسطة",
+    "ku": "ژوورە مامناوەندەکانی کۆبوونەوە"
+  },
+  "6 to 10 people": {
+    "ar": "من 6 إلى 10 أشخاص",
+    "ku": "6 بۆ 10 کەس"
+  },
+  "A video bar with a motorised zoom lens frames the people who are in the room, and its speakers fill the space. Add a touch controller on the table and extra microphones for a longer table.": {
+    "ar": "شريط فيديو بعدسة تقريب آلية يؤطّر الأشخاص الموجودين في الغرفة، وسماعاته تملأ المكان. أضف وحدة تحكم باللمس على الطاولة وميكروفونات إضافية للطاولة الأطول.",
+    "ku": "ڤیدیۆ بارێک بە هاوێنەی زوومی ماتۆڕدار کەسانی ناو ژوورەکە دەخاتە ناو چوارچێوەکەوە، و سپیکەرەکانی دەنگ لە تەواوی شوێنەکە بڵاودەکەنەوە. کۆنترۆڵەرێکی دەستلێدان لەسەر مێزەکە و مایکڕۆفۆنی زیادە بۆ مێزی درێژتر زیاد بکە."
+  },
+  "10 to 20 people and more": {
+    "ar": "من 10 إلى 20 شخصاً وأكثر",
+    "ku": "10 بۆ 20 کەس و زیاتر"
+  },
+  "Separate parts cover a big room: a PTZ camera that zooms to the far end of the table, speakers at the display and microphone pods along the table so every seat is heard.": {
+    "ar": "أجزاء منفصلة تغطي الغرفة الكبيرة: كاميرا PTZ تقرّب حتى نهاية الطاولة، وسماعات عند الشاشة، ووحدات ميكروفون على طول الطاولة ليُسمع كل مقعد.",
+    "ku": "پارچەی جیاواز بۆ داپۆشینی ژوورێکی گەورە: کامێرایەکی PTZ کە زووم دەکاتە سەر کۆتایی مێزەکە، سپیکەرەکان لە لای شاشەکە، و mic pods بە درێژایی مێزەکە بۆ ئەوەی دەنگی هەموو کورسییەک ببیسترێت."
+  },
+  "Speakers & Audio": {
+    "ar": "السماعات والصوت",
+    "ku": "سپیکەر و دەنگ"
+  },
+  "Sunday": {
+    "ar": "الأحد",
+    "ku": "یەکشەممە"
+  },
+  "Thursday": {
+    "ar": "الخميس",
+    "ku": "پێنجشەممە"
+  },
+  "Saturday": {
+    "ar": "السبت",
+    "ku": "شەممە"
+  },
+  "Friday": {
+    "ar": "الجمعة",
+    "ku": "هەینی"
+  },
+  "More in this category": {
+    "ar": "المزيد من هذه الفئة",
+    "ku": "زیاتر لەم پۆلەدا"
+  },
+  "Computer store in Erbil": {
+    "ar": "متجر حاسوب في أربيل",
+    "ku": "فرۆشگای کۆمپیوتەر لە هەولێر"
+  },
+  "A Logitech keyboard, mouse, webcam and control pads laid out on a desk": {
+    "ar": "لوحة مفاتيح وماوس وكاميرا ويب ولوحات تحكم من Logitech موضوعة على مكتب",
+    "ku": "کیبۆرد، ماوس، وێبکام و کۆنترۆڵ پادی Logitech لەسەر مێزێک دانراون"
+  },
+  "Shop by category": {
+    "ar": "تسوق حسب الفئة",
+    "ku": "کڕین بەپێی بەشەکان"
+  },
+  "Meeting rooms that just work": {
+    "ar": "غرف اجتماعات تعمل بسهولة",
+    "ku": "ژوورەکانی کۆبوونەوە کە بێ کێشە کار دەکەن"
+  },
+  "Conference cameras, speakerphones and complete room systems for every room size.": {
+    "ar": "كاميرات مؤتمرات وسماعات اجتماعات وأنظمة كاملة لكل حجم غرفة.",
+    "ku": "کامێرای کۆنفرانس، سپیکەرفۆن و سیستەمی تەواوی ژوور بۆ هەموو قەبارەیەکی ژوور."
+  },
+  "Explore video conferencing": {
+    "ar": "استكشف مؤتمرات الفيديو",
+    "ku": "بینینی بەرهەمەکانی ڤیدیۆ کۆنفرانس"
+  },
+  "Keyboards and mice made to work together": {
+    "ar": "لوحات مفاتيح وماوسات صُممت لتعمل معاً",
+    "ku": "کیبۆرد و ماوس کە بۆ پێکەوە کارکردن دروستکراون"
+  },
+  "Quiet keys, precise tracking and one receiver for the whole desk.": {
+    "ar": "مفاتيح هادئة وتتبع دقيق ومستقبل واحد للمكتب كله.",
+    "ku": "دوگمەی بێدەنگ، جووڵەی ورد و یەک ڕیسیڤەر بۆ هەموو مێزەکەت."
+  },
+  "Shop keyboards": {
+    "ar": "تسوق لوحات المفاتيح",
+    "ku": "کڕینی کیبۆرد"
+  },
+  "Hands typing on a Logitech MX Keys S keyboard at a dark desk, with a Logitech mouse beside it": {
+    "ar": "يدان تكتبان على لوحة مفاتيح Logitech MX Keys S على مكتب داكن، وبجانبها ماوس Logitech",
+    "ku": "دەستەکان خەریکی تایپکردنن لەسەر کیبۆردێکی Logitech MX Keys S لەسەر مێزێکی تاریک، لەگەڵ ماوسێکی Logitech لە تەنیشتی."
+  },
+  "Headsets for calls and focus": {
+    "ar": "سماعات رأس للمكالمات والتركيز",
+    "ku": "هێدسێت بۆ پەیوەندی و تەرکیز"
+  },
+  "Light, wireless and clear on every call.": {
+    "ar": "خفيفة ولاسلكية وواضحة في كل مكالمة.",
+    "ku": "سووک، بێوایەر و دەنگێکی ڕوون لە هەموو پەیوەندییەکدا."
+  },
+  "Shop headsets": {
+    "ar": "تسوق سماعات الرأس",
+    "ku": "کڕینی هێدسێت"
+  },
+  "A person at a desk wearing a rose Logitech Zone 300 wireless headset": {
+    "ar": "شخص على مكتب يرتدي سماعة Logitech Zone 300 اللاسلكية باللون الوردي",
+    "ku": "کەسێک لەسەر مێزێک کە هێدسێتێکی بێوایەری پەمەیی Logitech Zone 300ی بەستووە"
+  },
+  "Ideas for your desk": {
+    "ar": "أفكار لمكتبك",
+    "ku": "بیرۆکە بۆ مێزەکەت"
+  },
+  "Computer accessories in Erbil, delivered across Iraq and Kurdistan.": {
+    "ar": "ملحقات الحاسوب في أربيل، مع توصيل إلى جميع أنحاء العراق وكردستان.",
+    "ku": "پێداویستییەکانی کۆمپیوتەر لە هەولێر، گەیاندن بۆ سەرانسەری عێراق و کوردستان."
+  },
+  "New products and offers, sent by email.": {
+    "ar": "منتجات وعروض جديدة تصلك بالبريد الإلكتروني.",
+    "ku": "نوێترین بەرهەم و ئۆفەرەکان، لە ڕێگەی ئیمەیڵەوە."
+  },
+  "Everything for your desk": {
+    "ar": "كل ما يحتاجه مكتبك",
+    "ku": "هەموو شتێک بۆ سەر مێزەکەت"
+  },
+  "Mice, keyboards, headsets, webcams and meeting room gear from Logitech, Jabra and Poly, in stock in Erbil.": {
+    "ar": "ماوسات ولوحات مفاتيح وسماعات رأس وكاميرات ويب وأجهزة غرف الاجتماعات من Logitech و Jabra و Poly، متوفرة في أربيل.",
+    "ku": "ماوس، کیبۆرد، هێدفۆن، وێبکام و پێداویستییەکانی ژووری کۆبوونەوە لە Logitech، Jabra و Poly، لە هەولێر بەردەستە."
+  },
+  "Colours": {
+    "ar": "الألوان",
+    "ku": "ڕەنگەکان"
+  },
+  "Colour": {
+    "ar": "اللون",
+    "ku": "ڕەنگ"
+  },
+  "Description": {
+    "ar": "الوصف",
+    "ku": "وەسف"
+  },
+  "All Filters": {
+    "ar": "كل الفلاتر",
+    "ku": "هەموو فلتەرەکان"
+  },
+  "Computer & Logitech Store in Erbil, Iraq": {
+    "ar": "متجر كمبيوتر ولوجيتك في أربيل، العراق",
+    "ku": "فرۆشگای کۆمپیوتەر و Logitech لە هەولێر، عێراق"
+  },
+  "IT Land (iTland For Computer), Muzaffariya Street, Erbil: Logitech, Jabra and Poly mice, keyboards, headsets and webcams. Delivery across Iraq and Kurdistan.": {
+    "ar": "آي تي لاند (iTland For Computer)، شارع المظفرية، أربيل: ماوسات وكيبوردات وسماعات وكاميرات ويب من Logitech و Jabra و Poly. توصيل إلى جميع أنحاء العراق وكردستان.",
+    "ku": "IT Land (iTland For Computer)، شەقامی موزەفەریە، هەولێر: ماوس، کیبۆرد، هێدسێت و وێبکامی Logitech، Jabra و Poly. گەیاندن بۆ سەرانسەری عێراق و کوردستان."
+  },
+  "{name} in Iraq: Prices & Stock": {
+    "ar": "{name} في العراق: الأسعار والتوفر",
+    "ku": "{name} لە عێراق: نرخ و بەردەستبوون"
+  },
+  "{name} in Iraq - Page {page}": {
+    "ar": "{name} في العراق - الصفحة {page}",
+    "ku": "{name} لە عێراق - پەڕەی {page}"
+  },
+  "{name} at IT Land in Erbil. See today's IQD prices and what is in stock. Delivery across Iraq and Kurdistan. Order on WhatsApp.": {
+    "ar": "{name} لدى آي تي لاند في أربيل. تعرّف على أسعار اليوم بالدينار العراقي والمتوفر في المخزن. توصيل إلى جميع أنحاء العراق وكردستان. اطلب عبر واتساب.",
+    "ku": "{name} لە IT Land لە هەولێر. نرخی ئەمڕۆ بە دینار و بەرهەمە بەردەستەکان ببینە. گەیاندن بۆ سەرانسەری عێراق و کوردستان. لە ڕێگەی WhatsApp داوا بکە."
+  },
+  "{name} from {brands} at IT Land in Erbil. See today's IQD prices and what is in stock. Delivery across Iraq and Kurdistan. Order on WhatsApp.": {
+    "ar": "{name} من {brands} لدى آي تي لاند في أربيل. تعرّف على أسعار اليوم بالدينار العراقي والمتوفر في المخزن. توصيل إلى جميع أنحاء العراق وكردستان. اطلب عبر واتساب.",
+    "ku": "{name} لە براندەکانی {brands} لە IT Land لە هەولێر. نرخی ئەمڕۆ بە دینار و بەرهەمە بەردەستەکان ببینە. گەیاندن بۆ سەرانسەری عێراق و کوردستان. لە ڕێگەی WhatsApp داوا بکە."
+  },
+  "Computer Accessories": {
+    "ar": "إكسسوارات الكمبيوتر",
+    "ku": "ئێکسسواراتی کۆمپیوتەر"
+  },
+  "Computer Mice": {
+    "ar": "ماوسات الكمبيوتر",
+    "ku": "ماوسی کۆمپیوتەر"
+  },
+  "Headsets & Headphones": {
+    "ar": "سماعات الرأس",
+    "ku": "هێدسێت و هێدفۆن"
+  },
+  "Gaming Mice, Keyboards & Headsets": {
+    "ar": "ماوسات وكيبوردات وسماعات الألعاب",
+    "ku": "ماوس، کیبۆرد و هێدسێتی گەیمینگ"
+  },
+  "Cables, Hubs & Computer Accessories": {
+    "ar": "كيبلات وموزعات وإكسسوارات الكمبيوتر",
+    "ku": "کێبڵ، هاب و ئێکسسواراتی کۆمپیوتەر"
+  },
+  "Speakers & Speakerphones": {
+    "ar": "مكبرات الصوت وسماعات المؤتمرات",
+    "ku": "سپیکەر و سپیکەرفۆن"
+  },
+  "Microphones & Streaming Gear": {
+    "ar": "ميكروفونات ومعدات البث",
+    "ku": "مایکرۆفۆن و کەرەستەی ستریمینگ"
+  },
+  "{brand} Products": {
+    "ar": "منتجات {brand}",
+    "ku": "بەرهەمەکانی {brand}"
+  },
+  "{brand} {category}": {
+    "ar": "{category} {brand}",
+    "ku": "{category}ی {brand}"
+  },
+  "{name} in Iraq": {
+    "ar": "{name} في العراق",
+    "ku": "{name} لە عێراق"
+  },
+  "{name} Price in Iraq": {
+    "ar": "سعر {name} في العراق",
+    "ku": "نرخی {name} لە عێراق"
+  },
+  "{name} price in Iraq: {price} at IT Land, Erbil.": {
+    "ar": "سعر {name} في العراق: {price} لدى آي تي لاند، أربيل.",
+    "ku": "نرخی {name} لە عێراق: {price} لە IT Land، هەولێر."
+  },
+  "{name} price in Iraq at IT Land, Erbil.": {
+    "ar": "سعر {name} في العراق لدى آي تي لاند، أربيل.",
+    "ku": "نرخی {name} لە عێراق لە IT Land، هەولێر."
+  },
+  "In stock.": {
+    "ar": "متوفر في المخزن.",
+    "ku": "بەردەستە."
+  },
+  "Currently out of stock, ask us about restocking.": {
+    "ar": "غير متوفر حالياً، اسألنا عن موعد توفره.",
+    "ku": "لە ئێستادا نەماوە، بۆ کاتی بەردەستبوونەوە پرسیارمان لێ بکە."
+  },
+  "Delivery across Iraq and Kurdistan. Order on WhatsApp.": {
+    "ar": "توصيل إلى جميع أنحاء العراق وكردستان. اطلب عبر واتساب.",
+    "ku": "گەیاندن بۆ سەرانسەری عێراق و کوردستان. لە ڕێگەی WhatsApp داوا بکە."
+  },
+  "Video conference cameras, speakerphones and complete meeting room systems from Logitech, Jabra and Poly at IT Land, Erbil. Works with Zoom and Teams. Delivery across Iraq.": {
+    "ar": "كاميرات مؤتمرات الفيديو وسماعات المؤتمرات وأنظمة غرف الاجتماعات الكاملة من Logitech و Jabra و Poly لدى آي تي لاند، أربيل. تعمل مع Zoom و Teams. توصيل إلى جميع أنحاء العراق.",
+    "ku": "کامێرای ڤیدیۆ کۆنفرانس، سپیکەرفۆن و سیستەمی تەواوی ژووری کۆبوونەوە لە Logitech، Jabra و Poly لە IT Land، هەولێر. لەگەڵ Zoom و Teams کار دەکات. گەیاندن بۆ سەرانسەری عێراق."
+  },
+  "About Us: Computer Accessories Store in Erbil": {
+    "ar": "من نحن: متجر إكسسوارات الكمبيوتر في أربيل",
+    "ku": "دەربارەی ئێمە: فرۆشگای ئێکسسواراتی کۆمپیوتەر لە هەولێر"
+  },
+  "IT Land is a computer accessories store on Muzaffariya Street, Erbil, selling original Logitech, Jabra and Poly products to homes, offices and resellers.": {
+    "ar": "آي تي لاند متجر لإكسسوارات الكمبيوتر في شارع المظفرية، أربيل، يبيع منتجات Logitech و Jabra و Poly الأصلية للمنازل والمكاتب والموزعين.",
+    "ku": "IT Land فرۆشگایەکی ئێکسسواراتی کۆمپیوتەرە لە شەقامی موزەفەریە، هەولێر، بەرهەمی ئەسڵی Logitech، Jabra و Poly پێشکەش بە ماڵان، ئۆفیسەکان و فرۆشیاران دەکات."
+  },
+  "Contact & Store Location in Erbil": {
+    "ar": "اتصل بنا وموقع المتجر في أربيل",
+    "ku": "پەیوەندی و شوێنی فرۆشگا لە هەولێر"
+  },
+  "Visit IT Land (iTland For Computer) on Muzaffariya Street, Erbil, or contact us on WhatsApp at 0750 488 8570. Open Saturday to Thursday; closed Friday.": {
+    "ar": "زر آي تي لاند (iTland For Computer) في شارع المظفرية، أربيل، أو تواصل معنا عبر واتساب على الرقم 0750 488 8570. مفتوح من السبت إلى الخميس، ومغلق يوم الجمعة.",
+    "ku": "سەردانی IT Land (iTland For Computer) بکە لە شەقامی موزەفەریە، هەولێر، یان لە ڕێگەی WhatsApp بە ژمارە 0750 488 8570 پەیوەندیمان پێوە بکە. شەممە تا پێنجشەممە کراوەیە؛ هەینی داخراوە."
+  },
+  "Delivery Across Iraq & How to Order on WhatsApp": {
+    "ar": "التوصيل إلى جميع أنحاء العراق وطريقة الطلب عبر واتساب",
+    "ku": "گەیاندن بۆ سەرانسەری عێراق و چۆنیەتی داواکردن لە ڕێگەی WhatsApp"
+  },
+  "Warranty Support for Your Order in Iraq": {
+    "ar": "دعم الضمان لطلبك في العراق",
+    "ku": "پاڵپشتیی گرەنتی بۆ داواکارییەکەت لە عێراق"
+  },
+  "Returns & Exchanges for Orders in Iraq": {
+    "ar": "الإرجاع والاستبدال للطلبات في العراق",
+    "ku": "گەڕاندنەوە و گۆڕینەوە بۆ داواکارییەکان لە عێراق"
+  },
+  "How to order from IT Land: add products to your cart, send the order on WhatsApp and get delivery from our Erbil store to anywhere in Iraq and Kurdistan.": {
+    "ar": "طريقة الطلب من آي تي لاند: أضف المنتجات إلى السلة، أرسل الطلب عبر واتساب واحصل على التوصيل من متجرنا في أربيل إلى أي مكان في العراق وكردستان.",
+    "ku": "چۆنیەتی داواکردن لە IT Land: بەرهەمەکان زیاد بکە بۆ سەبەتەی کڕین، داواکارییەکە لە WhatsApp بنێرە و لە فرۆشگاکەمان لە هەولێرەوە بۆت دەگەیەنینە هەموو شوێنێکی عێراق و کوردستان."
+  },
+  "Warranty on products bought from IT Land in Erbil: how to check the cover for your exact model before you order, and how to get help with a product.": {
+    "ar": "الضمان على المنتجات المشتراة من آي تي لاند في أربيل: كيف تتأكد من تغطية الضمان لموديلك قبل الطلب، وكيف تحصل على المساعدة بخصوص منتج.",
+    "ku": "گرەنتی لەسەر ئەو بەرهەمانەی لە IT Land لە هەولێر دەکڕدرێن: چۆن پێش داواکردن لە ماوە و مەرجەکانی گرەنتی بۆ مۆدێلەکەت دڵنیا بیتەوە، و چۆن لە کاتی کێشەدا یارمەتی وەربگریت."
+  },
+  "Returns and exchanges at IT Land, Erbil: what to ask before you order, and how to request a return or exchange on WhatsApp.": {
+    "ar": "الإرجاع والاستبدال لدى آي تي لاند، أربيل: ما الذي تسأل عنه قبل الطلب، وكيف تطلب الإرجاع أو الاستبدال عبر واتساب.",
+    "ku": "گەڕاندنەوە و گۆڕینەوە لە IT Land، هەولێر: پێش داواکردن چی بپرسیت، و چۆن لە ڕێگەی WhatsApp داوای گەڕاندنەوە یان گۆڕینەوە بکەیت."
+  },
+  "Shop {category} from {brands} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.": {
+    "ar": "تسوق {category} من {brands} لدى آي تي لاند في أربيل. قارن الموديلات والأسعار الحالية والتوفر أدناه، مع التوصيل إلى جميع أنحاء العراق وكردستان.",
+    "ku": "{category} لە براندەکانی {brands} لە IT Land لە هەولێر بکڕە. لە خوارەوە بەراوردی مۆدێلەکان، نرخەکانی ئێستا و بەردەستبوون بکە، لەگەڵ گەیاندن بۆ سەرانسەری عێراق و کوردستان."
+  },
+  "Shop {category} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.": {
+    "ar": "تسوق {category} لدى آي تي لاند في أربيل. قارن الموديلات والأسعار الحالية والتوفر أدناه، مع التوصيل إلى جميع أنحاء العراق وكردستان.",
+    "ku": "{category} لە IT Land لە هەولێر بکڕە. لە خوارەوە بەراوردی مۆدێلەکان، نرخەکانی ئێستا و بەردەستبوون بکە، لەگەڵ گەیاندن بۆ سەرانسەری عێراق و کوردستان."
+  },
+  "Browse {brand} products at IT Land in Erbil. Compare models, current prices and availability below. Contact us on WhatsApp for delivery fees and timing across Iraq and Kurdistan.": {
+    "ar": "تصفح منتجات {brand} لدى آي تي لاند في أربيل. قارن الموديلات والأسعار الحالية والتوفر أدناه. تواصل معنا عبر واتساب لمعرفة رسوم التوصيل ومدته في جميع أنحاء العراق وكردستان.",
+    "ku": "بەرهەمەکانی {brand} لە IT Land لە هەولێر بگەڕێ. لە خوارەوە بەراوردی مۆدێلەکان، نرخەکانی ئێستا و بەردەستبوون بکە. بۆ کرێی گەیاندن و کاتی گەیشتن لە سەرانسەری عێراق و کوردستان، لە ڕێگەی WhatsApp پەیوەندیمان پێوە بکە."
+  },
+  "Delivery and ordering": {
+    "ar": "التوصيل والطلب",
+    "ku": "گەیاندن و داواکردن"
+  },
+  "Warranty information": {
+    "ar": "معلومات الضمان",
+    "ku": "زانیاریی گرەنتی"
+  },
+  "About IT Land": {
+    "ar": "عن آي تي لاند",
+    "ku": "دەربارەی IT Land"
+  },
+  "A computer accessories store in Erbil, selling original Logitech, Jabra and Poly products to homes, offices and resellers across Iraq.": {
+    "ar": "متجر لإكسسوارات الكمبيوتر في أربيل، يبيع منتجات Logitech و Jabra و Poly الأصلية للمنازل والمكاتب والموزعين في جميع أنحاء العراق.",
+    "ku": "فرۆشگایەکی ئێکسسواراتی کۆمپیوتەر لە هەولێر، کە بەرهەمی ئەسڵی Logitech، Jabra و Poly دەفرۆشێت بە ماڵان، ئۆفیسەکان و فرۆشیاران لە سەرانسەری عێراق."
+  },
+  "A desk with a Logitech MX Keys Mini keyboard, an MX Anywhere 3S mouse and a laptop on a stand": {
+    "ar": "مكتب عليه كيبورد Logitech MX Keys Mini وماوس MX Anywhere 3S ولابتوب على حامل",
+    "ku": "مێزێک بە کیبۆردی Logitech MX Keys Mini، ماوسی MX Anywhere 3S، و لاپتۆپێک لەسەر ستاندێک"
+  },
+  "Our story": {
+    "ar": "قصتنا",
+    "ku": "چیرۆکی ئێمە"
+  },
+  "ITLand ForComputer was created to bring high-quality technology products to customers who value performance, design, and reliability. We focus on premium brands like Logitech and carefully selected accessories that enhance your daily workflow, gaming, and productivity.": {
+    "ar": "تأسس ITLand ForComputer ليقدم منتجات تقنية عالية الجودة للعملاء الذين يقدّرون الأداء والتصميم والموثوقية. نركز على العلامات المميزة مثل Logitech وعلى إكسسوارات مختارة بعناية تحسّن عملك اليومي وألعابك وإنتاجيتك.",
+    "ku": "ITLand ForComputer دروستکراوە بۆ گەیاندنی بەرهەمی تەکنەلۆژیی کوالیتی بەرز بەو کڕیارانەی بایەخ بە کارامەیی، دیزاین و متمانەپێکراوی دەدەن. ئێمە سەرنجمان لەسەر براندە پێشەنگەکانی وەک Logitech و کۆمەڵێک ئێکسسواراتی هەڵبژێردراوە کە ڕەوتی کاری ڕۆژانە، یاریکردن و بەرهەمداریت باشتر دەکەن."
+  },
+  "Based in Erbil, Iraq, we understand what local customers need: fast delivery, honest support, and gear you can trust. Every product in our store has been personally reviewed for quality before it reaches your hands.": {
+    "ar": "من مقرنا في أربيل، العراق، نعرف ما يحتاجه العملاء المحليون: توصيل سريع، ودعم صادق، ومنتجات يمكنك الوثوق بها. كل منتج في متجرنا تمت مراجعة جودته شخصياً قبل أن يصل إلى يديك.",
+    "ku": "بنکەمان لە هەولێرە لە عێراق، بە باشی لە پێداویستیی کڕیارانی خۆمان تێدەگەین: گەیاندنی خێرا، پاڵپشتیی ڕاستگۆیانە، و کەلوپەلێک کە متمانەت پێی هەبێت. هەموو بەرهەمێک لە فرۆشگاکەماندا پێش ئەوەی بگاتە دەستت، لەلایەن خۆمانەوە پشکنینی کوالیتی بۆ کراوە."
+  },
+  "Why choose us": {
+    "ar": "لماذا تختارنا",
+    "ku": "بۆچی ئێمە هەڵبژێریت"
+  },
+  "High quality products": {
+    "ar": "منتجات عالية الجودة",
+    "ku": "بەرهەمی کوالیتی بەرز"
+  },
+  "We exclusively carry trusted brands, hand-selected for build quality, durability, and performance.": {
+    "ar": "نتعامل حصرياً مع علامات موثوقة، مختارة بعناية لجودة التصنيع والمتانة والأداء.",
+    "ku": "ئێمە تەنها براندە جێی متمانەکان دەهێنین، کە بە دەست هەڵبژێردراون لە ڕووی کوالیتی دروستکردن، مانەوە و کارامەیی."
+  },
+  "Delivery everywhere": {
+    "ar": "توصيل إلى كل مكان",
+    "ku": "گەیاندن بۆ هەموو شوێنێک"
+  },
+  "Delivery across all Iraq and Kurdistan. Confirm delivery fees and estimated arrival times on WhatsApp.": {
+    "ar": "توصيل إلى جميع أنحاء العراق وكردستان. تأكد من رسوم التوصيل وموعد الوصول المتوقع عبر واتساب.",
+    "ku": "گەیاندن بۆ سەرانسەری هەموو عێراق و کوردستان. بۆ دڵنیابوونەوە لە نرخی گەیاندن و کاتی چاوەڕوانکراوی گەیشتن، لە ڕێگەی WhatsApp پەیوەندیمان پێوە بکە."
+  },
+  "Customer support": {
+    "ar": "دعم العملاء",
+    "ku": "پاڵپشتیی کڕیاران"
+  },
+  "Reach us instantly via WhatsApp. Real people, real answers, no bots and no delays.": {
+    "ar": "تواصل معنا فوراً عبر واتساب. أشخاص حقيقيون وإجابات حقيقية، بلا روبوتات وبلا تأخير.",
+    "ku": "دەستبەجێ لە ڕێگەی WhatsApp پەیوەندیمان پێوە بکە. کەسانی ڕاستەقینە، وەڵامی ڕاستەقینە، بەبێ بۆت و بەبێ دواکەوتن."
+  },
+  "Warranty and trust": {
+    "ar": "الضمان والثقة",
+    "ku": "گرەنتی و متمانە"
+  },
+  "Ask our team to confirm the warranty coverage and return terms for your exact product before ordering.": {
+    "ar": "اطلب من فريقنا تأكيد تغطية الضمان وشروط الإرجاع لمنتجك بالتحديد قبل الطلب.",
+    "ku": "پێش داواکردن، داوا لە تیمەکەمان بکە بۆ دڵنیابوونەوە لە ماوەی گرەنتی و مەرجەکانی گەڕاندنەوەی تایبەت بە بەرهەمەکەت."
+  },
+  "We aim to become the go-to destination for premium tech in Iraq.": {
+    "ar": "نطمح لأن نكون الوجهة الأولى للتقنية المميزة في العراق.",
+    "ku": "ئامانجمان ئەوەیە ببینە شوێنی سەرەکی بۆ کڕینی کەلوپەلی تەکنەلۆژیی ئاستبەرز لە عێراق."
+  },
+  "Our mission is to make world-class technology accessible, affordable, and delivered with care right here in Iraq.": {
+    "ar": "مهمتنا أن نجعل التقنية العالمية في متناول الجميع وبأسعار مناسبة، وأن نوصلها بعناية هنا في العراق.",
+    "ku": "ئەرکی ئێمە ئەوەیە تەکنەلۆژیای ئاستی جیهانی بەردەست و گونجاو بکەین بە نرخێکی شیاو، و بە وریاییەوە بیگەیەنین لێرە لە عێراق."
+  },
+  "Contact us": {
+    "ar": "اتصل بنا",
+    "ku": "پەیوەندیمان پێوە بکە"
+  },
+  "Delivery across all Iraq and Kurdistan. Ask on WhatsApp for fees and delivery times.": {
+    "ar": "توصيل إلى جميع أنحاء العراق وكردستان. اسأل عبر واتساب عن الرسوم ومدة التوصيل.",
+    "ku": "گەیاندن بۆ سەرانسەری هەموو عێراق و کوردستان. لە WhatsApp پرسیار لەبارەی کرێ و کاتی گەیاندن بکە."
+  },
+  "The fastest way to order or ask a question.": {
+    "ar": "أسرع طريقة للطلب أو لطرح سؤال.",
+    "ku": "خێراترین ڕێگا بۆ داواکردن یان پرسیارکردن."
+  },
+  "During opening hours.": {
+    "ar": "خلال ساعات العمل.",
+    "ku": "لە ماوەی کاتژمێرەکانی کارکردندا."
+  },
+  "For quotes and company orders.": {
+    "ar": "لعروض الأسعار وطلبات الشركات.",
+    "ku": "بۆ وەرگرتنی نرخ و داواکاریی کۆمپانیاکان."
+  },
+  "Open in Google Maps.": {
+    "ar": "افتح في خرائط Google.",
+    "ku": "لە Google Maps بیکەرەوە."
+  },
+  "Phone": {
+    "ar": "الهاتف",
+    "ku": "تەلەفۆن"
+  },
+  "Email": {
+    "ar": "البريد الإلكتروني",
+    "ku": "ئیمەیڵ"
+  },
+  "Store": {
+    "ar": "المتجر",
+    "ku": "فرۆشگا"
+  },
+  "Muzaffariya Street, Erbil": {
+    "ar": "شارع المظفرية، أربيل",
+    "ku": "شەقامی موزەفەریە، هەولێر"
+  },
+  "Prefer to chat?": {
+    "ar": "تفضّل المحادثة؟",
+    "ku": "پێت باشترە نامە بنێریت؟"
+  },
+  "Send us the product name or a photo and we will reply with the price and availability.": {
+    "ar": "أرسل لنا اسم المنتج أو صورة وسنرد عليك بالسعر والتوفر.",
+    "ku": "ناوی بەرهەمەکە یان وێنەیەکی بنێرە و ئێمە وەڵامت دەدەینەوە بە نرخ و بەردەستبوونی."
+  },
+  "Ways to reach us": {
+    "ar": "طرق التواصل معنا",
+    "ku": "ڕێگاکانی پەیوەندیکردن بە ئێمە"
   }
 }

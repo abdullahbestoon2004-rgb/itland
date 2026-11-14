@@ -1,8 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProducts, orderMessage, relatedProducts, whatsappLink } from '../src/utils/storefront.js';
-import { parseMarketRate, isFreshRate, formatIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
+import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProducts, shopDay, orderMessage, relatedProducts, whatsappLink } from '../src/utils/storefront.js';
+import { parseMarketRate, isFreshRate, formatIqd, formatIqdAmount, iqdTotal, toIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
 import { shortProductTitle } from '../src/utils/seo.js';
+import { colourOf, withColourVariants } from '../src/utils/colours.js';
+import { ROOM_SIZES, roomSizePicks, videoConferencingGroup, videoConferencingProducts } from '../src/utils/videoConferencing.js';
 
 const now = Date.now();
 const market = { kind: 'fx', unit: 'IQD per 1 USD', generatedAt: new Date(now).toISOString(), parallel: { stale: false, buy: 1500, sell: 1520, publishedAt: new Date(now).toISOString() } };
@@ -62,7 +64,8 @@ test('search titles keep the model and colour of long catalog names', () => {
 
 test('IQD uses buy/sell midpoint and rejects stale, future, official or malformed observations', () => {
     assert.equal(rate.rate, 1510);
-    assert.equal(formatIqd(10, rate), '15,100 IQD');
+    // 10 USD at 1,510 is 15,100, shown as the nearest 250.
+    assert.equal(formatIqd(10, rate), '15,000 IQD');
     for (const altered of [
         { ...market, kind: 'official' },
         { ...market, parallel: { ...market.parallel, stale: true } },
@@ -75,9 +78,26 @@ test('IQD uses buy/sell midpoint and rejects stale, future, official or malforme
     assert.equal(formatIqd(10, null), null);
 });
 
+test('IQD prices are rounded to the nearest 250, and totals equal their lines added up', () => {
+    const at = snapshotRate => ({ ...rate, rate: snapshotRate });
+    assert.equal(toIqd(30, at(1694.5)), 50750);       // 50,835
+    assert.equal(toIqd(100, at(1694.5)), 169500);     // 169,450
+    assert.equal(toIqd(75, at(1694.5)), 127000);      // 127,087.5
+    assert.equal(toIqd(120, at(1694.5)), 203250);     // 203,340
+    assert.equal(toIqd(0.25, at(1500)), 500);         // 375 is halfway and rounds up
+    for (const usd of [1, 7.5, 19.99, 45, 333]) assert.equal(toIqd(usd, at(1694.5)) % 250, 0);
+    assert.equal(toIqd(10, null), null);
+    // Two of a 50,835 item cost 2 x 50,750, not 101,670 rounded on its own.
+    assert.equal(formatIqd(30, at(1694.5), 2), '101,500 IQD');
+    const cart = [{ price: 30, quantity: 2 }, { price: 100, quantity: 1 }];
+    assert.equal(iqdTotal(cart, at(1694.5)), 101500 + 169500);
+    assert.equal(formatIqdAmount(iqdTotal(cart, at(1694.5))), '271,000 IQD');
+    assert.equal(formatIqdAmount(iqdTotal(cart, null)), null);
+});
+
 test('WhatsApp request includes IQD subtotal, delivery details and confirmation boundary', () => {
     const message = orderMessage([{ id: 'abc', name: 'Mouse', price: 10, quantity: 2 }], { name: 'Test Customer', city: 'Erbil', notes: 'Call first' }, rate);
-    assert.match(message, /30,200 IQD/);
+    assert.match(message, /30,000 IQD/);
     assert.match(message, /City \/ area: Erbil/);
     assert.match(message, /Delivery fee: please confirm/);
     assert.match(message, /confirmed only after your reply/);
@@ -149,6 +169,32 @@ test('products API hides internal and wholesale prices except from signed wholes
     assert.equal(res.statusCode, 401);
 });
 
+test('admin catalog access needs an admin_users row and a two-step (aal2) session', async (t) => {
+    const original = { fetch: globalThis.fetch, env: { ...process.env } };
+    Object.assign(process.env, { SUPABASE_URL: 'https://db.example.co', SUPABASE_PUBLISHABLE_KEY: 'public-key' });
+    const requests = [];
+    let rows = [{ email: 'owner@example.com' }];
+    globalThis.fetch = async (url, init) => {
+        requests.push({ url: String(url), auth: init?.headers?.Authorization });
+        return { ok: true, status: 200, json: async () => rows };
+    };
+    t.after(() => { globalThis.fetch = original.fetch; process.env = original.env; });
+    const { isAdminToken } = await import('../server/access.js');
+    const jwt = (claims) => `header.${Buffer.from(JSON.stringify(claims)).toString('base64url')}.signature`;
+
+    assert.equal(await isAdminToken(jwt({ aal: 'aal1', email: 'owner@example.com' })), false);
+    assert.equal(await isAdminToken(jwt({ email: 'owner@example.com' })), false);
+    assert.equal(await isAdminToken('not-a-jwt'), false);
+    assert.equal(requests.length, 0);
+
+    const verified = jwt({ aal: 'aal2', email: 'owner@example.com' });
+    assert.equal(await isAdminToken(verified), true);
+    assert.equal(requests.at(-1).url, 'https://db.example.co/rest/v1/admin_users?select=email&limit=1');
+    assert.equal(requests.at(-1).auth, `Bearer ${verified}`);
+    rows = [];
+    assert.equal(await isAdminToken(verified), false);
+});
+
 test('catalog keeps serving the last good list while Zoho fails, without retrying on every request', async (t) => {
     const original = { fetch: globalThis.fetch, env: { ...process.env } };
     Object.assign(process.env, { ZOHO_ORG_ID: 'org', ZOHO_REFRESH_TOKEN: 'refresh' });
@@ -193,4 +239,106 @@ test('products new in Zoho without a photo get no stand-in photo', async (t) => 
     const { getCatalog } = await import('../server/zoho.js?test=photos');
     const { products } = await getCatalog();
     assert.deepEqual(products.map((product) => product.images), [[], [], ['https://example.com/m171.jpg']]);
+});
+
+test('home page prefers products with a photo and keeps Zoho featured order', () => {
+    const bare = { id: 'a', price: 10, category: 'Mice' };
+    const photo = { id: 'b', price: 10, category: 'Mice', images: ['/b.png'] };
+    assert.deepEqual(homeProducts([bare, photo]).products.map(p => p.id), ['b', 'a']);
+    assert.deepEqual(homeProducts([{ ...bare, featured: true }, { ...photo, featured: true }]).products.map(p => p.id), ['a', 'b']);
+});
+
+test('home page picks change every day, stay the same within a day and cover the whole catalog', () => {
+    const catalog = ['Mice', 'Keyboards', 'Headsets', 'Webcams'].flatMap(category => Array.from({ length: 10 }, (_, n) => ({ id: `${category}-${n}`, price: 10, category, images: ['/x.png'] })));
+    const ids = day => homeProducts(catalog, day).products.map(product => product.id);
+    assert.deepEqual(ids(100), ids(100));
+    assert.equal(ids(100).length, 8);
+    assert.equal(ids(100).filter(id => ids(101).includes(id)).length, 0);
+    assert.deepEqual(homeProducts(catalog, 100).products.slice(0, 4).map(product => product.category), ['Mice', 'Keyboards', 'Headsets', 'Webcams']);
+    assert.equal(new Set(Array.from({ length: 5 }, (_, day) => ids(day)).flat()).size, 40);
+    // The day turns over at midnight in Erbil (21:00 UTC), not at midnight UTC.
+    assert.equal(shopDay(Date.UTC(2026, 10, 14, 20, 59)), shopDay(Date.UTC(2026, 10, 14, 0, 0)));
+    assert.equal(shopDay(Date.UTC(2026, 10, 14, 21, 0)), shopDay(Date.UTC(2026, 10, 14, 20, 59)) + 1);
+    // More than eight Featured products rotate among themselves; eight or fewer stay as marked.
+    const marked = catalog.slice(0, 12).map(product => ({ ...product, featured: true }));
+    assert.ok(homeProducts([...marked, ...catalog.slice(12)], 7).products.every(product => product.featured));
+    assert.notDeepEqual(homeProducts(marked, 7).products, homeProducts(marked, 8).products);
+});
+
+test('video conferencing page groups meeting-room products and leaves other items out', () => {
+    const group = name => videoConferencingGroup({ name, description: '' });
+    assert.equal(group('Logitech Rally Bar Video Conferencing Bar 960-001312 Graphite'), 'rooms');
+    assert.equal(group('Logitech MeetUp All-in-One 4K ConferenceCam with 120° FOV Lens 960-001101'), 'rooms');
+    assert.equal(group('Logitech Conference Cam BCC950 Video Conference Webcam, HD 1080p Camera with Built-In Speakerphone'), 'rooms');
+    assert.equal(group('LOGITECH MEETUP EXPANSION MICROPHONE 989-000405'), 'audio');
+    assert.equal(group('Jabra Speak2 40 Portable Speakerphone'), 'audio');
+    assert.equal(group('Logitech PTZ Pro 2 HD Video Conference Camera CC2900ep'), 'cameras');
+    assert.equal(group('Logitech C930e 1080p Business Webcam'), 'cameras');
+    assert.equal(group('Logitech TAP Touch Meeting Room Controller 939-001950'), 'control');
+    assert.equal(group('Logitech 939-001498 TV Mount for MeetUp Conference Camera'), 'accessories');
+    assert.equal(group('Meetup 10M Extended cable for Expansion mic 950-000005'), 'accessories');
+    for (const name of ['Logitech C270 HD Webcam', 'Logitech G502 Gaming Mouse', 'Heckler Tripod Mount for Logitech MeetUp', 'Rapoo C280 2K Business Webcam', 'Blue Yeti USB Microphone', 'B09WTS338X']) assert.equal(group(name), null, name);
+
+    const catalog = [
+        { id: '1', name: 'Logitech Rally Bar Video Conferencing Bar 960-001312 Graphite', price: 3600, in_stock: false },
+        { id: '2', name: 'Logitech Wall Mount for Video Bars & Bar mini 952-000044', price: 130, in_stock: true },
+        { id: '3', name: 'Logitech GROUP Video Conferencing System 960-001057', price: 900, in_stock: true },
+        { id: '4', name: 'Logitech Mouse', price: 20, in_stock: true },
+    ];
+    // In stock first; unrelated products never appear.
+    assert.deepEqual(videoConferencingProducts(catalog).map(item => item.product.id), ['3', '2', '1']);
+    // Suggestions never include mounts or cables, and offer what is in stock before sold-out models.
+    const medium = ROOM_SIZES.find(size => size.id === 'medium');
+    assert.deepEqual(roomSizePicks(catalog, medium).map(product => product.id), ['3', '1']);
+});
+
+test('video conferencing page shows each model once, keeping the listing that is in stock', () => {
+    const item = (id, name, extra = {}) => ({ id, name, description: '', price: 100, in_stock: true, ...extra });
+    const shown = catalog => videoConferencingProducts(catalog).map(entry => entry.product.id);
+    // Five barcodes of the Brio 4K, one of them in stock: only that one is shown.
+    assert.deepEqual(shown([
+        item('1', 'Logitech Brio 4K Pro webcam with RightLight3 and HDR', { in_stock: false }),
+        item('2', 'Logitech BRIO ULTRA HD PRO BUSINESS WEBCAM Premium 4K', { in_stock: false }),
+        item('3', 'Logitech C1000e MPN:960-001107 BRIO 4K webcast wide-angle'),
+        item('4', 'Logitech BRIO 4K STREAM EDITION WEBCAM C1000e', { in_stock: false }),
+    ]), ['3']);
+    // All sold out: the model still appears, once. A different model stays.
+    assert.deepEqual(shown([
+        item('1', 'Logitech MX BRIO 4K Ultra HD 960-001545 Collaboration Webcam', { in_stock: false }),
+        item('2', 'Logitech MX Brio 705 for Business 4K Webcam with Auto Light', { in_stock: false }),
+        item('3', 'Logitech Brio 4K Webcam', { in_stock: false }),
+    ]), ['1', '3']);
+    // Several in stock: the listing with the shop's own short name wins.
+    assert.deepEqual(shown([item('1', 'Logitech MX BRIO 4K Ultra HD 960-001545'), item('2', 'Logitech MX Brio', { tagline: '4K, AI framing, USB-C' })]), ['2']);
+    // Another colour is its own card; so is a different product that shares a word.
+    assert.deepEqual(shown([item('1', 'Logitech MX Brio 4K Webcam Graphite'), item('2', 'Logitech MX Brio 4K Webcam Pale Grey')]).length, 2);
+    // A colour word on only one of the listings does not split the model.
+    assert.deepEqual(shown([item('1', 'Logitech MX Brio', { in_stock: false }), item('2', 'Logitech MX BRIO 4K Ultra HD 960-001545 Graphite', { in_stock: false })]), ['1']);
+    assert.deepEqual(shown([item('1', 'Logitech MeetUp 4K ConferenceCam'), item('2', 'Logitech MeetUp Expansion Mic'), item('3', 'Jabra Speak 510 UC'), item('4', 'Jabra Speak 710 MS')]).length, 4);
+    // Mounts and cables only merge when they show the very same photo.
+    assert.deepEqual(shown([
+        item('1', 'Logitech Group 10M Extended Cable 939-001487', { images: ['/10m.png'] }),
+        item('2', 'Logitech Group 10M Extended Cable 939-001488', { images: ['/10m.png'], in_stock: false }),
+        item('3', 'Logitech Group 15M Extended Cable 939-001490', { images: ['/15m.png'] }),
+    ]), ['1', '3']);
+});
+
+test('colour dots group listings of one model and ignore look-alikes', () => {
+    assert.equal(colourOf('Logitech MX Master 3S Wireless Mouse - Pale Grey').label, 'Pale Grey');
+    assert.equal(colourOf('Logitech M185 Bluetooth Mouse'), null);
+    // "Blue" in Blue Yeti is the brand, not a colour.
+    assert.equal(colourOf('Blue Yeti USB Microphone'), null);
+    const item = (id, name, extra = {}) => ({ id, name, brand: 'Logitech', price: 10, in_stock: true, ...extra });
+    const catalog = withColourVariants([
+        item('1', 'Logitech G502 X PLUS LIGHTSPEED Wireless Gaming Mouse 910-006160 Black'),
+        item('2', 'Logitech G502 X PLUS LIGHTSPEED Wireless Gaming Mouse 910-006169 White'),
+        item('3', 'Logitech G502 X PLUS LIGHTSPEED Wireless Gaming Mouse 910-006170 White', { in_stock: false }),
+        item('4', 'Logitech MX Keys Mini Keyboard Graphite'),
+        item('5', 'Logitech C920 Webcam'),
+    ]);
+    // One dot per colour, pointing at the listing that is in stock.
+    assert.deepEqual(catalog[0].variants.map(variant => [variant.id, variant.colour]), [['1', 'Black'], ['2', 'White']]);
+    assert.equal(catalog[1].variants, catalog[0].variants);
+    // A second listing of a colour, a model with one colour and a model with none get no dots.
+    for (const index of [2, 3, 4]) assert.equal(catalog[index].variants, undefined);
 });

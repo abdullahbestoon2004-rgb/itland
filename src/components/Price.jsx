@@ -1,8 +1,10 @@
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
-import { formatIqd, isFreshRate } from '../utils/currency';
+import { formatIqd, formatIqdAmount, iqdTotal, isFreshRate } from '../utils/currency';
+// One product's price, or with `items` the total of cart lines ({ price, quantity }).
 export default function Price({
-  usd
+  usd,
+  items
 }) {
   const {
     t
@@ -11,7 +13,7 @@ export default function Price({
     snapshot,
     loading
   } = useCurrency();
-  return <bdi className="iqd-price">{formatIqd(usd, snapshot) ?? (loading ? t('Loading IQD price…') : t('Confirm IQD price'))}</bdi>;
+  return <bdi className="iqd-price">{(items ? formatIqdAmount(iqdTotal(items, snapshot)) : formatIqd(usd, snapshot)) ?? (loading ? t('Loading IQD price…') : t('Confirm IQD price'))}</bdi>;
 }
 export function CurrencyNote() {
   const {

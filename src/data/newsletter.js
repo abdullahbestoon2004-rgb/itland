@@ -1,5 +1,6 @@
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
-import { isValidEmail } from './messages';
+
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email).trim());
 
 const NEWSLETTER_TABLE = 'newsletter_subscribers';
 const DUPLICATE_KEY = '23505';

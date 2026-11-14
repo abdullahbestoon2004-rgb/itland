@@ -1,4 +1,4 @@
-import { formatIqd, isFreshRate } from './currency.js';
+import { formatIqd, formatIqdAmount, iqdTotal, isFreshRate } from './currency.js';
 export const WHATSAPP_NUMBER = '9647504888570';
 export const WHATSAPP_DISPLAY = '07504888570';
 export const whatsappLink = (message = '') => `https://wa.me/${WHATSAPP_NUMBER}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
@@ -43,22 +43,52 @@ export function cleanProductName(product) {
     return `${short.slice(0, end > 80 ? end : 117).replace(/[\s,;:-]+$/, '')}…`;
 }
 
-export function homeProducts(products) {
-    const available = products.filter((product) => !isOutOfStock(product) && Number(product.price) > 0);
-    const featured = available.filter((product) => product.featured);
-    // Products marked Featured in Zoho keep their order; otherwise take one per
-    // category in turn so the home page isn't eight variants of one headset.
-    return { products: featured.length ? featured.slice(0, 8) : mixCategories(available, 8), featured: featured.length > 0 };
+const hasPhoto = (product) => Boolean(product.images?.[0] || product.image);
+
+// The shop's calendar day in Erbil (UTC+3) as a whole number that goes up by
+// one at local midnight. The home page uses it to change its picks daily.
+export const shopDay = (now = Date.now()) => Math.floor((Number(now) + 3 * 3600_000) / 86_400_000);
+
+const HOME_COUNT = 8;
+
+export function homeProducts(products, day = shopDay()) {
+    const inStock = products.filter((product) => !isOutOfStock(product) && Number(product.price) > 0);
+    const featured = inStock.filter((product) => product.featured);
+    // A short list marked Featured in Zoho is shown as it is, in Zoho's order.
+    if (featured.length && featured.length <= HOME_COUNT) return { products: featured, featured: true };
+    // Otherwise the row changes every day. A card without a photo is a blank
+    // tile, so those only fill the row when there are not enough with one.
+    const pool = featured.length ? featured : inStock;
+    const picked = dailyMix(pool.filter(hasPhoto), HOME_COUNT, day);
+    if (picked.length < HOME_COUNT) picked.push(...dailyMix(pool.filter((product) => !hasPhoto(product)), HOME_COUNT - picked.length, day));
+    return { products: picked, featured: featured.length > 0 };
 }
 
-function mixCategories(products, count) {
+function stableHash(value) {
+    let hash = 2166136261;
+    for (const char of String(value)) hash = Math.imul(hash ^ char.codePointAt(0), 16777619);
+    return hash >>> 0;
+}
+
+// One product per category in turn, so the row isn't eight variants of one
+// headset. Each category keeps a fixed shuffled order and starts further along
+// it each day, so today's picks are not yesterday's and every product gets a turn.
+function dailyMix(products, count, day) {
     const byCategory = new Map();
     for (const product of products) {
         const key = product.category ?? '';
         if (!byCategory.has(key)) byCategory.set(key, []);
         byCategory.get(key).push(product);
     }
-    const queues = [...byCategory.values()];
+    const perCategory = Math.ceil(count / Math.max(1, byCategory.size));
+    const queues = [...byCategory.values()].map((list) => {
+        if (list.length <= perCategory) return [...list];
+        const shuffled = list.map((product, index) => ({ product, index, order: stableHash(product.id ?? index) }))
+            .sort((first, second) => first.order - second.order || first.index - second.index)
+            .map((entry) => entry.product);
+        const start = ((day * perCategory) % shuffled.length + shuffled.length) % shuffled.length;
+        return [...shuffled.slice(start), ...shuffled.slice(0, start)];
+    });
     const picked = [];
     while (picked.length < count && queues.some((queue) => queue.length)) {
         for (const queue of queues) {
@@ -114,13 +144,12 @@ export function relatedProducts(product, catalog, count = 8) {
 }
 
 export function orderMessage(items, details = {}, snapshot = null) {
-    const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     return [
         '*Hello IT Land! I would like to request this order:*',
         '',
-        ...items.map((item) => `- ${item.name} [${item.id}] (x${item.quantity}) — ${formatIqd(item.price * item.quantity, snapshot) ?? 'please confirm IQD price'}`),
+        ...items.map((item) => `- ${item.name} [${item.id}] (x${item.quantity}) — ${formatIqd(item.price, snapshot, item.quantity) ?? 'please confirm IQD price'}`),
         '',
-        `*Product subtotal: ${formatIqd(subtotal, snapshot) ?? 'please confirm IQD total'}*`,
+        `*Product subtotal: ${formatIqdAmount(iqdTotal(items, snapshot)) ?? 'please confirm IQD total'}*`,
         isFreshRate(snapshot) && `Indicative IQD conversion: 1 USD = ${snapshot.rate} IQD (IQWealth Baghdad market, ${snapshot.asOf}).`,
         'Delivery fee: please confirm.',
         details.name?.trim() ? `Name: ${details.name.trim()}` : null,

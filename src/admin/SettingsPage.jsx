@@ -259,19 +259,6 @@ function WebsiteSettings() {
     const [saveError, setSaveError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const handlePromoImageUpload = async (e) => {
-        const file = e.target.files[0];
-        e.target.value = '';
-        if (!file) return;
-        setSaveError('');
-        try {
-            const image = await imageFileToDataUrl(file, { maxWidth: 1920 });
-            setSettings((prev) => ({ ...prev, promoBannerImage: image }));
-        } catch (error) {
-            setSaveError(error.message);
-        }
-    };
-
     const handleCategoryImageChange = (index, image) => {
         setSettings((prev) => {
             const next = [...prev.featuredCategories];
@@ -311,41 +298,12 @@ function WebsiteSettings() {
     return (
         <section className="adm-panel">
             <h2 className="adm-h2"><Globe size={18} /> Website</h2>
-            <p className="adm-muted adm-small">The promo banner and featured categories on itlandforcomputer.com.</p>
+            <p className="adm-muted adm-small">The featured categories on itlandforcomputer.com.</p>
             <form onSubmit={handleSave} className="adm-form">
                 {isLoadingSettings && <Spinner label="Loading website settings…" />}
                 {settingsError && <Notice tone="error">{settingsError}</Notice>}
                 {saveError && <Notice tone="error">{saveError}</Notice>}
                 {success && !saveError && <Notice tone="ok">{success}</Notice>}
-
-                <Toggle
-                    checked={settings.promoBannerVisible}
-                    onChange={(v) => setSettings((prev) => ({ ...prev, promoBannerVisible: v }))}
-                    label="Show promo banner"
-                />
-                <div className="adm-form-grid">
-                    <Field label="Promo banner title">
-                        <input className="adm-input" type="text" value={settings.promoBannerTitle}
-                            onChange={(e) => setSettings((prev) => ({ ...prev, promoBannerTitle: e.target.value }))} placeholder="Enter banner title..." />
-                    </Field>
-                    <Field label="Promo banner subtitle">
-                        <input className="adm-input" type="text" value={settings.promoBannerSubtitle}
-                            onChange={(e) => setSettings((prev) => ({ ...prev, promoBannerSubtitle: e.target.value }))} placeholder="Enter banner subtitle..." />
-                    </Field>
-                </div>
-                <Field label="Promo banner background image">
-                    <div className="adm-image-input">
-                        <span className="adm-thumb adm-thumb--wide">{settings.promoBannerImage ? <img src={settings.promoBannerImage} alt="" /> : null}</span>
-                        <div className="adm-image-input__side">
-                            <input className="adm-input" type="text" value={settings.promoBannerImage}
-                                onChange={(e) => setSettings((prev) => ({ ...prev, promoBannerImage: e.target.value }))} placeholder="Image URL..." />
-                            <label className="adm-btn adm-btn--ghost adm-btn--sm">
-                                <Upload size={14} /> Upload image
-                                <input type="file" accept="image/*" hidden onChange={handlePromoImageUpload} />
-                            </label>
-                        </div>
-                    </div>
-                </Field>
 
                 {settings.featuredCategories && (
                     <>

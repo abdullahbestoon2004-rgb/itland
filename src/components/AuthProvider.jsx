@@ -3,9 +3,31 @@ import { AuthContext } from '../context/AuthContext';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
 
 /**
- * Admin identity comes from Supabase Auth (Google OAuth). The `isAdmin` flag
- * below only controls what the UI shows — the real gate is the `is_admin()`
- * check in the row level security policies, so a forged flag buys nothing.
+ * The assurance level of a session: 'aal2' once an authenticator code was
+ * entered, otherwise 'aal1'. Read from the access token, like
+ * supabase.auth.mfa.getAuthenticatorAssuranceLevel() does, so it updates with
+ * every session change (including MFA_CHALLENGE_VERIFIED) without a request.
+ */
+function sessionAal(session) {
+    const payload = session?.access_token?.split('.')[1];
+    if (!payload) return null;
+    try {
+        const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+        const bytes = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+        return JSON.parse(new TextDecoder().decode(bytes)).aal ?? null;
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Admin identity comes from Supabase Auth (Google OAuth). The flags below only
+ * control what the UI shows — the real gate is the `is_admin()` check in the row
+ * level security policies, so a forged flag buys nothing.
+ *
+ * `isAdmin` means the account is on the admin_users allow-list (that row is
+ * readable at aal1). Admins must also finish two-step sign-in: `is_admin()` only
+ * passes at aal2, so the dashboard needs `isVerifiedAdmin`, not just `isAdmin`.
  */
 export default function AuthProvider({ children }) {
     const [session, setSession] = useState(null);
@@ -94,9 +116,12 @@ export default function AuthProvider({ children }) {
         setIsAdmin(false);
     }, []);
 
+    const aal = sessionAal(session);
+    const isVerifiedAdmin = isAdmin && aal === 'aal2';
+
     const value = useMemo(
-        () => ({ session, user: session?.user ?? null, isAdmin, isLoading, authError, signInWithGoogle, signOut }),
-        [session, isAdmin, isLoading, authError, signInWithGoogle, signOut],
+        () => ({ session, user: session?.user ?? null, isAdmin, aal, isVerifiedAdmin, isLoading, authError, signInWithGoogle, signOut }),
+        [session, isAdmin, aal, isVerifiedAdmin, isLoading, authError, signInWithGoogle, signOut],
     );
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

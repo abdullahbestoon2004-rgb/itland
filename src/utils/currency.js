@@ -23,7 +23,28 @@ export function isFreshRate(snapshot, now = Date.now()) {
         Number.isFinite(at) && at <= now + 300_000 && now - at <= MAX_RATE_AGE;
 }
 
-export function formatIqd(usd, snapshot) {
+// Dinar prices end in 000, 250, 500 or 750: the 250 note is the smallest in use.
+export const IQD_STEP = 250;
+
+/** One unit's price in dinars, rounded to the nearest 250, or null without a usable rate. */
+export function toIqd(usd, snapshot) {
     if (!isFreshRate(snapshot) || !Number.isFinite(Number(usd))) return null;
-    return `${Math.round(Number(usd) * snapshot.rate).toLocaleString('en-US')} IQD`;
+    return Math.round(Number(usd) * snapshot.rate / IQD_STEP) * IQD_STEP;
+}
+
+/**
+ * The total for cart lines ({ price, quantity }): each line is its rounded unit
+ * price times the quantity, so the total always equals the lines added up.
+ */
+export function iqdTotal(items, snapshot) {
+    if (!isFreshRate(snapshot)) return null;
+    return items.reduce((sum, item) => sum + (toIqd(item.price, snapshot) ?? 0) * (Number(item.quantity) || 1), 0);
+}
+
+export const formatIqdAmount = (iqd) => (iqd === null || iqd === undefined ? null : `${iqd.toLocaleString('en-US')} IQD`);
+
+/** "50,750 IQD" for a USD price; with a quantity, that many units at the rounded unit price. */
+export function formatIqd(usd, snapshot, quantity = 1) {
+    const unit = toIqd(usd, snapshot);
+    return unit === null ? null : formatIqdAmount(unit * quantity);
 }

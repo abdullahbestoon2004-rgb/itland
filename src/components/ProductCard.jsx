@@ -5,6 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, ShoppingCart } from 'lucide-react';
 import { toProductSlug } from '../data/products';
+import { shortProductTitle } from '../utils/seo';
 import { useWholesale } from '../context/WholesaleContext';
 import ProductImage from './ProductImage';
 import './ProductCard.css';
@@ -57,57 +58,58 @@ export default function ProductCard({
       category: displayCategory
     });
   };
+  const openPreview = () => onImageClick && onImageClick({
+    ...product,
+    name: displayName,
+    category: displayCategory
+  });
+  const retailPrice = hasRetailPrice ? <span className="product-price"><Price usd={product.price} /></span> : <button type="button" className="product-price contact-price contact-price-btn" onClick={handleContactForPrice} title="Click to inquire via WhatsApp">{t("Contact for price")}</button>;
+  // A grey tile with the photo, then the name, a short line of detail, and the
+  // price next to the action — the same order on every card.
   return <div className="product-card">
-            <div className="product-image-container" onClick={() => onImageClick && onImageClick({
-      ...product,
-      name: displayName,
-      category: displayCategory
-    })} style={{
+            <div className="product-image-container" onClick={openPreview} style={{
       cursor: 'pointer'
     }}>
+                {unavailable && <span className="stock-badge out">{t("Out of stock")}</span>}
                 <ProductImage src={image} alt={displayName} category={displayCategory} className="product-image" loading="lazy" />
-
-                <div className="product-overlay">
-                    {unavailable ? <span className="stock-badge out">{t("Out of stock")}</span> : isContactForPrice ? <button type="button" className="btn btn-primary add-to-cart-btn contact-action-btn" onClick={handleContactForPrice}>
-
-                            <MessageCircle size={18} />
-                            <span>{t("Contact for Price")}</span>
-                        </button> : <button type="button" className="btn btn-primary add-to-cart-btn" onClick={handleCardAddToCart}>
-
-                            <ShoppingCart size={18} />
-                            <span>{t("Add to Cart")}</span>
-                        </button>}
-                </div>
+                {product.variants?.length > 1 && <div className="product-swatches" role="group" aria-label={t("Colours")}>
+                        {product.variants.map(variant => <Link key={variant.id} to={`/product/${toProductSlug(variant)}`} className={`product-swatch ${String(variant.id) === String(product.id) ? 'active' : ''}`} style={{
+          backgroundColor: variant.hex
+        }} title={variant.colour} aria-label={variant.colour} onClick={event => event.stopPropagation()} />)}
+                    </div>}
             </div>
             <div className="product-info">
-                <div className="product-meta-header">
-                    <span className="product-category">{t(displayCategory)}</span>
-                    {product.brand && <span className="product-brand-tag">{product.brand}</span>}
-                </div>
                 <h3 className="product-name" title={displayName}>
                     <Link to={`/product/${toProductSlug({
           ...product,
           name: displayName
         })}`} className="product-name-link">
-                        {displayName}
+                        {shortProductTitle(displayName)}
                     </Link>
                 </h3>
-                <p className={`product-stock ${unavailable ? 'out' : product.in_stock === true ? 'in' : ''}`}>{unavailable ? t("Out of stock") : product.in_stock === true ? t("In stock") : t("Confirm availability on WhatsApp")}</p>
-                <div className="product-price-block">
-                    {wholesaleClient ? hasWholesalePrice ? <>
+                {product.tagline ? <p className="product-tagline">{product.tagline}</p> : <div className="product-meta-header">
+                    <span className="product-category">{t(displayCategory)}</span>
+                    {product.brand && <span className="product-brand-tag">{product.brand}</span>}
+                </div>}
+                {!unavailable && <p className={`product-stock ${product.in_stock === true ? 'in' : ''}`}>{product.in_stock === true ? t("In stock") : t("Confirm availability on WhatsApp")}</p>}
+                <div className="product-footer">
+                    <div className="product-price-block">
+                        {wholesaleClient ? hasWholesalePrice ? <>
                                 <span className="product-price wholesale-price">
                                     <Price usd={wholesalePrice} />
                                 </span>
                                 {hasRetailPrice && <span className="product-price-retail">{t("Retail:")}
               <Price usd={product.price} />
                                     </span>}
-                            </> : <button type="button" className="product-price contact-price contact-price-btn" onClick={handleContactForPrice} title="Click to inquire via WhatsApp">{t("Contact for price")}
-
-
-          </button> : hasRetailPrice ? <span className="product-price"><Price usd={product.price} /></span> : <button type="button" className="product-price contact-price contact-price-btn" onClick={handleContactForPrice} title="Click to inquire via WhatsApp">{t("Contact for price")}
-
-
-          </button>}
+                            </> : <button type="button" className="product-price contact-price contact-price-btn" onClick={handleContactForPrice} title="Click to inquire via WhatsApp">{t("Contact for price")}</button> : retailPrice}
+                    </div>
+                    {unavailable ? null : isContactForPrice ? <button type="button" className="product-action contact-action-btn" onClick={handleContactForPrice}>
+                            <span>{t("Contact for Price")}</span>
+                            <MessageCircle size={18} aria-hidden="true" />
+                        </button> : <button type="button" className="product-action add-to-cart-btn" onClick={handleCardAddToCart}>
+                            <span>{t("Add to Cart")}</span>
+                            <ShoppingCart size={18} aria-hidden="true" />
+                        </button>}
                 </div>
             </div>
         </div>;

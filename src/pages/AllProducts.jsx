@@ -1,28 +1,33 @@
-import { brandPath, brandSlug, absoluteUrl, toProductSlug } from '../utils/seo';
+import { brandPath, brandSlug, absoluteUrl, breadcrumbs, toProductSlug } from '../utils/seo';
 import { useParams } from 'react-router-dom';
 import { usePageData } from '../context/PageDataContext';
 import usePageMeta from '../hooks/usePageMeta';
 import { useLocale } from '../context/LocaleContext';
 import { useCurrency } from '../context/CurrencyContext';
-import { isFreshRate } from '../utils/currency';
+import { isFreshRate, toIqd } from '../utils/currency';
 import { isOutOfStock } from '../utils/storefront';
+import { fill } from '../utils/locale';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useOutletContext, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, SlidersHorizontal, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
 import { getAllProducts } from '../data/products';
+import { tileForCategory } from '../data/categoryTiles';
 import './AllProducts.css';
 const categories = ['All', 'Mice', 'Keyboards', 'Headsets', 'Webcams', 'Gaming', 'Accessories', 'Audio', 'Streaming'];
 // How each category reads inside a sentence on its landing page.
 const categoryPhrases = { Mice: 'mice', Keyboards: 'keyboards', Headsets: 'headsets and headphones', Webcams: 'webcams and conference cameras', Gaming: 'gaming gear', Accessories: 'computer accessories, cables and adapters', Audio: 'speakers and conference audio', Streaming: 'streaming and recording gear' };
+// What people type into a search engine for each category, for the page title.
+const categorySearchNames = { Mice: 'Computer Mice', Keyboards: 'Keyboards', Headsets: 'Headsets & Headphones', Webcams: 'Webcams', Gaming: 'Gaming Mice, Keyboards & Headsets', Accessories: 'Cables, Hubs & Computer Accessories', Audio: 'Speakers & Speakerphones', Streaming: 'Microphones & Streaming Gear' };
 // Every sort lists buyable products first, then "contact for price", then out of stock.
 const availabilityRank = product => isOutOfStock(product) ? 2 : Number(product.price) > 0 ? 0 : 1;
 // Zoho ids exceed Number.MAX_SAFE_INTEGER, so compare them as digit strings.
 const compareIds = (a, b) => String(a).length - String(b).length || String(a).localeCompare(String(b));
 export default function AllProducts() {
   const {
-    t
+    t,
+    language
   } = useLocale();
   const {
     snapshot
@@ -38,7 +43,14 @@ export default function AllProducts() {
   const [products, setProducts] = useState(initial.products ?? []);
   const [productsError, setProductsError] = useState('');
   const [selectedImageProduct, setSelectedImageProduct] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const queryFromParams = searchParams.get('q') ?? '';
+  const [searchQuery, setSearchQuery] = useState(queryFromParams);
+  // The header search box puts its words in the address; follow it when it changes.
+  const [seenQuery, setSeenQuery] = useState(queryFromParams);
+  if (seenQuery !== queryFromParams) {
+    setSeenQuery(queryFromParams);
+    setSearchQuery(queryFromParams);
+  }
   const [activeBrands, setActiveBrands] = useState([]);
   const [sortBy, setSortBy] = useState(() => searchParams.get('sort') === 'newest' ? 'newest' : 'featured');
   const [priceRange, setPriceRange] = useState({
@@ -113,9 +125,7 @@ export default function AllProducts() {
     setSearchParams(nextSearchParams, {
       replace: true
     });
-    if (window.innerWidth <= 1024) {
-      setMobileSidebarOpen(false);
-    }
+    setMobileSidebarOpen(false);
   };
   const handleBrandToggle = (brand, isChecked) => {
     setActiveBrands(previous => {
@@ -137,6 +147,7 @@ export default function AllProducts() {
     const nextSearchParams = new URLSearchParams(searchParams);
     nextSearchParams.delete('category');
     nextSearchParams.delete('page');
+    nextSearchParams.delete('q');
     setSearchParams(nextSearchParams, {
       replace: true
     });
@@ -154,15 +165,21 @@ export default function AllProducts() {
     if (product.brand && product.category === activeCategory && !isOutOfStock(product)) brandCounts.set(product.brand, (brandCounts.get(product.brand) ?? 0) + 1);
   }
   const topCategoryBrands = [...brandCounts].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([brand]) => brand);
-  const brandList = topCategoryBrands.length > 1 ? `${topCategoryBrands.slice(0, -1).join(', ')} and ${topCategoryBrands.at(-1)}` : topCategoryBrands[0];
-  const categoryIntro = `Shop ${categoryPhrases[activeCategory]}${brandList ? ` from ${brandList}` : ''} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.`;
+  const brandList = language !== 'en' ? topCategoryBrands.join(', ') : topCategoryBrands.length > 1 ? `${topCategoryBrands.slice(0, -1).join(', ')} and ${topCategoryBrands.at(-1)}` : topCategoryBrands[0];
+  const categoryIntro = fill(brandList ? t('Shop {category} from {brands} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.') : t('Shop {category} at IT Land in Erbil. Compare models, current prices and availability below, with delivery across Iraq and Kurdistan.'), { category: language === 'en' ? categoryPhrases[activeCategory] : t(activeCategory), brands: brandList });
   const landingBrand = routeBrand ? brands.find(brand => brandSlug(brand) === routeBrand) : null;
-  const collectionName = landingBrand ? `${landingBrand}${activeCategory !== 'All' ? ` ${activeCategory}` : ' Products'}` : activeCategory === 'All' ? 'Computer Accessories & Gaming Gear' : activeCategory;
+  const collectionName = landingBrand ? `${landingBrand}${activeCategory !== 'All' ? ` ${activeCategory}` : ' Products'}` : activeCategory === 'All' ? 'Computer Accessories' : activeCategory;
+  // The same names in the page's language, for the title, description and heading.
+  const brandHeading = landingBrand ? activeCategory === 'All' ? fill(t('{brand} Products'), { brand: landingBrand }) : fill(t('{brand} {category}'), { brand: landingBrand, category: t(activeCategory) }) : null;
+  const searchName = brandHeading ?? t(activeCategory === 'All' ? 'Computer Accessories' : categorySearchNames[activeCategory] ?? activeCategory);
+  const describeBrands = !landingBrand && activeCategory !== 'All' && Boolean(brandList);
   const filteredProducts = products.filter(product => {
     const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
     const matchesBrand = (!routeBrand || product.brand === landingBrand) && (activeBrands.length === 0 || activeBrands.includes(product.brand));
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const iqdPrice = hasRate ? Math.round(product.price * snapshot.rate) : null;
+    // Every word must appear somewhere in the name, the brand or the description (part numbers live there).
+    const haystack = `${product.name} ${product.brand ?? ''} ${product.description ?? ''}`.toLowerCase();
+    const matchesSearch = searchQuery.toLowerCase().split(/\s+/).filter(Boolean).every(word => haystack.includes(word));
+    const iqdPrice = hasRate ? toIqd(product.price, snapshot) : null;
     const matchesPrice = !hasRate || (priceRange.min === '' || iqdPrice >= Number(priceRange.min)) && (priceRange.max === '' || iqdPrice <= Number(priceRange.max));
     return matchesCategory && matchesBrand && matchesSearch && matchesPrice;
   }).sort((a, b) => {
@@ -189,28 +206,40 @@ export default function AllProducts() {
     return `${collectionPath}${params.size ? `?${params}` : ''}`;
   };
   usePageMeta({
-    title: `${collectionName} in Iraq${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
-    description: `Shop ${collectionName} at IT Land in Erbil, Iraq. Browse prices and availability, with delivery across Iraq and Kurdistan. Order on WhatsApp.`,
+    title: fill(currentPage > 1 ? t('{name} in Iraq - Page {page}') : t('{name} in Iraq: Prices & Stock'), { name: searchName, page: currentPage }),
+    description: fill(describeBrands ? t("{name} from {brands} at IT Land in Erbil. See today's IQD prices and what is in stock. Delivery across Iraq and Kurdistan. Order on WhatsApp.") : t("{name} at IT Land in Erbil. See today's IQD prices and what is in stock. Delivery across Iraq and Kurdistan. Order on WhatsApp."), { name: searchName, brands: brandList }),
     path: canonicalPath,
-    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${collectionName} in Iraq`, url: absoluteUrl(canonicalPath), mainEntity: { '@type': 'ItemList', itemListElement: paginatedProducts.map((product, index) => ({ '@type': 'ListItem', position: (safeCurrentPage - 1) * itemsPerPage + index + 1, name: product.name, url: absoluteUrl(`/product/${toProductSlug(product)}`) })) } },
+    jsonLd: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${collectionName} in Iraq`, url: absoluteUrl(canonicalPath), mainEntity: { '@type': 'ItemList', itemListElement: paginatedProducts.map((product, index) => ({ '@type': 'ListItem', position: (safeCurrentPage - 1) * itemsPerPage + index + 1, name: product.name, url: absoluteUrl(`/product/${toProductSlug(product)}`) })) } },
+      breadcrumbs(['Shop', '/products'], ...(landingBrand ? [[landingBrand, brandPath(landingBrand)]] : activeCategory !== 'All' ? [[activeCategory, `/products?category=${encodeURIComponent(activeCategory)}`]] : []))],
     // Only the first page of a collection is indexed: later pages list the
     // sold-out items last, and Google would otherwise show them for a brand
     // search. Their links are still followed, and every product is in the sitemap.
     noindex: currentPage > 1 || Boolean(routeBrand && !landingBrand) || Boolean(productsError) || ((initial.products || products.length > 0) && filteredProducts.length === 0) || currentPage > totalPages || filtersChanged && (searchQuery.length > 0 || activeBrands.length > 0 || sortBy !== 'featured' || priceRange.min !== '' || priceRange.max !== ''),
   });
+  // A category page opens with that category's picture next to its title.
+  const banner = !landingBrand && activeCategory !== 'All' ? tileForCategory(activeCategory) : null;
   return <div className="all-products-page">
             <header className="shop-header">
-                <h1 className="shop-title">{landingBrand ? `${landingBrand} ${activeCategory === 'All' ? t('Products') : t(activeCategory)} in Iraq` : activeCategory === 'All' ? t('Shop Products') : t(activeCategory)}</h1>
-                <p className="shop-subtitle">{t("Discover the latest computer accessories.")}</p>
-                {landingBrand && <div className="brand-intro">
-                    <p>Browse {landingBrand} products at IT Land in Erbil. Compare models, current prices and availability below. Contact us on WhatsApp for delivery fees and timing across Iraq and Kurdistan.</p>
-                    {landingBrand === 'Logitech' && <p lang="ar" dir="rtl">تسوق منتجات لوجيتك Logitech في العراق من آي تي لاند في أربيل. تصفح الماوس والكيبورد والسماعات وكاميرات الويب المتوفرة، وتواصل معنا عبر واتساب لمعرفة تفاصيل التوصيل والأسعار.</p>}
-                    <Link to="/help/delivery">Delivery and ordering</Link> · <Link to="/help/warranty">Warranty information</Link>
-                </div>}
-                {!landingBrand && activeCategory !== 'All' && <div className="brand-intro">
-                    <p>{categoryIntro}</p>
-                </div>}
-                {productsError && <p className="shop-subtitle">{productsError}</p>}
+                <nav className="shop-breadcrumb" aria-label="Breadcrumb">
+                    <Link to="/">{t("Home")}</Link><span aria-hidden="true">›</span>
+                    {activeCategory === 'All' && !landingBrand ? <span>{t("Shop")}</span> : <><Link to="/products">{t("Shop")}</Link><span aria-hidden="true">›</span><span>{landingBrand ?? t(activeCategory)}</span></>}
+                </nav>
+                <div className={`shop-banner ${banner ? 'shop-banner--picture' : ''}`}>
+                    <div className="shop-banner-text">
+                        <h1 className="shop-title">{landingBrand ? fill(t('{name} in Iraq'), { name: brandHeading }) : activeCategory === 'All' ? t('Shop Products') : t(activeCategory)}</h1>
+                        {landingBrand ? <div className="brand-intro">
+                            <p>{fill(t('Browse {brand} products at IT Land in Erbil. Compare models, current prices and availability below. Contact us on WhatsApp for delivery fees and timing across Iraq and Kurdistan.'), { brand: landingBrand })}</p>
+                            {landingBrand === 'Logitech' && <p lang="ar" dir="rtl">تسوق منتجات لوجيتك Logitech في العراق من آي تي لاند في أربيل. تصفح الماوس والكيبورد والسماعات وكاميرات الويب، وتواصل معنا لمعرفة تفاصيل التوصيل والأسعار.</p>}
+                            <Link to="/help/delivery">{t('Delivery and ordering')}</Link> · <Link to="/help/warranty">{t('Warranty information')}</Link>
+                        </div> : activeCategory !== 'All' ? <div className="brand-intro">
+                            <p>{categoryIntro}</p>
+                        </div> : <p className="shop-subtitle">{t("Discover the latest computer accessories.")}</p>}
+                        {productsError && <p className="shop-subtitle">{productsError}</p>}
+                    </div>
+                    {banner && <div className={`shop-banner-picture ${banner.photo ? '' : 'shop-banner-picture--cutout'}`}>
+                        <img src={banner.photo ?? banner.cutout} alt="" />
+                    </div>}
+                </div>
             </header>
 
             <div className="shop-container">
@@ -266,34 +295,28 @@ export default function AllProducts() {
 
                 <main className="shop-main">
                     <div className="shop-controls">
-                        <button className="mobile-filter-toggle" onClick={() => setMobileSidebarOpen(true)}>
-                            <SlidersHorizontal size={18} />{t("Filters")}
-            </button>
-
-                        <div className="shop-controls-right">
-                            <span className="results-count">{t('Showing {count} results').replace('{count}', filteredProducts.length)}</span>
-
-                            <div className="shop-controls-actions">
-                                <div className="sort-control">
-                                    <span className="sort-label">{t("Sort by:")}</span>
-                                    <select aria-label={t("Sort products")} className="sort-select" value={sortBy} onChange={event => {
-                  setSortBy(event.target.value);
-                  setCurrentPage(1);
-                }}>
-
-                                        <option value="featured">{t("Featured")}</option>
-                                        <option value="newest">{t("Newest Arrivals")}</option>
-                                        <option value="price-low">{t("Price: Low to High")}</option>
-                                        <option value="price-high">{t("Price: High to Low")}</option>
-                                    </select>
-                                </div>
-
-                                <button className="reset-filters-btn" type="button" onClick={handleResetFilters} disabled={!filtersChanged}>{t("Reset")}
-
-
-                </button>
-                            </div>
-                        </div>
+                        <button type="button" className="filter-pill filter-pill--dark" onClick={() => setMobileSidebarOpen(true)} aria-expanded={mobileSidebarOpen}>
+                            <SlidersHorizontal size={18} aria-hidden="true" />{t("All Filters")}
+                        </button>
+                        <label className="filter-pill sort-control">
+                            <span className="sort-label">{t("Sort by:")}</span>
+                            <select aria-label={t("Sort products")} className="sort-select" value={sortBy} onChange={event => {
+                setSortBy(event.target.value);
+                setCurrentPage(1);
+              }}>
+                                <option value="featured">{t("Featured")}</option>
+                                <option value="newest">{t("Newest Arrivals")}</option>
+                                <option value="price-low">{t("Price: Low to High")}</option>
+                                <option value="price-high">{t("Price: High to Low")}</option>
+                            </select>
+                        </label>
+                        <nav className="shop-chips" aria-label={t("Category")}>
+                            {categories.map(category => <Link key={category} className={`filter-pill ${activeCategory === category ? 'active' : ''}`} to={category === 'All' ? collectionPath : `${collectionPath}?category=${encodeURIComponent(category)}`} aria-current={activeCategory === category ? 'page' : undefined}>{t(category)}</Link>)}
+                        </nav>
+                    </div>
+                    <div className="shop-status">
+                        <span className="results-count">{t('Showing {count} results').replace('{count}', filteredProducts.length)}</span>
+                        {filtersChanged && <button className="reset-filters-btn" type="button" onClick={handleResetFilters}>{t("Reset")}</button>}
                     </div>
 
                     {paginatedProducts.length > 0 ? <>

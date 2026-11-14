@@ -1,235 +1,239 @@
+/* Product card: one grey tile holding the photo and the details. */
 .product-card {
-    background-color: rgba(21, 28, 39, 0.92);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-    border: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     width: 100%;
     min-width: 0;
+    border-radius: var(--radius-lg);
+    background: var(--tile);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(0, 184, 252, 0.3);
     box-shadow: var(--shadow-soft);
 }
 
 .product-image-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    background: #ffffff;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-4);
+    aspect-ratio: 1 / 0.86;
+}
+
+/* Sized from the tile, so every card is the same height whatever the photo.
+   Photos with a white background blend into the tile like cut-outs do. */
+.product-image-container > .product-image,
+.product-image-container > .product-image-fallback {
+    position: absolute;
+    inset: 11% 12% 4%;
+    width: 76%;
+    height: 85%;
 }
 
 .product-image {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
     object-fit: contain;
+    mix-blend-mode: multiply;
     transition: transform var(--transition-slow);
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
-.product-overlay {
+.product-image-container .stock-badge {
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.42);
+    top: var(--space-4);
+    inset-inline-start: var(--space-4);
+    z-index: 1;
+    font-size: 0.78rem;
+}
+
+/* One dot per colour the model comes in; the ringed one is this card. */
+.product-swatches {
+    position: absolute;
+    bottom: 0;
+    inset-inline-start: var(--space-6);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    backdrop-filter: blur(2px);
+    gap: var(--space-2);
 }
 
-.product-card:hover .product-overlay {
-    opacity: 1;
+.product-swatch {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--tile);
 }
 
-.add-to-cart-btn {
-    transform: translateY(14px);
-    opacity: 0;
-    transition: all var(--transition-normal);
+.product-swatch.active {
+    box-shadow: 0 0 0 2px var(--tile), 0 0 0 4px var(--ink);
 }
 
-.product-card:hover .add-to-cart-btn {
-    transform: translateY(0);
-    opacity: 1;
+.product-tagline {
+    color: var(--text-secondary);
+    font-size: 0.84rem;
 }
 
 .product-info {
-    padding: var(--space-5);
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: var(--space-4) var(--space-6) var(--space-5);
+}
+
+.product-name {
+    display: -webkit-box;
+    min-height: 2.6em;
+    margin-bottom: var(--space-2);
+    overflow: hidden;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.product-name-link {
+    color: inherit;
+}
+
+.product-name-link:hover {
+    text-decoration: underline;
 }
 
 .product-meta-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     gap: var(--space-2);
-    margin-bottom: var(--space-2);
-}
-
-.product-category {
-    color: var(--logi-cyan);
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    display: block;
-}
-
-.product-brand-tag {
-    font-size: 0.68rem;
-    font-weight: 700;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.07);
-    padding: 2px 7px;
-    border-radius: var(--radius-pill);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: 0.84rem;
 }
 
-.product-name {
-    font-size: 1.02rem;
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: var(--text-primary);
-    line-height: 1.35;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 2.7em;
+.product-brand-tag::before {
+    content: '·';
+    margin-inline-end: var(--space-2);
+}
+
+.product-info .product-stock {
+    margin-top: var(--space-2);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.product-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-top: auto;
+    padding-top: var(--space-4);
 }
 
 .product-price-block {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin-top: auto;
+    min-width: 0;
 }
 
 .product-price {
-    font-family: var(--font-base);
-    font-size: 1.05rem;
     color: var(--text-primary);
+    font-size: 1.05rem;
     font-weight: 700;
 }
 
 .product-price.wholesale-price {
-    color: #4ade80;
+    color: #15803d;
 }
 
 .product-price-retail {
-    font-size: 0.78rem;
     color: var(--text-secondary);
+    font-size: 0.78rem;
     font-weight: 400;
 }
 
-@media (hover: none) and (pointer: coarse) {
-    .product-overlay {
-        opacity: 1;
-        background: transparent;
-        pointer-events: none;
-        align-items: flex-end;
-        justify-content: flex-end;
-        padding: 0.75rem;
-        backdrop-filter: none;
-    }
-    
-    .add-to-cart-btn {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-        padding: 0.5rem 0.6rem;
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-deep);
-    }
-    
-    .add-to-cart-btn span {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .product-image-container {
-        padding: var(--space-2);
-    }
-    .product-info {
-        padding: var(--space-3);
-    }
-    .product-meta-header {
-        flex-wrap: wrap;
-        gap: var(--space-1);
-    }
-    .product-info .product-stock {
-        font-size: 0.72rem;
-    }
-    .product-name {
-        font-size: 0.9rem;
-        margin-bottom: var(--space-1);
-    }
-    .product-category {
-        font-size: 0.65rem;
-    }
-    .product-price {
-        font-size: 0.95rem;
-    }
-}
-
-.product-name-link {
-    color: inherit;
-    text-decoration: none;
-}
-
-.product-name-link:hover {
-    color: var(--logi-cyan);
-}
-
 .product-price.contact-price {
-    font-size: 0.95rem;
-    color: var(--logi-cyan, #00b4d8);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
 }
 
 .contact-price-btn {
-    background: none;
-    border: none;
     padding: 0;
-    margin: 0;
-    text-align: left;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    transition: opacity var(--transition-fast, 0.2s);
+    text-align: start;
 }
 
 .contact-price-btn:hover {
-    opacity: 0.85;
     text-decoration: underline;
 }
 
-.add-to-cart-btn.contact-action-btn {
-    background: #00b4d8;
-    border-color: #00b4d8;
+/* "Add to cart" as a quiet text action with the cart icon, as on the tile. */
+.product-action {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-.add-to-cart-btn.contact-action-btn:hover {
-    background: #0096c7;
-    border-color: #0096c7;
+.product-action:hover span {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .product-info {
+        padding: var(--space-2) var(--space-3) var(--space-3);
+    }
+
+    .product-name {
+        font-size: 0.92rem;
+    }
+
+    .product-meta-header,
+    .product-tagline,
+    .product-info .product-stock {
+        font-size: 0.74rem;
+    }
+
+    .product-swatches {
+        inset-inline-start: var(--space-3);
+    }
+
+    .product-swatch {
+        width: 13px;
+        height: 13px;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .product-footer {
+        padding-top: var(--space-3);
+    }
+
+    /* Icon only: a round button the thumb can hit. */
+    .product-action span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+
+    .product-action {
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 50%;
+        background: #ffffff;
+    }
 }

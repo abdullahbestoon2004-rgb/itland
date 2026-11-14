@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { whatsappLink } from '../utils/storefront';
 import usePageMeta from '../hooks/usePageMeta';
+import { breadcrumbs } from '../utils/seo';
 import './ShoppingHelp.css';
 export default function ShoppingHelp() {
   const {
@@ -14,9 +15,10 @@ export default function ShoppingHelp() {
   } = useParams();
   const page = helpContent[topic];
   usePageMeta({
-    title: page?.title ?? 'Shopping help',
-    description: page?.intro,
+    title: page ? t(page.metaTitle ?? page.title) : 'Shopping help',
+    description: page ? t(page.description ?? page.intro) : undefined,
     path: page ? `/help/${topic}` : undefined,
+    jsonLd: page ? breadcrumbs([page.title, `/help/${topic}`]) : undefined,
     noindex: !page
   });
   if (!page) return <div className="shopping-help section-container"><h1>{t("Page not found")}</h1><Link to="/help/delivery">{t("Delivery & ordering information")}</Link></div>;

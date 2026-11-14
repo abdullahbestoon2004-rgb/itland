@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link, NavLink, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import {
-    Activity, ClipboardList, ExternalLink, Images, LogOut, Mail, MessageSquare, Package, Settings, ShoppingBag, Sparkles, Wallet,
+    Activity, ClipboardList, ExternalLink, Images, LogOut, Package, Settings, ShoppingBag, Sparkles, Wallet,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { useInbox, useOrders } from './context';
-import { CatalogProvider, InboxProvider, OrdersProvider, ToastProvider } from './providers';
+import { useOrders } from './context';
+import { CatalogProvider, OrdersProvider, ToastProvider } from './providers';
 import OrdersPage from './OrdersPage';
 import ProductsPage from './ProductsPage';
 import CarouselPage from './CarouselPage';
 import SettingsPage from './SettingsPage';
-import { MessagesPage, ReviewsPage } from './InboxPages';
+import TwoStepSignIn from './TwoStepSignIn';
 import { Stat } from './ui';
 import { formatIqd } from './lib';
 import './admin.css';
@@ -18,13 +18,17 @@ import './admin.css';
 const BASE = '/admin/dashboard';
 
 export default function AdminApp() {
+    const { isVerifiedAdmin } = useAuth();
+    // An admin_users row is not enough: the database only treats the account as
+    // an admin once two-step sign-in brought the session to aal2. The data
+    // providers below would load nothing before that, so they wait too.
+    if (!isVerifiedAdmin) return <TwoStepSignIn />;
+
     return (
         <ToastProvider>
             <CatalogProvider>
                 <OrdersProvider>
-                    <InboxProvider>
-                        <Shell />
-                    </InboxProvider>
+                    <Shell />
                 </OrdersProvider>
             </CatalogProvider>
         </ToastProvider>
@@ -35,15 +39,12 @@ function Shell() {
     const { user, signOut } = useAuth();
     const navigate = useNavigate();
     const { stats, status: ordersStatus } = useOrders();
-    const { unhandled, pendingReviews } = useInbox();
 
     const nav = [
         { to: BASE, end: true, label: 'Orders', icon: ShoppingBag, badge: stats.fresh },
         { to: `${BASE}/products`, label: 'Products', icon: Package },
         { to: `${BASE}/carousel`, label: 'Carousel', icon: Images },
         { to: `${BASE}/settings`, label: 'Settings', icon: Settings },
-        { to: `${BASE}/messages`, label: 'Messages', icon: Mail, badge: unhandled },
-        { to: `${BASE}/reviews`, label: 'Reviews', icon: MessageSquare, badge: pendingReviews },
     ];
 
     const handleSignOut = async () => {
@@ -108,8 +109,6 @@ function Shell() {
                     <Route path="products" element={<ProductsPage />} />
                     <Route path="carousel" element={<CarouselPage />} />
                     <Route path="settings" element={<SettingsPage />} />
-                    <Route path="messages" element={<MessagesPage />} />
-                    <Route path="reviews" element={<ReviewsPage />} />
                     <Route path="*" element={<Navigate to={BASE} replace />} />
                 </Routes>
             </main>

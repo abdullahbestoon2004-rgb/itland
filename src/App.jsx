@@ -6,6 +6,7 @@ import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import VideoConferencing from './pages/VideoConferencing';
 import NotFound from './pages/NotFound';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/product/:slug" element={<ProductDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/video-conferencing" element={<VideoConferencing />} />
             <Route path="/help/:topic" element={<ShoppingHelp />} />
             <Route path="*" element={<NotFound />} />
           </Route>
