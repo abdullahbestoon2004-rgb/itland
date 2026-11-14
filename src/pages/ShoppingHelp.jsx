@@ -5,6 +5,8 @@ import { MessageCircle } from 'lucide-react';
 import { whatsappLink } from '../utils/storefront';
 import usePageMeta from '../hooks/usePageMeta';
 import { breadcrumbs } from '../utils/seo';
+import { CITIES, cityPath } from '../data/cities';
+import './CityDelivery.css';
 import './ShoppingHelp.css';
 export default function ShoppingHelp() {
   const {
@@ -30,6 +32,15 @@ export default function ShoppingHelp() {
         <h1>{t(page.title)}</h1>
         <p className="help-intro">{t(page.intro)}</p>
         <div className="help-sections">{page.sections.map(([title, text]) => <section key={t(title)}><h2>{t(title)}</h2><p>{t(text)}</p></section>)}</div>
+        {topic === 'delivery' && <section id="cities" className="help-cities">
+            <h2>{t('Cities we deliver to')}</h2>
+            <div className="city-groups">
+                {[['Kurdistan Region', 'kurdistan'], ['Rest of Iraq', 'iraq']].map(([label, region]) => <div key={region}>
+                    <h3>{t(label)}</h3>
+                    <ul className="city-list">{CITIES.filter(city => city.region === region).map(city => <li key={city.slug}><Link to={cityPath(city)}>{t(city.name)}</Link></li>)}</ul>
+                </div>)}
+            </div>
+        </section>}
         <a className="btn btn-primary" href={whatsappLink(`Hello IT Land! I have a question about ${page.title.toLowerCase()}.`)} target="_blank" rel="noreferrer"><MessageCircle size={20} />{t("Ask on WhatsApp")}</a>
         <p className="help-contact">WhatsApp: <bdi>07504888570</bdi></p>
     </article>;

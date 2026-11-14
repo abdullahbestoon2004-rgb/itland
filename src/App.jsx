@@ -7,6 +7,7 @@ import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import VideoConferencing from './pages/VideoConferencing';
+import CityDelivery from './pages/CityDelivery';
 import NotFound from './pages/NotFound';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/video-conferencing" element={<VideoConferencing />} />
             <Route path="/help/:topic" element={<ShoppingHelp />} />
+            <Route path="/delivery/:city" element={<CityDelivery />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />

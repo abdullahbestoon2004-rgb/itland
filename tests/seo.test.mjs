@@ -171,6 +171,12 @@ test('HTTP rendering, authentication exclusions and sitemap handle live data and
         assert.match(sitemap.body, /<loc>https:\/\/itlandforcomputer.com\/ku<\/loc>/);
         assert.match(sitemap.body, /<loc>https:\/\/itlandforcomputer.com\/ku\/product\/logitech-mouse-0-100<\/loc>/);
         assert.doesNotMatch(sitemap.body, /\/(ar|ku)\/app\//);
+        // Every delivery city is listed, in each language.
+        for (const address of ['/delivery/baghdad', '/ar/delivery/basra', '/ku/delivery/sulaymaniyah']) assert.ok(sitemap.body.includes(`<loc>https://itlandforcomputer.com${address}</loc>`), address);
+        const cityPage = response();
+        await pageHandler({ method: 'GET', url: '/delivery/baghdad', query: {} }, cityPage);
+        assert.equal(cityPage.code, 200);
+        assert.match(cityPage.body, /"products":\[\{/);
         // The server marks the page's language and direction on the <html> tag.
         const arabic = response();
         await pageHandler({ method: 'GET', url: '/ar/products', query: {} }, arabic);
@@ -282,6 +288,50 @@ test('Arabic and Kurdish pages have their own addresses, translated titles and l
     assert.doesNotMatch(renderPage('/app/privacy', products).head, /hreflang/);
     assert.match(english.head, /property="og:locale" content="en_US"/);
     assert.match(renderPage('/ar', products).head, /property="og:locale" content="ar_IQ"/);
+});
+
+test('each delivery city has its own page with products, answers and links to the other cities', () => {
+    const site = 'https://itlandforcomputer.com';
+    const stocked = Array.from({ length: 40 }, (_, i) => ({ id: String(500 + i), name: `Logitech Keyboard ${i}`, description: '', category: i % 2 ? 'Keyboards' : 'Mice', brand: 'Logitech', images: ['/itlandlogo.png'], price: 30 + i, in_stock: true, stock_on_hand: 4 }));
+    const page = renderPage('/delivery/baghdad', stocked, snapshot);
+    assert.equal(page.status, 200);
+    assert.match(page.head, /<title>Computer Accessories in Baghdad: Logitech, Jabra &amp; Poly \| IT Land<\/title>/);
+    assert.match(page.head, new RegExp(`rel="canonical" href="${site}/delivery/baghdad"`));
+    assert.match(page.head, /hreflang="ar" href="https:\/\/itlandforcomputer.com\/ar\/delivery\/baghdad"/);
+    assert.match(page.body, /<h1[^>]*>Computer accessories delivered to Baghdad<\/h1>/);
+    assert.equal((page.body.match(/class="product-card/g) || []).length, 8);
+    const types = schemas(page.head).map(item => item['@type']);
+    assert.deepEqual(types, ['WebPage', 'BreadcrumbList', 'FAQPage']);
+    assert.deepEqual(schemas(page.head)[1].itemListElement.map(item => item.name), ['Home', 'Delivery', 'Baghdad']);
+    assert.match(schemas(page.head)[2].mainEntity[0].name, /deliver to Baghdad/);
+    // It links to the other cities, and they show a different selection of products.
+    assert.match(page.body, /href="\/delivery\/basra"/);
+    assert.doesNotMatch(page.body, /href="\/delivery\/baghdad"[^>]*>Baghdad<\/a><\/li>/);
+    const cards = text => [...text.matchAll(/href="\/product\/([^"]+)"/g)].map(match => match[1]).slice(0, 8).join();
+    assert.notEqual(cards(page.body), cards(renderPage('/delivery/basra', stocked, snapshot).body));
+    // Erbil is where the shop is, so its page talks about visiting the store.
+    assert.match(renderPage('/delivery/erbil', stocked, snapshot).body, /Visit the store to see the products/);
+    assert.match(renderPage('/delivery/sulaymaniyah', stocked, snapshot).body, /rest of the Kurdistan Region/);
+    // A city that is not on the list is not a page.
+    assert.equal(renderPage('/delivery/atlantis', stocked, snapshot).status, 404);
+    assert.match(renderPage('/delivery/atlantis', stocked, snapshot).head, /noindex/);
+    // Arabic and Kurdish versions name the city in their own script.
+    for (const prefix of ['/ar', '/ku']) {
+        const local = renderPage(`${prefix}/delivery/baghdad`, stocked, snapshot);
+        assert.equal(local.status, 200);
+        const title = local.head.match(/<title>(.*?)<\/title>/)[1];
+        assert.doesNotMatch(title, /Baghdad|[{}]/);
+        assert.match(local.body, new RegExp(`href="${prefix}/delivery/basra"`));
+    }
+    // Every product page, the delivery page and the footer link to the city pages.
+    const product = renderPage(`/product/${toProductSlug(products[0])}`, products, snapshot).body;
+    for (const city of ['baghdad', 'basra', 'mosul', 'erbil', 'sulaymaniyah', 'duhok']) assert.ok(product.includes(`href="/delivery/${city}"`), city);
+    const help = renderPage('/help/delivery', products).body;
+    assert.match(help, /id="cities"/);
+    assert.equal(new Set([...help.matchAll(/href="\/delivery\/([a-z]+)"/g)].map(match => match[1])).size, 33);
+    // The store data names the cities it delivers to.
+    const store = schemas(renderPage('/', products).head).find(item => item['@type'] === 'ComputerStore');
+    assert.ok(store.areaServed.some(area => area['@type'] === 'City' && area.name === 'Basra'));
 });
 
 test('brand landing pages are rendered, linked, paginated and canonical', () => {

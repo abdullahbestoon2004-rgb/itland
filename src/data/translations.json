@@ -1434,5 +1434,241 @@
   "PM": {
     "ar": "م",
     "ku": "د.ن"
+  },
+  "Erbil": {
+    "ar": "أربيل",
+    "ku": "هەولێر"
+  },
+  "Sulaymaniyah": {
+    "ar": "السليمانية",
+    "ku": "سلێمانی"
+  },
+  "Duhok": {
+    "ar": "دهوك",
+    "ku": "دهۆک"
+  },
+  "Halabja": {
+    "ar": "حلبجة",
+    "ku": "هەڵەبجە"
+  },
+  "Zakho": {
+    "ar": "زاخو",
+    "ku": "زاخۆ"
+  },
+  "Soran": {
+    "ar": "سوران",
+    "ku": "سۆران"
+  },
+  "Koya": {
+    "ar": "كويسنجق",
+    "ku": "کۆیە"
+  },
+  "Shaqlawa": {
+    "ar": "شقلاوة",
+    "ku": "شەقڵاوە"
+  },
+  "Ranya": {
+    "ar": "رانية",
+    "ku": "ڕانیە"
+  },
+  "Qaladze": {
+    "ar": "قلعة دزة",
+    "ku": "قەڵادزێ"
+  },
+  "Kalar": {
+    "ar": "كلار",
+    "ku": "کەلار"
+  },
+  "Chamchamal": {
+    "ar": "جمجمال",
+    "ku": "چەمچەماڵ"
+  },
+  "Darbandikhan": {
+    "ar": "دربندخان",
+    "ku": "دەربەندیخان"
+  },
+  "Akre": {
+    "ar": "عقرة",
+    "ku": "ئاکرێ"
+  },
+  "Amedi": {
+    "ar": "العمادية",
+    "ku": "ئامێدی"
+  },
+  "Baghdad": {
+    "ar": "بغداد",
+    "ku": "بەغدا"
+  },
+  "Basra": {
+    "ar": "البصرة",
+    "ku": "بەسرە"
+  },
+  "Mosul": {
+    "ar": "الموصل",
+    "ku": "مووسڵ"
+  },
+  "Kirkuk": {
+    "ar": "كركوك",
+    "ku": "کەرکووک"
+  },
+  "Najaf": {
+    "ar": "النجف",
+    "ku": "نەجەف"
+  },
+  "Karbala": {
+    "ar": "كربلاء",
+    "ku": "کەربەلا"
+  },
+  "Hillah": {
+    "ar": "الحلة",
+    "ku": "حللە"
+  },
+  "Ramadi": {
+    "ar": "الرمادي",
+    "ku": "ڕەمادی"
+  },
+  "Fallujah": {
+    "ar": "الفلوجة",
+    "ku": "فەلووجە"
+  },
+  "Baqubah": {
+    "ar": "بعقوبة",
+    "ku": "بەعقووبە"
+  },
+  "Khanaqin": {
+    "ar": "خانقين",
+    "ku": "خانەقین"
+  },
+  "Tikrit": {
+    "ar": "تكريت",
+    "ku": "تکریت"
+  },
+  "Samarra": {
+    "ar": "سامراء",
+    "ku": "سامەڕا"
+  },
+  "Kut": {
+    "ar": "الكوت",
+    "ku": "کووت"
+  },
+  "Amarah": {
+    "ar": "العمارة",
+    "ku": "عەمارە"
+  },
+  "Nasiriyah": {
+    "ar": "الناصرية",
+    "ku": "ناسریە"
+  },
+  "Samawah": {
+    "ar": "السماوة",
+    "ku": "سەماوە"
+  },
+  "Diwaniyah": {
+    "ar": "الديوانية",
+    "ku": "دیوانیە"
+  },
+  "Computer Accessories in {city}: Logitech, Jabra & Poly": {
+    "ar": "إكسسوارات الكمبيوتر في {city}: Logitech و Jabra و Poly",
+    "ku": "کەلوپەلی کۆمپیوتەر لە {city}: Logitech، Jabra و Poly"
+  },
+  "Buy original Logitech, Jabra and Poly mice, keyboards, headsets and webcams in {city}. IT Land delivers from its Erbil store. Order on WhatsApp.": {
+    "ar": "اشترِ ماوسات وكيبوردات وسماعات وكاميرات ويب أصلية من Logitech و Jabra و Poly في {city}. آي تي لاند يوصّل من متجره في أربيل. اطلب عبر واتساب.",
+    "ku": "ماوس، کیبۆرد، هێدفۆن و وێبکامی ئەسڵی Logitech، Jabra و Poly لە {city} بکڕە. IT Land لە فرۆشگاکەی لە هەولێرەوە دەگەیەنێتە دەستان. لە واتسئەپ داوا بکە."
+  },
+  "Computer accessories delivered to {city}": {
+    "ar": "إكسسوارات الكمبيوتر مع التوصيل إلى {city}",
+    "ku": "گەیاندنی کەلوپەلی کۆمپیوتەر بۆ {city}"
+  },
+  "IT Land delivers original Logitech, Jabra and Poly products to {city} and the rest of the Kurdistan Region from our store on Muzaffariya Street in Erbil.": {
+    "ar": "آي تي لاند يوصّل منتجات Logitech و Jabra و Poly الأصلية إلى {city} وباقي مدن إقليم كردستان من متجرنا في شارع المظفرية في أربيل.",
+    "ku": "IT Land بەرهەمە ئەسڵییەکانی Logitech، Jabra و Poly لە فرۆشگاکەمان لە شەقامی موزەفەرییە لە هەولێر، دەگەیەنێتە {city} و تەواوی هەرێمی کوردستان."
+  },
+  "IT Land delivers original Logitech, Jabra and Poly products to {city} and every governorate of Iraq from our store in Erbil.": {
+    "ar": "آي تي لاند يوصّل منتجات Logitech و Jabra و Poly الأصلية إلى {city} وجميع محافظات العراق من متجرنا في أربيل.",
+    "ku": "IT Land بەرهەمە ئەسڵییەکانی Logitech، Jabra و Poly لە فرۆشگاکەمان لە هەولێرەوە دەگەیەنێتە {city} و هەموو پارێزگاکانی عێراق."
+  },
+  "IT Land is on Muzaffariya Street in Erbil. Visit the store to see the products and pick up your order, or have it delivered anywhere in the city.": {
+    "ar": "يقع آي تي لاند في شارع المظفرية في أربيل. زر المتجر لمشاهدة المنتجات واستلام طلبك، أو اطلب توصيله إلى أي مكان في المدينة.",
+    "ku": "IT Land دەکەوێتە شەقامی موزەفەرییە لە هەولێر. سەردانی فرۆشگاکە بکە بۆ بینینی بەرهەمەکان و وەرگرتنی داواکارییەکەت، یان داوا بکە بۆ هەر شوێنێکی شارەکە بگەیەنرێتە دەستت."
+  },
+  "Choose your products, send the order on WhatsApp, and our team confirms the stock, the delivery fee and the delivery time for {city}.": {
+    "ar": "اختر منتجاتك وأرسل الطلب عبر واتساب، وسيؤكد فريقنا التوفر ورسوم التوصيل ومدة التوصيل إلى {city}.",
+    "ku": "بەرهەمەکانت هەڵبژێرە و داواکارییەکەت لە واتسئەپ بنێرە، تیمەکەمان بوونی کاڵاکان لە کۆگا، کرێی گەیاندن و کاتی گەیشتن بۆ {city} پشتڕاست دەکەنەوە."
+  },
+  "In stock now, ready to send to {city}": {
+    "ar": "متوفر الآن وجاهز للإرسال إلى {city}",
+    "ku": "ئێستا لە کۆگا بەردەستە، ئامادەیە بۆ ناردن بۆ {city}"
+  },
+  "How to order from {city}": {
+    "ar": "طريقة الطلب من {city}",
+    "ku": "چۆنیەتی داواکردن لە {city}"
+  },
+  "Questions about delivery to {city}": {
+    "ar": "أسئلة عن التوصيل إلى {city}",
+    "ku": "پرسیارە باوەکان دەربارەی گەیاندن بۆ {city}"
+  },
+  "Does IT Land deliver to {city}?": {
+    "ar": "هل يوصّل آي تي لاند إلى {city}؟",
+    "ku": "ئایا IT Land گەیاندنی بۆ {city} هەیە؟"
+  },
+  "Yes. We deliver to {city} and every other city in Iraq and the Kurdistan Region from our store in Erbil.": {
+    "ar": "نعم. نوصّل إلى {city} وإلى كل مدن العراق وإقليم كردستان من متجرنا في أربيل.",
+    "ku": "بەڵێ. لە فرۆشگاکەمان لە هەولێرەوە بەرهەمەکان دەگەیەنینە {city} و هەموو شارەکانی تری عێراق و هەرێمی کوردستان."
+  },
+  "How much is delivery to {city}, and how long does it take?": {
+    "ar": "كم رسوم التوصيل إلى {city} وكم يستغرق؟",
+    "ku": "کرێی گەیاندن بۆ {city} چەندە و چەند کاتی پێدەچێت؟"
+  },
+  "The fee and the delivery time depend on your area. Send us your address on WhatsApp and we confirm both before your order is final.": {
+    "ar": "الرسوم ومدة التوصيل تعتمدان على منطقتك. أرسل لنا عنوانك عبر واتساب وسنؤكد لك الاثنين قبل تثبيت طلبك.",
+    "ku": "کرێ و کاتی گەیاندن بەپێی ناوچەکەت دەگۆڕێت. ناونیشانەکەت لە واتسئەپ بۆ بنێرە، پێش جێبەجێکردنی کۆتایی داواکارییەکەت هەردووکت بۆ پشتڕاست دەکەینەوە."
+  },
+  "How do I order from {city}?": {
+    "ar": "كيف أطلب من {city}؟",
+    "ku": "چۆن لە {city} داوا بکەم؟"
+  },
+  "Add the products to your cart and send the order on WhatsApp, or message us the product name. We reply with the price in IQD and the delivery details.": {
+    "ar": "أضف المنتجات إلى السلة وأرسل الطلب عبر واتساب، أو أرسل لنا اسم المنتج. سنرد عليك بالسعر بالدينار العراقي وتفاصيل التوصيل.",
+    "ku": "بەرهەمەکان بخەرە سەبەتەی کڕینەوە و داواکارییەکەت لە واتسئەپ بنێرە، یاخود ناوی بەرهەمەکەمان بۆ بنێرە. بە نرخی دیناری عێراقی و وردەکارییەکانی گەیاندن وەڵامت دەدەینەوە."
+  },
+  "Are the products original?": {
+    "ar": "هل المنتجات أصلية؟",
+    "ku": "ئایا بەرهەمەکان ئەسڵین؟"
+  },
+  "Yes. IT Land sells original Logitech, Jabra and Poly products, and our team can confirm the warranty for your exact model before you order.": {
+    "ar": "نعم. آي تي لاند يبيع منتجات Logitech و Jabra و Poly الأصلية، ويمكن لفريقنا تأكيد الضمان لموديلك بالتحديد قبل الطلب.",
+    "ku": "بەڵێ. IT Land بەرهەمی ئەسڵی Logitech، Jabra و Poly دەفرۆشێت، هەروەها تیمەکەمان دەتوانن پێش داواکردن گەرەنتی مۆدێلە دیاریکراوەکەت بۆ پشتڕاست بکەنەوە."
+  },
+  "Order for {city} on WhatsApp": {
+    "ar": "اطلب إلى {city} عبر واتساب",
+    "ku": "داواکردن بۆ {city} لە ڕێگەی واتسئەپەوە"
+  },
+  "Other cities we deliver to": {
+    "ar": "مدن أخرى نوصّل إليها",
+    "ku": "شارەکانی تر کە گەیاندنمان بۆیان هەیە"
+  },
+  "Cities we deliver to": {
+    "ar": "المدن التي نوصّل إليها",
+    "ku": "ئەو شارانەی گەیاندنمان بۆیان هەیە"
+  },
+  "Kurdistan Region": {
+    "ar": "إقليم كردستان",
+    "ku": "هەرێمی کوردستان"
+  },
+  "Rest of Iraq": {
+    "ar": "باقي مدن العراق",
+    "ku": "بەشەکانی تری عێراق"
+  },
+  "We deliver to": {
+    "ar": "نوصّل إلى",
+    "ku": "گەیاندنمان هەیە بۆ"
+  },
+  "All cities": {
+    "ar": "كل المدن",
+    "ku": "هەموو شارەکان"
+  },
+  "Delivery": {
+    "ar": "التوصيل",
+    "ku": "گەیاندن"
   }
 }

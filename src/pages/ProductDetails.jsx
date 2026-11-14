@@ -14,6 +14,7 @@ import { useWholesale } from '../context/WholesaleContext';
 import usePageMeta, { SITE_URL } from '../hooks/usePageMeta';
 import ProductImage from '../components/ProductImage';
 import ProductCard from '../components/ProductCard';
+import CityLinks from '../components/CityLinks';
 import './ProductDetails.css';
 export default function ProductDetails() {
   const {
@@ -229,6 +230,7 @@ export default function ProductDetails() {
                         </div>
 
                         <p className="order-note details-note"><Truck size={20} aria-hidden="true" /><span>{t("Delivery across all Iraq and Kurdistan. Delivery fee, timing, payment method and final total confirmed on WhatsApp. Your order is confirmed after our team replies.")}</span></p>
+                        <CityLinks className="details-cities" />
 
                         <div className="details-rows">
                             {product.description && <details className="details-row" open>

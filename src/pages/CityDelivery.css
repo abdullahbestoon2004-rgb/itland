@@ -1,0 +1,120 @@
+/* A city's delivery page: built from the plain info-page pieces, plus the
+   product row and the lists of other cities. */
+.city-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.city-breadcrumb a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+}
+
+.city-breadcrumb span:last-child {
+    color: var(--ink);
+}
+
+.city-page .info-hero .btn {
+    margin-top: var(--space-5);
+}
+
+.city-products {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6) 0;
+}
+
+.city-groups {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.city-groups h3 {
+    margin-bottom: var(--space-3);
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+}
+
+.city-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+}
+
+.city-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 var(--space-4);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: border-color var(--transition-fast);
+}
+
+.city-list a:hover {
+    border-color: var(--ink);
+}
+
+/* "We deliver to: Baghdad · Basra · ..." under a product and in the footer. */
+.city-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-3);
+    font-size: 0.9rem;
+}
+
+.city-links a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.city-links a:hover {
+    color: var(--ink);
+}
+
+.footer-cities {
+    max-width: var(--container-max);
+    margin: var(--space-7) auto 0;
+    color: #c9cbd1;
+}
+
+.footer-cities a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .city-products {
+        padding: var(--space-7) var(--space-4) 0;
+    }
+}
+
+.city-page .info-hero h1 {
+    max-width: 16ch;
+    font-size: clamp(2.2rem, 5.2vw, 4rem);
+    line-height: 1.05;
+}
+
+.city-page .info-hero p + p {
+    margin-top: var(--space-4);
+}
+
+.help-cities {
+    margin: var(--space-8) 0;
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--line);
+    scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+}
+
+.help-cities > h2 {
+    margin-bottom: var(--space-5);
+}

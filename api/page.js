@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         return res.status(200).send(template.replace('content="index, follow"', 'content="noindex, nofollow"'));
     }
     try {
-        const needsCatalog = barePath === '/' || barePath === '/products' || barePath === '/video-conferencing' || barePath.startsWith('/product/') || barePath.startsWith('/brands/');
+        const needsCatalog = barePath === '/' || barePath === '/products' || barePath === '/video-conferencing' || barePath.startsWith('/delivery/') || barePath.startsWith('/product/') || barePath.startsWith('/brands/');
         const [products, snapshot] = await Promise.all([
             needsCatalog ? loadCatalog() : [],
             needsCatalog ? getCurrencyRate().catch(() => null) : null

@@ -1,12 +1,12 @@
 import { loadCatalog } from '../server/catalog.js';
-import { normalizeCatalog, helpContent, LEGAL_PATHS, VIDEO_CONFERENCING_PATH, LOCALES, localePath } from '../dist-ssr/entry-server.js';
+import { normalizeCatalog, helpContent, LEGAL_PATHS, VIDEO_CONFERENCING_PATH, LOCALES, localePath, CITIES, cityPath } from '../dist-ssr/entry-server.js';
 import { SITE_URL, absoluteUrl, escapeHtml, toProductSlug, CATEGORIES, brandPath } from '../src/utils/seo.js';
 
 export default async function handler(req, res) {
     try {
         const products = normalizeCatalog(await loadCatalog());
         // Path -> product photo (if any), so product pages can show in Google Images.
-        const paths = new Map(['/', '/products', VIDEO_CONFERENCING_PATH, '/about', '/contact', ...Object.keys(helpContent).map(topic => `/help/${topic}`)].map(path => [path, null]));
+        const paths = new Map(['/', '/products', VIDEO_CONFERENCING_PATH, '/about', '/contact', ...Object.keys(helpContent).map(topic => `/help/${topic}`), ...CITIES.map(cityPath)].map(path => [path, null]));
         for (const category of CATEGORIES) {
             if (products.some(product => product.category === category)) paths.set(`/products?category=${encodeURIComponent(category)}`, null);
         }

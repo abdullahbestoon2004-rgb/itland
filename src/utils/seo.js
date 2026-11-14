@@ -1,5 +1,6 @@
 import { LOCALES, localePath } from './locale.js';
 import { maghribTime, STORE_GEO, STORE_OPEN_DAYS, STORE_OPENS } from './storeHours.js';
+import { CITIES } from '../data/cities.js';
 
 export { STORE_GEO };
 
@@ -62,7 +63,8 @@ export const storeBusiness = (now = Date.now()) => ({
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: STORE_OPEN_DAYS, opens: STORE_OPENS, closes: maghribTime(now) }],
     hasMap: STORE_MAP_URL,
     sameAs: [STORE_MAP_URL],
-    areaServed: [{ '@type': 'City', name: 'Erbil' }, { '@type': 'AdministrativeArea', name: 'Kurdistan Region' }, { '@type': 'Country', name: 'Iraq' }],
+    // Delivery reaches every city; the ones with their own page are named.
+    areaServed: [{ '@type': 'Country', name: 'Iraq' }, { '@type': 'AdministrativeArea', name: 'Kurdistan Region' }, ...CITIES.map(city => ({ '@type': 'City', name: city.name }))],
     parentOrganization: { '@id': `${SITE_URL}/#organization` }
 });
 // The trail search results show above a page's title: Home, then each [name, path].

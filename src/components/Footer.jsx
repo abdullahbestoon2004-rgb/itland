@@ -1,3 +1,4 @@
+import CityLinks from './CityLinks';
 import { useLocale } from '../context/LocaleContext';
 import { CurrencyNote } from './Price';
 import React from 'react';
@@ -53,6 +54,8 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+            <CityLinks className="footer-cities" />
 
             <p className="footer-wordmark" aria-hidden="true">iTLand</p>
 

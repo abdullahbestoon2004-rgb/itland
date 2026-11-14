@@ -320,3 +320,9 @@
         margin-bottom: var(--space-5);
     }
 }
+
+/* "We deliver to: Baghdad · Basra · ..." under the delivery note. */
+.details-cities {
+    margin-top: var(--space-3);
+    color: var(--text-secondary);
+}
