@@ -112,7 +112,7 @@ test('metadata resets defaults and safely escapes HTML and inline JSON', () => {
     const first = renderHead(pageMetadata({ title: '"><script>alert(1)</script>', image: '/test.png' }));
     assert.doesNotMatch(first, /<script>alert/);
     const second = pageMetadata({ title: 'About' });
-    assert.equal(second.image, 'https://itlandforcomputer.com/itlandlogo.png');
+    assert.equal(second.image, 'https://itlandforcomputer.com/itland-share.png');
     assert.match(second.description, /Erbil/);
     assert.ok(!serializeJson({ name: '</script><script>alert(1)</script>' }).includes('</script>'));
 });

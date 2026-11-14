@@ -36,7 +36,7 @@ export function shortProductTitle(name, max = 60) {
 }
 export const organization = {
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE_URL}/#organization`,
-    name: SITE_NAME, url: `${SITE_URL}/`, logo: absoluteUrl('/itlandlogo.png'),
+    name: SITE_NAME, url: `${SITE_URL}/`, logo: absoluteUrl('/itland-logo-square.png'),
     telephone: '+9647504888570', areaServed: { '@type': 'Country', name: 'Iraq' }
 };
 // Matches the shop's Google Maps listing ("iTland For Computer"): same address,
@@ -51,7 +51,7 @@ export const STORE_HOURS = [
 export const storeBusiness = {
     ...organization, '@type': 'ComputerStore', '@id': `${SITE_URL}/#store`,
     alternateName: 'iTland For Computer',
-    image: absoluteUrl('/itlandlogo.png'),
+    image: absoluteUrl('/itland-logo-square.png'),
     address: { '@type': 'PostalAddress', streetAddress: 'Muzaffariya Street', addressLocality: 'Erbil', addressRegion: 'Kurdistan Region', postalCode: '44001', addressCountry: 'IQ' },
     geo: { '@type': 'GeoCoordinates', ...STORE_GEO },
     openingHoursSpecification: STORE_HOURS.map(({ days, opens, closes }) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens, closes })),
@@ -64,7 +64,7 @@ export function pageMetadata({ title, description, image, path = '/', jsonLd, no
     return {
         title: title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Computer Accessories & Gaming Gear in Iraq`,
         description: (description || DEFAULT_DESCRIPTION).replace(/\s+/g, ' ').trim().slice(0, 170),
-        url: absoluteUrl(path), image: absoluteUrl(image || '/itlandlogo.png'), type,
+        url: absoluteUrl(path), image: absoluteUrl(image || '/itland-share.png'), type,
         robots: noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large', jsonLd
     };
 }
