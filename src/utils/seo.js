@@ -1,4 +1,7 @@
 import { LOCALES, localePath } from './locale.js';
+import { maghribTime, STORE_GEO, STORE_OPEN_DAYS, STORE_OPENS } from './storeHours.js';
+
+export { STORE_GEO };
 
 export const SITE_NAME = 'IT Land';
 export const SITE_URL = 'https://itlandforcomputer.com';
@@ -47,24 +50,21 @@ export const organization = {
 // Matches the shop's Google Maps listing ("iTland For Computer"): same address,
 // pin, phone and hours, so Google can tie the website to the map listing.
 export const STORE_MAP_URL = 'https://www.google.com/maps?cid=3550846731506509334';
-export const STORE_GEO = { latitude: 36.1899364, longitude: 44.0033506 };
 export const STORE_ADDRESS = 'Muzaffariya Street, Erbil, Kurdistan Region, Iraq';
-export const STORE_HOURS = [
-    { days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '19:30' },
-    { days: ['Saturday'], opens: '09:30', closes: '19:30' },
-];
-export const storeBusiness = {
+// Open 10:00 until Maghrib, closed on Friday (see storeHours.js). The closing
+// time is the one for the day the page is made, so it follows the seasons.
+export const storeBusiness = (now = Date.now()) => ({
     ...organization, '@type': 'ComputerStore', '@id': `${SITE_URL}/#store`,
     alternateName: 'iTland For Computer',
     image: absoluteUrl('/itland-logo-square.png'),
     address: { '@type': 'PostalAddress', streetAddress: 'Muzaffariya Street', addressLocality: 'Erbil', addressRegion: 'Kurdistan Region', postalCode: '44001', addressCountry: 'IQ' },
     geo: { '@type': 'GeoCoordinates', ...STORE_GEO },
-    openingHoursSpecification: STORE_HOURS.map(({ days, opens, closes }) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens, closes })),
+    openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: STORE_OPEN_DAYS, opens: STORE_OPENS, closes: maghribTime(now) }],
     hasMap: STORE_MAP_URL,
     sameAs: [STORE_MAP_URL],
     areaServed: [{ '@type': 'City', name: 'Erbil' }, { '@type': 'AdministrativeArea', name: 'Kurdistan Region' }, { '@type': 'Country', name: 'Iraq' }],
     parentOrganization: { '@id': `${SITE_URL}/#organization` }
-};
+});
 // The trail search results show above a page's title: Home, then each [name, path].
 export const breadcrumbs = (...trail) => ({
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',

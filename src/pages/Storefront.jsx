@@ -21,7 +21,7 @@ export default function Storefront() {
     title: t('Computer & Logitech Store in Erbil, Iraq'),
     description: t('IT Land (iTland For Computer), Muzaffariya Street, Erbil: Logitech, Jabra and Poly mice, keyboards, headsets and webcams. Delivery across Iraq and Kurdistan.'),
     path: '/',
-    jsonLd: [organization, storeBusiness, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', alternateName: ['iTLand', 'iTland For Computer', 'IT Land Erbil'], url: `${SITE_URL}/`, inLanguage: ['en', 'ar', 'ckb'], publisher: { '@id': `${SITE_URL}/#organization` } }]
+    jsonLd: [organization, storeBusiness(), { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'IT Land', alternateName: ['iTLand', 'iTland For Computer', 'IT Land Erbil'], url: `${SITE_URL}/`, inLanguage: ['en', 'ar', 'ckb'], publisher: { '@id': `${SITE_URL}/#organization` } }]
   });
   const {
     handleAddToCart

@@ -6,7 +6,7 @@ import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import StoreInfo from '../components/StoreInfo';
 import './InfoPage.css';
 
-const PAGE_SCHEMA = [{ '@context': 'https://schema.org', '@type': 'ContactPage', '@id': `${SITE_URL}/contact#page`, url: `${SITE_URL}/contact`, name: 'Contact IT Land', mainEntity: { '@id': `${SITE_URL}/#store` } }, storeBusiness, breadcrumbs(['Contact', '/contact'])];
+const pageSchema = () => [{ '@context': 'https://schema.org', '@type': 'ContactPage', '@id': `${SITE_URL}/contact#page`, url: `${SITE_URL}/contact`, name: 'Contact IT Land', mainEntity: { '@id': `${SITE_URL}/#store` } }, storeBusiness(), breadcrumbs(['Contact', '/contact'])];
 
 const CONTACT_CARDS = [
     { id: 'contact-whatsapp', icon: <MessageCircle size={26} />, label: 'WhatsApp', value: '07504888570', note: 'The fastest way to order or ask a question.', href: 'https://wa.me/9647504888570', external: true },
@@ -17,7 +17,7 @@ const CONTACT_CARDS = [
 
 export default function Contact() {
     const { t } = useLocale();
-    usePageMeta({ title: t('Contact & Store Location in Erbil'), description: t('Visit IT Land (iTland For Computer) on Muzaffariya Street, Erbil, or contact us on WhatsApp at 0750 488 8570. Open Saturday to Thursday; closed Friday.'), path: '/contact', jsonLd: PAGE_SCHEMA });
+    usePageMeta({ title: t('Contact & Store Location in Erbil'), description: t('Visit IT Land (iTland For Computer) on Muzaffariya Street, Erbil, or contact us on WhatsApp at 0750 488 8570. Open Saturday to Thursday; closed Friday.'), path: '/contact', jsonLd: pageSchema() });
     return (
         <div className="info-page">
             <header className="info-hero">

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import StoreInfo from '../components/StoreInfo';
 import './InfoPage.css';
 
-const PAGE_SCHEMA = [{ '@context': 'https://schema.org', '@type': 'AboutPage', '@id': `${SITE_URL}/about#page`, url: `${SITE_URL}/about`, name: 'About IT Land', about: { '@id': `${SITE_URL}/#store` } }, storeBusiness, breadcrumbs(['About', '/about'])];
+const pageSchema = () => [{ '@context': 'https://schema.org', '@type': 'AboutPage', '@id': `${SITE_URL}/about#page`, url: `${SITE_URL}/about`, name: 'About IT Land', about: { '@id': `${SITE_URL}/#store` } }, storeBusiness(), breadcrumbs(['About', '/about'])];
 
 // Logitech's own photo of products the shop sells, from Logitech's image CDN.
 const DESK_PHOTO = 'https://resource.logitech.com/w_1800,c_limit,q_auto,f_auto,dpr_1.0/content/dam/logitech/en/homepage/banners/cards/mx-keys-mini-mx-anywhere3s-laptopstand.jpg';
@@ -24,7 +24,7 @@ export default function About() {
         title: t('About Us: Computer Accessories Store in Erbil'),
         description: t('IT Land is a computer accessories store on Muzaffariya Street, Erbil, selling original Logitech, Jabra and Poly products to homes, offices and resellers.'),
         path: '/about',
-        jsonLd: PAGE_SCHEMA,
+        jsonLd: pageSchema(),
     });
     return (
         <div className="info-page">

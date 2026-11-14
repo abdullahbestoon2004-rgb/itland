@@ -1,7 +1,9 @@
 import React from 'react';
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { useLocale } from '../context/LocaleContext';
-import { STORE_GEO, STORE_HOURS, STORE_MAP_URL } from '../utils/seo';
+import { STORE_GEO, STORE_MAP_URL } from '../utils/seo';
+import { erbilWeekday, maghribTime, STORE_CLOSED_DAYS, STORE_OPEN_DAYS, STORE_OPENS } from '../utils/storeHours';
+import { fill } from '../utils/locale';
 import { WHATSAPP_DISPLAY, WHATSAPP_NUMBER, whatsappLink } from '../utils/storefront';
 import './StoreInfo.css';
 
@@ -17,8 +19,8 @@ function dayRange(days, t) {
 // page and on landing pages, so a visitor always sees there is a real store.
 export default function StoreInfo({ title = 'Visit our store in Erbil' }) {
   const { t } = useLocale();
-  const openDays = new Set(STORE_HOURS.flatMap(({ days }) => days));
-  const closedDays = DAY_ORDER.filter(day => !openDays.has(day));
+  // The shop closes at Maghrib, which moves with the seasons: show today's time.
+  const openToday = STORE_OPEN_DAYS.includes(erbilWeekday());
   return <section className="store-info" aria-labelledby="store-info-title">
       <div className="section-container store-info-grid">
         <div className="store-info-details">
@@ -36,8 +38,9 @@ export default function StoreInfo({ title = 'Visit our store in Erbil' }) {
               <Clock size={20} aria-hidden="true" />
               <div>
                 <strong>{t('Opening hours')}</strong>
-                {STORE_HOURS.map(({ days, opens, closes }) => <span key={days[0]}>{dayRange(days, t)}: <bdi>{opens} – {closes}</bdi></span>)}
-                {closedDays.length > 0 && <span>{dayRange(closedDays, t)}: {t('Closed')}</span>}
+                <span>{dayRange(STORE_OPEN_DAYS, t)}: <bdi>{STORE_OPENS}</bdi> – {t('Maghrib prayer')}</span>
+                {openToday && <span suppressHydrationWarning>{fill(t('Closes today at {time}'), { time: maghribTime() })}</span>}
+                <span>{dayRange(STORE_CLOSED_DAYS, t)}: {t('Closed')}</span>
               </div>
             </li>
             <li>

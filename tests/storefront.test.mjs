@@ -4,6 +4,7 @@ import { stockLimit, isOutOfStock, cleanDescription, cleanProductName, homeProdu
 import { parseMarketRate, isFreshRate, formatIqd, formatIqdAmount, iqdTotal, toIqd, MAX_RATE_AGE } from '../src/utils/currency.js';
 import { shortProductTitle } from '../src/utils/seo.js';
 import { colourOf, withColourVariants } from '../src/utils/colours.js';
+import { erbilWeekday, maghribMinutes, maghribTime } from '../src/utils/storeHours.js';
 import { ROOM_SIZES, roomSizePicks, videoConferencingGroup, videoConferencingProducts } from '../src/utils/videoConferencing.js';
 
 const now = Date.now();
@@ -76,6 +77,24 @@ test('IQD uses buy/sell midpoint and rejects stale, future, official or malforme
     ]) assert.throws(() => parseMarketRate(altered, now));
     assert.equal(isFreshRate({ ...rate, asOf: 'invalid' }), false);
     assert.equal(formatIqd(10, null), null);
+});
+
+test('the shop closes at Maghrib in Erbil, which follows the seasons', () => {
+    const at = (date, time = '09:00') => Date.parse(`${date}T${time}:00Z`);
+    // Within a minute of the published Erbil timetable for these days.
+    const published = { '2026-11-14': '16:57', '2026-12-21': '16:53', '2027-03-20': '18:15', '2027-06-21': '19:25' };
+    for (const [date, expected] of Object.entries(published)) {
+        const [hours, minutes] = expected.split(':').map(Number);
+        assert.ok(Math.abs(maghribMinutes(at(date)) - (hours * 60 + minutes)) <= 1, `${date}: ${maghribTime(at(date))} vs ${expected}`);
+    }
+    // Earliest in December, latest in June, and never outside 16:45 to 19:30.
+    const year = Array.from({ length: 365 }, (_, day) => maghribMinutes(at('2027-01-01') + day * 86_400_000));
+    assert.ok(Math.min(...year) >= 16 * 60 + 45 && Math.max(...year) <= 19 * 60 + 30);
+    assert.match(maghribTime(at('2027-06-21')), /^19:2\d$/);
+    // The day is Erbil's: 22:00 UTC on Thursday is already Friday there.
+    assert.equal(erbilWeekday(at('2026-11-12', '20:59')), 'Thursday');
+    assert.equal(erbilWeekday(at('2026-11-12', '21:00')), 'Friday');
+    assert.equal(maghribTime(at('2026-11-14', '00:30')), maghribTime(at('2026-11-14', '20:00')));
 });
 
 test('IQD prices are rounded to the nearest 250, and totals equal their lines added up', () => {

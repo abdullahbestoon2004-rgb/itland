@@ -26,8 +26,11 @@ test('public pages render actual content and unique metadata without JavaScript'
         const store = schemas(renderPage(path, products).head).find(item => item['@type'] === 'ComputerStore');
         assert.equal(store.address.streetAddress, 'Muzaffariya Street');
         assert.deepEqual(store.geo, { '@type': 'GeoCoordinates', latitude: 36.1899364, longitude: 44.0033506 });
-        assert.equal(store.openingHoursSpecification.length, 2);
-        assert.ok(!store.openingHoursSpecification.some(spec => spec.dayOfWeek.includes('Friday')));
+        // Open 10:00 until Maghrib every day except Friday.
+        assert.equal(store.openingHoursSpecification.length, 1);
+        assert.deepEqual(store.openingHoursSpecification[0].dayOfWeek, ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday']);
+        assert.equal(store.openingHoursSpecification[0].opens, '10:00');
+        assert.match(store.openingHoursSpecification[0].closes, /^1[6-9]:[0-5]\d$/);
     }
     assert.match(renderPage('/contact', products).body, /Muzaffariya Street/);
 });
